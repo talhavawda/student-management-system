@@ -13,7 +13,10 @@
 
     Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxStaff.Click
 		lblUsername.Text = "Staff Number: "
+
 		'yourBranch -> make changes -> Commit Change -> Sync with Server -> Push 
+		'yourBranch -> make changes -> Commit Change -> Sync with Server -> Push (OR (on own branch) Publish -> Merge )
+
 		'Note: you dont have to create a new branch(can commit/push on main branch directly), but it's better to do so and then to merge. 
 	End Sub
 

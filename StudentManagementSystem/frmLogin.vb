@@ -13,11 +13,11 @@
 
     Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxStaff.Click
 		lblUsername.Text = "Staff Number: "
+        lblNewStudent.Hide()
+        'yourBranch -> make changes -> Commit Change -> Sync with Server -> Push (OR (on own branch) Publish -> Merge )
+        'Note: you dont have to create a new branch(can commit/push on main branch directly), but it's better to do so and then to merge. 
 
-		'yourBranch -> make changes -> Commit Change -> Sync with Server -> Push (OR (on own branch) Publish -> Merge )
-		'Note: you dont have to create a new branch(can commit/push on main branch directly), but it's better to do so and then to merge. 
-
-	End Sub
+    End Sub
 
 	Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 

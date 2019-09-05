@@ -1,0 +1,3 @@
+(yourBranch ->0 make changes -> Commit Change -> Sync with Server -> Push (OR (on own branch) Publish -> Merge )
+Note: you dont have to create a new branch(can commit/push on main branch directly), but it's better to do so and then to merge. 
+**Currently figuring out how to use pull & merge requests and branches

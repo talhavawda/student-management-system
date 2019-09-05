@@ -12,6 +12,11 @@
     End Sub
 
     Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxStaff.Click
-        lblUsername.Text = "Staff Number: "
-    End Sub
+		lblUsername.Text = "Staff Number: "
+		;Test
+	End Sub
+
+	Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+
+	End Sub
 End Class

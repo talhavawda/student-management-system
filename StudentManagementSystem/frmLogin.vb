@@ -13,7 +13,7 @@
 
     Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxStaff.Click
 		lblUsername.Text = "Staff Number: "
-		'Test | Commit Change
+		'Test | Commit Change -> Sync with Server -> Push
 	End Sub
 
 	Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click

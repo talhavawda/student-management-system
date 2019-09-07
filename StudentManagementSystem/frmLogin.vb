@@ -1,23 +1,28 @@
 ﻿Public Class frmLogin
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		pnlLogin.Enabled = False
+	End Sub
 
-    End Sub
-
-    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+    Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles pnlSelect.Paint
 
     End Sub
 
     Private Sub pbxStudent_Click(sender As Object, e As EventArgs) Handles pbxStudent.Click
-        lblUsername.Text = "Student Number: "
-    End Sub
+		lblUsername.Text = "Student Number:"
+		lblNewStudent.Show()
+		'pnlLogin.Show()
+		pnlLogin.Enabled = True
+	End Sub
 
-    Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxStaff.Click
+	Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxAdmin.Click
 		lblUsername.Text = "Staff Number: "
 		lblNewStudent.Hide()
+		'pnlLogin.Show()
+		pnlLogin.Enabled = True
 
 	End Sub
 
 	Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-
+		frmStudentHome.Show()
 	End Sub
 End Class

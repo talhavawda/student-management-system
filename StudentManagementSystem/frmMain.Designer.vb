@@ -28,7 +28,7 @@ Partial Class frmMain
         Me.tbpResultsStudent = New System.Windows.Forms.TabPage()
         Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
         Me.tbpReports = New System.Windows.Forms.TabPage()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label69 = New System.Windows.Forms.Label()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.SuspendLayout()
@@ -48,7 +48,7 @@ Partial Class frmMain
         '
         'tbpDetails
         '
-        Me.tbpDetails.Controls.Add(Me.Label1)
+        Me.tbpDetails.Controls.Add(Me.Label69)
         Me.tbpDetails.Location = New System.Drawing.Point(4, 22)
         Me.tbpDetails.Name = "tbpDetails"
         Me.tbpDetails.Padding = New System.Windows.Forms.Padding(3)
@@ -97,14 +97,14 @@ Partial Class frmMain
         Me.tbpReports.Text = "Reports"
         Me.tbpReports.UseVisualStyleBackColor = True
         '
-        'Label1
+        'Label69
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(138, 30)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Label1"
+        Me.Label69.AutoSize = True
+        Me.Label69.Location = New System.Drawing.Point(138, 30)
+        Me.Label69.Name = "Label69"
+        Me.Label69.Size = New System.Drawing.Size(39, 13)
+        Me.Label69.TabIndex = 0
+        Me.Label69.Text = "Label1"
         '
         'frmMain
         '
@@ -126,5 +126,5 @@ Partial Class frmMain
 	Friend WithEvents tbpResultsStudent As TabPage
 	Friend WithEvents tbpResultsAdmin As TabPage
 	Friend WithEvents tbpReports As TabPage
-    Friend WithEvents Label1 As Label
+    Friend WithEvents Label69 As Label
 End Class

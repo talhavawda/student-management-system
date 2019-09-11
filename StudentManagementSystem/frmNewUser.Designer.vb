@@ -53,7 +53,7 @@ Partial Class frmNewUser
 		Me.tbpChangePassword.Location = New System.Drawing.Point(4, 22)
 		Me.tbpChangePassword.Name = "tbpChangePassword"
 		Me.tbpChangePassword.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbpChangePassword.Size = New System.Drawing.Size(407, 392)
+		Me.tbpChangePassword.Size = New System.Drawing.Size(426, 378)
 		Me.tbpChangePassword.TabIndex = 1
 		Me.tbpChangePassword.Text = "Change Password"
 		Me.tbpChangePassword.UseVisualStyleBackColor = True

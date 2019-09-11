@@ -35,8 +35,8 @@ Partial Class frmLogin
 		Me.lblUsername = New System.Windows.Forms.Label()
 		Me.Panel3 = New System.Windows.Forms.Panel()
 		Me.btnExit = New System.Windows.Forms.Button()
-		Me.lblDateTime = New System.Windows.Forms.Label()
 		Me.Label3 = New System.Windows.Forms.Label()
+		Me.lblDateTime = New System.Windows.Forms.Label()
 		CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.pnlSelect.SuspendLayout()
@@ -151,6 +151,7 @@ Partial Class frmLogin
 		'Panel3
 		'
 		Me.Panel3.Controls.Add(Me.btnExit)
+		Me.Panel3.Controls.Add(Me.lblDateTime)
 		Me.Panel3.Location = New System.Drawing.Point(12, 406)
 		Me.Panel3.Name = "Panel3"
 		Me.Panel3.Size = New System.Drawing.Size(508, 42)
@@ -165,15 +166,6 @@ Partial Class frmLogin
 		Me.btnExit.Text = "Exit"
 		Me.btnExit.UseVisualStyleBackColor = True
 		'
-		'lblDateTime
-		'
-		Me.lblDateTime.AutoSize = True
-		Me.lblDateTime.Location = New System.Drawing.Point(73, -4)
-		Me.lblDateTime.Name = "lblDateTime"
-		Me.lblDateTime.Size = New System.Drawing.Size(39, 13)
-		Me.lblDateTime.TabIndex = 0
-		Me.lblDateTime.Text = "Label3"
-		'
 		'Label3
 		'
 		Me.Label3.AutoSize = True
@@ -185,13 +177,21 @@ Partial Class frmLogin
 		Me.Label3.TabIndex = 6
 		Me.Label3.Text = "I forgot my password"
 		'
+		'lblDateTime
+		'
+		Me.lblDateTime.AutoSize = True
+		Me.lblDateTime.Location = New System.Drawing.Point(24, 15)
+		Me.lblDateTime.Name = "lblDateTime"
+		Me.lblDateTime.Size = New System.Drawing.Size(39, 13)
+		Me.lblDateTime.TabIndex = 0
+		Me.lblDateTime.Text = "Label3"
+		'
 		'frmLogin
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(540, 449)
 		Me.Controls.Add(Me.Panel3)
-		Me.Controls.Add(Me.lblDateTime)
 		Me.Controls.Add(Me.pnlLogin)
 		Me.Controls.Add(Me.pnlSelect)
 		Me.Name = "frmLogin"
@@ -203,8 +203,8 @@ Partial Class frmLogin
 		Me.pnlLogin.ResumeLayout(False)
 		Me.pnlLogin.PerformLayout()
 		Me.Panel3.ResumeLayout(False)
+		Me.Panel3.PerformLayout()
 		Me.ResumeLayout(False)
-		Me.PerformLayout()
 
 	End Sub
 
@@ -221,6 +221,6 @@ Partial Class frmLogin
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lblNewStudent As Label
     Friend WithEvents btnExit As Button
-    Friend WithEvents lblDateTime As Label
 	Friend WithEvents Label3 As Label
+	Friend WithEvents lblDateTime As Label
 End Class

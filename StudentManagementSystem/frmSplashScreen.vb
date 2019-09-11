@@ -11,8 +11,8 @@
 	Private Sub tmrSplash_Tick(sender As Object, e As EventArgs) Handles tmrSplash.Tick
 		If prbSplash.Value < 100 Then
 			prbSplash.Value += prbSplash.Step
-			lblProgress.Text = (prbSplash.Value).ToString + "%"
-		Else
+            lblProgressPercent.Text = (prbSplash.Value).ToString + "%"
+        Else
 			tmrSplash.Enabled = False
 		End If
 

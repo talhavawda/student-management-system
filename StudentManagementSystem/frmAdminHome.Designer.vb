@@ -23,48 +23,84 @@ Partial Class frmAdminHome
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
 		Me.Panel1 = New System.Windows.Forms.Panel()
-		Me.Button1 = New System.Windows.Forms.Button()
-		Me.Button2 = New System.Windows.Forms.Button()
-		Me.Button3 = New System.Windows.Forms.Button()
+		Me.Label1 = New System.Windows.Forms.Label()
+		Me.pbDetails = New System.Windows.Forms.PictureBox()
+		Me.Label2 = New System.Windows.Forms.Label()
+		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+		Me.Label3 = New System.Windows.Forms.Label()
+		Me.PictureBox2 = New System.Windows.Forms.PictureBox()
 		Me.Panel1.SuspendLayout()
+		CType(Me.pbDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'Panel1
 		'
-		Me.Panel1.Controls.Add(Me.Button3)
-		Me.Panel1.Controls.Add(Me.Button2)
-		Me.Panel1.Controls.Add(Me.Button1)
+		Me.Panel1.Controls.Add(Me.Label3)
+		Me.Panel1.Controls.Add(Me.PictureBox2)
+		Me.Panel1.Controls.Add(Me.Label2)
+		Me.Panel1.Controls.Add(Me.PictureBox1)
+		Me.Panel1.Controls.Add(Me.Label1)
+		Me.Panel1.Controls.Add(Me.pbDetails)
 		Me.Panel1.Location = New System.Drawing.Point(12, 12)
 		Me.Panel1.Name = "Panel1"
 		Me.Panel1.Size = New System.Drawing.Size(620, 346)
 		Me.Panel1.TabIndex = 0
 		'
-		'Button1
+		'Label1
 		'
-		Me.Button1.Location = New System.Drawing.Point(32, 104)
-		Me.Button1.Name = "Button1"
-		Me.Button1.Size = New System.Drawing.Size(150, 120)
-		Me.Button1.TabIndex = 0
-		Me.Button1.Text = "Details (change own. add new admin)"
-		Me.Button1.UseVisualStyleBackColor = True
+		Me.Label1.AutoSize = True
+		Me.Label1.Location = New System.Drawing.Point(29, 226)
+		Me.Label1.Name = "Label1"
+		Me.Label1.Size = New System.Drawing.Size(185, 13)
+		Me.Label1.TabIndex = 6
+		Me.Label1.Text = "Details (change own. add new admin)"
 		'
-		'Button2
+		'pbDetails
 		'
-		Me.Button2.Location = New System.Drawing.Point(226, 104)
-		Me.Button2.Name = "Button2"
-		Me.Button2.Size = New System.Drawing.Size(150, 120)
-		Me.Button2.TabIndex = 1
-		Me.Button2.Text = "Marks (Capture, view reports)"
-		Me.Button2.UseVisualStyleBackColor = True
+		Me.pbDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.pbDetails.Location = New System.Drawing.Point(37, 99)
+		Me.pbDetails.Name = "pbDetails"
+		Me.pbDetails.Size = New System.Drawing.Size(150, 120)
+		Me.pbDetails.TabIndex = 5
+		Me.pbDetails.TabStop = False
 		'
-		'Button3
+		'Label2
 		'
-		Me.Button3.Location = New System.Drawing.Point(419, 104)
-		Me.Button3.Name = "Button3"
-		Me.Button3.Size = New System.Drawing.Size(150, 120)
-		Me.Button3.TabIndex = 2
-		Me.Button3.Text = "Change a students reg"
-		Me.Button3.UseVisualStyleBackColor = True
+		Me.Label2.AutoSize = True
+		Me.Label2.Location = New System.Drawing.Point(231, 226)
+		Me.Label2.Name = "Label2"
+		Me.Label2.Size = New System.Drawing.Size(145, 13)
+		Me.Label2.TabIndex = 8
+		Me.Label2.Text = "Marks (Capture, view reports)"
+		'
+		'PictureBox1
+		'
+		Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.PictureBox1.Location = New System.Drawing.Point(234, 99)
+		Me.PictureBox1.Name = "PictureBox1"
+		Me.PictureBox1.Size = New System.Drawing.Size(150, 120)
+		Me.PictureBox1.TabIndex = 7
+		Me.PictureBox1.TabStop = False
+		'
+		'Label3
+		'
+		Me.Label3.AutoSize = True
+		Me.Label3.Location = New System.Drawing.Point(442, 226)
+		Me.Label3.Name = "Label3"
+		Me.Label3.Size = New System.Drawing.Size(114, 13)
+		Me.Label3.TabIndex = 10
+		Me.Label3.Text = "Change a students reg"
+		'
+		'PictureBox2
+		'
+		Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.PictureBox2.Location = New System.Drawing.Point(429, 99)
+		Me.PictureBox2.Name = "PictureBox2"
+		Me.PictureBox2.Size = New System.Drawing.Size(150, 120)
+		Me.PictureBox2.TabIndex = 9
+		Me.PictureBox2.TabStop = False
 		'
 		'frmAdminHome
 		'
@@ -75,12 +111,19 @@ Partial Class frmAdminHome
 		Me.Name = "frmAdminHome"
 		Me.Text = "Home | Admin"
 		Me.Panel1.ResumeLayout(False)
+		Me.Panel1.PerformLayout()
+		CType(Me.pbDetails, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub
 
 	Friend WithEvents Panel1 As Panel
-	Friend WithEvents Button1 As Button
-	Friend WithEvents Button2 As Button
-	Friend WithEvents Button3 As Button
+	Friend WithEvents Label1 As Label
+	Friend WithEvents pbDetails As PictureBox
+	Friend WithEvents Label3 As Label
+	Friend WithEvents PictureBox2 As PictureBox
+	Friend WithEvents Label2 As Label
+	Friend WithEvents PictureBox1 As PictureBox
 End Class

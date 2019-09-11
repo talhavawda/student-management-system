@@ -28,7 +28,9 @@ Partial Class frmMain
 		Me.tbpResultsStudent = New System.Windows.Forms.TabPage()
 		Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
 		Me.tbpReports = New System.Windows.Forms.TabPage()
+		Me.Label1 = New System.Windows.Forms.Label()
 		Me.tbcMain.SuspendLayout()
+		Me.tbpDetails.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'tbcMain
@@ -46,6 +48,7 @@ Partial Class frmMain
 		'
 		'tbpDetails
 		'
+		Me.tbpDetails.Controls.Add(Me.Label1)
 		Me.tbpDetails.Location = New System.Drawing.Point(4, 22)
 		Me.tbpDetails.Name = "tbpDetails"
 		Me.tbpDetails.Padding = New System.Windows.Forms.Padding(3)
@@ -94,6 +97,16 @@ Partial Class frmMain
 		Me.tbpReports.Text = "Reports"
 		Me.tbpReports.UseVisualStyleBackColor = True
 		'
+		'Label1
+		'
+		Me.Label1.AutoSize = True
+		Me.Label1.Location = New System.Drawing.Point(170, 355)
+		Me.Label1.Name = "Label1"
+		Me.Label1.Size = New System.Drawing.Size(486, 13)
+		Me.Label1.TabIndex = 0
+		Me.Label1.Text = "cant change password here. a separate form will deal with that which a button her" &
+	"e will go to that form"
+		'
 		'frmMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -102,6 +115,8 @@ Partial Class frmMain
 		Me.Controls.Add(Me.tbcMain)
 		Me.Name = "frmMain"
 		Me.tbcMain.ResumeLayout(False)
+		Me.tbpDetails.ResumeLayout(False)
+		Me.tbpDetails.PerformLayout()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -112,4 +127,5 @@ Partial Class frmMain
 	Friend WithEvents tbpResultsStudent As TabPage
 	Friend WithEvents tbpResultsAdmin As TabPage
 	Friend WithEvents tbpReports As TabPage
+	Friend WithEvents Label1 As Label
 End Class

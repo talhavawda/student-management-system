@@ -52,7 +52,7 @@ Partial Class frmSplashScreen
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ProgressBar.Location = New System.Drawing.Point(119, 256)
         Me.ProgressBar.Name = "ProgressBar"
-        Me.ProgressBar.Size = New System.Drawing.Size(303, 23)
+        Me.ProgressBar.Size = New System.Drawing.Size(292, 23)
         Me.ProgressBar.Step = 1
         Me.ProgressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous
         Me.ProgressBar.TabIndex = 2
@@ -70,7 +70,7 @@ Partial Class frmSplashScreen
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ControlDark
-        Me.ClientSize = New System.Drawing.Size(541, 323)
+        Me.ClientSize = New System.Drawing.Size(530, 374)
         Me.Controls.Add(Me.lblProgressPercent)
         Me.Controls.Add(Me.ProgressBar)
         Me.Controls.Add(Me.Label1)

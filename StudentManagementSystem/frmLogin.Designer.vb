@@ -23,8 +23,6 @@ Partial Class frmLogin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
-		Me.pbxStudent = New System.Windows.Forms.PictureBox()
-		Me.pbxAdmin = New System.Windows.Forms.PictureBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.pnlSelect = New System.Windows.Forms.Panel()
 		Me.pnlLogin = New System.Windows.Forms.Panel()
@@ -38,30 +36,14 @@ Partial Class frmLogin
 		Me.Panel3 = New System.Windows.Forms.Panel()
 		Me.btnExit = New System.Windows.Forms.Button()
 		Me.lblDateTime = New System.Windows.Forms.Label()
-		CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.pbxAdmin = New System.Windows.Forms.PictureBox()
+		Me.pbxStudent = New System.Windows.Forms.PictureBox()
 		Me.pnlSelect.SuspendLayout()
 		Me.pnlLogin.SuspendLayout()
 		Me.Panel3.SuspendLayout()
+		CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
-		'
-		'pbxStudent
-		'
-		Me.pbxStudent.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.pbxStudent.Location = New System.Drawing.Point(38, 50)
-		Me.pbxStudent.Name = "pbxStudent"
-		Me.pbxStudent.Size = New System.Drawing.Size(140, 120)
-		Me.pbxStudent.TabIndex = 0
-		Me.pbxStudent.TabStop = False
-		'
-		'pbxAdmin
-		'
-		Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.pbxAdmin.Location = New System.Drawing.Point(330, 50)
-		Me.pbxAdmin.Name = "pbxAdmin"
-		Me.pbxAdmin.Size = New System.Drawing.Size(140, 120)
-		Me.pbxAdmin.TabIndex = 1
-		Me.pbxAdmin.TabStop = False
 		'
 		'Label1
 		'
@@ -191,6 +173,24 @@ Partial Class frmLogin
 		Me.lblDateTime.TabIndex = 0
 		Me.lblDateTime.Text = "Label3"
 		'
+		'pbxAdmin
+		'
+		Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.pbxAdmin.Location = New System.Drawing.Point(330, 50)
+		Me.pbxAdmin.Name = "pbxAdmin"
+		Me.pbxAdmin.Size = New System.Drawing.Size(140, 120)
+		Me.pbxAdmin.TabIndex = 1
+		Me.pbxAdmin.TabStop = False
+		'
+		'pbxStudent
+		'
+		Me.pbxStudent.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.pbxStudent.Location = New System.Drawing.Point(38, 50)
+		Me.pbxStudent.Name = "pbxStudent"
+		Me.pbxStudent.Size = New System.Drawing.Size(140, 120)
+		Me.pbxStudent.TabIndex = 0
+		Me.pbxStudent.TabStop = False
+		'
 		'frmLogin
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -203,14 +203,14 @@ Partial Class frmLogin
 		Me.Name = "frmLogin"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "Login"
-		CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.pnlSelect.ResumeLayout(False)
 		Me.pnlSelect.PerformLayout()
 		Me.pnlLogin.ResumeLayout(False)
 		Me.pnlLogin.PerformLayout()
 		Me.Panel3.ResumeLayout(False)
 		Me.Panel3.PerformLayout()
+		CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub

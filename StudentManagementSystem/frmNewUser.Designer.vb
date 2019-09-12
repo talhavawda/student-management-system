@@ -27,6 +27,7 @@ Partial Class frmNewUser
         Me.tbpNewUser = New System.Windows.Forms.TabPage()
         Me.tbpChangePassword = New System.Windows.Forms.TabPage()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.tbcNewUser.SuspendLayout()
         Me.tbpChangePassword.SuspendLayout()
         Me.SuspendLayout()
@@ -69,11 +70,21 @@ Partial Class frmNewUser
         Me.TextBox1.Size = New System.Drawing.Size(100, 20)
         Me.TextBox1.TabIndex = 0
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(367, 422)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(75, 23)
+        Me.btnClose.TabIndex = 1
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmNewUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 455)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.tbcNewUser)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmNewUser"
@@ -89,4 +100,5 @@ Partial Class frmNewUser
 	Friend WithEvents tbpNewUser As TabPage
 	Friend WithEvents tbpChangePassword As TabPage
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents btnClose As Button
 End Class

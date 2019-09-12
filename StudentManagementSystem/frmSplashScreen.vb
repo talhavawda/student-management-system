@@ -4,7 +4,7 @@
     End Sub
 
 	Private Sub frmSplashScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		'My.Application.MinimumSplashScreenDisplayTime = 5000	'not applicable if a splash screen is set in Settings 
+		'My.Application.MinimumSplashScreenDisplayTime = 3000	'this must be set in ApplicationEvents.vb (accessible via Project Properties)
 		frmTeamScreen.Show()
 
 		tmrLoadingLabel.Enabled = True
@@ -23,6 +23,7 @@
 			Threading.Thread.Sleep(1000)
 			frmTeamScreen.Close()
 		End If
+		'now SplashScreen will show for another 2000ms as MinDisplayTime set to 3000
 
 	End Sub
 

@@ -35,9 +35,10 @@ Partial Class frmTeamScreen
 		Me.ClientSize = New System.Drawing.Size(578, 412)
 		Me.DoubleBuffered = True
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Name = "frmTeamScreen"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-		Me.Text = "frmTeamScreen"
+		Me.Text = "Fuzzy Logic"
 		Me.TopMost = True
 		Me.ResumeLayout(False)
 

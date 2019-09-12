@@ -33,7 +33,7 @@ Partial Class frmSplashScreen
 		Me.lblLoadingBar.AutoSize = True
 		Me.lblLoadingBar.BackColor = System.Drawing.Color.Transparent
 		Me.lblLoadingBar.ForeColor = System.Drawing.Color.Aqua
-		Me.lblLoadingBar.Location = New System.Drawing.Point(144, 337)
+		Me.lblLoadingBar.Location = New System.Drawing.Point(152, 337)
 		Me.lblLoadingBar.Name = "lblLoadingBar"
 		Me.lblLoadingBar.Size = New System.Drawing.Size(9, 13)
 		Me.lblLoadingBar.TabIndex = 5
@@ -55,6 +55,7 @@ Partial Class frmSplashScreen
 		Me.Cursor = System.Windows.Forms.Cursors.AppStarting
 		Me.DoubleBuffered = True
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Name = "frmSplashScreen"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.Text = "StudentManagementSystem"

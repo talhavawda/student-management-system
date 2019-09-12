@@ -4,7 +4,7 @@
     End Sub
 
 	Private Sub frmSplashScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		My.Application.MinimumSplashScreenDisplayTime = 5000
+		'My.Application.MinimumSplashScreenDisplayTime = 5000	'not applicable if a splash screen is set in Settings 
 		tmrLoadingLabel.Enabled = True
     End Sub
 
@@ -15,13 +15,10 @@
     End Sub
 
     Private Sub tmrLoadingLabel_Tick(sender As Object, e As EventArgs) Handles tmrLoadingLabel.Tick
-		If lblLoadingBar.Text.Length < 200 Then
-			lblLoadingBar.Text += "|"
-		Else
-			tmrLoadingLabel.Enabled = False
-        End If
+		'Since this form is set as a Splash Screen in the Project Settings the for will automatically close after 2 seconds thus no need to check for length of the LoadingBar 
+		lblLoadingBar.Text += "|"
 
-    End Sub
+	End Sub
 
 	Private Sub Label1_Click(sender As Object, e As EventArgs)
 

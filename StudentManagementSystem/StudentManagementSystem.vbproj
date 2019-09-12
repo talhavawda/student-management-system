@@ -64,6 +64,9 @@
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SMSIconTransparent.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -214,6 +217,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SMSLogo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SMSIconTransparent.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

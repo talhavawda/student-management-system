@@ -46,6 +46,7 @@ Partial Class frmLogin
         '
         'pbxStudent
         '
+        Me.pbxStudent.Cursor = System.Windows.Forms.Cursors.Hand
         Me.pbxStudent.Location = New System.Drawing.Point(38, 62)
         Me.pbxStudent.Name = "pbxStudent"
         Me.pbxStudent.Size = New System.Drawing.Size(138, 118)
@@ -54,6 +55,7 @@ Partial Class frmLogin
         '
         'pbxAdmin
         '
+        Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
         Me.pbxAdmin.Location = New System.Drawing.Point(296, 62)
         Me.pbxAdmin.Name = "pbxAdmin"
         Me.pbxAdmin.Size = New System.Drawing.Size(138, 118)
@@ -118,6 +120,7 @@ Partial Class frmLogin
         '
         'btnLogin
         '
+        Me.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogin.Location = New System.Drawing.Point(331, 31)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(138, 61)
@@ -170,6 +173,7 @@ Partial Class frmLogin
         '
         'btnExit
         '
+        Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnExit.Location = New System.Drawing.Point(421, 10)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)

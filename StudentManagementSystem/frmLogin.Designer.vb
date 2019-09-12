@@ -199,6 +199,7 @@ Partial Class frmLogin
 		Me.Controls.Add(Me.Panel3)
 		Me.Controls.Add(Me.pnlLogin)
 		Me.Controls.Add(Me.pnlSelect)
+		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
 		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Name = "frmLogin"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

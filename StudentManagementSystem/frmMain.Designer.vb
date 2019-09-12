@@ -22,9 +22,12 @@ Partial Class frmMain
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.tbcMain = New System.Windows.Forms.TabControl()
         Me.tbpDetails = New System.Windows.Forms.TabPage()
         Me.grbStudent = New System.Windows.Forms.GroupBox()
+        Me.TextBox9 = New System.Windows.Forms.TextBox()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.lblCourse = New System.Windows.Forms.Label()
         Me.lblFirstStudyYear = New System.Windows.Forms.Label()
         Me.grbDetails = New System.Windows.Forms.GroupBox()
@@ -44,55 +47,53 @@ Partial Class frmMain
         Me.lblName = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tbpNewRegistration = New System.Windows.Forms.TabPage()
-        Me.tbpViewRegistration = New System.Windows.Forms.TabPage()
-        Me.tbpResultsStudent = New System.Windows.Forms.TabPage()
-        Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
-        Me.tbpReports = New System.Windows.Forms.TabPage()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.lblStudentNumberReg = New System.Windows.Forms.Label()
-        Me.lblQualReg = New System.Windows.Forms.Label()
-        Me.cmbQualReg = New System.Windows.Forms.ComboBox()
-        Me.txtStudentNumberReg = New System.Windows.Forms.TextBox()
-        Me.lblSemesterReg = New System.Windows.Forms.Label()
-        Me.txtSemesterReg = New System.Windows.Forms.TextBox()
-        Me.lblMajor1 = New System.Windows.Forms.Label()
-        Me.lblMajor2 = New System.Windows.Forms.Label()
-        Me.cmbMajor1 = New System.Windows.Forms.ComboBox()
         Me.cmbMajor2 = New System.Windows.Forms.ComboBox()
-        Me.lblYearView = New System.Windows.Forms.Label()
-        Me.cmbYearView = New System.Windows.Forms.ComboBox()
-        Me.lblC = New System.Windows.Forms.Label()
+        Me.cmbMajor1 = New System.Windows.Forms.ComboBox()
+        Me.lblMajor2 = New System.Windows.Forms.Label()
+        Me.lblMajor1 = New System.Windows.Forms.Label()
+        Me.txtSemesterReg = New System.Windows.Forms.TextBox()
+        Me.lblSemesterReg = New System.Windows.Forms.Label()
+        Me.txtStudentNumberReg = New System.Windows.Forms.TextBox()
+        Me.cmbQualReg = New System.Windows.Forms.ComboBox()
+        Me.lblQualReg = New System.Windows.Forms.Label()
+        Me.lblStudentNumberReg = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbpViewRegistration = New System.Windows.Forms.TabPage()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.rtxtYearView = New System.Windows.Forms.RichTextBox()
-        Me.lstModView = New System.Windows.Forms.ListBox()
-        Me.lstResults = New System.Windows.Forms.ListBox()
-        Me.lblModView = New System.Windows.Forms.Label()
+        Me.lblC = New System.Windows.Forms.Label()
+        Me.cmbYearView = New System.Windows.Forms.ComboBox()
+        Me.lblYearView = New System.Windows.Forms.Label()
+        Me.tbpResultsStudent = New System.Windows.Forms.TabPage()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.lblResults = New System.Windows.Forms.Label()
-        Me.lblStuResult = New System.Windows.Forms.Label()
-        Me.lblModResult = New System.Windows.Forms.Label()
-        Me.lblResultVal = New System.Windows.Forms.Label()
-        Me.txtStuResult = New System.Windows.Forms.TextBox()
-        Me.txtModResult = New System.Windows.Forms.TextBox()
+        Me.lblModView = New System.Windows.Forms.Label()
+        Me.lstResults = New System.Windows.Forms.ListBox()
+        Me.lstModView = New System.Windows.Forms.ListBox()
+        Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.txtResultVal = New System.Windows.Forms.TextBox()
+        Me.txtModResult = New System.Windows.Forms.TextBox()
+        Me.txtStuResult = New System.Windows.Forms.TextBox()
+        Me.lblResultVal = New System.Windows.Forms.Label()
+        Me.lblModResult = New System.Windows.Forms.Label()
+        Me.lblStuResult = New System.Windows.Forms.Label()
+        Me.tbpReports = New System.Windows.Forms.TabPage()
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
         Me.grbDetails.SuspendLayout()
         Me.tbpNewRegistration.SuspendLayout()
-        Me.tbpViewRegistration.SuspendLayout()
-        Me.tbpResultsStudent.SuspendLayout()
-        Me.tbpResultsAdmin.SuspendLayout()
-        Me.tbpReports.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.tbpViewRegistration.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        Me.tbpResultsStudent.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
+        Me.tbpResultsAdmin.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
+        Me.tbpReports.SuspendLayout()
         Me.SuspendLayout()
         '
         'tbcMain
@@ -133,6 +134,20 @@ Partial Class frmMain
         Me.grbStudent.Size = New System.Drawing.Size(410, 100)
         Me.grbStudent.TabIndex = 7
         Me.grbStudent.TabStop = False
+        '
+        'TextBox9
+        '
+        Me.TextBox9.Location = New System.Drawing.Point(147, 51)
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox9.TabIndex = 9
+        '
+        'TextBox8
+        '
+        Me.TextBox8.Location = New System.Drawing.Point(147, 18)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox8.TabIndex = 8
         '
         'lblCourse
         '
@@ -308,73 +323,6 @@ Partial Class frmMain
         Me.tbpNewRegistration.Text = "New Registration"
         Me.tbpNewRegistration.UseVisualStyleBackColor = True
         '
-        'tbpViewRegistration
-        '
-        Me.tbpViewRegistration.Controls.Add(Me.GroupBox3)
-        Me.tbpViewRegistration.Location = New System.Drawing.Point(4, 22)
-        Me.tbpViewRegistration.Name = "tbpViewRegistration"
-        Me.tbpViewRegistration.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpViewRegistration.Size = New System.Drawing.Size(802, 473)
-        Me.tbpViewRegistration.TabIndex = 5
-        Me.tbpViewRegistration.Text = "View Registration"
-        Me.tbpViewRegistration.UseVisualStyleBackColor = True
-        '
-        'tbpResultsStudent
-        '
-        Me.tbpResultsStudent.Controls.Add(Me.GroupBox4)
-        Me.tbpResultsStudent.Location = New System.Drawing.Point(4, 22)
-        Me.tbpResultsStudent.Name = "tbpResultsStudent"
-        Me.tbpResultsStudent.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpResultsStudent.Size = New System.Drawing.Size(802, 473)
-        Me.tbpResultsStudent.TabIndex = 2
-        Me.tbpResultsStudent.Text = "View Results"
-        Me.tbpResultsStudent.UseVisualStyleBackColor = True
-        '
-        'tbpResultsAdmin
-        '
-        Me.tbpResultsAdmin.Controls.Add(Me.GroupBox5)
-        Me.tbpResultsAdmin.Location = New System.Drawing.Point(4, 22)
-        Me.tbpResultsAdmin.Name = "tbpResultsAdmin"
-        Me.tbpResultsAdmin.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpResultsAdmin.Size = New System.Drawing.Size(802, 473)
-        Me.tbpResultsAdmin.TabIndex = 3
-        Me.tbpResultsAdmin.Text = "Add Results"
-        Me.tbpResultsAdmin.UseVisualStyleBackColor = True
-        '
-        'tbpReports
-        '
-        Me.tbpReports.Controls.Add(Me.GroupBox6)
-        Me.tbpReports.Location = New System.Drawing.Point(4, 22)
-        Me.tbpReports.Name = "tbpReports"
-        Me.tbpReports.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpReports.Size = New System.Drawing.Size(802, 473)
-        Me.tbpReports.TabIndex = 4
-        Me.tbpReports.Text = "Reports"
-        Me.tbpReports.UseVisualStyleBackColor = True
-        '
-        'TextBox8
-        '
-        Me.TextBox8.Location = New System.Drawing.Point(147, 18)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox8.TabIndex = 8
-        '
-        'TextBox9
-        '
-        Me.TextBox9.Location = New System.Drawing.Point(147, 51)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox9.TabIndex = 9
-        '
-        'GroupBox1
-        '
-        Me.GroupBox1.Location = New System.Drawing.Point(20, 20)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(200, 100)
-        Me.GroupBox1.TabIndex = 0
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
-        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.cmbMajor2)
@@ -393,6 +341,109 @@ Partial Class frmMain
         Me.GroupBox2.TabIndex = 1
         Me.GroupBox2.TabStop = False
         '
+        'cmbMajor2
+        '
+        Me.cmbMajor2.FormattingEnabled = True
+        Me.cmbMajor2.Location = New System.Drawing.Point(285, 189)
+        Me.cmbMajor2.Name = "cmbMajor2"
+        Me.cmbMajor2.Size = New System.Drawing.Size(121, 21)
+        Me.cmbMajor2.TabIndex = 9
+        '
+        'cmbMajor1
+        '
+        Me.cmbMajor1.FormattingEnabled = True
+        Me.cmbMajor1.Location = New System.Drawing.Point(285, 151)
+        Me.cmbMajor1.Name = "cmbMajor1"
+        Me.cmbMajor1.Size = New System.Drawing.Size(121, 21)
+        Me.cmbMajor1.TabIndex = 8
+        '
+        'lblMajor2
+        '
+        Me.lblMajor2.AutoSize = True
+        Me.lblMajor2.Location = New System.Drawing.Point(15, 197)
+        Me.lblMajor2.Name = "lblMajor2"
+        Me.lblMajor2.Size = New System.Drawing.Size(135, 13)
+        Me.lblMajor2.TabIndex = 7
+        Me.lblMajor2.Text = "Select your Second Major :"
+        '
+        'lblMajor1
+        '
+        Me.lblMajor1.AutoSize = True
+        Me.lblMajor1.Location = New System.Drawing.Point(15, 159)
+        Me.lblMajor1.Name = "lblMajor1"
+        Me.lblMajor1.Size = New System.Drawing.Size(117, 13)
+        Me.lblMajor1.TabIndex = 6
+        Me.lblMajor1.Text = "Select your First Major :"
+        '
+        'txtSemesterReg
+        '
+        Me.txtSemesterReg.Location = New System.Drawing.Point(285, 114)
+        Me.txtSemesterReg.Name = "txtSemesterReg"
+        Me.txtSemesterReg.Size = New System.Drawing.Size(100, 20)
+        Me.txtSemesterReg.TabIndex = 5
+        '
+        'lblSemesterReg
+        '
+        Me.lblSemesterReg.AutoSize = True
+        Me.lblSemesterReg.Location = New System.Drawing.Point(15, 121)
+        Me.lblSemesterReg.Name = "lblSemesterReg"
+        Me.lblSemesterReg.Size = New System.Drawing.Size(180, 13)
+        Me.lblSemesterReg.TabIndex = 4
+        Me.lblSemesterReg.Text = "Please Enter the Semester of Study :"
+        '
+        'txtStudentNumberReg
+        '
+        Me.txtStudentNumberReg.Location = New System.Drawing.Point(285, 34)
+        Me.txtStudentNumberReg.Name = "txtStudentNumberReg"
+        Me.txtStudentNumberReg.Size = New System.Drawing.Size(100, 20)
+        Me.txtStudentNumberReg.TabIndex = 3
+        '
+        'cmbQualReg
+        '
+        Me.cmbQualReg.FormattingEnabled = True
+        Me.cmbQualReg.Location = New System.Drawing.Point(285, 78)
+        Me.cmbQualReg.Name = "cmbQualReg"
+        Me.cmbQualReg.Size = New System.Drawing.Size(121, 21)
+        Me.cmbQualReg.TabIndex = 2
+        '
+        'lblQualReg
+        '
+        Me.lblQualReg.AutoSize = True
+        Me.lblQualReg.Location = New System.Drawing.Point(15, 81)
+        Me.lblQualReg.Name = "lblQualReg"
+        Me.lblQualReg.Size = New System.Drawing.Size(182, 13)
+        Me.lblQualReg.TabIndex = 1
+        Me.lblQualReg.Text = "Choose your Preferred Qualification  :"
+        '
+        'lblStudentNumberReg
+        '
+        Me.lblStudentNumberReg.AutoSize = True
+        Me.lblStudentNumberReg.Location = New System.Drawing.Point(15, 41)
+        Me.lblStudentNumberReg.Name = "lblStudentNumberReg"
+        Me.lblStudentNumberReg.Size = New System.Drawing.Size(176, 13)
+        Me.lblStudentNumberReg.TabIndex = 0
+        Me.lblStudentNumberReg.Text = "Please Enter your Student Number :"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Location = New System.Drawing.Point(20, 20)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox1.TabIndex = 0
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "GroupBox1"
+        '
+        'tbpViewRegistration
+        '
+        Me.tbpViewRegistration.Controls.Add(Me.GroupBox3)
+        Me.tbpViewRegistration.Location = New System.Drawing.Point(4, 22)
+        Me.tbpViewRegistration.Name = "tbpViewRegistration"
+        Me.tbpViewRegistration.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpViewRegistration.Size = New System.Drawing.Size(802, 473)
+        Me.tbpViewRegistration.TabIndex = 5
+        Me.tbpViewRegistration.Text = "View Registration"
+        Me.tbpViewRegistration.UseVisualStyleBackColor = True
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.rtxtYearView)
@@ -405,6 +456,51 @@ Partial Class frmMain
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         '
+        'rtxtYearView
+        '
+        Me.rtxtYearView.Location = New System.Drawing.Point(300, 104)
+        Me.rtxtYearView.Name = "rtxtYearView"
+        Me.rtxtYearView.Size = New System.Drawing.Size(121, 96)
+        Me.rtxtYearView.TabIndex = 3
+        Me.rtxtYearView.Text = ""
+        '
+        'lblC
+        '
+        Me.lblC.AutoSize = True
+        Me.lblC.Location = New System.Drawing.Point(18, 140)
+        Me.lblC.Name = "lblC"
+        Me.lblC.Size = New System.Drawing.Size(129, 13)
+        Me.lblC.TabIndex = 2
+        Me.lblC.Text = "Your Registration Details :"
+        '
+        'cmbYearView
+        '
+        Me.cmbYearView.FormattingEnabled = True
+        Me.cmbYearView.Location = New System.Drawing.Point(300, 49)
+        Me.cmbYearView.Name = "cmbYearView"
+        Me.cmbYearView.Size = New System.Drawing.Size(121, 21)
+        Me.cmbYearView.TabIndex = 1
+        '
+        'lblYearView
+        '
+        Me.lblYearView.AutoSize = True
+        Me.lblYearView.Location = New System.Drawing.Point(18, 49)
+        Me.lblYearView.Name = "lblYearView"
+        Me.lblYearView.Size = New System.Drawing.Size(226, 13)
+        Me.lblYearView.TabIndex = 0
+        Me.lblYearView.Text = "Select which Year of Study you Wish to View :"
+        '
+        'tbpResultsStudent
+        '
+        Me.tbpResultsStudent.Controls.Add(Me.GroupBox4)
+        Me.tbpResultsStudent.Location = New System.Drawing.Point(4, 22)
+        Me.tbpResultsStudent.Name = "tbpResultsStudent"
+        Me.tbpResultsStudent.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpResultsStudent.Size = New System.Drawing.Size(802, 473)
+        Me.tbpResultsStudent.TabIndex = 2
+        Me.tbpResultsStudent.Text = "View Results"
+        Me.tbpResultsStudent.UseVisualStyleBackColor = True
+        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.lblResults)
@@ -416,6 +512,51 @@ Partial Class frmMain
         Me.GroupBox4.Size = New System.Drawing.Size(391, 194)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
+        '
+        'lblResults
+        '
+        Me.lblResults.AutoSize = True
+        Me.lblResults.Location = New System.Drawing.Point(258, 25)
+        Me.lblResults.Name = "lblResults"
+        Me.lblResults.Size = New System.Drawing.Size(67, 13)
+        Me.lblResults.TabIndex = 4
+        Me.lblResults.Text = "Your Results"
+        '
+        'lblModView
+        '
+        Me.lblModView.AutoSize = True
+        Me.lblModView.Location = New System.Drawing.Point(45, 25)
+        Me.lblModView.Name = "lblModView"
+        Me.lblModView.Size = New System.Drawing.Size(72, 13)
+        Me.lblModView.TabIndex = 3
+        Me.lblModView.Text = "Your Modules"
+        '
+        'lstResults
+        '
+        Me.lstResults.FormattingEnabled = True
+        Me.lstResults.Location = New System.Drawing.Point(240, 51)
+        Me.lstResults.Name = "lstResults"
+        Me.lstResults.Size = New System.Drawing.Size(120, 95)
+        Me.lstResults.TabIndex = 2
+        '
+        'lstModView
+        '
+        Me.lstModView.FormattingEnabled = True
+        Me.lstModView.Location = New System.Drawing.Point(28, 51)
+        Me.lstModView.Name = "lstModView"
+        Me.lstModView.Size = New System.Drawing.Size(120, 95)
+        Me.lstModView.TabIndex = 1
+        '
+        'tbpResultsAdmin
+        '
+        Me.tbpResultsAdmin.Controls.Add(Me.GroupBox5)
+        Me.tbpResultsAdmin.Location = New System.Drawing.Point(4, 22)
+        Me.tbpResultsAdmin.Name = "tbpResultsAdmin"
+        Me.tbpResultsAdmin.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpResultsAdmin.Size = New System.Drawing.Size(802, 473)
+        Me.tbpResultsAdmin.TabIndex = 3
+        Me.tbpResultsAdmin.Text = "Add Results"
+        Me.tbpResultsAdmin.UseVisualStyleBackColor = True
         '
         'GroupBox5
         '
@@ -431,183 +572,26 @@ Partial Class frmMain
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
         '
-        'GroupBox6
+        'txtResultVal
         '
-        Me.GroupBox6.Location = New System.Drawing.Point(20, 20)
-        Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(200, 100)
-        Me.GroupBox6.TabIndex = 0
-        Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "GroupBox6"
+        Me.txtResultVal.Location = New System.Drawing.Point(202, 135)
+        Me.txtResultVal.Name = "txtResultVal"
+        Me.txtResultVal.Size = New System.Drawing.Size(100, 20)
+        Me.txtResultVal.TabIndex = 5
         '
-        'lblStudentNumberReg
+        'txtModResult
         '
-        Me.lblStudentNumberReg.AutoSize = True
-        Me.lblStudentNumberReg.Location = New System.Drawing.Point(15, 41)
-        Me.lblStudentNumberReg.Name = "lblStudentNumberReg"
-        Me.lblStudentNumberReg.Size = New System.Drawing.Size(176, 13)
-        Me.lblStudentNumberReg.TabIndex = 0
-        Me.lblStudentNumberReg.Text = "Please Enter your Student Number :"
+        Me.txtModResult.Location = New System.Drawing.Point(202, 93)
+        Me.txtModResult.Name = "txtModResult"
+        Me.txtModResult.Size = New System.Drawing.Size(100, 20)
+        Me.txtModResult.TabIndex = 4
         '
-        'lblQualReg
+        'txtStuResult
         '
-        Me.lblQualReg.AutoSize = True
-        Me.lblQualReg.Location = New System.Drawing.Point(15, 81)
-        Me.lblQualReg.Name = "lblQualReg"
-        Me.lblQualReg.Size = New System.Drawing.Size(182, 13)
-        Me.lblQualReg.TabIndex = 1
-        Me.lblQualReg.Text = "Choose your Preferred Qualification  :"
-        '
-        'cmbQualReg
-        '
-        Me.cmbQualReg.FormattingEnabled = True
-        Me.cmbQualReg.Location = New System.Drawing.Point(285, 78)
-        Me.cmbQualReg.Name = "cmbQualReg"
-        Me.cmbQualReg.Size = New System.Drawing.Size(121, 21)
-        Me.cmbQualReg.TabIndex = 2
-        '
-        'txtStudentNumberReg
-        '
-        Me.txtStudentNumberReg.Location = New System.Drawing.Point(285, 34)
-        Me.txtStudentNumberReg.Name = "txtStudentNumberReg"
-        Me.txtStudentNumberReg.Size = New System.Drawing.Size(100, 20)
-        Me.txtStudentNumberReg.TabIndex = 3
-        '
-        'lblSemesterReg
-        '
-        Me.lblSemesterReg.AutoSize = True
-        Me.lblSemesterReg.Location = New System.Drawing.Point(15, 121)
-        Me.lblSemesterReg.Name = "lblSemesterReg"
-        Me.lblSemesterReg.Size = New System.Drawing.Size(180, 13)
-        Me.lblSemesterReg.TabIndex = 4
-        Me.lblSemesterReg.Text = "Please Enter the Semester of Study :"
-        '
-        'txtSemesterReg
-        '
-        Me.txtSemesterReg.Location = New System.Drawing.Point(285, 114)
-        Me.txtSemesterReg.Name = "txtSemesterReg"
-        Me.txtSemesterReg.Size = New System.Drawing.Size(100, 20)
-        Me.txtSemesterReg.TabIndex = 5
-        '
-        'lblMajor1
-        '
-        Me.lblMajor1.AutoSize = True
-        Me.lblMajor1.Location = New System.Drawing.Point(15, 159)
-        Me.lblMajor1.Name = "lblMajor1"
-        Me.lblMajor1.Size = New System.Drawing.Size(117, 13)
-        Me.lblMajor1.TabIndex = 6
-        Me.lblMajor1.Text = "Select your First Major :"
-        '
-        'lblMajor2
-        '
-        Me.lblMajor2.AutoSize = True
-        Me.lblMajor2.Location = New System.Drawing.Point(15, 197)
-        Me.lblMajor2.Name = "lblMajor2"
-        Me.lblMajor2.Size = New System.Drawing.Size(135, 13)
-        Me.lblMajor2.TabIndex = 7
-        Me.lblMajor2.Text = "Select your Second Major :"
-        '
-        'cmbMajor1
-        '
-        Me.cmbMajor1.FormattingEnabled = True
-        Me.cmbMajor1.Location = New System.Drawing.Point(285, 151)
-        Me.cmbMajor1.Name = "cmbMajor1"
-        Me.cmbMajor1.Size = New System.Drawing.Size(121, 21)
-        Me.cmbMajor1.TabIndex = 8
-        '
-        'cmbMajor2
-        '
-        Me.cmbMajor2.FormattingEnabled = True
-        Me.cmbMajor2.Location = New System.Drawing.Point(285, 189)
-        Me.cmbMajor2.Name = "cmbMajor2"
-        Me.cmbMajor2.Size = New System.Drawing.Size(121, 21)
-        Me.cmbMajor2.TabIndex = 9
-        '
-        'lblYearView
-        '
-        Me.lblYearView.AutoSize = True
-        Me.lblYearView.Location = New System.Drawing.Point(18, 49)
-        Me.lblYearView.Name = "lblYearView"
-        Me.lblYearView.Size = New System.Drawing.Size(226, 13)
-        Me.lblYearView.TabIndex = 0
-        Me.lblYearView.Text = "Select which Year of Study you Wish to View :"
-        '
-        'cmbYearView
-        '
-        Me.cmbYearView.FormattingEnabled = True
-        Me.cmbYearView.Location = New System.Drawing.Point(300, 49)
-        Me.cmbYearView.Name = "cmbYearView"
-        Me.cmbYearView.Size = New System.Drawing.Size(121, 21)
-        Me.cmbYearView.TabIndex = 1
-        '
-        'lblC
-        '
-        Me.lblC.AutoSize = True
-        Me.lblC.Location = New System.Drawing.Point(18, 140)
-        Me.lblC.Name = "lblC"
-        Me.lblC.Size = New System.Drawing.Size(129, 13)
-        Me.lblC.TabIndex = 2
-        Me.lblC.Text = "Your Registration Details :"
-        '
-        'rtxtYearView
-        '
-        Me.rtxtYearView.Location = New System.Drawing.Point(300, 104)
-        Me.rtxtYearView.Name = "rtxtYearView"
-        Me.rtxtYearView.Size = New System.Drawing.Size(121, 96)
-        Me.rtxtYearView.TabIndex = 3
-        Me.rtxtYearView.Text = ""
-        '
-        'lstModView
-        '
-        Me.lstModView.FormattingEnabled = True
-        Me.lstModView.Location = New System.Drawing.Point(28, 51)
-        Me.lstModView.Name = "lstModView"
-        Me.lstModView.Size = New System.Drawing.Size(120, 95)
-        Me.lstModView.TabIndex = 1
-        '
-        'lstResults
-        '
-        Me.lstResults.FormattingEnabled = True
-        Me.lstResults.Location = New System.Drawing.Point(240, 51)
-        Me.lstResults.Name = "lstResults"
-        Me.lstResults.Size = New System.Drawing.Size(120, 95)
-        Me.lstResults.TabIndex = 2
-        '
-        'lblModView
-        '
-        Me.lblModView.AutoSize = True
-        Me.lblModView.Location = New System.Drawing.Point(45, 25)
-        Me.lblModView.Name = "lblModView"
-        Me.lblModView.Size = New System.Drawing.Size(72, 13)
-        Me.lblModView.TabIndex = 3
-        Me.lblModView.Text = "Your Modules"
-        '
-        'lblResults
-        '
-        Me.lblResults.AutoSize = True
-        Me.lblResults.Location = New System.Drawing.Point(258, 25)
-        Me.lblResults.Name = "lblResults"
-        Me.lblResults.Size = New System.Drawing.Size(67, 13)
-        Me.lblResults.TabIndex = 4
-        Me.lblResults.Text = "Your Results"
-        '
-        'lblStuResult
-        '
-        Me.lblStuResult.AutoSize = True
-        Me.lblStuResult.Location = New System.Drawing.Point(26, 46)
-        Me.lblStuResult.Name = "lblStuResult"
-        Me.lblStuResult.Size = New System.Drawing.Size(127, 13)
-        Me.lblStuResult.TabIndex = 0
-        Me.lblStuResult.Text = "Enter a Student Number :"
-        '
-        'lblModResult
-        '
-        Me.lblModResult.AutoSize = True
-        Me.lblModResult.Location = New System.Drawing.Point(26, 93)
-        Me.lblModResult.Name = "lblModResult"
-        Me.lblModResult.Size = New System.Drawing.Size(113, 13)
-        Me.lblModResult.TabIndex = 1
-        Me.lblModResult.Text = "Enter a Module Code :"
+        Me.txtStuResult.Location = New System.Drawing.Point(202, 46)
+        Me.txtStuResult.Name = "txtStuResult"
+        Me.txtStuResult.Size = New System.Drawing.Size(100, 20)
+        Me.txtStuResult.TabIndex = 3
         '
         'lblResultVal
         '
@@ -618,26 +602,43 @@ Partial Class frmMain
         Me.lblResultVal.TabIndex = 2
         Me.lblResultVal.Text = "Enter Result Attained :"
         '
-        'txtStuResult
+        'lblModResult
         '
-        Me.txtStuResult.Location = New System.Drawing.Point(202, 46)
-        Me.txtStuResult.Name = "txtStuResult"
-        Me.txtStuResult.Size = New System.Drawing.Size(100, 20)
-        Me.txtStuResult.TabIndex = 3
+        Me.lblModResult.AutoSize = True
+        Me.lblModResult.Location = New System.Drawing.Point(26, 93)
+        Me.lblModResult.Name = "lblModResult"
+        Me.lblModResult.Size = New System.Drawing.Size(113, 13)
+        Me.lblModResult.TabIndex = 1
+        Me.lblModResult.Text = "Enter a Module Code :"
         '
-        'txtModResult
+        'lblStuResult
         '
-        Me.txtModResult.Location = New System.Drawing.Point(202, 93)
-        Me.txtModResult.Name = "txtModResult"
-        Me.txtModResult.Size = New System.Drawing.Size(100, 20)
-        Me.txtModResult.TabIndex = 4
+        Me.lblStuResult.AutoSize = True
+        Me.lblStuResult.Location = New System.Drawing.Point(26, 46)
+        Me.lblStuResult.Name = "lblStuResult"
+        Me.lblStuResult.Size = New System.Drawing.Size(127, 13)
+        Me.lblStuResult.TabIndex = 0
+        Me.lblStuResult.Text = "Enter a Student Number :"
         '
-        'txtResultVal
+        'tbpReports
         '
-        Me.txtResultVal.Location = New System.Drawing.Point(202, 135)
-        Me.txtResultVal.Name = "txtResultVal"
-        Me.txtResultVal.Size = New System.Drawing.Size(100, 20)
-        Me.txtResultVal.TabIndex = 5
+        Me.tbpReports.Controls.Add(Me.GroupBox6)
+        Me.tbpReports.Location = New System.Drawing.Point(4, 22)
+        Me.tbpReports.Name = "tbpReports"
+        Me.tbpReports.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpReports.Size = New System.Drawing.Size(802, 473)
+        Me.tbpReports.TabIndex = 4
+        Me.tbpReports.Text = "Reports"
+        Me.tbpReports.UseVisualStyleBackColor = True
+        '
+        'GroupBox6
+        '
+        Me.GroupBox6.Location = New System.Drawing.Point(20, 20)
+        Me.GroupBox6.Name = "GroupBox6"
+        Me.GroupBox6.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox6.TabIndex = 0
+        Me.GroupBox6.TabStop = False
+        Me.GroupBox6.Text = "GroupBox6"
         '
         'frmMain
         '
@@ -645,6 +646,7 @@ Partial Class frmMain
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(834, 511)
         Me.Controls.Add(Me.tbcMain)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmMain"
         Me.tbcMain.ResumeLayout(False)
         Me.tbpDetails.ResumeLayout(False)
@@ -654,18 +656,18 @@ Partial Class frmMain
         Me.grbDetails.ResumeLayout(False)
         Me.grbDetails.PerformLayout()
         Me.tbpNewRegistration.ResumeLayout(False)
-        Me.tbpViewRegistration.ResumeLayout(False)
-        Me.tbpResultsStudent.ResumeLayout(False)
-        Me.tbpResultsAdmin.ResumeLayout(False)
-        Me.tbpReports.ResumeLayout(False)
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.tbpViewRegistration.ResumeLayout(False)
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        Me.tbpResultsStudent.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
         Me.GroupBox4.PerformLayout()
+        Me.tbpResultsAdmin.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
+        Me.tbpReports.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub

@@ -22,6 +22,7 @@ Partial Class frmNewUser
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNewUser))
         Me.tbcNewUser = New System.Windows.Forms.TabControl()
         Me.tbpNewUser = New System.Windows.Forms.TabPage()
         Me.tbpChangePassword = New System.Windows.Forms.TabPage()
@@ -74,6 +75,7 @@ Partial Class frmNewUser
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(458, 455)
         Me.Controls.Add(Me.tbcNewUser)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmNewUser"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.tbcNewUser.ResumeLayout(False)

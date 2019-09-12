@@ -4,18 +4,22 @@
     End Sub
 
 	Private Sub frmSplashScreen_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		My.Application.MinimumSplashScreenDisplayTime = 5000
-		tmrSplash.Enabled = True
-	End Sub
+        My.Application.MinimumSplashScreenDisplayTime = 5000
+        tmrLoadingLabel.Enabled = True
+    End Sub
 
-	Private Sub tmrSplash_Tick(sender As Object, e As EventArgs) Handles tmrSplash.Tick
-		If prbSplash.Value < 100 Then
-			prbSplash.Value += prbSplash.Step
-            lblProgressPercent.Text = (prbSplash.Value).ToString + "%"
+    Private Sub tmrSplash_Tick(sender As Object, e As EventArgs)
+
+
+
+    End Sub
+
+    Private Sub tmrLoadingLabel_Tick(sender As Object, e As EventArgs) Handles tmrLoadingLabel.Tick
+        If lblLoadingBar.Text.Length < 124 Then
+            lblLoadingBar.Text += "|"
         Else
-			tmrSplash.Enabled = False
-		End If
+            tmrLoadingLabel.Enabled = False
+        End If
 
-
-	End Sub
+    End Sub
 End Class

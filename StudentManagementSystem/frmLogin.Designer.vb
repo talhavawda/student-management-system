@@ -48,7 +48,7 @@ Partial Class frmLogin
 		'pbxStudent
 		'
 		Me.pbxStudent.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.pbxStudent.Location = New System.Drawing.Point(38, 62)
+		Me.pbxStudent.Location = New System.Drawing.Point(38, 50)
 		Me.pbxStudent.Name = "pbxStudent"
 		Me.pbxStudent.Size = New System.Drawing.Size(140, 120)
 		Me.pbxStudent.TabIndex = 0
@@ -57,7 +57,7 @@ Partial Class frmLogin
 		'pbxAdmin
 		'
 		Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.pbxAdmin.Location = New System.Drawing.Point(330, 62)
+		Me.pbxAdmin.Location = New System.Drawing.Point(330, 50)
 		Me.pbxAdmin.Name = "pbxAdmin"
 		Me.pbxAdmin.Size = New System.Drawing.Size(140, 120)
 		Me.pbxAdmin.TabIndex = 1
@@ -66,7 +66,7 @@ Partial Class frmLogin
 		'Label1
 		'
 		Me.Label1.AutoSize = True
-		Me.Label1.Location = New System.Drawing.Point(230, 23)
+		Me.Label1.Location = New System.Drawing.Point(230, 12)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(48, 13)
 		Me.Label1.TabIndex = 2
@@ -78,9 +78,9 @@ Partial Class frmLogin
 		Me.pnlSelect.Controls.Add(Me.pbxAdmin)
 		Me.pnlSelect.Controls.Add(Me.Label1)
 		Me.pnlSelect.Controls.Add(Me.pbxStudent)
-		Me.pnlSelect.Location = New System.Drawing.Point(12, 12)
+		Me.pnlSelect.Location = New System.Drawing.Point(12, 5)
 		Me.pnlSelect.Name = "pnlSelect"
-		Me.pnlSelect.Size = New System.Drawing.Size(508, 217)
+		Me.pnlSelect.Size = New System.Drawing.Size(508, 194)
 		Me.pnlSelect.TabIndex = 0
 		'
 		'pnlLogin
@@ -92,7 +92,7 @@ Partial Class frmLogin
 		Me.pnlLogin.Controls.Add(Me.MaskedTextBox1)
 		Me.pnlLogin.Controls.Add(Me.Label2)
 		Me.pnlLogin.Controls.Add(Me.lblUsername)
-		Me.pnlLogin.Location = New System.Drawing.Point(12, 252)
+		Me.pnlLogin.Location = New System.Drawing.Point(12, 208)
 		Me.pnlLogin.Name = "pnlLogin"
 		Me.pnlLogin.Size = New System.Drawing.Size(508, 138)
 		Me.pnlLogin.TabIndex = 4
@@ -167,7 +167,7 @@ Partial Class frmLogin
 		'
 		Me.Panel3.Controls.Add(Me.btnExit)
 		Me.Panel3.Controls.Add(Me.lblDateTime)
-		Me.Panel3.Location = New System.Drawing.Point(12, 406)
+		Me.Panel3.Location = New System.Drawing.Point(12, 353)
 		Me.Panel3.Name = "Panel3"
 		Me.Panel3.Size = New System.Drawing.Size(508, 42)
 		Me.Panel3.TabIndex = 5
@@ -195,7 +195,7 @@ Partial Class frmLogin
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(540, 449)
+		Me.ClientSize = New System.Drawing.Size(540, 401)
 		Me.Controls.Add(Me.Panel3)
 		Me.Controls.Add(Me.pnlLogin)
 		Me.Controls.Add(Me.pnlSelect)

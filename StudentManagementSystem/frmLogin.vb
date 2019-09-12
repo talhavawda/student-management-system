@@ -1,8 +1,10 @@
 ﻿Public Class frmLogin
 
-    Dim studentOrAdmin As Integer '0 for student ... 1 for Admin
+	Const STUDENT As Integer = 0
+	Const ADMIN As Integer = 1
+	Dim userType As Integer 'gets assigned to either STUDENT (0) or ADMIN(1)
 
-    Public Sub CloseProgram() 'Procedure to close the program
+	Public Sub CloseProgram() 'Procedure to close the program
         Dim exitProgram As DialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit Program", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If exitProgram = DialogResult.Yes Then
             Me.Close()
@@ -20,25 +22,25 @@
     Private Sub pbxStudent_Click(sender As Object, e As EventArgs) Handles pbxStudent.Click
         lblUsername.Text = "Student Number:"
         lblNewStudent.Show()
-        'pnlLogin.Show()
-        studentOrAdmin = 0
-        pnlLogin.Enabled = True
+		'pnlLogin.Show()
+		userType = STUDENT
+		pnlLogin.Enabled = True
     End Sub
 
     Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxAdmin.Click
         lblUsername.Text = "Staff Number: "
         lblNewStudent.Hide()
-        'pnlLogin.Show()
-        studentOrAdmin = 1
-        pnlLogin.Enabled = True
+		'pnlLogin.Show()
+		userType = ADMIN
+		pnlLogin.Enabled = True
 
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        If studentOrAdmin = 0 Then
-            frmStudentHome.ShowDialog()
-        Else
-            frmAdminHome.ShowDialog()
+		If userType = STUDENT Then
+			frmStudentHome.ShowDialog()
+		Else
+			frmAdminHome.ShowDialog()
         End If
     End Sub
 

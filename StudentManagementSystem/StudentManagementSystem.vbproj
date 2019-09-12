@@ -131,6 +131,12 @@
     <Compile Include="frmStudentHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTeamScreen.Designer.vb">
+      <DependentUpon>frmTeamScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTeamScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmStudentHome.resx">
       <DependentUpon>frmStudentHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTeamScreen.resx">
+      <DependentUpon>frmTeamScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

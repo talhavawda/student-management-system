@@ -46,16 +46,18 @@
 	End Sub
 
 	Private Sub pbxStudent_Click(sender As Object, e As EventArgs) Handles pbxStudent.Click
-		lblUsername.Text = "Student Number:"
-		lblNewStudent.Show()
+        lblUsername.Text = "Student Number:"
+        frmNewUser.lblStudAdminNumber.Text = "Student Number:"
+        lblNewStudent.Show()
 		'pnlLogin.Show()
 		userType = STUDENT
 		pnlLogin.Enabled = True
 	End Sub
 
 	Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxAdmin.Click
-		lblUsername.Text = "Staff Number: "
-		lblNewStudent.Hide()
+        lblUsername.Text = "Staff Number:"
+        frmNewUser.lblStudAdminNumber.Text = "Staff Number:"
+        lblNewStudent.Hide()
 		'pnlLogin.Show()
 		userType = ADMIN
 		pnlLogin.Enabled = True

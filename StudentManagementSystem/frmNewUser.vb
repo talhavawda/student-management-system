@@ -13,5 +13,10 @@
     Private Sub frmNewUser_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmLogin.HidetbpNewUser()
         frmLogin.HidetbpChangePassword()
+        txtStudAdminNumber.Clear()
+        txtID.Clear()
+        txtCell.Clear()
+        txtNewPassword.Clear()
+        txtRePassword.Clear()
     End Sub
 End Class

@@ -22,6 +22,7 @@ Partial Class frmLogin
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlSelect = New System.Windows.Forms.Panel()
@@ -38,6 +39,7 @@ Partial Class frmLogin
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.lblDateTime = New System.Windows.Forms.Label()
+        Me.tmrDateTime = New System.Windows.Forms.Timer(Me.components)
         Me.pnlSelect.SuspendLayout()
         CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -192,6 +194,9 @@ Partial Class frmLogin
         Me.lblDateTime.TabIndex = 0
         Me.lblDateTime.Text = "<Date and Time>"
         '
+        'tmrDateTime
+        '
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -232,4 +237,5 @@ Partial Class frmLogin
     Friend WithEvents btnExit As Button
 	Friend WithEvents lblForgotPassword As Label
 	Friend WithEvents lblDateTime As Label
+    Friend WithEvents tmrDateTime As Timer
 End Class

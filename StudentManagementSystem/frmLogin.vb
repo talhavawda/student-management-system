@@ -33,6 +33,7 @@
 	End Sub
 
 	Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        tmrDateTime.Enabled = True
         HidePage(changePassword)
         HidePage(newUser)
         pnlLogin.Enabled = False
@@ -83,5 +84,9 @@
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         CloseProgram()
+    End Sub
+
+    Private Sub tmrDateTime_Tick(sender As Object, e As EventArgs) Handles tmrDateTime.Tick
+        lblDateTime.Text = System.DateTime.Now.ToString("yyyy/MM/dd      HH:mm:ss")
     End Sub
 End Class

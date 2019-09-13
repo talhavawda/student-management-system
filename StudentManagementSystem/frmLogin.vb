@@ -4,8 +4,8 @@
 	Const ADMIN As Integer = 1
 	Dim userType As Integer 'gets assigned to either STUDENT (0) or ADMIN(1)
 
-	Friend newUser As TabPage 'Reference to the newUser Tab Page on frmNewUser
-    Friend changePassword As TabPage 'Reference to the changePassword Tab Page on frmNewUser
+    Friend newUser As TabPage = frmNewUser.tbpNewUser 'Reference to the newUser Tab Page on frmNewUser
+    Friend changePassword As TabPage = frmNewUser.tbpChangePassword 'Reference to the changePassword Tab Page on frmNewUser
 
     Friend detailsTab As TabPage 'Reference to details Tab on frmMain
     Friend newReg As TabPage 'Reference to New registration tab on frmMain
@@ -14,29 +14,18 @@
     Friend addresults As TabPage 'Reference to Add results on frmMain
     Friend reports As TabPage 'Reference to Reports Tab on frmMain
 
-    'Procedures for Hiding Tabs
-    Public Sub HidetbpNewUser() 'Hide the newUSer Tab
-		newUser = frmNewUser.tbpNewUser
-		frmNewUser.tbcNewUser.TabPages.Remove(frmNewUser.tbpNewUser)
-	End Sub
 
-	Public Sub HidetbpChangePassword() 'Hide the ChangePassword Tab
-		changePassword = frmNewUser.tbpChangePassword
-		frmNewUser.tbcNewUser.TabPages.Remove(frmNewUser.tbpChangePassword)
-	End Sub
-
-    'Procedures for showing Tabs
-    Private Sub ShowtbpNewUser() 'Show the newUser Tab
-		frmNewUser.tbcNewUser.TabPages.Add(newUser)
-	End Sub
-
-	Private Sub ShowtbpChangePassword() 'Show the changePassword Tab
-		frmNewUser.tbcNewUser.TabPages.Add(changePassword)
-	End Sub
+    'Generic hide method
+    Public Sub HidePage(ByRef tabpage As TabPage)
+        frmNewUser.tbcNewUser.TabPages.Remove(tabpage)
+    End Sub
+    'Generic show method
+    Public Sub ShowPage(ByRef tabpage As TabPage)
+        frmNewUser.tbcNewUser.TabPages.Add(tabpage)
+    End Sub
 
 
-
-	Public Sub CloseProgram() 'Procedure to close the program
+    Public Sub CloseProgram() 'Procedure to close the program
 		Dim exitProgram As DialogResult = MessageBox.Show("Are you sure you want to exit?", "Exit Program", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
 		If exitProgram = DialogResult.Yes Then
 			Me.Close()
@@ -44,10 +33,10 @@
 	End Sub
 
 	Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		pnlLogin.Enabled = False
-		HidetbpNewUser() 'Reference to the Tab will be stored in newUser
-		HidetbpChangePassword() 'Reference to the Tab will be stored in changePassword
-	End Sub
+        HidePage(changePassword)
+        HidePage(newUser)
+        pnlLogin.Enabled = False
+    End Sub
 
 	Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles pnlSelect.Paint
 
@@ -81,15 +70,15 @@
 	End Sub
 
 	Private Sub lblForgotPassword_Click(sender As Object, e As EventArgs) Handles lblForgotPassword.Click
-		ShowtbpChangePassword() 'Show the Change Password Tab
-		HidetbpNewUser() 'Hide the New USer Tab
-		frmNewUser.ShowDialog()
+        ShowPage(changePassword)
+        HidePage(newUser)
+        frmNewUser.ShowDialog()
 	End Sub
 
 	Private Sub lblNewStudent_Click(sender As Object, e As EventArgs) Handles lblNewStudent.Click
-		ShowtbpNewUser() 'Show New User tab
-		HidetbpChangePassword() 'Hide the Change Password Tab
-		frmNewUser.ShowDialog()
+        ShowPage(newUser)
+        HidePage(changePassword)
+        frmNewUser.ShowDialog()
     End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click

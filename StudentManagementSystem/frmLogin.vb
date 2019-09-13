@@ -1,14 +1,21 @@
 ﻿Public Class frmLogin
-
-	Const STUDENT As Integer = 0
+    'We can Define a friend Variable to store Admin/Student Number To use across all forms
+    Const STUDENT As Integer = 0
 	Const ADMIN As Integer = 1
 	Dim userType As Integer 'gets assigned to either STUDENT (0) or ADMIN(1)
 
 	Friend newUser As TabPage 'Reference to the newUser Tab Page on frmNewUser
-	Friend changePassword As TabPage 'reference to the changePassword Tab Page on frmNewUser
+    Friend changePassword As TabPage 'Reference to the changePassword Tab Page on frmNewUser
 
+    Friend detailsTab As TabPage 'Reference to details Tab on frmMain
+    Friend newReg As TabPage 'Reference to New registration tab on frmMain
+    Friend viewReg As TabPage 'Reference to View Registration Tab on frmMain
+    Friend viewResults As TabPage 'Reference to View reults on frmMain
+    Friend addresults As TabPage 'Reference to Add results on frmMain
+    Friend reports As TabPage 'Reference to Reports Tab on frmMain
 
-	Public Sub HidetbpNewUser() 'Hide the newUSer Tab
+    'Procedures for Hiding Tabs
+    Public Sub HidetbpNewUser() 'Hide the newUSer Tab
 		newUser = frmNewUser.tbpNewUser
 		frmNewUser.tbcNewUser.TabPages.Remove(frmNewUser.tbpNewUser)
 	End Sub
@@ -18,7 +25,8 @@
 		frmNewUser.tbcNewUser.TabPages.Remove(frmNewUser.tbpChangePassword)
 	End Sub
 
-	Private Sub ShowtbpNewUser() 'Show the newUser Tab
+    'Procedures for showing Tabs
+    Private Sub ShowtbpNewUser() 'Show the newUser Tab
 		frmNewUser.tbcNewUser.TabPages.Add(newUser)
 	End Sub
 

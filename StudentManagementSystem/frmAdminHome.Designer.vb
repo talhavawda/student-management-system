@@ -25,10 +25,10 @@ Partial Class frmAdminHome
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdminHome))
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.Label3 = New System.Windows.Forms.Label()
-		Me.Label2 = New System.Windows.Forms.Label()
-		Me.Label1 = New System.Windows.Forms.Label()
 		Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+		Me.Label2 = New System.Windows.Forms.Label()
 		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+		Me.Label1 = New System.Windows.Forms.Label()
 		Me.pbDetails = New System.Windows.Forms.PictureBox()
 		Me.Panel1.SuspendLayout()
 		CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,24 +58,6 @@ Partial Class frmAdminHome
 		Me.Label3.TabIndex = 10
 		Me.Label3.Text = "Change a students reg"
 		'
-		'Label2
-		'
-		Me.Label2.AutoSize = True
-		Me.Label2.Location = New System.Drawing.Point(231, 226)
-		Me.Label2.Name = "Label2"
-		Me.Label2.Size = New System.Drawing.Size(145, 13)
-		Me.Label2.TabIndex = 8
-		Me.Label2.Text = "Marks (Capture, view reports)"
-		'
-		'Label1
-		'
-		Me.Label1.AutoSize = True
-		Me.Label1.Location = New System.Drawing.Point(29, 226)
-		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(185, 13)
-		Me.Label1.TabIndex = 6
-		Me.Label1.Text = "Details (change own. add new admin)"
-		'
 		'PictureBox2
 		'
 		Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -86,15 +68,35 @@ Partial Class frmAdminHome
 		Me.PictureBox2.TabIndex = 9
 		Me.PictureBox2.TabStop = False
 		'
+		'Label2
+		'
+		Me.Label2.AutoSize = True
+		Me.Label2.Location = New System.Drawing.Point(231, 226)
+		Me.Label2.Name = "Label2"
+		Me.Label2.Size = New System.Drawing.Size(145, 13)
+		Me.Label2.TabIndex = 8
+		Me.Label2.Text = "Marks (Capture, view reports)"
+		'
 		'PictureBox1
 		'
 		Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
 		Me.PictureBox1.Location = New System.Drawing.Point(234, 99)
 		Me.PictureBox1.Name = "PictureBox1"
 		Me.PictureBox1.Size = New System.Drawing.Size(150, 120)
+		Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
 		Me.PictureBox1.TabIndex = 7
 		Me.PictureBox1.TabStop = False
+		'
+		'Label1
+		'
+		Me.Label1.AutoSize = True
+		Me.Label1.Location = New System.Drawing.Point(29, 226)
+		Me.Label1.Name = "Label1"
+		Me.Label1.Size = New System.Drawing.Size(185, 13)
+		Me.Label1.TabIndex = 6
+		Me.Label1.Text = "Details (change own. add new admin)"
 		'
 		'pbDetails
 		'

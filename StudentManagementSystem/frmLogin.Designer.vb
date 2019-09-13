@@ -32,7 +32,7 @@ Partial Class frmLogin
         Me.lblNewStudent = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.txtLoginUsername = New System.Windows.Forms.MaskedTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
@@ -89,7 +89,7 @@ Partial Class frmLogin
         Me.pnlLogin.Controls.Add(Me.lblNewStudent)
         Me.pnlLogin.Controls.Add(Me.btnLogin)
         Me.pnlLogin.Controls.Add(Me.TextBox1)
-        Me.pnlLogin.Controls.Add(Me.MaskedTextBox1)
+        Me.pnlLogin.Controls.Add(Me.txtLoginUsername)
         Me.pnlLogin.Controls.Add(Me.Label2)
         Me.pnlLogin.Controls.Add(Me.lblUsername)
         Me.pnlLogin.Location = New System.Drawing.Point(12, 208)
@@ -138,13 +138,13 @@ Partial Class frmLogin
         Me.TextBox1.TabIndex = 3
         Me.TextBox1.UseSystemPasswordChar = True
         '
-        'MaskedTextBox1
+        'txtLoginUsername
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(135, 33)
-        Me.MaskedTextBox1.Mask = "0000000000"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox1.TabIndex = 2
+        Me.txtLoginUsername.Location = New System.Drawing.Point(135, 33)
+        Me.txtLoginUsername.Mask = "0000000000"
+        Me.txtLoginUsername.Name = "txtLoginUsername"
+        Me.txtLoginUsername.Size = New System.Drawing.Size(100, 20)
+        Me.txtLoginUsername.TabIndex = 2
         '
         'Label2
         '
@@ -224,7 +224,7 @@ Partial Class frmLogin
     Friend WithEvents pnlLogin As Panel
     Friend WithEvents btnLogin As Button
     Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents MaskedTextBox1 As MaskedTextBox
+    Friend WithEvents txtLoginUsername As MaskedTextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents lblUsername As Label
     Friend WithEvents Panel3 As Panel

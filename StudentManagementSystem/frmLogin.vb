@@ -1,12 +1,13 @@
 ﻿Public Class frmLogin
-    'We can Define a friend Variable to store Admin/Student Number To use across all forms
-    Const STUDENT As Integer = 0
-    Const ADMIN As Integer = 1
-    Friend NEWUSERFORM As Integer = 0
+	'We can Define a friend Variable to store Admin/Student Number To use across all forms
+	Friend Const STUDENT As Integer = 0
+	Friend Const ADMIN As Integer = 1
+	Friend NEWUSERFORM As Integer = 0
     Friend MAINFORM As Integer = 1
-    Dim userType As Integer 'gets assigned to either STUDENT (0) or ADMIN(1)
+	Friend userType As Integer 'gets assigned to either STUDENT (0) or ADMIN(1)
 
-    Friend newUser As TabPage = frmNewUser.tbpNewUser               'Reference to the newUser Tab Page on frmNewUser
+
+	Friend newUser As TabPage = frmNewUser.tbpNewUser               'Reference to the newUser Tab Page on frmNewUser
     Friend changePassword As TabPage = frmNewUser.tbpChangePassword 'Reference to the changePassword Tab Page on frmNewUser
 
     Friend detailsTab As TabPage = frmMain.tbpDetails           'Reference to details Tab on frmMain
@@ -63,8 +64,7 @@
 	Private Sub pbxStudent_Click(sender As Object, e As EventArgs) Handles pbxStudent.Click
         lblUsername.Text = "Student Number:"
         frmNewUser.lblStudAdminNumber.Text = "Student Number:"
-        lblNewStudent.Show()
-		'pnlLogin.Show()
+		lblNewStudent.Show()
 		userType = STUDENT
 		txtLoginUsername.Focus()
 		pnlLogin.Enabled = True
@@ -98,8 +98,9 @@
 	Private Sub lblNewStudent_Click(sender As Object, e As EventArgs) Handles lblNewStudent.Click
         ShowPage(newUser, NEWUSERFORM)
         HidePage(changePassword, NEWUSERFORM)
-        frmNewUser.ShowDialog()
-    End Sub
+		frmNewUser.ShowDialog()
+		'userType = STUDENT		'will already be set as STUDENT
+	End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         CloseProgram()

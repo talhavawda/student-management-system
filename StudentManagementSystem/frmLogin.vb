@@ -64,20 +64,20 @@
         lblUsername.Text = "Student Number:"
         frmNewUser.lblStudAdminNumber.Text = "Student Number:"
         lblNewStudent.Show()
-        'pnlLogin.Show()
-        userType = STUDENT
-        txtLoginUsername.Focus()
-        pnlLogin.Enabled = True
+		'pnlLogin.Show()
+		userType = STUDENT
+		txtLoginUsername.Focus()
+		pnlLogin.Enabled = True
 	End Sub
 
 	Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxAdmin.Click
-        lblUsername.Text = "Staff Number:"
-        frmNewUser.lblStudAdminNumber.Text = "Staff Number:"
-        lblNewStudent.Hide()
-        'pnlLogin.Show()
-        userType = ADMIN
-        txtLoginUsername.Focus()
-        pnlLogin.Enabled = True
+		lblUsername.Text = "Staff Number:"
+		frmNewUser.lblStudAdminNumber.Text = "Staff Number:"
+		lblNewStudent.Hide()
+		'pnlLogin.Show()
+		userType = ADMIN
+		txtLoginUsername.Focus()
+		pnlLogin.Enabled = True
 
 	End Sub
 

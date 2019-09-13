@@ -26,26 +26,24 @@ Partial Class frmMain
         Me.tbcMain = New System.Windows.Forms.TabControl()
         Me.tbpDetails = New System.Windows.Forms.TabPage()
         Me.grbStudent = New System.Windows.Forms.GroupBox()
-        Me.TextBox9 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtCourse = New System.Windows.Forms.TextBox()
+        Me.txtFirstStudyYear = New System.Windows.Forms.TextBox()
         Me.lblCourse = New System.Windows.Forms.Label()
         Me.lblFirstStudyYear = New System.Windows.Forms.Label()
         Me.grbDetails = New System.Windows.Forms.GroupBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtEmailAddress = New System.Windows.Forms.TextBox()
+        Me.txtSurname = New System.Windows.Forms.TextBox()
+        Me.txtName = New System.Windows.Forms.TextBox()
+        Me.txtIDNumber = New System.Windows.Forms.TextBox()
+        Me.txtAdminNumber = New System.Windows.Forms.TextBox()
+        Me.txtStudentNumber = New System.Windows.Forms.TextBox()
         Me.lblAdminNumber = New System.Windows.Forms.Label()
         Me.lblStudentNumber = New System.Windows.Forms.Label()
         Me.lblEmailAddress = New System.Windows.Forms.Label()
         Me.lblCellNumber = New System.Windows.Forms.Label()
         Me.lblSurname = New System.Windows.Forms.Label()
-        Me.lblIdNumber = New System.Windows.Forms.Label()
+        Me.lblIDNumber = New System.Windows.Forms.Label()
         Me.lblName = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.tbpNewRegistration = New System.Windows.Forms.TabPage()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.cmbMajor2 = New System.Windows.Forms.ComboBox()
@@ -81,6 +79,9 @@ Partial Class frmMain
         Me.lblStuResult = New System.Windows.Forms.Label()
         Me.tbpReports = New System.Windows.Forms.TabPage()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.btnCapture = New System.Windows.Forms.Button()
+        Me.btnMainPassword = New System.Windows.Forms.Button()
+        Me.txtCellNumber = New System.Windows.Forms.MaskedTextBox()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -112,9 +113,10 @@ Partial Class frmMain
         '
         'tbpDetails
         '
+        Me.tbpDetails.Controls.Add(Me.btnMainPassword)
+        Me.tbpDetails.Controls.Add(Me.btnCapture)
         Me.tbpDetails.Controls.Add(Me.grbStudent)
         Me.tbpDetails.Controls.Add(Me.grbDetails)
-        Me.tbpDetails.Controls.Add(Me.Label1)
         Me.tbpDetails.Location = New System.Drawing.Point(4, 22)
         Me.tbpDetails.Name = "tbpDetails"
         Me.tbpDetails.Padding = New System.Windows.Forms.Padding(3)
@@ -125,8 +127,8 @@ Partial Class frmMain
         '
         'grbStudent
         '
-        Me.grbStudent.Controls.Add(Me.TextBox9)
-        Me.grbStudent.Controls.Add(Me.TextBox8)
+        Me.grbStudent.Controls.Add(Me.txtCourse)
+        Me.grbStudent.Controls.Add(Me.txtFirstStudyYear)
         Me.grbStudent.Controls.Add(Me.lblCourse)
         Me.grbStudent.Controls.Add(Me.lblFirstStudyYear)
         Me.grbStudent.Location = New System.Drawing.Point(22, 301)
@@ -135,19 +137,19 @@ Partial Class frmMain
         Me.grbStudent.TabIndex = 7
         Me.grbStudent.TabStop = False
         '
-        'TextBox9
+        'txtCourse
         '
-        Me.TextBox9.Location = New System.Drawing.Point(147, 51)
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox9.TabIndex = 9
+        Me.txtCourse.Location = New System.Drawing.Point(147, 51)
+        Me.txtCourse.Name = "txtCourse"
+        Me.txtCourse.Size = New System.Drawing.Size(100, 20)
+        Me.txtCourse.TabIndex = 9
         '
-        'TextBox8
+        'txtFirstStudyYear
         '
-        Me.TextBox8.Location = New System.Drawing.Point(147, 18)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox8.TabIndex = 8
+        Me.txtFirstStudyYear.Location = New System.Drawing.Point(147, 18)
+        Me.txtFirstStudyYear.Name = "txtFirstStudyYear"
+        Me.txtFirstStudyYear.Size = New System.Drawing.Size(100, 20)
+        Me.txtFirstStudyYear.TabIndex = 8
         '
         'lblCourse
         '
@@ -169,19 +171,19 @@ Partial Class frmMain
         '
         'grbDetails
         '
-        Me.grbDetails.Controls.Add(Me.TextBox7)
-        Me.grbDetails.Controls.Add(Me.TextBox6)
-        Me.grbDetails.Controls.Add(Me.TextBox5)
-        Me.grbDetails.Controls.Add(Me.TextBox4)
-        Me.grbDetails.Controls.Add(Me.TextBox3)
-        Me.grbDetails.Controls.Add(Me.TextBox2)
-        Me.grbDetails.Controls.Add(Me.TextBox1)
+        Me.grbDetails.Controls.Add(Me.txtCellNumber)
+        Me.grbDetails.Controls.Add(Me.txtEmailAddress)
+        Me.grbDetails.Controls.Add(Me.txtSurname)
+        Me.grbDetails.Controls.Add(Me.txtName)
+        Me.grbDetails.Controls.Add(Me.txtIDNumber)
+        Me.grbDetails.Controls.Add(Me.txtAdminNumber)
+        Me.grbDetails.Controls.Add(Me.txtStudentNumber)
         Me.grbDetails.Controls.Add(Me.lblAdminNumber)
         Me.grbDetails.Controls.Add(Me.lblStudentNumber)
         Me.grbDetails.Controls.Add(Me.lblEmailAddress)
         Me.grbDetails.Controls.Add(Me.lblCellNumber)
         Me.grbDetails.Controls.Add(Me.lblSurname)
-        Me.grbDetails.Controls.Add(Me.lblIdNumber)
+        Me.grbDetails.Controls.Add(Me.lblIDNumber)
         Me.grbDetails.Controls.Add(Me.lblName)
         Me.grbDetails.Location = New System.Drawing.Point(22, 6)
         Me.grbDetails.Name = "grbDetails"
@@ -189,54 +191,47 @@ Partial Class frmMain
         Me.grbDetails.TabIndex = 3
         Me.grbDetails.TabStop = False
         '
-        'TextBox7
+        'txtEmailAddress
         '
-        Me.TextBox7.Location = New System.Drawing.Point(147, 250)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox7.TabIndex = 14
+        Me.txtEmailAddress.Location = New System.Drawing.Point(147, 250)
+        Me.txtEmailAddress.Name = "txtEmailAddress"
+        Me.txtEmailAddress.Size = New System.Drawing.Size(100, 20)
+        Me.txtEmailAddress.TabIndex = 14
         '
-        'TextBox6
+        'txtSurname
         '
-        Me.TextBox6.Location = New System.Drawing.Point(147, 205)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox6.TabIndex = 13
+        Me.txtSurname.Location = New System.Drawing.Point(147, 161)
+        Me.txtSurname.Name = "txtSurname"
+        Me.txtSurname.Size = New System.Drawing.Size(100, 20)
+        Me.txtSurname.TabIndex = 12
         '
-        'TextBox5
+        'txtName
         '
-        Me.TextBox5.Location = New System.Drawing.Point(147, 161)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox5.TabIndex = 12
+        Me.txtName.Location = New System.Drawing.Point(147, 122)
+        Me.txtName.Name = "txtName"
+        Me.txtName.Size = New System.Drawing.Size(100, 20)
+        Me.txtName.TabIndex = 11
         '
-        'TextBox4
+        'txtIDNumber
         '
-        Me.TextBox4.Location = New System.Drawing.Point(147, 122)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox4.TabIndex = 11
+        Me.txtIDNumber.Location = New System.Drawing.Point(147, 83)
+        Me.txtIDNumber.Name = "txtIDNumber"
+        Me.txtIDNumber.Size = New System.Drawing.Size(100, 20)
+        Me.txtIDNumber.TabIndex = 10
         '
-        'TextBox3
+        'txtAdminNumber
         '
-        Me.TextBox3.Location = New System.Drawing.Point(147, 83)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox3.TabIndex = 10
+        Me.txtAdminNumber.Location = New System.Drawing.Point(147, 49)
+        Me.txtAdminNumber.Name = "txtAdminNumber"
+        Me.txtAdminNumber.Size = New System.Drawing.Size(100, 20)
+        Me.txtAdminNumber.TabIndex = 9
         '
-        'TextBox2
+        'txtStudentNumber
         '
-        Me.TextBox2.Location = New System.Drawing.Point(147, 49)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox2.TabIndex = 9
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(147, 9)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 8
+        Me.txtStudentNumber.Location = New System.Drawing.Point(147, 9)
+        Me.txtStudentNumber.Name = "txtStudentNumber"
+        Me.txtStudentNumber.Size = New System.Drawing.Size(100, 20)
+        Me.txtStudentNumber.TabIndex = 8
         '
         'lblAdminNumber
         '
@@ -283,14 +278,14 @@ Partial Class frmMain
         Me.lblSurname.TabIndex = 3
         Me.lblSurname.Text = "Surname :"
         '
-        'lblIdNumber
+        'lblIDNumber
         '
-        Me.lblIdNumber.AutoSize = True
-        Me.lblIdNumber.Location = New System.Drawing.Point(15, 90)
-        Me.lblIdNumber.Name = "lblIdNumber"
-        Me.lblIdNumber.Size = New System.Drawing.Size(64, 13)
-        Me.lblIdNumber.TabIndex = 1
-        Me.lblIdNumber.Text = "ID Number :"
+        Me.lblIDNumber.AutoSize = True
+        Me.lblIDNumber.Location = New System.Drawing.Point(15, 90)
+        Me.lblIDNumber.Name = "lblIDNumber"
+        Me.lblIDNumber.Size = New System.Drawing.Size(64, 13)
+        Me.lblIDNumber.TabIndex = 1
+        Me.lblIDNumber.Text = "ID Number :"
         '
         'lblName
         '
@@ -300,16 +295,6 @@ Partial Class frmMain
         Me.lblName.Size = New System.Drawing.Size(41, 13)
         Me.lblName.TabIndex = 2
         Me.lblName.Text = "Name :"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(80, 416)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(486, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "cant change password here. a separate form will deal with that which a button her" &
-    "e will go to that form"
         '
         'tbpNewRegistration
         '
@@ -640,6 +625,32 @@ Partial Class frmMain
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "GroupBox6"
         '
+        'btnCapture
+        '
+        Me.btnCapture.Location = New System.Drawing.Point(22, 426)
+        Me.btnCapture.Name = "btnCapture"
+        Me.btnCapture.Size = New System.Drawing.Size(187, 28)
+        Me.btnCapture.TabIndex = 8
+        Me.btnCapture.Text = "Capture"
+        Me.btnCapture.UseVisualStyleBackColor = True
+        '
+        'btnMainPassword
+        '
+        Me.btnMainPassword.Location = New System.Drawing.Point(327, 426)
+        Me.btnMainPassword.Name = "btnMainPassword"
+        Me.btnMainPassword.Size = New System.Drawing.Size(105, 28)
+        Me.btnMainPassword.TabIndex = 9
+        Me.btnMainPassword.Text = "Change Password"
+        Me.btnMainPassword.UseVisualStyleBackColor = True
+        '
+        'txtCellNumber
+        '
+        Me.txtCellNumber.Location = New System.Drawing.Point(147, 204)
+        Me.txtCellNumber.Mask = "999 000 0000"
+        Me.txtCellNumber.Name = "txtCellNumber"
+        Me.txtCellNumber.Size = New System.Drawing.Size(100, 20)
+        Me.txtCellNumber.TabIndex = 15
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -652,7 +663,6 @@ Partial Class frmMain
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.tbcMain.ResumeLayout(False)
         Me.tbpDetails.ResumeLayout(False)
-        Me.tbpDetails.PerformLayout()
         Me.grbStudent.ResumeLayout(False)
         Me.grbStudent.PerformLayout()
         Me.grbDetails.ResumeLayout(False)
@@ -680,28 +690,26 @@ Partial Class frmMain
     Friend WithEvents tbpResultsStudent As TabPage
     Friend WithEvents tbpResultsAdmin As TabPage
     Friend WithEvents tbpReports As TabPage
-    Friend WithEvents Label1 As Label
     Friend WithEvents tbpViewRegistration As TabPage
     Friend WithEvents lblFirstStudyYear As Label
     Friend WithEvents grbDetails As GroupBox
     Friend WithEvents lblEmailAddress As Label
     Friend WithEvents lblCellNumber As Label
     Friend WithEvents lblSurname As Label
-    Friend WithEvents lblIdNumber As Label
+    Friend WithEvents lblIDNumber As Label
     Friend WithEvents lblName As Label
     Friend WithEvents grbStudent As GroupBox
     Friend WithEvents lblCourse As Label
     Friend WithEvents lblAdminNumber As Label
     Friend WithEvents lblStudentNumber As Label
-    Friend WithEvents TextBox7 As TextBox
-    Friend WithEvents TextBox6 As TextBox
-    Friend WithEvents TextBox5 As TextBox
-    Friend WithEvents TextBox4 As TextBox
-    Friend WithEvents TextBox3 As TextBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents TextBox9 As TextBox
-    Friend WithEvents TextBox8 As TextBox
+    Friend WithEvents txtEmailAddress As TextBox
+    Friend WithEvents txtSurname As TextBox
+    Friend WithEvents txtName As TextBox
+    Friend WithEvents txtIDNumber As TextBox
+    Friend WithEvents txtAdminNumber As TextBox
+    Friend WithEvents txtStudentNumber As TextBox
+    Friend WithEvents txtCourse As TextBox
+    Friend WithEvents txtFirstStudyYear As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents lblQualReg As Label
     Friend WithEvents lblStudentNumberReg As Label
@@ -732,4 +740,7 @@ Partial Class frmMain
     Friend WithEvents txtModResult As TextBox
     Friend WithEvents txtStuResult As TextBox
     Friend WithEvents lblResultVal As Label
+    Friend WithEvents btnMainPassword As Button
+    Friend WithEvents btnCapture As Button
+    Friend WithEvents txtCellNumber As MaskedTextBox
 End Class

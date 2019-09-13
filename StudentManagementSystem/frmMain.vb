@@ -1,4 +1,10 @@
 ﻿Public Class frmMain
+    Public Function ValidateCell(ByVal cell As String) As Boolean
+        If cell(0) <> "0" Or cell.Length <> 10 Then
+            Return False
+        End If
+        Return True
+    End Function
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles grbDetails.Enter
 
     End Sub
@@ -26,5 +32,18 @@
         frmLogin.HidePage(frmLogin.viewResults, frmLogin.MAINFORM)
         frmLogin.HidePage(frmLogin.reports, frmLogin.MAINFORM)
         frmLogin.HidePage(frmLogin.detailsTab, frmLogin.MAINFORM)
+    End Sub
+
+    Private Sub btnMainPassword_Click(sender As Object, e As EventArgs) Handles btnMainPassword.Click
+        frmLogin.ShowPage(frmLogin.changePassword, frmLogin.NEWUSERFORM)
+        frmNewUser.ShowDialog()
+    End Sub
+
+    Private Sub btnCapture_Click(sender As Object, e As EventArgs) Handles btnCapture.Click
+        'If ValidateCell(txtCellNumber.Text) And ValidateEmail(txtEmailAddress.text) Then'
+    End Sub
+
+    Private Sub txtCellNumber_TextChanged(sender As Object, e As EventArgs)
+
     End Sub
 End Class

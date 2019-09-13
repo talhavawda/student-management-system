@@ -32,6 +32,7 @@
         frmLogin.HidePage(frmLogin.viewResults, frmLogin.MAINFORM)
         frmLogin.HidePage(frmLogin.reports, frmLogin.MAINFORM)
         frmLogin.HidePage(frmLogin.detailsTab, frmLogin.MAINFORM)
+        frmLogin.HidePage(frmLogin.addresults, frmLogin.MAINFORM)
     End Sub
 
     Private Sub btnMainPassword_Click(sender As Object, e As EventArgs) Handles btnMainPassword.Click

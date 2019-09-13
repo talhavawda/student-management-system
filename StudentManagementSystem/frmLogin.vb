@@ -105,4 +105,8 @@
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
         CloseProgram()
     End Sub
+
+    Private Sub tmrDateTime_Tick(sender As Object, e As EventArgs) Handles tmrDateTime.Tick
+        lblDateTime.Text = System.DateTime.Now.ToString("yyyy/MM/dd    hh:mm:ss")
+    End Sub
 End Class

@@ -9,4 +9,9 @@
         frmLogin.HidetbpChangePassword()
         Me.Close()
     End Sub
+
+    Private Sub frmNewUser_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frmLogin.HidetbpNewUser()
+        frmLogin.HidetbpChangePassword()
+    End Sub
 End Class

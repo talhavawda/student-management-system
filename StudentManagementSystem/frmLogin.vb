@@ -1,27 +1,38 @@
 ﻿Public Class frmLogin
     'We can Define a friend Variable to store Admin/Student Number To use across all forms
     Const STUDENT As Integer = 0
-	Const ADMIN As Integer = 1
-	Dim userType As Integer 'gets assigned to either STUDENT (0) or ADMIN(1)
+    Const ADMIN As Integer = 1
+    Friend NEWUSERFORM As Integer = 0
+    Friend MAINFORM As Integer = 1
+    Dim userType As Integer 'gets assigned to either STUDENT (0) or ADMIN(1)
 
-    Friend newUser As TabPage = frmNewUser.tbpNewUser 'Reference to the newUser Tab Page on frmNewUser
+    Friend newUser As TabPage = frmNewUser.tbpNewUser               'Reference to the newUser Tab Page on frmNewUser
     Friend changePassword As TabPage = frmNewUser.tbpChangePassword 'Reference to the changePassword Tab Page on frmNewUser
 
-    Friend detailsTab As TabPage 'Reference to details Tab on frmMain
-    Friend newReg As TabPage 'Reference to New registration tab on frmMain
-    Friend viewReg As TabPage 'Reference to View Registration Tab on frmMain
-    Friend viewResults As TabPage 'Reference to View reults on frmMain
-    Friend addresults As TabPage 'Reference to Add results on frmMain
-    Friend reports As TabPage 'Reference to Reports Tab on frmMain
+    Friend detailsTab As TabPage = frmMain.tbpDetails           'Reference to details Tab on frmMain
+    Friend newReg As TabPage = frmMain.tbpNewRegistration       'Reference to New registration tab on frmMain
+    Friend viewReg As TabPage = frmMain.tbpViewRegistration     'Reference to View Registration Tab on frmMain
+    Friend viewResults As TabPage = frmMain.tbpResultsStudent   'Reference to View reults on frmMain
+    Friend addresults As TabPage = frmMain.tbpResultsAdmin      'Reference to Add results on frmMain
+    Friend reports As TabPage = frmMain.tbpReports              'Reference to Reports Tab on frmMain
 
 
     'Generic hide method
-    Public Sub HidePage(ByRef tabpage As TabPage)
-        frmNewUser.tbcNewUser.TabPages.Remove(tabpage)
+    Public Sub HidePage(ByRef tabpage As TabPage, ByVal whichForm As Integer)
+        If whichForm = 0 Then
+            frmNewUser.tbcNewUser.TabPages.Remove(tabpage)
+        Else
+            frmMain.tbcMain.TabPages.Remove(tabpage)
+        End If
+
     End Sub
     'Generic show method
-    Public Sub ShowPage(ByRef tabpage As TabPage)
-        frmNewUser.tbcNewUser.TabPages.Add(tabpage)
+    Public Sub ShowPage(ByRef tabpage As TabPage, ByVal whichForm As Integer)
+        If whichForm = 0 Then
+            frmNewUser.tbcNewUser.TabPages.Add(tabpage)
+        Else
+            frmMain.tbcMain.TabPages.Add(tabpage)
+        End If
     End Sub
 
 
@@ -33,8 +44,15 @@
 	End Sub
 
 	Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        HidePage(changePassword)
-        HidePage(newUser)
+        HidePage(changePassword, NEWUSERFORM)
+        HidePage(newUser, NEWUSERFORM)
+        HidePage(detailsTab, MAINFORM)
+        HidePage(newReg, MAINFORM)
+        HidePage(viewReg, MAINFORM)
+        HidePage(viewResults, MAINFORM)
+        HidePage(addresults, MAINFORM)
+        HidePage(reports, MAINFORM)
+        HidePage(detailsTab, MAINFORM)
         pnlLogin.Enabled = False
     End Sub
 
@@ -70,14 +88,14 @@
 	End Sub
 
 	Private Sub lblForgotPassword_Click(sender As Object, e As EventArgs) Handles lblForgotPassword.Click
-        ShowPage(changePassword)
-        HidePage(newUser)
+        ShowPage(changePassword, NEWUSERFORM)
+        HidePage(newUser, NEWUSERFORM)
         frmNewUser.ShowDialog()
 	End Sub
 
 	Private Sub lblNewStudent_Click(sender As Object, e As EventArgs) Handles lblNewStudent.Click
-        ShowPage(newUser)
-        HidePage(changePassword)
+        ShowPage(newUser, NEWUSERFORM)
+        HidePage(changePassword, NEWUSERFORM)
         frmNewUser.ShowDialog()
     End Sub
 

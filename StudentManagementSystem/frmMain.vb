@@ -18,4 +18,13 @@
     Private Sub Label12_Click(sender As Object, e As EventArgs) Handles lblModResult.Click
 
     End Sub
+
+    Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frmLogin.HidePage(frmLogin.detailsTab, frmLogin.MAINFORM)
+        frmLogin.HidePage(frmLogin.newReg, frmLogin.MAINFORM)
+        frmLogin.HidePage(frmLogin.viewReg, frmLogin.MAINFORM)
+        frmLogin.HidePage(frmLogin.viewResults, frmLogin.MAINFORM)
+        frmLogin.HidePage(frmLogin.reports, frmLogin.MAINFORM)
+        frmLogin.HidePage(frmLogin.detailsTab, frmLogin.MAINFORM)
+    End Sub
 End Class

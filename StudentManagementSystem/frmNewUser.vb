@@ -20,4 +20,12 @@
         txtNewPassword.Clear()
         txtRePassword.Clear()
     End Sub
+
+    Private Sub txtNewStudAdminNumber_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles txtNewStudAdminNumber.MaskInputRejected
+
+    End Sub
+
+    Private Sub tbpNewUser_Click(sender As Object, e As EventArgs) Handles tbpNewUser.Click
+
+    End Sub
 End Class

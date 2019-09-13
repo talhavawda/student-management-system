@@ -64,6 +64,8 @@ Partial Class frmNewUser
 		Me.ComboBox2 = New System.Windows.Forms.ComboBox()
 		Me.Label10 = New System.Windows.Forms.Label()
 		Me.Label11 = New System.Windows.Forms.Label()
+		Me.btnChangePassword = New System.Windows.Forms.Button()
+		Me.btnCreateUser = New System.Windows.Forms.Button()
 		Me.tbcNewUser.SuspendLayout()
 		Me.tbpNewUser.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
@@ -81,18 +83,19 @@ Partial Class frmNewUser
 		Me.tbcNewUser.Location = New System.Drawing.Point(12, 12)
 		Me.tbcNewUser.Name = "tbcNewUser"
 		Me.tbcNewUser.SelectedIndex = 0
-		Me.tbcNewUser.Size = New System.Drawing.Size(434, 504)
+		Me.tbcNewUser.Size = New System.Drawing.Size(434, 555)
 		Me.tbcNewUser.TabIndex = 0
 		'
 		'tbpNewUser
 		'
+		Me.tbpNewUser.Controls.Add(Me.btnCreateUser)
 		Me.tbpNewUser.Controls.Add(Me.GroupBox1)
 		Me.tbpNewUser.Controls.Add(Me.grpNewPassword)
 		Me.tbpNewUser.Controls.Add(Me.grpPersonalDetails)
 		Me.tbpNewUser.Location = New System.Drawing.Point(4, 22)
 		Me.tbpNewUser.Name = "tbpNewUser"
 		Me.tbpNewUser.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbpNewUser.Size = New System.Drawing.Size(426, 478)
+		Me.tbpNewUser.Size = New System.Drawing.Size(426, 529)
 		Me.tbpNewUser.TabIndex = 0
 		Me.tbpNewUser.Text = "New User"
 		Me.tbpNewUser.UseVisualStyleBackColor = True
@@ -307,6 +310,7 @@ Partial Class frmNewUser
 		'
 		'tbpChangePassword
 		'
+		Me.tbpChangePassword.Controls.Add(Me.btnChangePassword)
 		Me.tbpChangePassword.Controls.Add(Me.grpPassword)
 		Me.tbpChangePassword.Controls.Add(Me.grpSecurity)
 		Me.tbpChangePassword.Location = New System.Drawing.Point(4, 22)
@@ -437,7 +441,7 @@ Partial Class frmNewUser
 		'
 		'btnClose
 		'
-		Me.btnClose.Location = New System.Drawing.Point(367, 522)
+		Me.btnClose.Location = New System.Drawing.Point(367, 564)
 		Me.btnClose.Name = "btnClose"
 		Me.btnClose.Size = New System.Drawing.Size(75, 23)
 		Me.btnClose.TabIndex = 1
@@ -470,11 +474,29 @@ Partial Class frmNewUser
 		Me.Label11.TabIndex = 5
 		Me.Label11.Text = "Major 2:"
 		'
+		'btnChangePassword
+		'
+		Me.btnChangePassword.Location = New System.Drawing.Point(150, 354)
+		Me.btnChangePassword.Name = "btnChangePassword"
+		Me.btnChangePassword.Size = New System.Drawing.Size(117, 23)
+		Me.btnChangePassword.TabIndex = 5
+		Me.btnChangePassword.Text = "Change Password"
+		Me.btnChangePassword.UseVisualStyleBackColor = True
+		'
+		'btnCreateUser
+		'
+		Me.btnCreateUser.Location = New System.Drawing.Point(165, 488)
+		Me.btnCreateUser.Name = "btnCreateUser"
+		Me.btnCreateUser.Size = New System.Drawing.Size(75, 23)
+		Me.btnCreateUser.TabIndex = 15
+		Me.btnCreateUser.Text = "Create"
+		Me.btnCreateUser.UseVisualStyleBackColor = True
+		'
 		'frmNewUser
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(458, 552)
+		Me.ClientSize = New System.Drawing.Size(458, 599)
 		Me.Controls.Add(Me.btnClose)
 		Me.Controls.Add(Me.tbcNewUser)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -539,4 +561,6 @@ Partial Class frmNewUser
 	Friend WithEvents Label10 As Label
 	Friend WithEvents ComboBox2 As ComboBox
 	Friend WithEvents Label11 As Label
+	Friend WithEvents btnChangePassword As Button
+	Friend WithEvents btnCreateUser As Button
 End Class

@@ -9,7 +9,7 @@
 
     End Sub
 
-    Private Sub lblStudentNumber_Click(sender As Object, e As EventArgs) Handles lblStudentNumber.Click
+    Private Sub lblStudentNumber_Click(sender As Object, e As EventArgs)
 
     End Sub
 

@@ -5,7 +5,10 @@
 
     Private Sub pbDetails_Click(sender As Object, e As EventArgs) Handles pbDetails.Click
         frmLogin.ShowPage(frmLogin.detailsTab, frmLogin.MAINFORM)
+        frmMain.grbStudent.Hide()
+        frmMain.lblUsername.Text = "Staff Number: "
         frmMain.ShowDialog()
+
 
 
     End Sub

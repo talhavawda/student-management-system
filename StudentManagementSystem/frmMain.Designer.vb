@@ -39,9 +39,7 @@ Partial Class frmMain
         Me.txtName = New System.Windows.Forms.TextBox()
         Me.txtIDNumber = New System.Windows.Forms.TextBox()
         Me.txtAdminNumber = New System.Windows.Forms.TextBox()
-        Me.txtStudentNumber = New System.Windows.Forms.TextBox()
-        Me.lblAdminNumber = New System.Windows.Forms.Label()
-        Me.lblStudentNumber = New System.Windows.Forms.Label()
+        Me.lblUsername = New System.Windows.Forms.Label()
         Me.lblEmailAddress = New System.Windows.Forms.Label()
         Me.lblCellNumber = New System.Windows.Forms.Label()
         Me.lblSurname = New System.Windows.Forms.Label()
@@ -197,9 +195,7 @@ Partial Class frmMain
         Me.grbDetails.Controls.Add(Me.txtName)
         Me.grbDetails.Controls.Add(Me.txtIDNumber)
         Me.grbDetails.Controls.Add(Me.txtAdminNumber)
-        Me.grbDetails.Controls.Add(Me.txtStudentNumber)
-        Me.grbDetails.Controls.Add(Me.lblAdminNumber)
-        Me.grbDetails.Controls.Add(Me.lblStudentNumber)
+        Me.grbDetails.Controls.Add(Me.lblUsername)
         Me.grbDetails.Controls.Add(Me.lblEmailAddress)
         Me.grbDetails.Controls.Add(Me.lblCellNumber)
         Me.grbDetails.Controls.Add(Me.lblSurname)
@@ -213,7 +209,7 @@ Partial Class frmMain
         '
         'txtCellNumber
         '
-        Me.txtCellNumber.Location = New System.Drawing.Point(147, 204)
+        Me.txtCellNumber.Location = New System.Drawing.Point(147, 176)
         Me.txtCellNumber.Mask = "999 000 0000"
         Me.txtCellNumber.Name = "txtCellNumber"
         Me.txtCellNumber.Size = New System.Drawing.Size(100, 20)
@@ -221,68 +217,52 @@ Partial Class frmMain
         '
         'txtEmailAddress
         '
-        Me.txtEmailAddress.Location = New System.Drawing.Point(147, 250)
+        Me.txtEmailAddress.Location = New System.Drawing.Point(147, 222)
         Me.txtEmailAddress.Name = "txtEmailAddress"
         Me.txtEmailAddress.Size = New System.Drawing.Size(100, 20)
         Me.txtEmailAddress.TabIndex = 14
         '
         'txtSurname
         '
-        Me.txtSurname.Location = New System.Drawing.Point(147, 161)
+        Me.txtSurname.Location = New System.Drawing.Point(147, 133)
         Me.txtSurname.Name = "txtSurname"
         Me.txtSurname.Size = New System.Drawing.Size(100, 20)
         Me.txtSurname.TabIndex = 12
         '
         'txtName
         '
-        Me.txtName.Location = New System.Drawing.Point(147, 122)
+        Me.txtName.Location = New System.Drawing.Point(147, 94)
         Me.txtName.Name = "txtName"
         Me.txtName.Size = New System.Drawing.Size(100, 20)
         Me.txtName.TabIndex = 11
         '
         'txtIDNumber
         '
-        Me.txtIDNumber.Location = New System.Drawing.Point(147, 83)
+        Me.txtIDNumber.Location = New System.Drawing.Point(147, 55)
         Me.txtIDNumber.Name = "txtIDNumber"
         Me.txtIDNumber.Size = New System.Drawing.Size(100, 20)
         Me.txtIDNumber.TabIndex = 10
         '
         'txtAdminNumber
         '
-        Me.txtAdminNumber.Location = New System.Drawing.Point(147, 49)
+        Me.txtAdminNumber.Location = New System.Drawing.Point(147, 21)
         Me.txtAdminNumber.Name = "txtAdminNumber"
         Me.txtAdminNumber.Size = New System.Drawing.Size(100, 20)
         Me.txtAdminNumber.TabIndex = 9
         '
-        'txtStudentNumber
+        'lblUsername
         '
-        Me.txtStudentNumber.Location = New System.Drawing.Point(147, 9)
-        Me.txtStudentNumber.Name = "txtStudentNumber"
-        Me.txtStudentNumber.Size = New System.Drawing.Size(100, 20)
-        Me.txtStudentNumber.TabIndex = 8
-        '
-        'lblAdminNumber
-        '
-        Me.lblAdminNumber.AutoSize = True
-        Me.lblAdminNumber.Location = New System.Drawing.Point(15, 56)
-        Me.lblAdminNumber.Name = "lblAdminNumber"
-        Me.lblAdminNumber.Size = New System.Drawing.Size(82, 13)
-        Me.lblAdminNumber.TabIndex = 7
-        Me.lblAdminNumber.Text = "Admin Number :"
-        '
-        'lblStudentNumber
-        '
-        Me.lblStudentNumber.AutoSize = True
-        Me.lblStudentNumber.Location = New System.Drawing.Point(15, 16)
-        Me.lblStudentNumber.Name = "lblStudentNumber"
-        Me.lblStudentNumber.Size = New System.Drawing.Size(90, 13)
-        Me.lblStudentNumber.TabIndex = 6
-        Me.lblStudentNumber.Text = "Student Number :"
+        Me.lblUsername.AutoSize = True
+        Me.lblUsername.Location = New System.Drawing.Point(15, 28)
+        Me.lblUsername.Name = "lblUsername"
+        Me.lblUsername.Size = New System.Drawing.Size(82, 13)
+        Me.lblUsername.TabIndex = 7
+        Me.lblUsername.Text = "Admin Number :"
         '
         'lblEmailAddress
         '
         Me.lblEmailAddress.AutoSize = True
-        Me.lblEmailAddress.Location = New System.Drawing.Point(15, 253)
+        Me.lblEmailAddress.Location = New System.Drawing.Point(15, 225)
         Me.lblEmailAddress.Name = "lblEmailAddress"
         Me.lblEmailAddress.Size = New System.Drawing.Size(79, 13)
         Me.lblEmailAddress.TabIndex = 5
@@ -291,7 +271,7 @@ Partial Class frmMain
         'lblCellNumber
         '
         Me.lblCellNumber.AutoSize = True
-        Me.lblCellNumber.Location = New System.Drawing.Point(15, 212)
+        Me.lblCellNumber.Location = New System.Drawing.Point(15, 184)
         Me.lblCellNumber.Name = "lblCellNumber"
         Me.lblCellNumber.Size = New System.Drawing.Size(70, 13)
         Me.lblCellNumber.TabIndex = 4
@@ -300,7 +280,7 @@ Partial Class frmMain
         'lblSurname
         '
         Me.lblSurname.AutoSize = True
-        Me.lblSurname.Location = New System.Drawing.Point(15, 168)
+        Me.lblSurname.Location = New System.Drawing.Point(15, 140)
         Me.lblSurname.Name = "lblSurname"
         Me.lblSurname.Size = New System.Drawing.Size(55, 13)
         Me.lblSurname.TabIndex = 3
@@ -309,7 +289,7 @@ Partial Class frmMain
         'lblIDNumber
         '
         Me.lblIDNumber.AutoSize = True
-        Me.lblIDNumber.Location = New System.Drawing.Point(15, 90)
+        Me.lblIDNumber.Location = New System.Drawing.Point(15, 62)
         Me.lblIDNumber.Name = "lblIDNumber"
         Me.lblIDNumber.Size = New System.Drawing.Size(64, 13)
         Me.lblIDNumber.TabIndex = 1
@@ -318,7 +298,7 @@ Partial Class frmMain
         'lblName
         '
         Me.lblName.AutoSize = True
-        Me.lblName.Location = New System.Drawing.Point(15, 129)
+        Me.lblName.Location = New System.Drawing.Point(15, 101)
         Me.lblName.Name = "lblName"
         Me.lblName.Size = New System.Drawing.Size(41, 13)
         Me.lblName.TabIndex = 2
@@ -722,14 +702,12 @@ Partial Class frmMain
     Friend WithEvents lblName As Label
     Friend WithEvents grbStudent As GroupBox
     Friend WithEvents lblCourse As Label
-    Friend WithEvents lblAdminNumber As Label
-    Friend WithEvents lblStudentNumber As Label
+    Friend WithEvents lblUsername As Label
     Friend WithEvents txtEmailAddress As TextBox
     Friend WithEvents txtSurname As TextBox
     Friend WithEvents txtName As TextBox
     Friend WithEvents txtIDNumber As TextBox
     Friend WithEvents txtAdminNumber As TextBox
-    Friend WithEvents txtStudentNumber As TextBox
     Friend WithEvents txtCourse As TextBox
     Friend WithEvents txtFirstStudyYear As TextBox
     Friend WithEvents GroupBox2 As GroupBox

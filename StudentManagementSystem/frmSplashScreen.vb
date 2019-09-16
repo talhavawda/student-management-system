@@ -8,6 +8,7 @@
 		frmTeamScreen.Show()
 
 		tmrLoadingLabel.Enabled = True
+
 	End Sub
 
     Private Sub tmrSplash_Tick(sender As Object, e As EventArgs)

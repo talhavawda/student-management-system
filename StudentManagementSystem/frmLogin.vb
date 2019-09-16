@@ -80,7 +80,6 @@
 	Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxAdmin.Click
 		lblUsername.Text = "Staff Number:"
 		frmNewUser.lblStudAdminNumber.Text = "Staff Number:"
-		lblNewStudent.Hide()
 		'pnlLogin.Show()
 		userType = ADMIN
 		txtLoginUsername.Clear()
@@ -140,7 +139,7 @@
     End Sub
 
     Private Sub tmrDateTime_Tick(sender As Object, e As EventArgs) Handles tmrDateTime.Tick
-		lblDateTime.Text = System.DateTime.Now.ToString("dd/mm/yyyy | HH:mm:ss")
+		lblDateTime.Text = System.DateTime.Now.ToString("dd/MMM/yyyy | HH:mm:ss")
 	End Sub
 
 	Private Sub lblDateTime_Click(sender As Object, e As EventArgs) Handles lblDateTime.Click

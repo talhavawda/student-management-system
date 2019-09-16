@@ -68,14 +68,14 @@ Partial Class frmLogin
 		'
 		'pnlSelect
 		'
-		Me.pnlSelect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.pnlSelect.Controls.Add(Me.Label3)
+		Me.pnlSelect.Controls.Add(Me.lblNewStudent)
 		Me.pnlSelect.Controls.Add(Me.pbxAdmin)
 		Me.pnlSelect.Controls.Add(Me.Label1)
 		Me.pnlSelect.Controls.Add(Me.pbxStudent)
-		Me.pnlSelect.Location = New System.Drawing.Point(12, 5)
+		Me.pnlSelect.Location = New System.Drawing.Point(0, 0)
 		Me.pnlSelect.Name = "pnlSelect"
-		Me.pnlSelect.Size = New System.Drawing.Size(508, 194)
+		Me.pnlSelect.Size = New System.Drawing.Size(538, 202)
 		Me.pnlSelect.TabIndex = 0
 		'
 		'Label3
@@ -92,9 +92,9 @@ Partial Class frmLogin
 		'
 		Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.pbxAdmin.Image = CType(resources.GetObject("pbxAdmin.Image"), System.Drawing.Image)
-		Me.pbxAdmin.Location = New System.Drawing.Point(330, 50)
+		Me.pbxAdmin.Location = New System.Drawing.Point(346, 47)
 		Me.pbxAdmin.Name = "pbxAdmin"
-		Me.pbxAdmin.Size = New System.Drawing.Size(140, 120)
+		Me.pbxAdmin.Size = New System.Drawing.Size(154, 132)
 		Me.pbxAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
 		Me.pbxAdmin.TabIndex = 1
 		Me.pbxAdmin.TabStop = False
@@ -113,15 +113,14 @@ Partial Class frmLogin
 		'pnlLogin
 		'
 		Me.pnlLogin.Controls.Add(Me.lblForgotPassword)
-		Me.pnlLogin.Controls.Add(Me.lblNewStudent)
 		Me.pnlLogin.Controls.Add(Me.btnLogin)
 		Me.pnlLogin.Controls.Add(Me.txtPassword)
 		Me.pnlLogin.Controls.Add(Me.txtLoginUsername)
 		Me.pnlLogin.Controls.Add(Me.Label2)
 		Me.pnlLogin.Controls.Add(Me.lblUsername)
-		Me.pnlLogin.Location = New System.Drawing.Point(12, 208)
+		Me.pnlLogin.Location = New System.Drawing.Point(0, 208)
 		Me.pnlLogin.Name = "pnlLogin"
-		Me.pnlLogin.Size = New System.Drawing.Size(508, 138)
+		Me.pnlLogin.Size = New System.Drawing.Size(538, 138)
 		Me.pnlLogin.TabIndex = 4
 		'
 		'lblForgotPassword
@@ -140,7 +139,7 @@ Partial Class frmLogin
 		Me.lblNewStudent.AutoSize = True
 		Me.lblNewStudent.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.lblNewStudent.ForeColor = System.Drawing.SystemColors.MenuHighlight
-		Me.lblNewStudent.Location = New System.Drawing.Point(372, 107)
+		Me.lblNewStudent.Location = New System.Drawing.Point(79, 181)
 		Me.lblNewStudent.Name = "lblNewStudent"
 		Me.lblNewStudent.Size = New System.Drawing.Size(97, 13)
 		Me.lblNewStudent.TabIndex = 5
@@ -195,15 +194,15 @@ Partial Class frmLogin
 		'
 		Me.Panel3.Controls.Add(Me.btnExit)
 		Me.Panel3.Controls.Add(Me.lblDateTime)
-		Me.Panel3.Location = New System.Drawing.Point(12, 353)
+		Me.Panel3.Location = New System.Drawing.Point(0, 361)
 		Me.Panel3.Name = "Panel3"
-		Me.Panel3.Size = New System.Drawing.Size(508, 42)
+		Me.Panel3.Size = New System.Drawing.Size(538, 42)
 		Me.Panel3.TabIndex = 5
 		'
 		'btnExit
 		'
 		Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.btnExit.Location = New System.Drawing.Point(421, 10)
+		Me.btnExit.Location = New System.Drawing.Point(460, 18)
 		Me.btnExit.Name = "btnExit"
 		Me.btnExit.Size = New System.Drawing.Size(75, 23)
 		Me.btnExit.TabIndex = 1
@@ -213,7 +212,7 @@ Partial Class frmLogin
 		'lblDateTime
 		'
 		Me.lblDateTime.AutoSize = True
-		Me.lblDateTime.Location = New System.Drawing.Point(24, 15)
+		Me.lblDateTime.Location = New System.Drawing.Point(6, 23)
 		Me.lblDateTime.Name = "lblDateTime"
 		Me.lblDateTime.Size = New System.Drawing.Size(89, 13)
 		Me.lblDateTime.TabIndex = 0

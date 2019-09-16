@@ -58,8 +58,14 @@
 
 
 		'DATABASE CONNECTION: 
-		StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
-		AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)
+		Try
+			StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
+			AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)
+		Catch ex As SqlClient.SqlException
+			MessageBox.Show("Database not connected." + Environment.NewLine + "Please make sure that you are connected to the database first before running the application.", "Database not connected.", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Me.Close()
+		End Try
+
 	End Sub
 
 	Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles pnlSelect.Paint
@@ -102,8 +108,11 @@
                 AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)                          'Fill it again after sql filter
                 frmAdminHome.ShowDialog()                                           'Show Admin Home Screen
             Else
-                MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your deatils", "Invalid Lodin Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+				MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your details", "Invalid Login Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				'Generally the username is more likely correct and the password is incorrect so not going to clear username field
+				txtPassword.Clear()
+				txtPassword.Focus()
+			End If
         Else                                                                            'userType = STUDENT
             StudentTableAdapter1.StudentLogin(SmsDataSet1.STUDENT, username, password)  'SQL Query
             If (SmsDataSet1.STUDENT.Rows.Count = 1) Then                                'Correct Student Login
@@ -111,8 +120,11 @@
                 StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)                          'Fill it again after sql filter
                 frmStudentHome.ShowDialog()                                             'Show Student Home Screen
             Else
-                MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your deatils", "Invalid Lodin Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+				MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your details", "Invalid Login Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
+				'Generally the username is more likely correct and the password is incorrect so not going to clear username field
+				txtPassword.Clear()
+				txtPassword.Focus()
+			End If
         End If
 
 

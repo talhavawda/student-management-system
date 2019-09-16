@@ -51,4 +51,27 @@
 	Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
 
 	End Sub
+
+	Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		If frmLogin.userType = frmLogin.ADMIN Then
+			AdminTableAdapter1.FillDetails(SmsDataSet1.ADMIN, frmLogin.username)
+			txtAdminNumber.Text = frmLogin.username
+			txtIDNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(1).trim
+			txtName.Text = SmsDataSet1.ADMIN.Rows(0).Item(2).trim
+			txtSurname.Text = SmsDataSet1.ADMIN.Rows(0).Item(3).trim
+			txtCellNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(4).trim
+			txtEmailAddress.Text = SmsDataSet1.ADMIN.Rows(0).Item(5).trim
+		Else
+			StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
+			txtAdminNumber.Text = frmLogin.username
+			txtIDNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(1).trim
+			txtName.Text = SmsDataSet1.STUDENT.Rows(0).Item(2).trim
+			txtSurname.Text = SmsDataSet1.STUDENT.Rows(0).Item(3).trim
+			txtCellNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(4).trim
+			txtEmailAddress.Text = SmsDataSet1.STUDENT.Rows(0).Item(5).trim
+			txtFirstStudyYear.Text = SmsDataSet1.STUDENT.Rows(0).Item(7)
+			txtCourse.Text = SmsDataSet1.STUDENT.Rows(0).Item(8)
+
+		End If
+	End Sub
 End Class

@@ -1,6 +1,14 @@
 ﻿Public Class frmNewUser
-	Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    Dim SelectedCollege As Integer
+
+    Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        CollegeTableAdapter1.Fill(SmsDataSet1.COLLEGE)
+
+        For Each Row As DataRow In SmsDataSet1.COLLEGE.Rows
+            cmbCollege.Items.Add(Row.Item(1))
+
+        Next
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
@@ -29,7 +37,22 @@
 
     End Sub
 
-	Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
+    Private Sub Label9_Click(sender As Object, e As EventArgs) Handles Label9.Click
 
-	End Sub
+    End Sub
+
+    Private Sub cmbCollege_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCollege.SelectedIndexChanged
+        cmbMajor1.Items.Clear()
+        cmbMajor2.Items.Clear()
+
+
+        SelectedCollege = cmbCollege.SelectedIndex + 1
+
+        DisciplineTableAdapter1.FillMajors(SmsDataSet1.DISCIPLINE, SelectedCollege)
+
+        For Each Row As DataRow In SmsDataSet1.DISCIPLINE.Rows
+            cmbMajor1.Items.Add(Row.Item(1))
+            cmbMajor2.Items.Add(Row.Item(1))
+        Next
+    End Sub
 End Class

@@ -26,6 +26,8 @@
 
     Private Sub pbDetails_Click(sender As Object, e As EventArgs) Handles pbxDetails.Click
         frmLogin.ShowPage(frmLogin.detailsTab, frmLogin.MAINFORM)
+        frmMain.grbStudent.Show()
+        frmMain.lblUsername.Text = "Student Number: "
         frmMain.ShowDialog()
     End Sub
 End Class

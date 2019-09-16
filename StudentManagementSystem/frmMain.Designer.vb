@@ -104,8 +104,8 @@ Partial Class frmMain
 		'
 		'tbcMain
 		'
-		Me.tbcMain.Controls.Add(Me.tbpNewRegistration)
 		Me.tbcMain.Controls.Add(Me.tbpDetails)
+		Me.tbcMain.Controls.Add(Me.tbpNewRegistration)
 		Me.tbcMain.Controls.Add(Me.tbpViewRegistration)
 		Me.tbcMain.Controls.Add(Me.tbpResultsStudent)
 		Me.tbcMain.Controls.Add(Me.tbpResultsAdmin)

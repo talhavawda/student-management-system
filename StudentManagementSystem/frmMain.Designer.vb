@@ -22,6 +22,7 @@ Partial Class frmMain
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.tbcMain = New System.Windows.Forms.TabControl()
         Me.tbpDetails = New System.Windows.Forms.TabPage()
@@ -82,6 +83,12 @@ Partial Class frmMain
         Me.lblStuResult = New System.Windows.Forms.Label()
         Me.tbpReports = New System.Windows.Forms.TabPage()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
+        Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
+        Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
+        Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
+        Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -95,6 +102,9 @@ Partial Class frmMain
         Me.tbpResultsAdmin.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.tbpReports.SuspendLayout()
+        CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbcMain
@@ -157,6 +167,7 @@ Partial Class frmMain
         '
         'txtCourse
         '
+        Me.txtCourse.Enabled = False
         Me.txtCourse.Location = New System.Drawing.Point(147, 51)
         Me.txtCourse.Name = "txtCourse"
         Me.txtCourse.Size = New System.Drawing.Size(100, 20)
@@ -164,6 +175,7 @@ Partial Class frmMain
         '
         'txtFirstStudyYear
         '
+        Me.txtFirstStudyYear.Enabled = False
         Me.txtFirstStudyYear.Location = New System.Drawing.Point(147, 18)
         Me.txtFirstStudyYear.Name = "txtFirstStudyYear"
         Me.txtFirstStudyYear.Size = New System.Drawing.Size(100, 20)
@@ -238,6 +250,7 @@ Partial Class frmMain
         '
         'txtIDNumber
         '
+        Me.txtIDNumber.Enabled = False
         Me.txtIDNumber.Location = New System.Drawing.Point(147, 55)
         Me.txtIDNumber.Name = "txtIDNumber"
         Me.txtIDNumber.Size = New System.Drawing.Size(100, 20)
@@ -245,6 +258,7 @@ Partial Class frmMain
         '
         'txtAdminNumber
         '
+        Me.txtAdminNumber.Enabled = False
         Me.txtAdminNumber.Location = New System.Drawing.Point(147, 21)
         Me.txtAdminNumber.Name = "txtAdminNumber"
         Me.txtAdminNumber.Size = New System.Drawing.Size(100, 20)
@@ -653,6 +667,43 @@ Partial Class frmMain
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "GroupBox6"
         '
+        'SmsDataSet1
+        '
+        Me.SmsDataSet1.DataSetName = "SMSDataSet"
+        Me.SmsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'AdminTableAdapter1
+        '
+        Me.AdminTableAdapter1.ClearBeforeFill = True
+        '
+        'StudentTableAdapter1
+        '
+        Me.StudentTableAdapter1.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.COLLEGETableAdapter = Nothing
+        Me.TableAdapterManager1.COURSETableAdapter = Nothing
+        Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
+        Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
+        Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
+        Me.TableAdapterManager1.MODULETableAdapter = Nothing
+        Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
+        Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
+        Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'BSAdmin
+        '
+        Me.BSAdmin.DataMember = "ADMIN"
+        Me.BSAdmin.DataSource = Me.SmsDataSet1
+        '
+        'BSStudent
+        '
+        Me.BSStudent.DataMember = "STUDENT"
+        Me.BSStudent.DataSource = Me.SmsDataSet1
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -682,6 +733,9 @@ Partial Class frmMain
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.tbpReports.ResumeLayout(False)
+        CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -745,4 +799,10 @@ Partial Class frmMain
     Friend WithEvents txtCellNumber As MaskedTextBox
 	Friend WithEvents ListBox1 As ListBox
 	Friend WithEvents ListBox2 As ListBox
+    Friend WithEvents SmsDataSet1 As SMSDataSet
+    Friend WithEvents AdminTableAdapter1 As SMSDataSetTableAdapters.ADMINTableAdapter
+    Friend WithEvents StudentTableAdapter1 As SMSDataSetTableAdapters.STUDENTTableAdapter
+    Friend WithEvents TableAdapterManager1 As SMSDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents BSAdmin As BindingSource
+    Friend WithEvents BSStudent As BindingSource
 End Class

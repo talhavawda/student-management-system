@@ -98,7 +98,7 @@
         If userType = ADMIN Then                                                    'If and Admin Member is loging in
             AdminTableAdapter1.AdminLogin(SmsDataSet1.ADMIN, username, password)    'SQL Query
             If SmsDataSet1.ADMIN.Rows.Count = 1 Then                                'Correct Admin Login
-                MsgBox("Welcome " + SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim)
+                MsgBox("Welcome " + SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.ADMIN.Rows(0).Item(3).trim)
                 AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)                          'Fill it again after sql filter
                 frmAdminHome.ShowDialog()                                           'Show Admin Home Screen
             Else

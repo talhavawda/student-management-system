@@ -32,7 +32,7 @@ Partial Class frmLogin
         Me.lblForgotPassword = New System.Windows.Forms.Label()
         Me.lblNewStudent = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.txtLoginUsername = New System.Windows.Forms.MaskedTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.lblUsername = New System.Windows.Forms.Label()
@@ -40,11 +40,20 @@ Partial Class frmLogin
         Me.btnExit = New System.Windows.Forms.Button()
         Me.lblDateTime = New System.Windows.Forms.Label()
         Me.tmrDateTime = New System.Windows.Forms.Timer(Me.components)
+        Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
+        Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
+        Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
+        Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
+        Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
         Me.pnlSelect.SuspendLayout()
         CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlLogin.SuspendLayout()
         Me.Panel3.SuspendLayout()
+        CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -94,7 +103,7 @@ Partial Class frmLogin
         Me.pnlLogin.Controls.Add(Me.lblForgotPassword)
         Me.pnlLogin.Controls.Add(Me.lblNewStudent)
         Me.pnlLogin.Controls.Add(Me.btnLogin)
-        Me.pnlLogin.Controls.Add(Me.TextBox1)
+        Me.pnlLogin.Controls.Add(Me.txtPassword)
         Me.pnlLogin.Controls.Add(Me.txtLoginUsername)
         Me.pnlLogin.Controls.Add(Me.Label2)
         Me.pnlLogin.Controls.Add(Me.lblUsername)
@@ -135,14 +144,14 @@ Partial Class frmLogin
         Me.btnLogin.Text = "Login"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'txtPassword
         '
-        Me.TextBox1.Location = New System.Drawing.Point(135, 72)
-        Me.TextBox1.MaxLength = 15
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.TextBox1.TabIndex = 3
-        Me.TextBox1.UseSystemPasswordChar = True
+        Me.txtPassword.Location = New System.Drawing.Point(135, 72)
+        Me.txtPassword.MaxLength = 15
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.Size = New System.Drawing.Size(100, 20)
+        Me.txtPassword.TabIndex = 3
+        Me.txtPassword.UseSystemPasswordChar = True
         '
         'txtLoginUsername
         '
@@ -202,6 +211,43 @@ Partial Class frmLogin
         '
         Me.tmrDateTime.Enabled = True
         '
+        'SmsDataSet1
+        '
+        Me.SmsDataSet1.DataSetName = "SMSDataSet"
+        Me.SmsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'StudentTableAdapter1
+        '
+        Me.StudentTableAdapter1.ClearBeforeFill = True
+        '
+        'TableAdapterManager1
+        '
+        Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
+        Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+        Me.TableAdapterManager1.COLLEGETableAdapter = Nothing
+        Me.TableAdapterManager1.COURSETableAdapter = Nothing
+        Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
+        Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
+        Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
+        Me.TableAdapterManager1.MODULETableAdapter = Nothing
+        Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
+        Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
+        Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+        '
+        'AdminTableAdapter1
+        '
+        Me.AdminTableAdapter1.ClearBeforeFill = True
+        '
+        'BSStudent
+        '
+        Me.BSStudent.DataMember = "STUDENT"
+        Me.BSStudent.DataSource = Me.SmsDataSet1
+        '
+        'BSAdmin
+        '
+        Me.BSAdmin.DataMember = "ADMIN"
+        Me.BSAdmin.DataSource = Me.SmsDataSet1
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -223,6 +269,9 @@ Partial Class frmLogin
         Me.pnlLogin.PerformLayout()
         Me.Panel3.ResumeLayout(False)
         Me.Panel3.PerformLayout()
+        CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -233,7 +282,7 @@ Partial Class frmLogin
     Friend WithEvents pnlSelect As Panel
     Friend WithEvents pnlLogin As Panel
     Friend WithEvents btnLogin As Button
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtPassword As TextBox
     Friend WithEvents txtLoginUsername As MaskedTextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents lblUsername As Label
@@ -243,4 +292,10 @@ Partial Class frmLogin
 	Friend WithEvents lblForgotPassword As Label
 	Friend WithEvents lblDateTime As Label
     Friend WithEvents tmrDateTime As Timer
+    Friend WithEvents SmsDataSet1 As SMSDataSet
+    Friend WithEvents StudentTableAdapter1 As SMSDataSetTableAdapters.STUDENTTableAdapter
+    Friend WithEvents TableAdapterManager1 As SMSDataSetTableAdapters.TableAdapterManager
+    Friend WithEvents AdminTableAdapter1 As SMSDataSetTableAdapters.ADMINTableAdapter
+    Friend WithEvents BSStudent As BindingSource
+    Friend WithEvents BSAdmin As BindingSource
 End Class

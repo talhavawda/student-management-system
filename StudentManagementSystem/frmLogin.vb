@@ -55,6 +55,11 @@
         HidePage(reports, MAINFORM)
         HidePage(detailsTab, MAINFORM)
         pnlLogin.Enabled = False
+
+
+        'DATABASE CONNECTION: 
+        StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
+        AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)
     End Sub
 
 	Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles pnlSelect.Paint
@@ -81,15 +86,39 @@
 
 	End Sub
 
-	Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-		If userType = STUDENT Then
-			frmStudentHome.ShowDialog()
-		Else
-			frmAdminHome.ShowDialog()
-		End If
-	End Sub
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
-	Private Sub lblForgotPassword_Click(sender As Object, e As EventArgs) Handles lblForgotPassword.Click
+        Dim Username As String = txtLoginUsername.Text
+        Dim password As String = txtPassword.Text
+        Dim correctPassword As String
+
+
+
+        'CHECKING PASSWORD:
+        If userType = ADMIN Then
+            AdminTableAdapter1.FillPassword(SmsDataSet1.ADMIN, Username)
+            correctPassword = SmsDataSet1.ADMIN.Rows(0).Item(6).Trim                 'GET PASSWORD FROM TABLE
+            If (password = correctPassword) Then
+                MsgBox("Welcome " + SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.ADMIN.Rows(0).Item(3).trim)
+                frmAdminHome.ShowDialog()
+            Else
+                MsgBox("Incorrect username / password. Please try again")
+            End If
+        Else
+            StudentTableAdapter1.FillPassword(SmsDataSet1.STUDENT, Username)
+            correctPassword = SmsDataSet1.STUDENT.Rows(0).Item(6).Trim               'GET PASSWORD FROM TABLE
+            If (password = correctPassword) Then
+                MsgBox("Welcome " + SmsDataSet1.STUDENT.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim)
+                frmStudentHome.ShowDialog()
+            Else
+                MsgBox("Incorrect username / password. Please try again")
+            End If
+        End If
+
+
+    End Sub
+
+    Private Sub lblForgotPassword_Click(sender As Object, e As EventArgs) Handles lblForgotPassword.Click
         ShowPage(changePassword, NEWUSERFORM)
         HidePage(newUser, NEWUSERFORM)
         frmNewUser.ShowDialog()

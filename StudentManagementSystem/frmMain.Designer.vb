@@ -25,7 +25,6 @@ Partial Class frmMain
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
 		Me.tbcMain = New System.Windows.Forms.TabControl()
 		Me.tbpNewRegistration = New System.Windows.Forms.TabPage()
-		Me.Label1 = New System.Windows.Forms.Label()
 		Me.GroupBox7 = New System.Windows.Forms.GroupBox()
 		Me.ListBox3 = New System.Windows.Forms.ListBox()
 		Me.ListBox1 = New System.Windows.Forms.ListBox()
@@ -86,6 +85,7 @@ Partial Class frmMain
 		Me.lblStuResult = New System.Windows.Forms.Label()
 		Me.tbpReports = New System.Windows.Forms.TabPage()
 		Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+		Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
 		Me.tbcMain.SuspendLayout()
 		Me.tbpNewRegistration.SuspendLayout()
 		Me.GroupBox7.SuspendLayout()
@@ -118,7 +118,7 @@ Partial Class frmMain
 		'
 		'tbpNewRegistration
 		'
-		Me.tbpNewRegistration.Controls.Add(Me.Label1)
+		Me.tbpNewRegistration.Controls.Add(Me.RichTextBox1)
 		Me.tbpNewRegistration.Controls.Add(Me.GroupBox7)
 		Me.tbpNewRegistration.Controls.Add(Me.GroupBox2)
 		Me.tbpNewRegistration.Controls.Add(Me.GroupBox1)
@@ -129,15 +129,6 @@ Partial Class frmMain
 		Me.tbpNewRegistration.TabIndex = 1
 		Me.tbpNewRegistration.Text = "New Registration"
 		Me.tbpNewRegistration.UseVisualStyleBackColor = True
-		'
-		'Label1
-		'
-		Me.Label1.AutoSize = True
-		Me.Label1.Location = New System.Drawing.Point(544, 95)
-		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(190, 13)
-		Me.Label1.TabIndex = 3
-		Me.Label1.Text = "<-- We populate this on tab page show"
 		'
 		'GroupBox7
 		'
@@ -706,6 +697,15 @@ Partial Class frmMain
 		Me.GroupBox6.TabStop = False
 		Me.GroupBox6.Text = "GroupBox6"
 		'
+		'RichTextBox1
+		'
+		Me.RichTextBox1.Location = New System.Drawing.Point(605, 44)
+		Me.RichTextBox1.Name = "RichTextBox1"
+		Me.RichTextBox1.Size = New System.Drawing.Size(100, 96)
+		Me.RichTextBox1.TabIndex = 4
+		Me.RichTextBox1.Text = "<-- We populate this on tab page show (when student clicks Registration button fr" &
+	"om StudentHome)"
+		'
 		'frmMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -718,7 +718,6 @@ Partial Class frmMain
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
 		Me.tbcMain.ResumeLayout(False)
 		Me.tbpNewRegistration.ResumeLayout(False)
-		Me.tbpNewRegistration.PerformLayout()
 		Me.GroupBox7.ResumeLayout(False)
 		Me.GroupBox7.PerformLayout()
 		Me.GroupBox2.ResumeLayout(False)
@@ -800,9 +799,9 @@ Partial Class frmMain
 	Friend WithEvents txtMajor2 As TextBox
 	Friend WithEvents txtMajor1 As TextBox
 	Friend WithEvents txtQualification As TextBox
-	Friend WithEvents Label1 As Label
 	Friend WithEvents GroupBox7 As GroupBox
 	Friend WithEvents ListBox3 As ListBox
 	Friend WithEvents ListBox4 As ListBox
 	Friend WithEvents lblSemester2Reg As Label
+	Friend WithEvents RichTextBox1 As RichTextBox
 End Class

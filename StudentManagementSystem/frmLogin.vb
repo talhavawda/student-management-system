@@ -17,9 +17,9 @@
 	Friend addResults As TabPage = frmMain.tbpResultsAdmin      'Reference to Add results on frmMain
 	Friend reports As TabPage = frmMain.tbpReports              'Reference to Reports Tab on frmMain
 
-
-	'Generic hide method
-	Public Sub HidePage(ByRef tabpage As TabPage, ByVal whichForm As Integer)
+    Friend username As String
+    'Generic hide method
+    Public Sub HidePage(ByRef tabpage As TabPage, ByVal whichForm As Integer)
 		If whichForm = 0 Then
 			frmNewUser.tbcNewUser.TabPages.Remove(tabpage)
 		Else
@@ -91,30 +91,27 @@
 
 	Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
-		Dim Username As String = txtLoginUsername.Text
-		Dim password As String = txtPassword.Text
-		Dim correctPassword As String
 
+        username = txtLoginUsername.Text                'Store Username
+        Dim password As String = txtPassword.Text       'Store Password
 
-
-		'CHECKING PASSWORD:
-		If userType = ADMIN Then
-			AdminTableAdapter1.FillPassword(SmsDataSet1.ADMIN, Username)
-			correctPassword = SmsDataSet1.ADMIN.Rows(0).Item(6).Trim                 'GET PASSWORD FROM TABLE
-			If (password = correctPassword) Then
-				MsgBox("Welcome " + SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.ADMIN.Rows(0).Item(3).trim)
-				frmAdminHome.ShowDialog()
-			Else
-				MsgBox("Incorrect username / password. Please try again")
-			End If
-		Else 'userType = STUDENT
-			StudentTableAdapter1.FillPassword(SmsDataSet1.STUDENT, Username)
-            correctPassword = SmsDataSet1.STUDENT.Rows(0).Item(6).Trim               'GET PASSWORD FROM TABLE
-            If (password = correctPassword) Then
-                MsgBox("Welcome " + SmsDataSet1.STUDENT.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim)
-                frmStudentHome.ShowDialog()
+        If userType = ADMIN Then                                                    'If and Admin Member is loging in
+            AdminTableAdapter1.AdminLogin(SmsDataSet1.ADMIN, username, password)    'SQL Query
+            If SmsDataSet1.ADMIN.Rows.Count = 1 Then                                'Correct Admin Login
+                MsgBox("Welcome " + SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim)
+                AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)                          'Fill it again after sql filter
+                frmAdminHome.ShowDialog()                                           'Show Admin Home Screen
             Else
-                MsgBox("Incorrect username / password. Please try again")
+                MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your deatils", "Invalid Lodin Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Else                                                                            'userType = STUDENT
+            StudentTableAdapter1.StudentLogin(SmsDataSet1.STUDENT, username, password)  'SQL Query
+            If (SmsDataSet1.STUDENT.Rows.Count = 1) Then                                'Correct Student Login
+                MsgBox("Welcome " + SmsDataSet1.STUDENT.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim)
+                StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)                          'Fill it again after sql filter
+                frmStudentHome.ShowDialog()                                             'Show Student Home Screen
+            Else
+                MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your deatils", "Invalid Lodin Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
         End If
 

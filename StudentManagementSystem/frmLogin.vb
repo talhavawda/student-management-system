@@ -131,7 +131,7 @@
         ShowPage(newUser, NEWUSERFORM)
         HidePage(changePassword, NEWUSERFORM)
 		frmNewUser.ShowDialog()
-		'userType = STUDENT		'will already be set as STUDENT
+		userType = STUDENT
 	End Sub
 
     Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click

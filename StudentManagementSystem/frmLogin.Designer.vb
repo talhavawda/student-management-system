@@ -46,6 +46,7 @@ Partial Class frmLogin
         Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
         Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
         Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.pnlSelect.SuspendLayout()
         CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,6 +69,7 @@ Partial Class frmLogin
         'pnlSelect
         '
         Me.pnlSelect.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pnlSelect.Controls.Add(Me.Label3)
         Me.pnlSelect.Controls.Add(Me.pbxAdmin)
         Me.pnlSelect.Controls.Add(Me.Label1)
         Me.pnlSelect.Controls.Add(Me.pbxStudent)
@@ -248,6 +250,16 @@ Partial Class frmLogin
         Me.BSAdmin.DataMember = "ADMIN"
         Me.BSAdmin.DataSource = Me.SmsDataSet1
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(149, 61)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(212, 65)
+        Me.Label3.TabIndex = 3
+        Me.Label3.Text = "VALID LOGINS: " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     USERNAME      PASSWORD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ADMIN:        1234" &
+    "567890      jkane123" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "STUDENT:    0123456789     Test" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -298,4 +310,5 @@ Partial Class frmLogin
     Friend WithEvents AdminTableAdapter1 As SMSDataSetTableAdapters.ADMINTableAdapter
     Friend WithEvents BSStudent As BindingSource
     Friend WithEvents BSAdmin As BindingSource
+    Friend WithEvents Label3 As Label
 End Class

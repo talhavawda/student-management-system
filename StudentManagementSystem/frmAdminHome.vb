@@ -14,7 +14,7 @@
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        frmLogin.ShowPage(frmLogin.addresults, frmLogin.MAINFORM)
+        frmLogin.ShowPage(frmLogin.addResults, frmLogin.MAINFORM)
         frmLogin.ShowPage(frmLogin.reports, frmLogin.MAINFORM)
         frmMain.ShowDialog()
 

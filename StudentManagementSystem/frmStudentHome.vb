@@ -1,11 +1,11 @@
 ﻿Public Class frmStudentHome
-    'Students Can:
-    '1. Access Details Tab
-    '2. Access New Registration Tab ???
-    '3. Access View Registration Tab
-    '4. Access View Results Tab
+	'Students Can:
+	'1. Access Details Tab
+	'2. Access New Registration Tab ??? YES
+	'3. Access View Registration Tab
+	'4. Access View Results Tab
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
+	Private Sub Button1_Click(sender As Object, e As EventArgs)
         'change text of Main
     End Sub
 

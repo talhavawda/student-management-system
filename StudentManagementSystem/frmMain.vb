@@ -113,8 +113,17 @@
 
 	Private Sub tbpCourses_Enter(sender As Object, e As EventArgs) Handles tbpCourses.Enter
 		FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
+
+		cmbFaculty.Items.Clear()
+
 		For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
 			cmbFaculty.Items.Add(Row.Item(0)) 'List Faculty Names in ComboBox
 		Next
+	End Sub
+
+	Private Sub btnAddFaculty_Click(sender As Object, e As EventArgs) Handles btnAddFaculty.Click
+		Dim newFacultyID As Integer = FacultyTableAdapter1.HighestFacultyID() + 1
+		FacultyTableAdapter1.InsertFaculty(txtAddFaculty.Text, newFacultyID) 'first parameter is Name of Faculty; second paramter is FacultyID
+		tbpCourses_Enter(sender, e) 'call to populate the Faculty comboBox with updated values
 	End Sub
 End Class

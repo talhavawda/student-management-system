@@ -670,6 +670,14 @@ SELECT Name, FacultyID FROM FACULTY WHERE (FacultyID = @FacultyID)</CommandText>
               <Mapping SourceColumn="FacultyID" DataSetColumn="FacultyID" />
             </Mappings>
             <Sources>
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="HighestFacultyID" Modifier="Public" Name="HighestFacultyID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="HighestFacultyID">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MAX(FacultyID) FROM FACULTY</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
               <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="InsertFaculty" Modifier="Public" Name="InsertFaculty" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="InsertFaculty">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">

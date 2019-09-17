@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class frmLogin
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class frmLogin
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmLogin))
@@ -240,13 +240,13 @@ Partial Class frmLogin
         Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
         Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager1.COURSETableAdapter = Nothing
-        'Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
+        Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
         Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
         Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
         Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
         Me.TableAdapterManager1.MODULETableAdapter = Nothing
-		'Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
-		Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
+        'Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
+        Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
         Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
         'AdminTableAdapter1
@@ -312,8 +312,8 @@ Partial Class frmLogin
     Friend WithEvents Panel3 As Panel
     Friend WithEvents lblNewStudent As Label
     Friend WithEvents btnExit As Button
-	Friend WithEvents lblForgotPassword As Label
-	Friend WithEvents lblDateTime As Label
+    Friend WithEvents lblForgotPassword As Label
+    Friend WithEvents lblDateTime As Label
     Friend WithEvents tmrDateTime As Timer
     Friend WithEvents SmsDataSet1 As SMSDataSet
     Friend WithEvents StudentTableAdapter1 As SMSDataSetTableAdapters.STUDENTTableAdapter
@@ -322,6 +322,6 @@ Partial Class frmLogin
     Friend WithEvents BSStudent As BindingSource
     Friend WithEvents BSAdmin As BindingSource
     Friend WithEvents Label3 As Label
-	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
-	Friend WithEvents Course_ModuleTableAdapter1 As SMSDataSetTableAdapters.Course_ModuleTableAdapter
+    Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
+    Friend WithEvents Course_ModuleTableAdapter1 As SMSDataSetTableAdapters.Course_ModuleTableAdapter
 End Class

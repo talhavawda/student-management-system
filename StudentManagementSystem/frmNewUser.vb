@@ -2,10 +2,13 @@
 
     Dim SelectedCollege As Integer
 
-	Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
 
-		For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
+    Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'SmsDataSet1.ADMIN' table. You can move, or remove it, as needed.
+        Me.ADMINTableAdapter.Fill(Me.SmsDataSet1.ADMIN)
+        FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
+
+        For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
 			cmbCollege.Items.Add(Row.Item(1))
 
 		Next
@@ -57,6 +60,34 @@
     End Sub
 
     Private Sub btnCreateUser_Click(sender As Object, e As EventArgs) Handles btnCreateUser.Click
+
+    End Sub
+
+    Private Sub btnChangePassword_Click(sender As Object, e As EventArgs) Handles btnChangePassword.Click
+        Dim number As String = txtStudAdminNumber.Text
+        Dim IDNumber As String = txtID.Text
+        Dim cellNumber As String = txtCell.Text
+        Dim password As String = txtNewPassword.Text
+
+        If frmLogin.userType = frmLogin.ADMIN Then
+            ADMINTableAdapter.CheckChangePasswordDetails(SmsDataSet1.ADMIN, number, IDNumber, cellNumber)
+            If password <> txtRePassword.Text Or SmsDataSet1.ADMIN.Rows.Count <> 1 Then
+                MessageBox.Show("Invalid Data Entered", "Invalid Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                ADMINTableAdapter.Fill(SmsDataSet1.ADMIN)
+                ADMINTableAdapter.UpdatePassword(password, number, IDNumber, cellNumber)
+                MessageBox.Show("Password Successfully Updated", "Password Update", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Else 'Student Changing Password
+            StudentTableAdapter1.CheckChangePasswordDetails(SmsDataSet1.STUDENT, number, IDNumber, cellNumber)
+            If password <> txtRePassword.Text Or SmsDataSet1.STUDENT.Rows.Count <> 1 Then
+                MessageBox.Show("Invalid Data Entered", "Invalid Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
+                StudentTableAdapter1.UpdatePassword(password, number, IDNumber, cellNumber)
+                MessageBox.Show("Password Successfully Updated", "Password Update", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        End If
 
     End Sub
 End Class

@@ -73,6 +73,10 @@ Partial Class frmNewUser
         Me.DisciplineTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.DISCIPLINETableAdapter()
         Me.BSFaculty = New System.Windows.Forms.BindingSource(Me.components)
         Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
+        Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ADMINTableAdapter = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
+        Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
+        Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbcNewUser.SuspendLayout()
         Me.tbpNewUser.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -84,6 +88,8 @@ Partial Class frmNewUser
         CType(Me.BSDiscipline, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbcNewUser
@@ -462,7 +468,7 @@ Partial Class frmNewUser
         'txtCell
         '
         Me.txtCell.Location = New System.Drawing.Point(146, 116)
-        Me.txtCell.Mask = "999 000 0000"
+        Me.txtCell.Mask = "0000000000"
         Me.txtCell.Name = "txtCell"
         Me.txtCell.Size = New System.Drawing.Size(88, 20)
         Me.txtCell.TabIndex = 4
@@ -534,6 +540,24 @@ Partial Class frmNewUser
         '
         Me.FacultyTableAdapter1.ClearBeforeFill = True
         '
+        'BSAdmin
+        '
+        Me.BSAdmin.DataMember = "ADMIN"
+        Me.BSAdmin.DataSource = Me.SmsDataSet1
+        '
+        'ADMINTableAdapter
+        '
+        Me.ADMINTableAdapter.ClearBeforeFill = True
+        '
+        'StudentTableAdapter1
+        '
+        Me.StudentTableAdapter1.ClearBeforeFill = True
+        '
+        'BSStudent
+        '
+        Me.BSStudent.DataMember = "STUDENT"
+        Me.BSStudent.DataSource = Me.SmsDataSet1
+        '
         'frmNewUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -561,6 +585,8 @@ Partial Class frmNewUser
         CType(Me.BSDiscipline, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -614,4 +640,8 @@ Partial Class frmNewUser
     Friend WithEvents DisciplineTableAdapter1 As SMSDataSetTableAdapters.DISCIPLINETableAdapter
     Friend WithEvents BSDiscipline As BindingSource
 	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
+    Friend WithEvents BSAdmin As BindingSource
+    Friend WithEvents ADMINTableAdapter As SMSDataSetTableAdapters.ADMINTableAdapter
+    Friend WithEvents StudentTableAdapter1 As SMSDataSetTableAdapters.STUDENTTableAdapter
+    Friend WithEvents BSStudent As BindingSource
 End Class

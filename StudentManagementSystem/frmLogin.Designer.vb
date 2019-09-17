@@ -62,11 +62,12 @@ Partial Class frmLogin
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(230, 12)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(213, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(48, 13)
+        Me.Label1.Size = New System.Drawing.Size(114, 37)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "I am a(n)"
+        Me.Label1.Text = "I am a ..."
         '
         'pnlSelect
         '
@@ -83,7 +84,7 @@ Partial Class frmLogin
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(149, 61)
+        Me.Label3.Location = New System.Drawing.Point(156, 80)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(212, 65)
         Me.Label3.TabIndex = 3
@@ -238,8 +239,8 @@ Partial Class frmLogin
         '
         Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
         Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
         Me.TableAdapterManager1.COURSETableAdapter = Nothing
+        Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
         Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
         Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
         Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing

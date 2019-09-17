@@ -48,6 +48,7 @@ Partial Class frmLogin
 		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
 		Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
 		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
+		Me.Course_ModuleTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.Course_ModuleTableAdapter()
 		Me.pnlSelect.SuspendLayout()
 		CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,6 +103,7 @@ Partial Class frmLogin
 		'
 		'pbxAdmin
 		'
+		Me.pbxAdmin.BackColor = System.Drawing.Color.Transparent
 		Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.pbxAdmin.Image = CType(resources.GetObject("pbxAdmin.Image"), System.Drawing.Image)
 		Me.pbxAdmin.Location = New System.Drawing.Point(346, 47)
@@ -236,8 +238,8 @@ Partial Class frmLogin
 		'
 		Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
 		Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+		Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
 		Me.TableAdapterManager1.COURSETableAdapter = Nothing
-		Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
 		Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
@@ -263,6 +265,10 @@ Partial Class frmLogin
 		'FacultyTableAdapter1
 		'
 		Me.FacultyTableAdapter1.ClearBeforeFill = True
+		'
+		'Course_ModuleTableAdapter1
+		'
+		Me.Course_ModuleTableAdapter1.ClearBeforeFill = True
 		'
 		'frmLogin
 		'
@@ -316,4 +322,5 @@ Partial Class frmLogin
     Friend WithEvents BSAdmin As BindingSource
     Friend WithEvents Label3 As Label
 	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
+	Friend WithEvents Course_ModuleTableAdapter1 As SMSDataSetTableAdapters.Course_ModuleTableAdapter
 End Class

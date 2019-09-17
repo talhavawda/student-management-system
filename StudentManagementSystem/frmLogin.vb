@@ -73,8 +73,13 @@
 	End Sub
 
 	Private Sub pbxStudent_Click(sender As Object, e As EventArgs) Handles pbxStudent.Click
+		pbxStudent.BorderStyle = BorderStyle.Fixed3D
+		pbxStudent.BackColor = Color.DarkGray
+		pbxAdmin.BorderStyle = BorderStyle.None
+		pbxAdmin.BackColor = Color.Transparent
+
 		lblUsername.Text = "Student Number:"
-		frmNewUser.lblStudAdminNumber.Text = "Student Number:"
+		frmNewUser.lblUserNumber.Text = "Student Number:"
 		lblNewStudent.Show()
 		userType = STUDENT
 		txtLoginUsername.Clear()
@@ -84,8 +89,13 @@
 	End Sub
 
 	Private Sub pbxStaff_Click(sender As Object, e As EventArgs) Handles pbxAdmin.Click
+		pbxAdmin.BorderStyle = BorderStyle.Fixed3D
+		pbxAdmin.BackColor = Color.DarkGray
+		pbxStudent.BorderStyle = BorderStyle.None
+		pbxStudent.BackColor = Color.Transparent
+
 		lblUsername.Text = "Staff Number:"
-		frmNewUser.lblStudAdminNumber.Text = "Staff Number:"
+		frmNewUser.lblUserNumber.Text = "Staff Number:"
 		'pnlLogin.Show()
 		userType = ADMIN
 		txtLoginUsername.Clear()

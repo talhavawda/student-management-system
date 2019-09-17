@@ -130,10 +130,11 @@
 
 	Private Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
 		'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
-		StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
-
-		txtStudentNumber.Text = frmLogin.username
-
+		StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username) 'contains row (index = 0) with the specific student's detials
+		txtStudentNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(0).trim 'frmLogin.username
+		'txtFaculty.Text = SmsDataSet1.STUDENT.Rows(0).Item(8)
+		'txtMajor1.Text =
+		'txtMajor2.Text = 
 
 	End Sub
 End Class

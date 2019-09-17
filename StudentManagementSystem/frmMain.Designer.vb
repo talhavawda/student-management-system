@@ -87,13 +87,20 @@ Partial Class frmMain
 		Me.lblStuResult = New System.Windows.Forms.Label()
 		Me.tbpReports = New System.Windows.Forms.TabPage()
 		Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+		Me.tbpCourses = New System.Windows.Forms.TabPage()
+		Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+		Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+		Me.btnAddFaculty = New System.Windows.Forms.Button()
+		Me.txtAddFaculty = New System.Windows.Forms.TextBox()
+		Me.cmbFaculty = New System.Windows.Forms.ComboBox()
 		Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
 		Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
 		Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
 		Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
 		Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
 		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
-		Me.tbpCourses = New System.Windows.Forms.TabPage()
+		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
+		Me.BSFaculty = New System.Windows.Forms.BindingSource(Me.components)
 		Me.tbcMain.SuspendLayout()
 		Me.tbpDetails.SuspendLayout()
 		Me.grbStudent.SuspendLayout()
@@ -108,9 +115,13 @@ Partial Class frmMain
 		Me.tbpResultsAdmin.SuspendLayout()
 		Me.GroupBox5.SuspendLayout()
 		Me.tbpReports.SuspendLayout()
+		Me.tbpCourses.SuspendLayout()
+		Me.GroupBox8.SuspendLayout()
+		Me.GroupBox9.SuspendLayout()
 		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'tbcMain
@@ -718,6 +729,63 @@ Partial Class frmMain
 		Me.GroupBox6.TabStop = False
 		Me.GroupBox6.Text = "GroupBox6"
 		'
+		'tbpCourses
+		'
+		Me.tbpCourses.Controls.Add(Me.GroupBox8)
+		Me.tbpCourses.Location = New System.Drawing.Point(4, 22)
+		Me.tbpCourses.Name = "tbpCourses"
+		Me.tbpCourses.Padding = New System.Windows.Forms.Padding(3)
+		Me.tbpCourses.Size = New System.Drawing.Size(802, 473)
+		Me.tbpCourses.TabIndex = 6
+		Me.tbpCourses.Text = "Courses"
+		Me.tbpCourses.UseVisualStyleBackColor = True
+		'
+		'GroupBox8
+		'
+		Me.GroupBox8.Controls.Add(Me.GroupBox9)
+		Me.GroupBox8.Controls.Add(Me.cmbFaculty)
+		Me.GroupBox8.Location = New System.Drawing.Point(24, 16)
+		Me.GroupBox8.Name = "GroupBox8"
+		Me.GroupBox8.Size = New System.Drawing.Size(238, 151)
+		Me.GroupBox8.TabIndex = 0
+		Me.GroupBox8.TabStop = False
+		Me.GroupBox8.Text = "Faculty"
+		'
+		'GroupBox9
+		'
+		Me.GroupBox9.Controls.Add(Me.btnAddFaculty)
+		Me.GroupBox9.Controls.Add(Me.txtAddFaculty)
+		Me.GroupBox9.Location = New System.Drawing.Point(6, 53)
+		Me.GroupBox9.Name = "GroupBox9"
+		Me.GroupBox9.Size = New System.Drawing.Size(226, 92)
+		Me.GroupBox9.TabIndex = 1
+		Me.GroupBox9.TabStop = False
+		Me.GroupBox9.Text = "Add Faculty"
+		'
+		'btnAddFaculty
+		'
+		Me.btnAddFaculty.Location = New System.Drawing.Point(77, 55)
+		Me.btnAddFaculty.Name = "btnAddFaculty"
+		Me.btnAddFaculty.Size = New System.Drawing.Size(75, 23)
+		Me.btnAddFaculty.TabIndex = 1
+		Me.btnAddFaculty.Text = "Add Faculty"
+		Me.btnAddFaculty.UseVisualStyleBackColor = True
+		'
+		'txtAddFaculty
+		'
+		Me.txtAddFaculty.Location = New System.Drawing.Point(6, 29)
+		Me.txtAddFaculty.Name = "txtAddFaculty"
+		Me.txtAddFaculty.Size = New System.Drawing.Size(214, 20)
+		Me.txtAddFaculty.TabIndex = 0
+		'
+		'cmbFaculty
+		'
+		Me.cmbFaculty.FormattingEnabled = True
+		Me.cmbFaculty.Location = New System.Drawing.Point(6, 19)
+		Me.cmbFaculty.Name = "cmbFaculty"
+		Me.cmbFaculty.Size = New System.Drawing.Size(226, 21)
+		Me.cmbFaculty.TabIndex = 0
+		'
 		'SmsDataSet1
 		'
 		Me.SmsDataSet1.DataSetName = "SMSDataSet"
@@ -741,7 +809,7 @@ Partial Class frmMain
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULETableAdapter = Nothing
-		Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
+		'Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
 		Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
 		Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
 		'
@@ -755,15 +823,14 @@ Partial Class frmMain
 		Me.BSStudent.DataMember = "STUDENT"
 		Me.BSStudent.DataSource = Me.SmsDataSet1
 		'
-		'tbpCourses
+		'FacultyTableAdapter1
 		'
-		Me.tbpCourses.Location = New System.Drawing.Point(4, 22)
-		Me.tbpCourses.Name = "tbpCourses"
-		Me.tbpCourses.Padding = New System.Windows.Forms.Padding(3)
-		Me.tbpCourses.Size = New System.Drawing.Size(802, 473)
-		Me.tbpCourses.TabIndex = 6
-		Me.tbpCourses.Text = "Courses"
-		Me.tbpCourses.UseVisualStyleBackColor = True
+		Me.FacultyTableAdapter1.ClearBeforeFill = True
+		'
+		'BSFaculty
+		'
+		Me.BSFaculty.DataMember = "FACULTY"
+		Me.BSFaculty.DataSource = Me.SmsDataSet1
 		'
 		'frmMain
 		'
@@ -796,9 +863,14 @@ Partial Class frmMain
 		Me.GroupBox5.ResumeLayout(False)
 		Me.GroupBox5.PerformLayout()
 		Me.tbpReports.ResumeLayout(False)
+		Me.tbpCourses.ResumeLayout(False)
+		Me.GroupBox8.ResumeLayout(False)
+		Me.GroupBox9.ResumeLayout(False)
+		Me.GroupBox9.PerformLayout()
 		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -873,4 +945,11 @@ Partial Class frmMain
     Friend WithEvents BSAdmin As BindingSource
     Friend WithEvents BSStudent As BindingSource
 	Friend WithEvents tbpCourses As TabPage
+	Friend WithEvents GroupBox8 As GroupBox
+	Friend WithEvents GroupBox9 As GroupBox
+	Friend WithEvents btnAddFaculty As Button
+	Friend WithEvents txtAddFaculty As TextBox
+	Friend WithEvents cmbFaculty As ComboBox
+	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
+	Friend WithEvents BSFaculty As BindingSource
 End Class

@@ -35,8 +35,8 @@ Partial Class frmNewUser
         Me.cmbCollege = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.grpNewPassword = New System.Windows.Forms.GroupBox()
-        Me.MaskedTextBox2 = New System.Windows.Forms.MaskedTextBox()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.txtConfirmPassword = New System.Windows.Forms.MaskedTextBox()
+        Me.txtPassword = New System.Windows.Forms.MaskedTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.grpPersonalDetails = New System.Windows.Forms.GroupBox()
@@ -193,8 +193,8 @@ Partial Class frmNewUser
         '
         'grpNewPassword
         '
-        Me.grpNewPassword.Controls.Add(Me.MaskedTextBox2)
-        Me.grpNewPassword.Controls.Add(Me.MaskedTextBox1)
+        Me.grpNewPassword.Controls.Add(Me.txtConfirmPassword)
+        Me.grpNewPassword.Controls.Add(Me.txtPassword)
         Me.grpNewPassword.Controls.Add(Me.Label8)
         Me.grpNewPassword.Controls.Add(Me.Label7)
         Me.grpNewPassword.Location = New System.Drawing.Point(19, 253)
@@ -204,21 +204,21 @@ Partial Class frmNewUser
         Me.grpNewPassword.TabStop = False
         Me.grpNewPassword.Text = "Create Password"
         '
-        'MaskedTextBox2
+        'txtConfirmPassword
         '
-        Me.MaskedTextBox2.Location = New System.Drawing.Point(146, 54)
-        Me.MaskedTextBox2.Name = "MaskedTextBox2"
-        Me.MaskedTextBox2.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox2.TabIndex = 3
-        Me.MaskedTextBox2.UseSystemPasswordChar = True
+        Me.txtConfirmPassword.Location = New System.Drawing.Point(146, 54)
+        Me.txtConfirmPassword.Name = "txtConfirmPassword"
+        Me.txtConfirmPassword.Size = New System.Drawing.Size(100, 20)
+        Me.txtConfirmPassword.TabIndex = 3
+        Me.txtConfirmPassword.UseSystemPasswordChar = True
         '
-        'MaskedTextBox1
+        'txtPassword
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(146, 22)
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(100, 20)
-        Me.MaskedTextBox1.TabIndex = 2
-        Me.MaskedTextBox1.UseSystemPasswordChar = True
+        Me.txtPassword.Location = New System.Drawing.Point(146, 22)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.Size = New System.Drawing.Size(100, 20)
+        Me.txtPassword.TabIndex = 2
+        Me.txtPassword.UseSystemPasswordChar = True
         '
         'Label8
         '
@@ -620,8 +620,8 @@ Partial Class frmNewUser
     Friend WithEvents txtNewFirstname As TextBox
     Friend WithEvents grpPersonalDetails As GroupBox
     Friend WithEvents grpNewPassword As GroupBox
-    Friend WithEvents MaskedTextBox2 As MaskedTextBox
-    Friend WithEvents MaskedTextBox1 As MaskedTextBox
+    Friend WithEvents txtConfirmPassword As MaskedTextBox
+    Friend WithEvents txtPassword As MaskedTextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label7 As Label
 	Friend WithEvents GroupBox1 As GroupBox

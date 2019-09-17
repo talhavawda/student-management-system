@@ -1,6 +1,8 @@
 ﻿Public Class frmNewUser
 
     Dim SelectedCollege As Integer
+    Dim yr As String = System.DateTime.Now.Year.ToString
+    Dim newStudNum As String
 
 
     Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -12,6 +14,12 @@
             cmbCollege.Items.Add(Row.Item(0))
 
         Next
+
+
+        Dim ran As String = Int((999999 - 100000 + 1) * Rnd() + 100000).ToString
+        newStudNum = yr + ran
+        txtNewStudAdminNumber.Text = newStudNum
+        'Above 2 lines creates new Student number
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
@@ -61,6 +69,21 @@
 
     Private Sub btnCreateUser_Click(sender As Object, e As EventArgs) Handles btnCreateUser.Click
 
+        If (frmMain.ValidateCell(txtNewCell.Text) = False) Then  'validate cell
+            MessageBox.Show("Invalid Data Entered", "Invalid Cell number", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf frmMain.ValidateEmail(txtNewEmail.Text) = False Then 'validate email
+            MessageBox.Show("Invalid Data Entered", "Invalid email address", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf txtPassword.Text <> txtConfirmPassword.Text Then 'check passwords match
+            MessageBox.Show("Invalid Data Entered", "Passwords dont match", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            If (frmLogin.userType = frmLogin.ADMIN) Then    'If Admin is using this form
+                ADMINTableAdapter.InsertAdmin(txtNewStudAdminNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text)
+            Else    'If Student is using this form
+                StudentTableAdapter1.InsertStudent(txtNewStudAdminNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text, Integer.Parse(yr), 0)
+            End If
+            MessageBox.Show("Data Captured", "User created", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        End If
     End Sub
 
     Private Sub btnChangePassword_Click(sender As Object, e As EventArgs) Handles btnChangePassword.Click

@@ -72,6 +72,7 @@ Partial Class frmNewUser
 		Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
 		Me.DisciplineTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.DISCIPLINETableAdapter()
 		Me.BSCollege = New System.Windows.Forms.BindingSource(Me.components)
+		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
 		Me.tbcNewUser.SuspendLayout()
 		Me.tbpNewUser.SuspendLayout()
 		Me.GroupBox1.SuspendLayout()
@@ -529,6 +530,10 @@ Partial Class frmNewUser
 		Me.BSCollege.DataMember = "COLLEGE"
 		Me.BSCollege.DataSource = Me.SmsDataSet1
 		'
+		'FacultyTableAdapter1
+		'
+		Me.FacultyTableAdapter1.ClearBeforeFill = True
+		'
 		'frmNewUser
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -608,4 +613,5 @@ Partial Class frmNewUser
 	Friend WithEvents BSCollege As BindingSource
     Friend WithEvents DisciplineTableAdapter1 As SMSDataSetTableAdapters.DISCIPLINETableAdapter
     Friend WithEvents BSDiscipline As BindingSource
+	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
 End Class

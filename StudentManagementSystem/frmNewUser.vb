@@ -2,23 +2,23 @@
 
     Dim SelectedCollege As Integer
 
-    Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CollegeTableAdapter1.Fill(SmsDataSet1.COLLEGE)
+	Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
 
-        For Each Row As DataRow In SmsDataSet1.COLLEGE.Rows
-            cmbCollege.Items.Add(Row.Item(1))
+		For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
+			cmbCollege.Items.Add(Row.Item(1))
 
-        Next
-    End Sub
+		Next
+	End Sub
 
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
-        'Before Closing remove both tabs.Their references will be stored on frmLogin in their respective variables
-        frmLogin.HidePage(frmLogin.newUser, frmLogin.NEWUSERFORM)
-        frmLogin.HidePage(frmLogin.changePassword, frmLogin.NEWUSERFORM)
-        Me.Close()
-    End Sub
+	Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+		'Before Closing remove both tabs.Their references will be stored on frmLogin in their respective variables
+		frmLogin.HidePage(frmLogin.newUser, frmLogin.NEWUSERFORM)
+		frmLogin.HidePage(frmLogin.changePassword, frmLogin.NEWUSERFORM)
+		Me.Close()
+	End Sub
 
-    Private Sub frmNewUser_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+	Private Sub frmNewUser_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 
         frmLogin.HidePage(frmLogin.newUser, frmLogin.NEWUSERFORM)
         frmLogin.HidePage(frmLogin.changePassword, frmLogin.NEWUSERFORM)

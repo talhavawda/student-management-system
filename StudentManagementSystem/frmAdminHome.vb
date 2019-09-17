@@ -25,6 +25,7 @@
 	End Sub
 
 	Private Sub pbxCourses_Click(sender As Object, e As EventArgs) Handles pbxCourses.Click
-		frmLogin.ShowPage(frmLogin.courses, frmLogin.MAINFORM)
-	End Sub
+        frmLogin.ShowPage(frmLogin.courses, frmLogin.MAINFORM)
+        frmMain.ShowDialog()
+    End Sub
 End Class

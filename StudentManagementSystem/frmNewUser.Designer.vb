@@ -60,7 +60,7 @@ Partial Class frmNewUser
         Me.lblRePassword = New System.Windows.Forms.Label()
         Me.lblNewPassword = New System.Windows.Forms.Label()
         Me.grpSecurity = New System.Windows.Forms.GroupBox()
-        Me.lblStudAdminNumber = New System.Windows.Forms.Label()
+        Me.lblUserNumber = New System.Windows.Forms.Label()
         Me.txtStudAdminNumber = New System.Windows.Forms.MaskedTextBox()
         Me.txtCell = New System.Windows.Forms.MaskedTextBox()
         Me.txtID = New System.Windows.Forms.MaskedTextBox()
@@ -434,7 +434,7 @@ Partial Class frmNewUser
         '
         'grpSecurity
         '
-        Me.grpSecurity.Controls.Add(Me.lblStudAdminNumber)
+        Me.grpSecurity.Controls.Add(Me.lblUserNumber)
         Me.grpSecurity.Controls.Add(Me.txtStudAdminNumber)
         Me.grpSecurity.Controls.Add(Me.txtCell)
         Me.grpSecurity.Controls.Add(Me.txtID)
@@ -447,14 +447,14 @@ Partial Class frmNewUser
         Me.grpSecurity.TabStop = False
         Me.grpSecurity.Text = "Security Questions"
         '
-        'lblStudAdminNumber
+        'lblUserNumber
         '
-        Me.lblStudAdminNumber.AutoSize = True
-        Me.lblStudAdminNumber.Location = New System.Drawing.Point(16, 38)
-        Me.lblStudAdminNumber.Name = "lblStudAdminNumber"
-        Me.lblStudAdminNumber.Size = New System.Drawing.Size(87, 13)
-        Me.lblStudAdminNumber.TabIndex = 5
-        Me.lblStudAdminNumber.Text = "Student Number:"
+        Me.lblUserNumber.AutoSize = True
+        Me.lblUserNumber.Location = New System.Drawing.Point(16, 38)
+        Me.lblUserNumber.Name = "lblUserNumber"
+        Me.lblUserNumber.Size = New System.Drawing.Size(87, 13)
+        Me.lblUserNumber.TabIndex = 5
+        Me.lblUserNumber.Text = "Student Number:"
         '
         'txtStudAdminNumber
         '
@@ -518,7 +518,7 @@ Partial Class frmNewUser
         Me.TableAdapterManager1.ADMINTableAdapter = Nothing
         Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager1.COURSETableAdapter = Nothing
-        Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
+        'Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
         Me.TableAdapterManager1.DISCIPLINETableAdapter = Me.DisciplineTableAdapter1
         Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
         Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
@@ -592,13 +592,13 @@ Partial Class frmNewUser
     End Sub
 
     Friend WithEvents tbcNewUser As TabControl
-	Friend WithEvents tbpNewUser As TabPage
-	Friend WithEvents tbpChangePassword As TabPage
+    Friend WithEvents tbpNewUser As TabPage
+    Friend WithEvents tbpChangePassword As TabPage
     Friend WithEvents btnClose As Button
     Friend WithEvents lblID As Label
     Friend WithEvents grpPassword As GroupBox
     Friend WithEvents grpSecurity As GroupBox
-    Friend WithEvents lblStudAdminNumber As Label
+    Friend WithEvents lblUserNumber As Label
     Friend WithEvents txtStudAdminNumber As MaskedTextBox
     Friend WithEvents txtCell As MaskedTextBox
     Friend WithEvents txtID As MaskedTextBox

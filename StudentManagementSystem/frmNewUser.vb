@@ -9,7 +9,7 @@
         FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
 
         For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
-            cmbCollege.Items.Add(Row.Item(1))
+            cmbCollege.Items.Add(Row.Item(0))
 
         Next
     End Sub

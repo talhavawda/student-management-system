@@ -42,6 +42,16 @@
 
     Private Sub btnCapture_Click(sender As Object, e As EventArgs) Handles btnCapture.Click
         'If ValidateCell(txtCellNumber.Text) And ValidateEmail(txtEmailAddress.text) Then'
+        If frmLogin.userType = frmLogin.ADMIN Then
+            AdminTableAdapter1.UpdateDetails(txtName.Text, txtSurname.Text, txtCellNumber.Text, txtEmailAddress.Text, txtAdminNumber.Text)
+            MsgBox("Details Captured")
+        Else
+            StudentTableAdapter1.UpdateDetails(txtName.Text, txtSurname.Text, txtCellNumber.Text, txtEmailAddress.Text, txtAdminNumber.Text)
+            MsgBox("Details Captured")
+        End If
+
+
+
     End Sub
 
     Private Sub txtCellNumber_TextChanged(sender As Object, e As EventArgs)
@@ -54,28 +64,32 @@
 
 	Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		If frmLogin.userType = frmLogin.ADMIN Then
-			'AdminTableAdapter1.FillDetails(SmsDataSet1.ADMIN, frmLogin.username)
-			'txtAdminNumber.Text = frmLogin.username
-			'txtIDNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(1).trim
-			'txtName.Text = SmsDataSet1.ADMIN.Rows(0).Item(2).trim
-			'txtSurname.Text = SmsDataSet1.ADMIN.Rows(0).Item(3).trim
-			'txtCellNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(4).trim
-			'txtEmailAddress.Text = SmsDataSet1.ADMIN.Rows(0).Item(5).trim
-		Else
-			'StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
-			'txtAdminNumber.Text = frmLogin.username
-			'txtIDNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(1).trim
-			'txtName.Text = SmsDataSet1.STUDENT.Rows(0).Item(2).trim
-			'txtSurname.Text = SmsDataSet1.STUDENT.Rows(0).Item(3).trim
-			'txtCellNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(4).trim
-			'txtEmailAddress.Text = SmsDataSet1.STUDENT.Rows(0).Item(5).trim
-			'txtFirstStudyYear.Text = SmsDataSet1.STUDENT.Rows(0).Item(7)
-			'txtCourse.Text = SmsDataSet1.STUDENT.Rows(0).Item(8)
+            AdminTableAdapter1.FillDetails(SmsDataSet1.ADMIN, frmLogin.username)
+            txtAdminNumber.Text = frmLogin.username
+            txtIDNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(1).trim
+            txtName.Text = SmsDataSet1.ADMIN.Rows(0).Item(2).trim
+            txtSurname.Text = SmsDataSet1.ADMIN.Rows(0).Item(3).trim
+            txtCellNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(4).trim
+            txtEmailAddress.Text = SmsDataSet1.ADMIN.Rows(0).Item(5).trim
+        Else
+            StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
+            txtAdminNumber.Text = frmLogin.username
+            txtIDNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(1).trim
+            txtName.Text = SmsDataSet1.STUDENT.Rows(0).Item(2).trim
+            txtSurname.Text = SmsDataSet1.STUDENT.Rows(0).Item(3).trim
+            txtCellNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(4).trim
+            txtEmailAddress.Text = SmsDataSet1.STUDENT.Rows(0).Item(5).trim
+            txtFirstStudyYear.Text = SmsDataSet1.STUDENT.Rows(0).Item(7)
+            'txtCourse.Text = SmsDataSet1.STUDENT.Rows(0).Item(8)   'Need to get course as string
 
-		End If
+        End If
 	End Sub
 
 	Private Sub Label1_Click(sender As Object, e As EventArgs)
 
 	End Sub
+
+    Private Sub txtText_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
 End Class

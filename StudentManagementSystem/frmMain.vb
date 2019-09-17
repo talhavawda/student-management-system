@@ -5,6 +5,14 @@
         End If
         Return True
     End Function
+
+    Public Function ValidateEmail(ByVal email As String) As Boolean
+        If email.IndexOf("@") > 0 And email.LastIndexOf(".") > email.IndexOf("@") Then
+            Return True
+        End If
+        Return False
+    End Function
+
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles grbDetails.Enter
 
     End Sub
@@ -42,14 +50,19 @@
 
     Private Sub btnCapture_Click(sender As Object, e As EventArgs) Handles btnCapture.Click
         'If ValidateCell(txtCellNumber.Text) And ValidateEmail(txtEmailAddress.text) Then'
-        If frmLogin.userType = frmLogin.ADMIN Then
-            AdminTableAdapter1.UpdateDetails(txtName.Text, txtSurname.Text, txtCellNumber.Text, txtEmailAddress.Text, txtAdminNumber.Text)
-            MsgBox("Details Captured")
+        If (ValidateEmail(txtEmailAddress.Text) = False) Then
+            MsgBox("Invalid Email Address")
+        ElseIf (ValidateCell(txtCellNumber.Text) = False) Then
+            MsgBox("Invalid Cell Number")
         Else
-            StudentTableAdapter1.UpdateDetails(txtName.Text, txtSurname.Text, txtCellNumber.Text, txtEmailAddress.Text, txtAdminNumber.Text)
-            MsgBox("Details Captured")
+            If frmLogin.userType = frmLogin.ADMIN Then
+                AdminTableAdapter1.UpdateDetails(txtName.Text, txtSurname.Text, txtCellNumber.Text, txtEmailAddress.Text, txtAdminNumber.Text)
+                MsgBox("Details Captured")
+            Else
+                StudentTableAdapter1.UpdateDetails(txtName.Text, txtSurname.Text, txtCellNumber.Text, txtEmailAddress.Text, txtAdminNumber.Text)
+                MsgBox("Details Captured")
+            End If
         End If
-
 
 
     End Sub
@@ -90,6 +103,10 @@
 	End Sub
 
     Private Sub txtText_TextChanged(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub tbpDetails_Click(sender As Object, e As EventArgs) Handles tbpDetails.Click
 
     End Sub
 End Class

@@ -803,8 +803,8 @@ Partial Class frmMain
 		'
 		Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
 		Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        'Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
-        Me.TableAdapterManager1.COURSETableAdapter = Nothing
+		'Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
+		Me.TableAdapterManager1.COURSETableAdapter = Nothing
 		Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing

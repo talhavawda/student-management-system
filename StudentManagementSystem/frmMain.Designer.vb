@@ -99,6 +99,8 @@ Partial Class frmMain
 		Me.GroupBox9 = New System.Windows.Forms.GroupBox()
 		Me.txtAddFaculty = New System.Windows.Forms.TextBox()
 		Me.btnAddFaculty = New System.Windows.Forms.Button()
+		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
+		Me.BSFaculty = New System.Windows.Forms.BindingSource(Me.components)
 		Me.tbcMain.SuspendLayout()
 		Me.tbpDetails.SuspendLayout()
 		Me.grbStudent.SuspendLayout()
@@ -119,6 +121,7 @@ Partial Class frmMain
 		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.GroupBox8.SuspendLayout()
 		Me.GroupBox9.SuspendLayout()
+		CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'tbcMain
@@ -820,6 +823,15 @@ Partial Class frmMain
 		Me.btnAddFaculty.Text = "Add Faculty"
 		Me.btnAddFaculty.UseVisualStyleBackColor = True
 		'
+		'FacultyTableAdapter1
+		'
+		Me.FacultyTableAdapter1.ClearBeforeFill = True
+		'
+		'BSFaculty
+		'
+		Me.BSFaculty.DataMember = "FACULTY"
+		Me.BSFaculty.DataSource = Me.SmsDataSet1
+		'
 		'frmMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -858,6 +870,7 @@ Partial Class frmMain
 		Me.GroupBox8.ResumeLayout(False)
 		Me.GroupBox9.ResumeLayout(False)
 		Me.GroupBox9.PerformLayout()
+		CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -937,4 +950,6 @@ Partial Class frmMain
 	Friend WithEvents btnAddFaculty As Button
 	Friend WithEvents txtAddFaculty As TextBox
 	Friend WithEvents cmbFaculty As ComboBox
+	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
+	Friend WithEvents BSFaculty As BindingSource
 End Class

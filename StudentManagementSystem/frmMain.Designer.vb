@@ -809,7 +809,7 @@ Partial Class frmMain
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULETableAdapter = Nothing
-		Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
+		'Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
 		Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
 		Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
 		'

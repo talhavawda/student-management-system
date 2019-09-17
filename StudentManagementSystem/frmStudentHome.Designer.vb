@@ -52,9 +52,10 @@ Partial Class frmStudentHome
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(485, 221)
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(450, 221)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(42, 13)
+        Me.Label3.Size = New System.Drawing.Size(99, 37)
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Results"
         '
@@ -62,19 +63,21 @@ Partial Class frmStudentHome
         '
         Me.pbxResults.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pbxResults.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pbxResults.Location = New System.Drawing.Point(431, 91)
+        Me.pbxResults.Image = Global.StudentManagementSystem.My.Resources.Resources.RESULTS
+        Me.pbxResults.Location = New System.Drawing.Point(425, 91)
         Me.pbxResults.Name = "pbxResults"
         Me.pbxResults.Size = New System.Drawing.Size(150, 120)
-        Me.pbxResults.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbxResults.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxResults.TabIndex = 7
         Me.pbxResults.TabStop = False
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(268, 221)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(222, 221)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(63, 13)
+        Me.Label2.Size = New System.Drawing.Size(159, 37)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Registration"
         '
@@ -82,28 +85,33 @@ Partial Class frmStudentHome
         '
         Me.pbxReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pbxReg.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxReg.Image = Global.StudentManagementSystem.My.Resources.Resources.Reports
         Me.pbxReg.Location = New System.Drawing.Point(229, 91)
         Me.pbxReg.Name = "pbxReg"
         Me.pbxReg.Size = New System.Drawing.Size(150, 120)
+        Me.pbxReg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxReg.TabIndex = 5
         Me.pbxReg.TabStop = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(51, 221)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(23, 221)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 13)
+        Me.Label1.Size = New System.Drawing.Size(151, 37)
         Me.Label1.TabIndex = 4
-        Me.Label1.Text = "View/Change Details"
+        Me.Label1.Text = "Edit Details"
         '
         'pbxDetails
         '
         Me.pbxDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pbxDetails.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxDetails.Image = Global.StudentManagementSystem.My.Resources.Resources.EDIT
         Me.pbxDetails.Location = New System.Drawing.Point(30, 91)
         Me.pbxDetails.Name = "pbxDetails"
         Me.pbxDetails.Size = New System.Drawing.Size(150, 120)
+        Me.pbxDetails.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxDetails.TabIndex = 3
         Me.pbxDetails.TabStop = False
         '

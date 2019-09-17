@@ -88,17 +88,17 @@ Partial Class frmMain
 		Me.tbpReports = New System.Windows.Forms.TabPage()
 		Me.GroupBox6 = New System.Windows.Forms.GroupBox()
 		Me.tbpCourses = New System.Windows.Forms.TabPage()
+		Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+		Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+		Me.btnAddFaculty = New System.Windows.Forms.Button()
+		Me.txtAddFaculty = New System.Windows.Forms.TextBox()
+		Me.cmbFaculty = New System.Windows.Forms.ComboBox()
 		Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
 		Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
 		Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
 		Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
 		Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
 		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
-		Me.GroupBox8 = New System.Windows.Forms.GroupBox()
-		Me.cmbFaculty = New System.Windows.Forms.ComboBox()
-		Me.GroupBox9 = New System.Windows.Forms.GroupBox()
-		Me.txtAddFaculty = New System.Windows.Forms.TextBox()
-		Me.btnAddFaculty = New System.Windows.Forms.Button()
 		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
 		Me.BSFaculty = New System.Windows.Forms.BindingSource(Me.components)
 		Me.tbcMain.SuspendLayout()
@@ -116,11 +116,11 @@ Partial Class frmMain
 		Me.GroupBox5.SuspendLayout()
 		Me.tbpReports.SuspendLayout()
 		Me.tbpCourses.SuspendLayout()
+		Me.GroupBox8.SuspendLayout()
+		Me.GroupBox9.SuspendLayout()
 		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
-		Me.GroupBox8.SuspendLayout()
-		Me.GroupBox9.SuspendLayout()
 		CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
@@ -740,6 +740,52 @@ Partial Class frmMain
 		Me.tbpCourses.Text = "Courses"
 		Me.tbpCourses.UseVisualStyleBackColor = True
 		'
+		'GroupBox8
+		'
+		Me.GroupBox8.Controls.Add(Me.GroupBox9)
+		Me.GroupBox8.Controls.Add(Me.cmbFaculty)
+		Me.GroupBox8.Location = New System.Drawing.Point(24, 16)
+		Me.GroupBox8.Name = "GroupBox8"
+		Me.GroupBox8.Size = New System.Drawing.Size(238, 151)
+		Me.GroupBox8.TabIndex = 0
+		Me.GroupBox8.TabStop = False
+		Me.GroupBox8.Text = "Faculty"
+		'
+		'GroupBox9
+		'
+		Me.GroupBox9.Controls.Add(Me.btnAddFaculty)
+		Me.GroupBox9.Controls.Add(Me.txtAddFaculty)
+		Me.GroupBox9.Location = New System.Drawing.Point(6, 53)
+		Me.GroupBox9.Name = "GroupBox9"
+		Me.GroupBox9.Size = New System.Drawing.Size(226, 92)
+		Me.GroupBox9.TabIndex = 1
+		Me.GroupBox9.TabStop = False
+		Me.GroupBox9.Text = "Add Faculty"
+		'
+		'btnAddFaculty
+		'
+		Me.btnAddFaculty.Location = New System.Drawing.Point(77, 55)
+		Me.btnAddFaculty.Name = "btnAddFaculty"
+		Me.btnAddFaculty.Size = New System.Drawing.Size(75, 23)
+		Me.btnAddFaculty.TabIndex = 1
+		Me.btnAddFaculty.Text = "Add Faculty"
+		Me.btnAddFaculty.UseVisualStyleBackColor = True
+		'
+		'txtAddFaculty
+		'
+		Me.txtAddFaculty.Location = New System.Drawing.Point(6, 29)
+		Me.txtAddFaculty.Name = "txtAddFaculty"
+		Me.txtAddFaculty.Size = New System.Drawing.Size(214, 20)
+		Me.txtAddFaculty.TabIndex = 0
+		'
+		'cmbFaculty
+		'
+		Me.cmbFaculty.FormattingEnabled = True
+		Me.cmbFaculty.Location = New System.Drawing.Point(6, 19)
+		Me.cmbFaculty.Name = "cmbFaculty"
+		Me.cmbFaculty.Size = New System.Drawing.Size(226, 21)
+		Me.cmbFaculty.TabIndex = 0
+		'
 		'SmsDataSet1
 		'
 		Me.SmsDataSet1.DataSetName = "SMSDataSet"
@@ -776,52 +822,6 @@ Partial Class frmMain
 		'
 		Me.BSStudent.DataMember = "STUDENT"
 		Me.BSStudent.DataSource = Me.SmsDataSet1
-		'
-		'GroupBox8
-		'
-		Me.GroupBox8.Controls.Add(Me.GroupBox9)
-		Me.GroupBox8.Controls.Add(Me.cmbFaculty)
-		Me.GroupBox8.Location = New System.Drawing.Point(24, 16)
-		Me.GroupBox8.Name = "GroupBox8"
-		Me.GroupBox8.Size = New System.Drawing.Size(238, 151)
-		Me.GroupBox8.TabIndex = 0
-		Me.GroupBox8.TabStop = False
-		Me.GroupBox8.Text = "Faculty"
-		'
-		'cmbFaculty
-		'
-		Me.cmbFaculty.FormattingEnabled = True
-		Me.cmbFaculty.Location = New System.Drawing.Point(6, 19)
-		Me.cmbFaculty.Name = "cmbFaculty"
-		Me.cmbFaculty.Size = New System.Drawing.Size(226, 21)
-		Me.cmbFaculty.TabIndex = 0
-		'
-		'GroupBox9
-		'
-		Me.GroupBox9.Controls.Add(Me.btnAddFaculty)
-		Me.GroupBox9.Controls.Add(Me.txtAddFaculty)
-		Me.GroupBox9.Location = New System.Drawing.Point(6, 53)
-		Me.GroupBox9.Name = "GroupBox9"
-		Me.GroupBox9.Size = New System.Drawing.Size(226, 92)
-		Me.GroupBox9.TabIndex = 1
-		Me.GroupBox9.TabStop = False
-		Me.GroupBox9.Text = "Add Faculty"
-		'
-		'txtAddFaculty
-		'
-		Me.txtAddFaculty.Location = New System.Drawing.Point(6, 29)
-		Me.txtAddFaculty.Name = "txtAddFaculty"
-		Me.txtAddFaculty.Size = New System.Drawing.Size(214, 20)
-		Me.txtAddFaculty.TabIndex = 0
-		'
-		'btnAddFaculty
-		'
-		Me.btnAddFaculty.Location = New System.Drawing.Point(77, 55)
-		Me.btnAddFaculty.Name = "btnAddFaculty"
-		Me.btnAddFaculty.Size = New System.Drawing.Size(75, 23)
-		Me.btnAddFaculty.TabIndex = 1
-		Me.btnAddFaculty.Text = "Add Faculty"
-		Me.btnAddFaculty.UseVisualStyleBackColor = True
 		'
 		'FacultyTableAdapter1
 		'
@@ -864,12 +864,12 @@ Partial Class frmMain
 		Me.GroupBox5.PerformLayout()
 		Me.tbpReports.ResumeLayout(False)
 		Me.tbpCourses.ResumeLayout(False)
-		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.GroupBox8.ResumeLayout(False)
 		Me.GroupBox9.ResumeLayout(False)
 		Me.GroupBox9.PerformLayout()
+		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 

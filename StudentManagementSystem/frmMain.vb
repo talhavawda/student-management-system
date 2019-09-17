@@ -110,4 +110,11 @@
 	Private Sub tbpDetails_Click(sender As Object, e As EventArgs) Handles tbpDetails.Click
 
 	End Sub
+
+	Private Sub tbpCourses_Enter(sender As Object, e As EventArgs) Handles tbpCourses.Enter
+		FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
+		For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
+			cmbFaculty.Items.Add(Row.Item(0)) 'List Faculty Names in ComboBox
+		Next
+	End Sub
 End Class

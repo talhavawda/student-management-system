@@ -19,9 +19,10 @@
     Friend courses As TabPage = frmMain.tbpCourses              'Reference to Courses Tab on frmMain
 
 
-    Friend username As String
-    'Generic hide method
-    Public Sub HidePage(ByRef tabpage As TabPage, ByVal whichForm As Integer)
+	Friend username As String
+
+	'Generic hide method
+	Public Sub HidePage(ByRef tabpage As TabPage, ByVal whichForm As Integer)
         If whichForm = 0 Then
             frmNewUser.tbcNewUser.TabPages.Remove(tabpage)
         Else

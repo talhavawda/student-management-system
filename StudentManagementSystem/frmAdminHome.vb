@@ -9,8 +9,6 @@
 		frmMain.lblUsername.Text = "Staff Number: "
 		frmMain.ShowDialog()
 
-
-
 	End Sub
 
 	Private Sub pbxMarks_Click(sender As Object, e As EventArgs) Handles pbxMarks.Click

@@ -77,6 +77,7 @@
 	End Sub
 
 	Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		'POPULATE DETAILS TAB WITH USER'S DETAILS
 		If frmLogin.userType = frmLogin.ADMIN Then
 			AdminTableAdapter1.FillDetails(SmsDataSet1.ADMIN, frmLogin.username)
 			txtAdminNumber.Text = frmLogin.username
@@ -125,5 +126,14 @@
 		Dim newFacultyID As Integer = FacultyTableAdapter1.HighestFacultyID() + 1
 		FacultyTableAdapter1.InsertFaculty(txtAddFaculty.Text, newFacultyID) 'first parameter is Name of Faculty; second paramter is FacultyID
 		tbpCourses_Enter(sender, e) 'call to populate the Faculty comboBox with updated values
+	End Sub
+
+	Private Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
+		'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
+		StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
+
+		txtStudentNumber.Text = frmLogin.username
+
+
 	End Sub
 End Class

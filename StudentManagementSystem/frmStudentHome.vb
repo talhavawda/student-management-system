@@ -13,18 +13,20 @@
 
     End Sub
 
-    Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles pbxResults.Click
-        frmLogin.ShowPage(frmLogin.viewResults, frmLogin.MAINFORM)
-        frmMain.ShowDialog()
-    End Sub
+	Private Sub pbxResults_Click(sender As Object, e As EventArgs) Handles pbxResults.Click
+		frmLogin.ShowPage(frmLogin.viewResults, frmLogin.MAINFORM)
+		frmMain.ShowDialog()
+	End Sub
 
-    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles pbxReg.Click
-        frmLogin.ShowPage(frmLogin.newReg, frmLogin.MAINFORM)
-        frmLogin.ShowPage(frmLogin.viewReg, frmLogin.MAINFORM)
-        frmMain.ShowDialog()
-    End Sub
+	Private Sub pbxRegistration_Click(sender As Object, e As EventArgs) Handles pbxRegestration.Click
+		frmLogin.ShowPage(frmLogin.newReg, frmLogin.MAINFORM)
+		frmLogin.ShowPage(frmLogin.viewReg, frmLogin.MAINFORM)
+		frmMain.ShowDialog()
 
-    Private Sub pbDetails_Click(sender As Object, e As EventArgs) Handles pbxDetails.Click
+
+	End Sub
+
+	Private Sub pbDetails_Click(sender As Object, e As EventArgs) Handles pbxDetails.Click
         frmLogin.ShowPage(frmLogin.details, frmLogin.MAINFORM)
         frmMain.grbStudent.Show()
         frmMain.lblUsername.Text = "Student Number: "

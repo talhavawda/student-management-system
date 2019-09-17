@@ -25,25 +25,25 @@ Partial Class frmStudentHome
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudentHome))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.PictureBox2 = New System.Windows.Forms.PictureBox()
+        Me.pbxResults = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.pbxReg = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.pbDetails = New System.Windows.Forms.PictureBox()
+        Me.pbxDetails = New System.Windows.Forms.PictureBox()
         Me.Panel1.SuspendLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxResults, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxReg, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.PictureBox2)
+        Me.Panel1.Controls.Add(Me.pbxResults)
         Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Controls.Add(Me.PictureBox1)
+        Me.Panel1.Controls.Add(Me.pbxReg)
         Me.Panel1.Controls.Add(Me.Label1)
-        Me.Panel1.Controls.Add(Me.pbDetails)
+        Me.Panel1.Controls.Add(Me.pbxDetails)
         Me.Panel1.Location = New System.Drawing.Point(22, 12)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(597, 340)
@@ -58,16 +58,16 @@ Partial Class frmStudentHome
         Me.Label3.TabIndex = 8
         Me.Label3.Text = "Results"
         '
-        'PictureBox2
+        'pbxResults
         '
-        Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox2.Location = New System.Drawing.Point(431, 91)
-        Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(150, 120)
-        Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox2.TabIndex = 7
-        Me.PictureBox2.TabStop = False
+        Me.pbxResults.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxResults.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxResults.Location = New System.Drawing.Point(431, 91)
+        Me.pbxResults.Name = "pbxResults"
+        Me.pbxResults.Size = New System.Drawing.Size(150, 120)
+        Me.pbxResults.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.pbxResults.TabIndex = 7
+        Me.pbxResults.TabStop = False
         '
         'Label2
         '
@@ -78,15 +78,15 @@ Partial Class frmStudentHome
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Registration"
         '
-        'PictureBox1
+        'pbxReg
         '
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox1.Location = New System.Drawing.Point(229, 91)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(150, 120)
-        Me.PictureBox1.TabIndex = 5
-        Me.PictureBox1.TabStop = False
+        Me.pbxReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxReg.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxReg.Location = New System.Drawing.Point(229, 91)
+        Me.pbxReg.Name = "pbxReg"
+        Me.pbxReg.Size = New System.Drawing.Size(150, 120)
+        Me.pbxReg.TabIndex = 5
+        Me.pbxReg.TabStop = False
         '
         'Label1
         '
@@ -97,15 +97,15 @@ Partial Class frmStudentHome
         Me.Label1.TabIndex = 4
         Me.Label1.Text = "View/Change Details"
         '
-        'pbDetails
+        'pbxDetails
         '
-        Me.pbDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.pbDetails.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pbDetails.Location = New System.Drawing.Point(30, 91)
-        Me.pbDetails.Name = "pbDetails"
-        Me.pbDetails.Size = New System.Drawing.Size(150, 120)
-        Me.pbDetails.TabIndex = 3
-        Me.pbDetails.TabStop = False
+        Me.pbxDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxDetails.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxDetails.Location = New System.Drawing.Point(30, 91)
+        Me.pbxDetails.Name = "pbxDetails"
+        Me.pbxDetails.Size = New System.Drawing.Size(150, 120)
+        Me.pbxDetails.TabIndex = 3
+        Me.pbxDetails.TabStop = False
         '
         'frmStudentHome
         '
@@ -120,18 +120,18 @@ Partial Class frmStudentHome
         Me.Text = "Home | Student"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
-        CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbDetails, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxResults, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxReg, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents pbDetails As PictureBox
+    Friend WithEvents pbxDetails As PictureBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label3 As Label
-    Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents pbxResults As PictureBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents pbxReg As PictureBox
 End Class

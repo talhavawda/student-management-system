@@ -32,6 +32,7 @@ Partial Class frmSplashScreen
 		'
 		Me.lblLoadingBar.AutoSize = True
 		Me.lblLoadingBar.BackColor = System.Drawing.Color.Transparent
+		Me.lblLoadingBar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
 		Me.lblLoadingBar.ForeColor = System.Drawing.Color.Aqua
 		Me.lblLoadingBar.Location = New System.Drawing.Point(152, 337)
 		Me.lblLoadingBar.Name = "lblLoadingBar"

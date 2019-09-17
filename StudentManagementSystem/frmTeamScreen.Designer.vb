@@ -22,25 +22,25 @@ Partial Class frmTeamScreen
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
-		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTeamScreen))
-		Me.SuspendLayout()
-		'
-		'frmTeamScreen
-		'
-		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
-		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.BackColor = System.Drawing.SystemColors.ControlText
-		Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
-		Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
-		Me.ClientSize = New System.Drawing.Size(578, 412)
-		Me.DoubleBuffered = True
-		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-		Me.Name = "frmTeamScreen"
-		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-		Me.Text = "Fuzzy Logic"
-		Me.TopMost = True
-		Me.ResumeLayout(False)
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmTeamScreen))
+        Me.SuspendLayout()
+        '
+        'frmTeamScreen
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.ControlText
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
+        Me.ClientSize = New System.Drawing.Size(578, 412)
+        Me.DoubleBuffered = True
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "frmTeamScreen"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Fuzzy Logic"
+        Me.TopMost = True
+        Me.ResumeLayout(False)
 
-	End Sub
+    End Sub
 End Class

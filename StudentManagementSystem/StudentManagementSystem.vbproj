@@ -158,6 +158,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SMSDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SMSDataSet.vb">
+      <DependentUpon>SMSDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmNewUser.resx">

@@ -8,6 +8,7 @@
 		frmTeamScreen.Show()
 
 		tmrLoadingLabel.Enabled = True
+
 	End Sub
 
     Private Sub tmrSplash_Tick(sender As Object, e As EventArgs)
@@ -19,11 +20,16 @@
     Private Sub tmrLoadingLabel_Tick(sender As Object, e As EventArgs) Handles tmrLoadingLabel.Tick
 		'Since this form is set as a Splash Screen in the Project Settings the for will automatically close after 2 seconds thus no need to check for length of the LoadingBar 
 		lblLoadingBar.Text += "|"
+
 		If lblLoadingBar.Text = "||" Then
 			Threading.Thread.Sleep(1000)
 			frmTeamScreen.Close()
 		End If
 		'now SplashScreen will show for another 2000ms as MinDisplayTime set to 3000
+
+		If lblLoadingBar.Text = "|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||" Then
+			tmrLoadingLabel.Enabled = False 'Stop the progress bar
+		End If
 
 	End Sub
 

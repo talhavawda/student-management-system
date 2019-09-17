@@ -103,6 +103,7 @@ Partial Class frmLogin
 		'
 		'pbxAdmin
 		'
+		Me.pbxAdmin.BackColor = System.Drawing.Color.Transparent
 		Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.pbxAdmin.Image = CType(resources.GetObject("pbxAdmin.Image"), System.Drawing.Image)
 		Me.pbxAdmin.Location = New System.Drawing.Point(346, 47)

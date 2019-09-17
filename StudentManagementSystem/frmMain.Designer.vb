@@ -93,14 +93,17 @@ Partial Class frmMain
 		Me.btnAddFaculty = New System.Windows.Forms.Button()
 		Me.txtAddFaculty = New System.Windows.Forms.TextBox()
 		Me.cmbFaculty = New System.Windows.Forms.ComboBox()
-		Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
 		Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
-		Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
+		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
 		Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
+		Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
+		Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
 		Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
 		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
-		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
 		Me.BSFaculty = New System.Windows.Forms.BindingSource(Me.components)
+		Me.CourseTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.COURSETableAdapter()
+		Me.BSCourse = New System.Windows.Forms.BindingSource(Me.components)
+		Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
 		Me.tbcMain.SuspendLayout()
 		Me.tbpDetails.SuspendLayout()
 		Me.grbStudent.SuspendLayout()
@@ -122,6 +125,8 @@ Partial Class frmMain
 		CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.SMSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'tbcMain
@@ -786,31 +791,36 @@ Partial Class frmMain
 		Me.cmbFaculty.Size = New System.Drawing.Size(226, 21)
 		Me.cmbFaculty.TabIndex = 0
 		'
-		'SmsDataSet1
-		'
-		Me.SmsDataSet1.DataSetName = "SMSDataSet"
-		Me.SmsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-		'
 		'AdminTableAdapter1
 		'
 		Me.AdminTableAdapter1.ClearBeforeFill = True
 		'
-		'StudentTableAdapter1
+		'FacultyTableAdapter1
 		'
-		Me.StudentTableAdapter1.ClearBeforeFill = True
+		Me.FacultyTableAdapter1.ClearBeforeFill = True
 		'
 		'TableAdapterManager1
 		'
-		Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
+		Me.TableAdapterManager1.ADMINTableAdapter = Nothing
 		Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
+		Me.TableAdapterManager1.Connection = Nothing
 		Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
 		Me.TableAdapterManager1.COURSETableAdapter = Nothing
 		Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULETableAdapter = Nothing
-		Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
+		Me.TableAdapterManager1.STUDENTTableAdapter = Nothing
 		Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
+		'
+		'SmsDataSet1
+		'
+		Me.SmsDataSet1.DataSetName = "SMSDataSet"
+		Me.SmsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+		'
+		'StudentTableAdapter1
+		'
+		Me.StudentTableAdapter1.ClearBeforeFill = True
 		'
 		'BSAdmin
 		'
@@ -822,14 +832,24 @@ Partial Class frmMain
 		Me.BSStudent.DataMember = "STUDENT"
 		Me.BSStudent.DataSource = Me.SmsDataSet1
 		'
-		'FacultyTableAdapter1
-		'
-		Me.FacultyTableAdapter1.ClearBeforeFill = True
-		'
 		'BSFaculty
 		'
 		Me.BSFaculty.DataMember = "FACULTY"
 		Me.BSFaculty.DataSource = Me.SmsDataSet1
+		'
+		'CourseTableAdapter1
+		'
+		Me.CourseTableAdapter1.ClearBeforeFill = True
+		'
+		'BSCourse
+		'
+		Me.BSCourse.DataMember = "COURSE"
+		Me.BSCourse.DataSource = Me.SMSDataSet
+		'
+		'SMSDataSet
+		'
+		Me.SMSDataSet.DataSetName = "SMSDataSet"
+		Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
 		'
 		'frmMain
 		'
@@ -870,6 +890,8 @@ Partial Class frmMain
 		CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.SMSDataSet, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -951,4 +973,7 @@ Partial Class frmMain
 	Friend WithEvents cmbFaculty As ComboBox
 	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
 	Friend WithEvents BSFaculty As BindingSource
+	Friend WithEvents CourseTableAdapter1 As SMSDataSetTableAdapters.COURSETableAdapter
+	Friend WithEvents BSCourse As BindingSource
+	Friend WithEvents SMSDataSet As SMSDataSet
 End Class

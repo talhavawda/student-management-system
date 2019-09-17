@@ -27,11 +27,11 @@ Partial Class frmLogin
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.pnlSelect = New System.Windows.Forms.Panel()
 		Me.Label3 = New System.Windows.Forms.Label()
+		Me.lblNewStudent = New System.Windows.Forms.Label()
 		Me.pbxAdmin = New System.Windows.Forms.PictureBox()
 		Me.pbxStudent = New System.Windows.Forms.PictureBox()
 		Me.pnlLogin = New System.Windows.Forms.Panel()
 		Me.lblForgotPassword = New System.Windows.Forms.Label()
-		Me.lblNewStudent = New System.Windows.Forms.Label()
 		Me.btnLogin = New System.Windows.Forms.Button()
 		Me.txtPassword = New System.Windows.Forms.TextBox()
 		Me.txtLoginUsername = New System.Windows.Forms.MaskedTextBox()
@@ -47,6 +47,7 @@ Partial Class frmLogin
 		Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
 		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
 		Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
+		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
 		Me.pnlSelect.SuspendLayout()
 		CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,6 +88,17 @@ Partial Class frmLogin
 		Me.Label3.TabIndex = 3
 		Me.Label3.Text = "VALID LOGINS: " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                     USERNAME      PASSWORD" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "ADMIN:        1234" &
 	"567890      jkane123" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "STUDENT:    0123456789     Test" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
+		'
+		'lblNewStudent
+		'
+		Me.lblNewStudent.AutoSize = True
+		Me.lblNewStudent.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.lblNewStudent.ForeColor = System.Drawing.SystemColors.MenuHighlight
+		Me.lblNewStudent.Location = New System.Drawing.Point(79, 181)
+		Me.lblNewStudent.Name = "lblNewStudent"
+		Me.lblNewStudent.Size = New System.Drawing.Size(97, 13)
+		Me.lblNewStudent.TabIndex = 5
+		Me.lblNewStudent.Text = "I am a new student"
 		'
 		'pbxAdmin
 		'
@@ -133,17 +145,6 @@ Partial Class frmLogin
 		Me.lblForgotPassword.Size = New System.Drawing.Size(104, 13)
 		Me.lblForgotPassword.TabIndex = 6
 		Me.lblForgotPassword.Text = "I forgot my password"
-		'
-		'lblNewStudent
-		'
-		Me.lblNewStudent.AutoSize = True
-		Me.lblNewStudent.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.lblNewStudent.ForeColor = System.Drawing.SystemColors.MenuHighlight
-		Me.lblNewStudent.Location = New System.Drawing.Point(79, 181)
-		Me.lblNewStudent.Name = "lblNewStudent"
-		Me.lblNewStudent.Size = New System.Drawing.Size(97, 13)
-		Me.lblNewStudent.TabIndex = 5
-		Me.lblNewStudent.Text = "I am a new student"
 		'
 		'btnLogin
 		'
@@ -235,10 +236,10 @@ Partial Class frmLogin
 		'
 		Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
 		Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-		Me.TableAdapterManager1.COLLEGETableAdapter = Nothing
 		Me.TableAdapterManager1.COURSETableAdapter = Nothing
 		Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
 		Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
+		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULETableAdapter = Nothing
 		Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
@@ -258,6 +259,10 @@ Partial Class frmLogin
 		'
 		Me.BSAdmin.DataMember = "ADMIN"
 		Me.BSAdmin.DataSource = Me.SmsDataSet1
+		'
+		'FacultyTableAdapter1
+		'
+		Me.FacultyTableAdapter1.ClearBeforeFill = True
 		'
 		'frmLogin
 		'
@@ -310,4 +315,5 @@ Partial Class frmLogin
     Friend WithEvents BSStudent As BindingSource
     Friend WithEvents BSAdmin As BindingSource
     Friend WithEvents Label3 As Label
+	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
 End Class

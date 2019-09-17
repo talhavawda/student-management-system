@@ -67,12 +67,12 @@ Partial Class frmNewUser
         Me.lblCell = New System.Windows.Forms.Label()
         Me.lblID = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
-        Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
-        Me.CollegeTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.COLLEGETableAdapter()
-        Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
-        Me.BSCollege = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DisciplineTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.DISCIPLINETableAdapter()
         Me.BSDiscipline = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
+        Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
+        Me.DisciplineTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.DISCIPLINETableAdapter()
+        Me.BSFaculty = New System.Windows.Forms.BindingSource(Me.components)
+        Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
         Me.tbcNewUser.SuspendLayout()
         Me.tbpNewUser.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -81,9 +81,9 @@ Partial Class frmNewUser
         Me.tbpChangePassword.SuspendLayout()
         Me.grpPassword.SuspendLayout()
         Me.grpSecurity.SuspendLayout()
-        CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BSCollege, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSDiscipline, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbcNewUser
@@ -507,32 +507,32 @@ Partial Class frmNewUser
         Me.SmsDataSet1.DataSetName = "SMSDataSet"
         Me.SmsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'CollegeTableAdapter1
-        '
-        Me.CollegeTableAdapter1.ClearBeforeFill = True
-        '
         'TableAdapterManager1
         '
         Me.TableAdapterManager1.ADMINTableAdapter = Nothing
         Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-        Me.TableAdapterManager1.COLLEGETableAdapter = Me.CollegeTableAdapter1
         Me.TableAdapterManager1.COURSETableAdapter = Nothing
         Me.TableAdapterManager1.Discipline_ModuleTableAdapter = Nothing
         Me.TableAdapterManager1.DISCIPLINETableAdapter = Me.DisciplineTableAdapter1
+        Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
         Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
         Me.TableAdapterManager1.MODULETableAdapter = Nothing
         Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
         Me.TableAdapterManager1.STUDENTTableAdapter = Nothing
         Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
         '
-        'BSCollege
-        '
-        Me.BSCollege.DataMember = "COLLEGE"
-        Me.BSCollege.DataSource = Me.SmsDataSet1
-        '
         'DisciplineTableAdapter1
         '
         Me.DisciplineTableAdapter1.ClearBeforeFill = True
+        '
+        'BSFaculty
+        '
+        Me.BSFaculty.DataMember = "FACULTY"
+        Me.BSFaculty.DataSource = Me.SmsDataSet1
+        '
+        'FacultyTableAdapter1
+        '
+        Me.FacultyTableAdapter1.ClearBeforeFill = True
         '
         'frmNewUser
         '
@@ -558,9 +558,9 @@ Partial Class frmNewUser
         Me.grpPassword.PerformLayout()
         Me.grpSecurity.ResumeLayout(False)
         Me.grpSecurity.PerformLayout()
-        CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BSCollege, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSDiscipline, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -609,9 +609,9 @@ Partial Class frmNewUser
 	Friend WithEvents btnChangePassword As Button
 	Friend WithEvents btnCreateUser As Button
     Friend WithEvents SmsDataSet1 As SMSDataSet
-    Friend WithEvents CollegeTableAdapter1 As SMSDataSetTableAdapters.COLLEGETableAdapter
-    Friend WithEvents TableAdapterManager1 As SMSDataSetTableAdapters.TableAdapterManager
-    Friend WithEvents BSCollege As BindingSource
+	Friend WithEvents TableAdapterManager1 As SMSDataSetTableAdapters.TableAdapterManager
+	Friend WithEvents BSFaculty As BindingSource
     Friend WithEvents DisciplineTableAdapter1 As SMSDataSetTableAdapters.DISCIPLINETableAdapter
     Friend WithEvents BSDiscipline As BindingSource
+	Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
 End Class

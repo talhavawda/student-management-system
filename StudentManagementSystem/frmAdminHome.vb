@@ -20,5 +20,11 @@
 
 	End Sub
 
+	Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 
+	End Sub
+
+	Private Sub pbxCourses_Click(sender As Object, e As EventArgs) Handles pbxCourses.Click
+		frmLogin.ShowPage(frmLogin.courses, frmLogin.MAINFORM)
+	End Sub
 End Class

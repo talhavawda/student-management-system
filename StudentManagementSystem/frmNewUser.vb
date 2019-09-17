@@ -55,4 +55,8 @@
             cmbMajor2.Items.Add(Row.Item(1))
         Next
     End Sub
+
+    Private Sub btnCreateUser_Click(sender As Object, e As EventArgs) Handles btnCreateUser.Click
+
+    End Sub
 End Class

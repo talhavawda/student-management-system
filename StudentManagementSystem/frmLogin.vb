@@ -10,16 +10,18 @@
 	Friend newUser As TabPage = frmNewUser.tbpNewUser               'Reference to the newUser Tab Page on frmNewUser
 	Friend changePassword As TabPage = frmNewUser.tbpChangePassword 'Reference to the changePassword Tab Page on frmNewUser
 
-	Friend detailsTab As TabPage = frmMain.tbpDetails           'Reference to details Tab on frmMain
+	Friend details As TabPage = frmMain.tbpDetails              'Reference to Details Tab on frmMain
 	Friend newReg As TabPage = frmMain.tbpNewRegistration       'Reference to New registration tab on frmMain
 	Friend viewReg As TabPage = frmMain.tbpViewRegistration     'Reference to View Registration Tab on frmMain
 	Friend viewResults As TabPage = frmMain.tbpResultsStudent   'Reference to View reults on frmMain
 	Friend addResults As TabPage = frmMain.tbpResultsAdmin      'Reference to Add results on frmMain
 	Friend reports As TabPage = frmMain.tbpReports              'Reference to Reports Tab on frmMain
+	Friend courses As TabPage = frmMain.tbpCourses              'Reference to Courses Tab on frmMain
 
-    Friend username As String
-    'Generic hide method
-    Public Sub HidePage(ByRef tabpage As TabPage, ByVal whichForm As Integer)
+
+	Friend username As String
+	'Generic hide method
+	Public Sub HidePage(ByRef tabpage As TabPage, ByVal whichForm As Integer)
 		If whichForm = 0 Then
 			frmNewUser.tbcNewUser.TabPages.Remove(tabpage)
 		Else
@@ -47,13 +49,13 @@
 	Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		HidePage(changePassword, NEWUSERFORM)
 		HidePage(newUser, NEWUSERFORM)
-		HidePage(detailsTab, MAINFORM)
+		HidePage(details, MAINFORM)
 		HidePage(newReg, MAINFORM)
 		HidePage(viewReg, MAINFORM)
 		HidePage(viewResults, MAINFORM)
 		HidePage(addResults, MAINFORM)
 		HidePage(reports, MAINFORM)
-		HidePage(detailsTab, MAINFORM)
+		HidePage(details, MAINFORM)
 		pnlLogin.Enabled = False
 
 
@@ -108,28 +110,28 @@
 	Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
 
 
-        username = txtLoginUsername.Text                'Store Username
-        Dim password As String = txtPassword.Text       'Store Password
+		username = txtLoginUsername.Text                'Store Username
+		Dim password As String = txtPassword.Text       'Store Password
 
-        If userType = ADMIN Then                                                    'If and Admin Member is loging in
-            AdminTableAdapter1.AdminLogin(SmsDataSet1.ADMIN, username, password)    'SQL Query
-            If SmsDataSet1.ADMIN.Rows.Count = 1 Then                                'Correct Admin Login
-                MsgBox("Welcome " + SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.ADMIN.Rows(0).Item(3).trim)
-                AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)                          'Fill it again after sql filter
-                frmAdminHome.ShowDialog()                                           'Show Admin Home Screen
-            Else
+		If userType = ADMIN Then                                                    'If and Admin Member is loging in
+			AdminTableAdapter1.AdminLogin(SmsDataSet1.ADMIN, username, password)    'SQL Query
+			If SmsDataSet1.ADMIN.Rows.Count = 1 Then                                'Correct Admin Login
+				MsgBox("Welcome " + SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.ADMIN.Rows(0).Item(3).trim)
+				AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)                          'Fill it again after sql filter
+				frmAdminHome.ShowDialog()                                           'Show Admin Home Screen
+			Else
 				MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your details", "Invalid Login Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
 				'Generally the username is more likely correct and the password is incorrect so not going to clear username field
 				txtPassword.Clear()
 				txtPassword.Focus()
 			End If
-        Else                                                                            'userType = STUDENT
-            StudentTableAdapter1.StudentLogin(SmsDataSet1.STUDENT, username, password)  'SQL Query
-            If (SmsDataSet1.STUDENT.Rows.Count = 1) Then                                'Correct Student Login
-                MsgBox("Welcome " + SmsDataSet1.STUDENT.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim)
-                StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)                          'Fill it again after sql filter
-                frmStudentHome.ShowDialog()                                             'Show Student Home Screen
-            Else
+		Else                                                                            'userType = STUDENT
+			StudentTableAdapter1.StudentLogin(SmsDataSet1.STUDENT, username, password)  'SQL Query
+			If (SmsDataSet1.STUDENT.Rows.Count = 1) Then                                'Correct Student Login
+				MsgBox("Welcome " + SmsDataSet1.STUDENT.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim)
+				StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)                          'Fill it again after sql filter
+				frmStudentHome.ShowDialog()                                             'Show Student Home Screen
+			Else
 				MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your details", "Invalid Login Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
 				'Generally the username is more likely correct and the password is incorrect so not going to clear username field
 				txtPassword.Clear()

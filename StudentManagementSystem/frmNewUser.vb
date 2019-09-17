@@ -19,7 +19,7 @@
         Dim ran As String = Int((999999 - 100000 + 1) * Rnd() + 100000).ToString
         newStudNum = yr + ran
         txtNewStudAdminNumber.Text = newStudNum
-        'Above 2 lines creates new Student number
+        'Above 2 lines creates new Student/staff number
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click

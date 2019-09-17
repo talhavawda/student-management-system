@@ -22,18 +22,24 @@ Partial Class frmStudentHome
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStudentHome))
 		Me.Panel1 = New System.Windows.Forms.Panel()
 		Me.Label3 = New System.Windows.Forms.Label()
 		Me.pbxResults = New System.Windows.Forms.PictureBox()
 		Me.Label2 = New System.Windows.Forms.Label()
-		Me.pbxReg = New System.Windows.Forms.PictureBox()
+		Me.pbxRegestration = New System.Windows.Forms.PictureBox()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.pbxDetails = New System.Windows.Forms.PictureBox()
+		Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
+		Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
+		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
 		Me.Panel1.SuspendLayout()
 		CType(Me.pbxResults, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.pbxReg, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.pbxRegestration, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'Panel1
@@ -41,7 +47,7 @@ Partial Class frmStudentHome
 		Me.Panel1.Controls.Add(Me.Label3)
 		Me.Panel1.Controls.Add(Me.pbxResults)
 		Me.Panel1.Controls.Add(Me.Label2)
-		Me.Panel1.Controls.Add(Me.pbxReg)
+		Me.Panel1.Controls.Add(Me.pbxRegestration)
 		Me.Panel1.Controls.Add(Me.Label1)
 		Me.Panel1.Controls.Add(Me.pbxDetails)
 		Me.Panel1.Location = New System.Drawing.Point(22, 12)
@@ -81,17 +87,17 @@ Partial Class frmStudentHome
 		Me.Label2.TabIndex = 6
 		Me.Label2.Text = "Registration"
 		'
-		'pbxReg
+		'pbxRegestration
 		'
-		Me.pbxReg.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.pbxReg.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.pbxReg.Image = Global.StudentManagementSystem.My.Resources.Resources.Reports
-		Me.pbxReg.Location = New System.Drawing.Point(229, 91)
-		Me.pbxReg.Name = "pbxReg"
-		Me.pbxReg.Size = New System.Drawing.Size(150, 120)
-		Me.pbxReg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-		Me.pbxReg.TabIndex = 5
-		Me.pbxReg.TabStop = False
+		Me.pbxRegestration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+		Me.pbxRegestration.Cursor = System.Windows.Forms.Cursors.Hand
+		Me.pbxRegestration.Image = Global.StudentManagementSystem.My.Resources.Resources.Reports
+		Me.pbxRegestration.Location = New System.Drawing.Point(229, 91)
+		Me.pbxRegestration.Name = "pbxRegestration"
+		Me.pbxRegestration.Size = New System.Drawing.Size(150, 120)
+		Me.pbxRegestration.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+		Me.pbxRegestration.TabIndex = 5
+		Me.pbxRegestration.TabStop = False
 		'
 		'Label1
 		'
@@ -115,6 +121,20 @@ Partial Class frmStudentHome
 		Me.pbxDetails.TabIndex = 3
 		Me.pbxDetails.TabStop = False
 		'
+		'SmsDataSet1
+		'
+		Me.SmsDataSet1.DataSetName = "SMSDataSet"
+		Me.SmsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+		'
+		'StudentTableAdapter1
+		'
+		Me.StudentTableAdapter1.ClearBeforeFill = True
+		'
+		'BSStudent
+		'
+		Me.BSStudent.DataMember = "STUDENT"
+		Me.BSStudent.DataSource = Me.SmsDataSet1
+		'
 		'frmStudentHome
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -129,8 +149,10 @@ Partial Class frmStudentHome
 		Me.Panel1.ResumeLayout(False)
 		Me.Panel1.PerformLayout()
 		CType(Me.pbxResults, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.pbxReg, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.pbxRegestration, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -141,5 +163,8 @@ Partial Class frmStudentHome
     Friend WithEvents Label3 As Label
     Friend WithEvents pbxResults As PictureBox
     Friend WithEvents Label2 As Label
-    Friend WithEvents pbxReg As PictureBox
+    Friend WithEvents pbxRegestration As PictureBox
+	Friend WithEvents SmsDataSet1 As SMSDataSet
+	Friend WithEvents StudentTableAdapter1 As SMSDataSetTableAdapters.STUDENTTableAdapter
+	Friend WithEvents BSStudent As BindingSource
 End Class

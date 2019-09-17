@@ -55,14 +55,14 @@ Partial Class frmMain
 		Me.lblSemester1Reg = New System.Windows.Forms.Label()
 		Me.lblSemester2Reg = New System.Windows.Forms.Label()
 		Me.ListBox2 = New System.Windows.Forms.ListBox()
-		Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+		Me.grpDetails = New System.Windows.Forms.GroupBox()
 		Me.txtMajor2 = New System.Windows.Forms.TextBox()
 		Me.txtMajor1 = New System.Windows.Forms.TextBox()
-		Me.txtQualification = New System.Windows.Forms.TextBox()
+		Me.txtFaculty = New System.Windows.Forms.TextBox()
 		Me.lblMajor2 = New System.Windows.Forms.Label()
 		Me.lblMajor1 = New System.Windows.Forms.Label()
-		Me.txtStudentNumberReg = New System.Windows.Forms.TextBox()
-		Me.lblQualReg = New System.Windows.Forms.Label()
+		Me.txtStudentNumber = New System.Windows.Forms.TextBox()
+		Me.lblFaculty = New System.Windows.Forms.Label()
 		Me.lblStudentNumberReg = New System.Windows.Forms.Label()
 		Me.GroupBox1 = New System.Windows.Forms.GroupBox()
 		Me.tbpViewRegistration = New System.Windows.Forms.TabPage()
@@ -107,7 +107,7 @@ Partial Class frmMain
 		Me.grbDetails.SuspendLayout()
 		Me.tbpNewRegistration.SuspendLayout()
 		Me.GroupBox7.SuspendLayout()
-		Me.GroupBox2.SuspendLayout()
+		Me.grpDetails.SuspendLayout()
 		Me.tbpViewRegistration.SuspendLayout()
 		Me.GroupBox3.SuspendLayout()
 		Me.tbpResultsStudent.SuspendLayout()
@@ -340,7 +340,7 @@ Partial Class frmMain
 		'
 		Me.tbpNewRegistration.Controls.Add(Me.RichTextBox1)
 		Me.tbpNewRegistration.Controls.Add(Me.GroupBox7)
-		Me.tbpNewRegistration.Controls.Add(Me.GroupBox2)
+		Me.tbpNewRegistration.Controls.Add(Me.grpDetails)
 		Me.tbpNewRegistration.Controls.Add(Me.GroupBox1)
 		Me.tbpNewRegistration.Location = New System.Drawing.Point(4, 22)
 		Me.tbpNewRegistration.Name = "tbpNewRegistration"
@@ -428,22 +428,22 @@ Partial Class frmMain
 		Me.ListBox2.Size = New System.Drawing.Size(120, 95)
 		Me.ListBox2.TabIndex = 11
 		'
-		'GroupBox2
+		'grpDetails
 		'
-		Me.GroupBox2.Controls.Add(Me.txtMajor2)
-		Me.GroupBox2.Controls.Add(Me.txtMajor1)
-		Me.GroupBox2.Controls.Add(Me.txtQualification)
-		Me.GroupBox2.Controls.Add(Me.lblMajor2)
-		Me.GroupBox2.Controls.Add(Me.lblMajor1)
-		Me.GroupBox2.Controls.Add(Me.txtStudentNumberReg)
-		Me.GroupBox2.Controls.Add(Me.lblQualReg)
-		Me.GroupBox2.Controls.Add(Me.lblStudentNumberReg)
-		Me.GroupBox2.Location = New System.Drawing.Point(6, 6)
-		Me.GroupBox2.Name = "GroupBox2"
-		Me.GroupBox2.Size = New System.Drawing.Size(503, 148)
-		Me.GroupBox2.TabIndex = 1
-		Me.GroupBox2.TabStop = False
-		Me.GroupBox2.Text = "Details"
+		Me.grpDetails.Controls.Add(Me.txtMajor2)
+		Me.grpDetails.Controls.Add(Me.txtMajor1)
+		Me.grpDetails.Controls.Add(Me.txtFaculty)
+		Me.grpDetails.Controls.Add(Me.lblMajor2)
+		Me.grpDetails.Controls.Add(Me.lblMajor1)
+		Me.grpDetails.Controls.Add(Me.txtStudentNumber)
+		Me.grpDetails.Controls.Add(Me.lblFaculty)
+		Me.grpDetails.Controls.Add(Me.lblStudentNumberReg)
+		Me.grpDetails.Location = New System.Drawing.Point(6, 6)
+		Me.grpDetails.Name = "grpDetails"
+		Me.grpDetails.Size = New System.Drawing.Size(503, 148)
+		Me.grpDetails.TabIndex = 1
+		Me.grpDetails.TabStop = False
+		Me.grpDetails.Text = "Details"
 		'
 		'txtMajor2
 		'
@@ -461,13 +461,13 @@ Partial Class frmMain
 		Me.txtMajor1.Size = New System.Drawing.Size(100, 20)
 		Me.txtMajor1.TabIndex = 13
 		'
-		'txtQualification
+		'txtFaculty
 		'
-		Me.txtQualification.Enabled = False
-		Me.txtQualification.Location = New System.Drawing.Point(285, 50)
-		Me.txtQualification.Name = "txtQualification"
-		Me.txtQualification.Size = New System.Drawing.Size(100, 20)
-		Me.txtQualification.TabIndex = 12
+		Me.txtFaculty.Enabled = False
+		Me.txtFaculty.Location = New System.Drawing.Point(285, 50)
+		Me.txtFaculty.Name = "txtFaculty"
+		Me.txtFaculty.Size = New System.Drawing.Size(100, 20)
+		Me.txtFaculty.TabIndex = 12
 		'
 		'lblMajor2
 		'
@@ -487,22 +487,22 @@ Partial Class frmMain
 		Me.lblMajor1.TabIndex = 6
 		Me.lblMajor1.Text = "Major 1:"
 		'
-		'txtStudentNumberReg
+		'txtStudentNumber
 		'
-		Me.txtStudentNumberReg.Enabled = False
-		Me.txtStudentNumberReg.Location = New System.Drawing.Point(285, 13)
-		Me.txtStudentNumberReg.Name = "txtStudentNumberReg"
-		Me.txtStudentNumberReg.Size = New System.Drawing.Size(100, 20)
-		Me.txtStudentNumberReg.TabIndex = 3
+		Me.txtStudentNumber.Enabled = False
+		Me.txtStudentNumber.Location = New System.Drawing.Point(285, 13)
+		Me.txtStudentNumber.Name = "txtStudentNumber"
+		Me.txtStudentNumber.Size = New System.Drawing.Size(100, 20)
+		Me.txtStudentNumber.TabIndex = 3
 		'
-		'lblQualReg
+		'lblFaculty
 		'
-		Me.lblQualReg.AutoSize = True
-		Me.lblQualReg.Location = New System.Drawing.Point(15, 53)
-		Me.lblQualReg.Name = "lblQualReg"
-		Me.lblQualReg.Size = New System.Drawing.Size(71, 13)
-		Me.lblQualReg.TabIndex = 1
-		Me.lblQualReg.Text = "Qualification :"
+		Me.lblFaculty.AutoSize = True
+		Me.lblFaculty.Location = New System.Drawing.Point(15, 53)
+		Me.lblFaculty.Name = "lblFaculty"
+		Me.lblFaculty.Size = New System.Drawing.Size(44, 13)
+		Me.lblFaculty.TabIndex = 1
+		Me.lblFaculty.Text = "Faculty:"
 		'
 		'lblStudentNumberReg
 		'
@@ -803,13 +803,12 @@ Partial Class frmMain
 		'
 		Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
 		Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-		'Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
+		Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
 		Me.TableAdapterManager1.COURSETableAdapter = Nothing
 		Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULETableAdapter = Nothing
-		'Me.TableAdapterManager1.QUALIFICATION_TYPETableAdapter = Nothing
 		Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
 		Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
 		'
@@ -851,8 +850,8 @@ Partial Class frmMain
 		Me.tbpNewRegistration.ResumeLayout(False)
 		Me.GroupBox7.ResumeLayout(False)
 		Me.GroupBox7.PerformLayout()
-		Me.GroupBox2.ResumeLayout(False)
-		Me.GroupBox2.PerformLayout()
+		Me.grpDetails.ResumeLayout(False)
+		Me.grpDetails.PerformLayout()
 		Me.tbpViewRegistration.ResumeLayout(False)
 		Me.GroupBox3.ResumeLayout(False)
 		Me.GroupBox3.PerformLayout()
@@ -876,64 +875,64 @@ Partial Class frmMain
 	End Sub
 
 	Friend WithEvents tbcMain As TabControl
-    Friend WithEvents tbpDetails As TabPage
-    Friend WithEvents tbpNewRegistration As TabPage
-    Friend WithEvents tbpResultsStudent As TabPage
-    Friend WithEvents tbpResultsAdmin As TabPage
-    Friend WithEvents tbpReports As TabPage
-    Friend WithEvents tbpViewRegistration As TabPage
-    Friend WithEvents lblFirstStudyYear As Label
-    Friend WithEvents grbDetails As GroupBox
-    Friend WithEvents lblEmailAddress As Label
-    Friend WithEvents lblCellNumber As Label
-    Friend WithEvents lblSurname As Label
-    Friend WithEvents lblIDNumber As Label
-    Friend WithEvents lblName As Label
-    Friend WithEvents grbStudent As GroupBox
-    Friend WithEvents lblCourse As Label
-    Friend WithEvents lblUsername As Label
-    Friend WithEvents txtEmailAddress As TextBox
-    Friend WithEvents txtSurname As TextBox
-    Friend WithEvents txtName As TextBox
-    Friend WithEvents txtIDNumber As TextBox
-    Friend WithEvents txtAdminNumber As TextBox
-    Friend WithEvents txtCourse As TextBox
-    Friend WithEvents txtFirstStudyYear As TextBox
-    Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents lblQualReg As Label
-    Friend WithEvents lblStudentNumberReg As Label
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents GroupBox3 As GroupBox
-    Friend WithEvents GroupBox4 As GroupBox
-    Friend WithEvents GroupBox5 As GroupBox
-    Friend WithEvents GroupBox6 As GroupBox
-    Friend WithEvents txtStudentNumberReg As TextBox
-    Friend WithEvents lblMajor2 As Label
-    Friend WithEvents lblMajor1 As Label
-    Friend WithEvents lblSemester1Reg As Label
-    Friend WithEvents rtxtYearView As RichTextBox
-    Friend WithEvents lblC As Label
-    Friend WithEvents cmbYearView As ComboBox
-    Friend WithEvents lblYearView As Label
-    Friend WithEvents lblResults As Label
-    Friend WithEvents lblModView As Label
-    Friend WithEvents lstResults As ListBox
-    Friend WithEvents lstModView As ListBox
-    Friend WithEvents lblModResult As Label
-    Friend WithEvents lblStuResult As Label
-    Friend WithEvents txtResultVal As TextBox
-    Friend WithEvents txtModResult As TextBox
-    Friend WithEvents txtStuResult As TextBox
-    Friend WithEvents lblResultVal As Label
-    Friend WithEvents btnMainPassword As Button
-    Friend WithEvents btnCapture As Button
-    Friend WithEvents txtCellNumber As MaskedTextBox
-    Friend WithEvents ListBox1 As ListBox
-    Friend WithEvents ListBox2 As ListBox
-    Friend WithEvents txtMajor2 As TextBox
-    Friend WithEvents txtMajor1 As TextBox
-    Friend WithEvents txtQualification As TextBox
-    Friend WithEvents GroupBox7 As GroupBox
+	Friend WithEvents tbpDetails As TabPage
+	Friend WithEvents tbpNewRegistration As TabPage
+	Friend WithEvents tbpResultsStudent As TabPage
+	Friend WithEvents tbpResultsAdmin As TabPage
+	Friend WithEvents tbpReports As TabPage
+	Friend WithEvents tbpViewRegistration As TabPage
+	Friend WithEvents lblFirstStudyYear As Label
+	Friend WithEvents grbDetails As GroupBox
+	Friend WithEvents lblEmailAddress As Label
+	Friend WithEvents lblCellNumber As Label
+	Friend WithEvents lblSurname As Label
+	Friend WithEvents lblIDNumber As Label
+	Friend WithEvents lblName As Label
+	Friend WithEvents grbStudent As GroupBox
+	Friend WithEvents lblCourse As Label
+	Friend WithEvents lblUsername As Label
+	Friend WithEvents txtEmailAddress As TextBox
+	Friend WithEvents txtSurname As TextBox
+	Friend WithEvents txtName As TextBox
+	Friend WithEvents txtIDNumber As TextBox
+	Friend WithEvents txtAdminNumber As TextBox
+	Friend WithEvents txtCourse As TextBox
+	Friend WithEvents txtFirstStudyYear As TextBox
+	Friend WithEvents grpDetails As GroupBox
+	Friend WithEvents lblFaculty As Label
+	Friend WithEvents lblStudentNumberReg As Label
+	Friend WithEvents GroupBox1 As GroupBox
+	Friend WithEvents GroupBox3 As GroupBox
+	Friend WithEvents GroupBox4 As GroupBox
+	Friend WithEvents GroupBox5 As GroupBox
+	Friend WithEvents GroupBox6 As GroupBox
+	Friend WithEvents txtStudentNumber As TextBox
+	Friend WithEvents lblMajor2 As Label
+	Friend WithEvents lblMajor1 As Label
+	Friend WithEvents lblSemester1Reg As Label
+	Friend WithEvents rtxtYearView As RichTextBox
+	Friend WithEvents lblC As Label
+	Friend WithEvents cmbYearView As ComboBox
+	Friend WithEvents lblYearView As Label
+	Friend WithEvents lblResults As Label
+	Friend WithEvents lblModView As Label
+	Friend WithEvents lstResults As ListBox
+	Friend WithEvents lstModView As ListBox
+	Friend WithEvents lblModResult As Label
+	Friend WithEvents lblStuResult As Label
+	Friend WithEvents txtResultVal As TextBox
+	Friend WithEvents txtModResult As TextBox
+	Friend WithEvents txtStuResult As TextBox
+	Friend WithEvents lblResultVal As Label
+	Friend WithEvents btnMainPassword As Button
+	Friend WithEvents btnCapture As Button
+	Friend WithEvents txtCellNumber As MaskedTextBox
+	Friend WithEvents ListBox1 As ListBox
+	Friend WithEvents ListBox2 As ListBox
+	Friend WithEvents txtMajor2 As TextBox
+	Friend WithEvents txtMajor1 As TextBox
+	Friend WithEvents txtFaculty As TextBox
+	Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents ListBox3 As ListBox
     Friend WithEvents ListBox4 As ListBox
     Friend WithEvents lblSemester2Reg As Label

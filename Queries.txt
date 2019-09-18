@@ -1,0 +1,10 @@
+GET facultyname
+---------------
+OPTION 1:
+
+ SELECT Name FROM FACULTY, COURSE, STUDENT WHERE  STUDENT.CourseID = COURSE.CourseID AND COURSE.FacultyID = FACULTY.FacultyID
+----------------------
+OPTION 2***:
+
+
+SELECT FacultyID FROM FACULTY WHERE (SELECT CourseID FROM COURSE WHERE (SELECT STUDENT.StudentID = @StudentID FROM STUDENT) )

@@ -117,14 +117,14 @@
     Private Sub cmbMajor1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMajor1.SelectedIndexChanged
         cmbMajor2.Items.Clear()
 
+
         DisciplineTableAdapter1.FillCodeByName(SmsDataSet1.DISCIPLINE, cmbMajor1.SelectedItem)
-
-
         Dim major1 As String = SmsDataSet1.DISCIPLINE.Rows(0).Item(0)
+        '^^^ get DisciplineCode of major 1 ^^^
 
 
         CourseTableAdapter1.FillSecondMajor(SmsDataSet1.COURSE, major1, SelectedCollege)
-
+        '^^^ get major2 name based on major1 ^^^
 
         DisciplineTableAdapter1.Fill(SmsDataSet1.DISCIPLINE)
         For Each Row As DataRow In SmsDataSet1.COURSE.Rows
@@ -132,6 +132,7 @@
             DisciplineTableAdapter1.FillMajor2(SmsDataSet1.DISCIPLINE, major2Code)
             cmbMajor2.Items.Add(SmsDataSet1.DISCIPLINE.Rows(0).Item(1))
         Next
+        '^^^ populate combobox
 
     End Sub
 End Class

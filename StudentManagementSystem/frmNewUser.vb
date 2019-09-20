@@ -54,8 +54,9 @@
 
     Private Sub cmbCollege_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbCollege.SelectedIndexChanged
         cmbMajor1.Items.Clear()
+        cmbMajor1.Text = ""
         cmbMajor2.Items.Clear()
-
+        cmbMajor2.Text = ""
 
         SelectedCollege = cmbCollege.SelectedIndex + 1
 
@@ -63,7 +64,6 @@
 
         For Each Row As DataRow In SmsDataSet1.DISCIPLINE.Rows
             cmbMajor1.Items.Add(Row.Item(1))
-            cmbMajor2.Items.Add(Row.Item(1))
         Next
     End Sub
 
@@ -111,6 +111,27 @@
                 MessageBox.Show("Password Successfully Updated", "Password Update", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
         End If
+
+    End Sub
+
+    Private Sub cmbMajor1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMajor1.SelectedIndexChanged
+        cmbMajor2.Items.Clear()
+
+        DisciplineTableAdapter1.FillCodeByName(SmsDataSet1.DISCIPLINE, cmbMajor1.SelectedItem)
+
+
+        Dim major1 As String = SmsDataSet1.DISCIPLINE.Rows(0).Item(0)
+
+
+        CourseTableAdapter1.FillSecondMajor(SmsDataSet1.COURSE, major1, SelectedCollege)
+
+
+        DisciplineTableAdapter1.Fill(SmsDataSet1.DISCIPLINE)
+        For Each Row As DataRow In SmsDataSet1.COURSE.Rows
+            Dim major2Code As String = Row.Item(4)
+            DisciplineTableAdapter1.FillMajor2(SmsDataSet1.DISCIPLINE, major2Code)
+            cmbMajor2.Items.Add(SmsDataSet1.DISCIPLINE.Rows(0).Item(1))
+        Next
 
     End Sub
 End Class

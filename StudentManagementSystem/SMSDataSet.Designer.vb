@@ -5022,7 +5022,7 @@ Namespace SMSDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT CourseID, QualID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyI"& _ 
@@ -5030,9 +5030,16 @@ Namespace SMSDataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT FacultyID FROM COURSE WHERE CourseID = @CourseID"
+            Me._commandCollection(1).CommandText = "SELECT        *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            COURSE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (DisciplineCode1 = @Major1)"& _ 
+                " AND (FacultyID = @FacultyID)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CourseID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Major1", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FacultyID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT FacultyID FROM COURSE WHERE CourseID = @CourseID"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CourseID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5063,8 +5070,44 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function GetFacultyID(ByVal dataTable As SMSDataSet.COURSEDataTable, ByVal CourseID As Integer) As Integer
+        Public Overloads Overridable Function FillSecondMajor(ByVal dataTable As SMSDataSet.COURSEDataTable, ByVal Major1 As String, ByVal FacultyID As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Major1 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Major1")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Major1,String)
+            End If
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FacultyID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetSecondMajor(ByVal Major1 As String, ByVal FacultyID As Integer) As SMSDataSet.COURSEDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (Major1 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Major1")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(Major1,String)
+            End If
+            Me.Adapter.SelectCommand.Parameters(1).Value = CType(FacultyID,Integer)
+            Dim dataTable As SMSDataSet.COURSEDataTable = New SMSDataSet.COURSEDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function GetFacultyID(ByVal dataTable As SMSDataSet.COURSEDataTable, ByVal CourseID As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(CourseID,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -5400,17 +5443,29 @@ Namespace SMSDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT DisciplineCode, Name, FacultyID FROM DISCIPLINE"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT DisciplineCode, Name, FacultyID FROM DISCIPLINE WHERE (FacultyID = @Select"& _ 
-                "edCollege)"
+            Me._commandCollection(1).CommandText = "SELECT DisciplineCode, Name, FacultyID "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM DISCIPLINE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE Name = @Disciplin"& _ 
+                "eName"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SelectedCollege", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DisciplineName", Global.System.Data.SqlDbType.NChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT DisciplineCode, Name, FacultyID "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM DISCIPLINE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE DisciplineCode = "& _ 
+                "@DisciplineCode"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DisciplineCode", Global.System.Data.SqlDbType.NChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT DisciplineCode, Name, FacultyID FROM DISCIPLINE WHERE (FacultyID = @Select"& _ 
+                "edCollege)"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@SelectedCollege", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5441,8 +5496,76 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillMajors(ByVal dataTable As SMSDataSet.DISCIPLINEDataTable, ByVal SelectedCollege As Integer) As Integer
+        Public Overloads Overridable Function FillCodeByName(ByVal dataTable As SMSDataSet.DISCIPLINEDataTable, ByVal DisciplineName As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (DisciplineName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DisciplineName")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DisciplineName,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetCodeByName(ByVal DisciplineName As String) As SMSDataSet.DISCIPLINEDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (DisciplineName Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DisciplineName")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DisciplineName,String)
+            End If
+            Dim dataTable As SMSDataSet.DISCIPLINEDataTable = New SMSDataSet.DISCIPLINEDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillMajor2(ByVal dataTable As SMSDataSet.DISCIPLINEDataTable, ByVal DisciplineCode As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (DisciplineCode Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DisciplineCode")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DisciplineCode,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetMajor2(ByVal DisciplineCode As String) As SMSDataSet.DISCIPLINEDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (DisciplineCode Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("DisciplineCode")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(DisciplineCode,String)
+            End If
+            Dim dataTable As SMSDataSet.DISCIPLINEDataTable = New SMSDataSet.DISCIPLINEDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillMajors(ByVal dataTable As SMSDataSet.DISCIPLINEDataTable, ByVal SelectedCollege As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(SelectedCollege,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -5456,7 +5579,7 @@ Namespace SMSDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
         Public Overloads Overridable Function GetMajors(ByVal SelectedCollege As Integer) As SMSDataSet.DISCIPLINEDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(SelectedCollege,Integer)
             Dim dataTable As SMSDataSet.DISCIPLINEDataTable = New SMSDataSet.DISCIPLINEDataTable()
             Me.Adapter.Fill(dataTable)

@@ -77,6 +77,8 @@ Partial Class frmNewUser
         Me.ADMINTableAdapter = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
         Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
         Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
+        Me.CourseTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.COURSETableAdapter()
+        Me.BSCourse = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbcNewUser.SuspendLayout()
         Me.tbpNewUser.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -90,6 +92,7 @@ Partial Class frmNewUser
         CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'tbcNewUser
@@ -511,6 +514,7 @@ Partial Class frmNewUser
         'SmsDataSet1
         '
         Me.SmsDataSet1.DataSetName = "SMSDataSet"
+        Me.SmsDataSet1.EnforceConstraints = False
         Me.SmsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'TableAdapterManager1
@@ -557,6 +561,15 @@ Partial Class frmNewUser
         Me.BSStudent.DataMember = "STUDENT"
         Me.BSStudent.DataSource = Me.SmsDataSet1
         '
+        'CourseTableAdapter1
+        '
+        Me.CourseTableAdapter1.ClearBeforeFill = True
+        '
+        'BSCourse
+        '
+        Me.BSCourse.DataMember = "COURSE"
+        Me.BSCourse.DataSource = Me.SmsDataSet1
+        '
         'frmNewUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -586,6 +599,7 @@ Partial Class frmNewUser
         CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -643,4 +657,6 @@ Partial Class frmNewUser
     Friend WithEvents ADMINTableAdapter As SMSDataSetTableAdapters.ADMINTableAdapter
     Friend WithEvents StudentTableAdapter1 As SMSDataSetTableAdapters.STUDENTTableAdapter
     Friend WithEvents BSStudent As BindingSource
+    Friend WithEvents CourseTableAdapter1 As SMSDataSetTableAdapters.COURSETableAdapter
+    Friend WithEvents BSCourse As BindingSource
 End Class

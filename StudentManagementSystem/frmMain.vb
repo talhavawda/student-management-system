@@ -135,17 +135,26 @@
 
 		StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username) 'contains row (index = 0) with the specific student's detials
 		txtStudentNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(0).trim 'frmLogin.username
+        Dim CourseID As String
+        Dim FacultyID As String
+        Dim FacultyName As String
+        Try
+            StudentTableAdapter1.GetCourseID(SmsDataSet1.STUDENT, frmLogin.username)
+            CourseID = SmsDataSet1.STUDENT.Rows(0).Item(0)
+            CourseTableAdapter1.GetFacultyID(SmsDataSet1.COURSE, CourseID)
+            FacultyID = SmsDataSet1.COURSE.Rows(0).Item(0)
+            FacultyTableAdapter1.GetFacultyName(SmsDataSet1.FACULTY, FacultyID)
+            FacultyName = SmsDataSet1.FACULTY.Rows(0).Item(0)
+        Catch ex As Exception
+            CourseID = "NULL"
+            FacultyName = "NULL"
+            FacultyID = "NULL"
+        End Try
 
-		StudentTableAdapter1.GetCourseID(SmsDataSet1.STUDENT, frmLogin.username)
-		Dim CourseID As String = SmsDataSet1.STUDENT.Rows(0).Item(0)
 
-		CourseTableAdapter1.GetFacultyID(SmsDataSet1.COURSE, CourseID)
-		Dim FacultyID As String = SmsDataSet1.COURSE.Rows(0).Item(0)
 
-		FacultyTableAdapter1.GetFacultyName(SmsDataSet1.FACULTY, FacultyID)
-		Dim FacultyName As String = SmsDataSet1.FACULTY.Rows(0).Item(0)
 
-		txtFaculty.Text = FacultyName
+        txtFaculty.Text = FacultyName
 
 		'txtMajor1.Text =
 		'txtMajor2.Text = 

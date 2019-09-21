@@ -130,25 +130,35 @@
 
 	Private Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
 
-		'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
-
-
-		StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username) 'contains row (index = 0) with the specific student's detials
-		txtStudentNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(0).trim 'frmLogin.username
-        Dim CourseID As String
-        Dim FacultyID As String
+        'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
+        StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
+        CourseTableAdapter1.Fill(SmsDataSet1.COURSE)
+        FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
+        StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username) 'contains row (index = 0) with the specific student's detials
+        txtStudentNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(0).trim 'frmLogin.username
+        Dim CourseID As Integer
+        Dim FacultyID As Integer
         Dim FacultyName As String
         Try
-            StudentTableAdapter1.GetCourseID(SmsDataSet1.STUDENT, frmLogin.username)
-            CourseID = SmsDataSet1.STUDENT.Rows(0).Item(0)
-            CourseTableAdapter1.GetFacultyID(SmsDataSet1.COURSE, CourseID)
-            FacultyID = SmsDataSet1.COURSE.Rows(0).Item(0)
-            FacultyTableAdapter1.GetFacultyName(SmsDataSet1.FACULTY, FacultyID)
-            FacultyName = SmsDataSet1.FACULTY.Rows(0).Item(0)
+            StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
+            CourseID = Integer.Parse(SmsDataSet1.STUDENT.Rows(0).Item(8).ToString.Trim)
+
+
+            CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, CourseID)
+            FacultyID = Integer.Parse(SmsDataSet1.COURSE.Rows(0).Item(4).ToString.Trim)
+
+            FacultyTableAdapter1.GetDetails(SmsDataSet1.FACULTY, FacultyID)
+            FacultyName = SmsDataSet1.FACULTY.Rows(0).Item(0).ToString.Trim
+
+            CourseTableAdapter1.Fill(SmsDataSet1.COURSE)
+
+            CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, Integer.Parse(CourseID))
+            txtMajor1.Text = SmsDataSet1.COURSE.Rows(0).Item(2)
+            txtMajor2.Text = SmsDataSet1.COURSE.Rows(0).Item(3)
         Catch ex As Exception
-            CourseID = "NULL"
+            CourseID = 0
             FacultyName = "NULL"
-            FacultyID = "NULL"
+            FacultyID = 0
         End Try
 
 
@@ -160,4 +170,8 @@
 		'txtMajor2.Text = 
 
 	End Sub
+
+    Private Sub tbcMain_DragEnter(sender As Object, e As DragEventArgs) Handles tbcMain.DragEnter
+
+    End Sub
 End Class

@@ -882,8 +882,6 @@ Partial Public Class SMSDataSet
         
         Private columnCourseID As Global.System.Data.DataColumn
         
-        Private columnQualID As Global.System.Data.DataColumn
-        
         Private columnTotalCredits As Global.System.Data.DataColumn
         
         Private columnDisciplineCode1 As Global.System.Data.DataColumn
@@ -932,14 +930,6 @@ Partial Public Class SMSDataSet
         Public ReadOnly Property CourseIDColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnCourseID
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public ReadOnly Property QualIDColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnQualID
             End Get
         End Property
         
@@ -1012,9 +1002,9 @@ Partial Public Class SMSDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Overloads Function AddCOURSERow(ByVal CourseID As Integer, ByVal QualID As Integer, ByVal TotalCredits As Integer, ByVal DisciplineCode1 As String, ByVal DisciplineCode2 As String, ByVal FacultyID As Integer) As COURSERow
+        Public Overloads Function AddCOURSERow(ByVal CourseID As Integer, ByVal TotalCredits As Integer, ByVal DisciplineCode1 As String, ByVal DisciplineCode2 As String, ByVal FacultyID As Integer) As COURSERow
             Dim rowCOURSERow As COURSERow = CType(Me.NewRow,COURSERow)
-            Dim columnValuesArray() As Object = New Object() {CourseID, QualID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyID}
+            Dim columnValuesArray() As Object = New Object() {CourseID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyID}
             rowCOURSERow.ItemArray = columnValuesArray
             Me.Rows.Add(rowCOURSERow)
             Return rowCOURSERow
@@ -1044,7 +1034,6 @@ Partial Public Class SMSDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnCourseID = MyBase.Columns("CourseID")
-            Me.columnQualID = MyBase.Columns("QualID")
             Me.columnTotalCredits = MyBase.Columns("TotalCredits")
             Me.columnDisciplineCode1 = MyBase.Columns("DisciplineCode1")
             Me.columnDisciplineCode2 = MyBase.Columns("DisciplineCode2")
@@ -1056,8 +1045,6 @@ Partial Public Class SMSDataSet
         Private Sub InitClass()
             Me.columnCourseID = New Global.System.Data.DataColumn("CourseID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnCourseID)
-            Me.columnQualID = New Global.System.Data.DataColumn("QualID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnQualID)
             Me.columnTotalCredits = New Global.System.Data.DataColumn("TotalCredits", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTotalCredits)
             Me.columnDisciplineCode1 = New Global.System.Data.DataColumn("DisciplineCode1", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1069,7 +1056,6 @@ Partial Public Class SMSDataSet
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnCourseID}, true))
             Me.columnCourseID.AllowDBNull = false
             Me.columnCourseID.Unique = true
-            Me.columnQualID.AllowDBNull = false
             Me.columnTotalCredits.AllowDBNull = false
             Me.columnDisciplineCode1.AllowDBNull = false
             Me.columnDisciplineCode1.MaxLength = 10
@@ -3251,17 +3237,6 @@ Partial Public Class SMSDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
-        Public Property QualID() As Integer
-            Get
-                Return CType(Me(Me.tableCOURSE.QualIDColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableCOURSE.QualIDColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Public Property TotalCredits() As Integer
             Get
                 Return CType(Me(Me.tableCOURSE.TotalCreditsColumn),Integer)
@@ -4954,7 +4929,6 @@ Namespace SMSDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "COURSE"
             tableMapping.ColumnMappings.Add("CourseID", "CourseID")
-            tableMapping.ColumnMappings.Add("QualID", "QualID")
             tableMapping.ColumnMappings.Add("TotalCredits", "TotalCredits")
             tableMapping.ColumnMappings.Add("DisciplineCode1", "DisciplineCode1")
             tableMapping.ColumnMappings.Add("DisciplineCode2", "DisciplineCode2")
@@ -4962,50 +4936,44 @@ Namespace SMSDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [COURSE] WHERE (([CourseID] = @Original_CourseID) AND ([QualID] = @Or"& _ 
-                "iginal_QualID) AND ([TotalCredits] = @Original_TotalCredits) AND ([DisciplineCod"& _ 
-                "e1] = @Original_DisciplineCode1) AND ([DisciplineCode2] = @Original_DisciplineCo"& _ 
-                "de2) AND ([FacultyID] = @Original_FacultyID))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [COURSE] WHERE (([CourseID] = @Original_CourseID) AND ([TotalCredits]"& _ 
+                " = @Original_TotalCredits) AND ([DisciplineCode1] = @Original_DisciplineCode1) A"& _ 
+                "ND ([DisciplineCode2] = @Original_DisciplineCode2) AND ([FacultyID] = @Original_"& _ 
+                "FacultyID))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CourseID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_QualID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QualID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TotalCredits", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TotalCredits", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DisciplineCode1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DisciplineCode2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_FacultyID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [COURSE] ([CourseID], [QualID], [TotalCredits], [DisciplineCode1], [D"& _ 
-                "isciplineCode2], [FacultyID]) VALUES (@CourseID, @QualID, @TotalCredits, @Discip"& _ 
-                "lineCode1, @DisciplineCode2, @FacultyID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CourseID, QualID, TotalCredits"& _ 
-                ", DisciplineCode1, DisciplineCode2, FacultyID FROM COURSE WHERE (CourseID = @Cou"& _ 
-                "rseID)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [COURSE] ([CourseID], [TotalCredits], [DisciplineCode1], [DisciplineC"& _ 
+                "ode2], [FacultyID]) VALUES (@CourseID, @TotalCredits, @DisciplineCode1, @Discipl"& _ 
+                "ineCode2, @FacultyID);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CourseID, TotalCredits, DisciplineCode1, Discipli"& _ 
+                "neCode2, FacultyID FROM COURSE WHERE (CourseID = @CourseID)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CourseID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QualID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QualID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TotalCredits", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TotalCredits", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DisciplineCode1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DisciplineCode2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FacultyID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [COURSE] SET [CourseID] = @CourseID, [QualID] = @QualID, [TotalCredits] = "& _ 
-                "@TotalCredits, [DisciplineCode1] = @DisciplineCode1, [DisciplineCode2] = @Discip"& _ 
-                "lineCode2, [FacultyID] = @FacultyID WHERE (([CourseID] = @Original_CourseID) AND"& _ 
-                " ([QualID] = @Original_QualID) AND ([TotalCredits] = @Original_TotalCredits) AND"& _ 
-                " ([DisciplineCode1] = @Original_DisciplineCode1) AND ([DisciplineCode2] = @Origi"& _ 
-                "nal_DisciplineCode2) AND ([FacultyID] = @Original_FacultyID));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CourseID,"& _ 
-                " QualID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyID FROM COURSE W"& _ 
-                "HERE (CourseID = @CourseID)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [COURSE] SET [CourseID] = @CourseID, [TotalCredits] = @TotalCredits, [Disc"& _ 
+                "iplineCode1] = @DisciplineCode1, [DisciplineCode2] = @DisciplineCode2, [FacultyI"& _ 
+                "D] = @FacultyID WHERE (([CourseID] = @Original_CourseID) AND ([TotalCredits] = @"& _ 
+                "Original_TotalCredits) AND ([DisciplineCode1] = @Original_DisciplineCode1) AND ("& _ 
+                "[DisciplineCode2] = @Original_DisciplineCode2) AND ([FacultyID] = @Original_Facu"& _ 
+                "ltyID));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT CourseID, TotalCredits, DisciplineCode1, DisciplineCode2, Facul"& _ 
+                "tyID FROM COURSE WHERE (CourseID = @CourseID)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CourseID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@QualID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QualID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@TotalCredits", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TotalCredits", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DisciplineCode1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode1", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@DisciplineCode2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode2", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FacultyID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_CourseID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_QualID", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "QualID", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_TotalCredits", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "TotalCredits", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DisciplineCode1", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode1", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_DisciplineCode2", Global.System.Data.SqlDbType.NChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "DisciplineCode2", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -5022,11 +4990,11 @@ Namespace SMSDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(2) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT CourseID, QualID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyI"& _ 
-                "D FROM COURSE"
+            Me._commandCollection(0).CommandText = "SELECT        CourseID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyID"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            COURSE"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -5037,9 +5005,20 @@ Namespace SMSDataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FacultyID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT FacultyID FROM COURSE WHERE CourseID = @CourseID"
+            Me._commandCollection(2).CommandText = "SELECT        CourseID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyID"& _ 
+                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            COURSE"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE CourseID = @CourseID"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CourseID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT FacultyID FROM COURSE WHERE CourseID = @CourseID"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CourseID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "SELECT  DisciplineCode1, DisciplineCode2 FROM COURSE WHERE CourseID = @CourseID"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@CourseID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "CourseID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5106,8 +5085,36 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function GetFacultyID(ByVal dataTable As SMSDataSet.COURSEDataTable, ByVal CourseID As Integer) As Integer
+        Public Overloads Overridable Function GetDetails(ByVal dataTable As SMSDataSet.COURSEDataTable, ByVal CourseID As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CourseID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function GetFacultyID(ByVal dataTable As SMSDataSet.COURSEDataTable, ByVal CourseID As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(CourseID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function GetMajors(ByVal dataTable As SMSDataSet.COURSEDataTable, ByVal CourseID As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(CourseID,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -5148,21 +5155,20 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_CourseID As Integer, ByVal Original_QualID As Integer, ByVal Original_TotalCredits As Integer, ByVal Original_DisciplineCode1 As String, ByVal Original_DisciplineCode2 As String, ByVal Original_FacultyID As Integer) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_CourseID As Integer, ByVal Original_TotalCredits As Integer, ByVal Original_DisciplineCode1 As String, ByVal Original_DisciplineCode2 As String, ByVal Original_FacultyID As Integer) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_CourseID,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_QualID,Integer)
-            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_TotalCredits,Integer)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_TotalCredits,Integer)
             If (Original_DisciplineCode1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DisciplineCode1")
             Else
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_DisciplineCode1,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_DisciplineCode1,String)
             End If
             If (Original_DisciplineCode2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DisciplineCode2")
             Else
-                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_DisciplineCode2,String)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_DisciplineCode2,String)
             End If
-            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_FacultyID,Integer)
+            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_FacultyID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5182,21 +5188,20 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal CourseID As Integer, ByVal QualID As Integer, ByVal TotalCredits As Integer, ByVal DisciplineCode1 As String, ByVal DisciplineCode2 As String, ByVal FacultyID As Integer) As Integer
+        Public Overloads Overridable Function Insert(ByVal CourseID As Integer, ByVal TotalCredits As Integer, ByVal DisciplineCode1 As String, ByVal DisciplineCode2 As String, ByVal FacultyID As Integer) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(CourseID,Integer)
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(QualID,Integer)
-            Me.Adapter.InsertCommand.Parameters(2).Value = CType(TotalCredits,Integer)
+            Me.Adapter.InsertCommand.Parameters(1).Value = CType(TotalCredits,Integer)
             If (DisciplineCode1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DisciplineCode1")
             Else
-                Me.Adapter.InsertCommand.Parameters(3).Value = CType(DisciplineCode1,String)
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(DisciplineCode1,String)
             End If
             If (DisciplineCode2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DisciplineCode2")
             Else
-                Me.Adapter.InsertCommand.Parameters(4).Value = CType(DisciplineCode2,String)
+                Me.Adapter.InsertCommand.Parameters(3).Value = CType(DisciplineCode2,String)
             End If
-            Me.Adapter.InsertCommand.Parameters(5).Value = CType(FacultyID,Integer)
+            Me.Adapter.InsertCommand.Parameters(4).Value = CType(FacultyID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5216,35 +5221,33 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal CourseID As Integer, ByVal QualID As Integer, ByVal TotalCredits As Integer, ByVal DisciplineCode1 As String, ByVal DisciplineCode2 As String, ByVal FacultyID As Integer, ByVal Original_CourseID As Integer, ByVal Original_QualID As Integer, ByVal Original_TotalCredits As Integer, ByVal Original_DisciplineCode1 As String, ByVal Original_DisciplineCode2 As String, ByVal Original_FacultyID As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal CourseID As Integer, ByVal TotalCredits As Integer, ByVal DisciplineCode1 As String, ByVal DisciplineCode2 As String, ByVal FacultyID As Integer, ByVal Original_CourseID As Integer, ByVal Original_TotalCredits As Integer, ByVal Original_DisciplineCode1 As String, ByVal Original_DisciplineCode2 As String, ByVal Original_FacultyID As Integer) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(CourseID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(QualID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(TotalCredits,Integer)
+            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(TotalCredits,Integer)
             If (DisciplineCode1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DisciplineCode1")
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DisciplineCode1,String)
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(DisciplineCode1,String)
             End If
             If (DisciplineCode2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DisciplineCode2")
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(DisciplineCode2,String)
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(DisciplineCode2,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(FacultyID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_CourseID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_QualID,Integer)
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_TotalCredits,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(FacultyID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_CourseID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_TotalCredits,Integer)
             If (Original_DisciplineCode1 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DisciplineCode1")
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_DisciplineCode1,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_DisciplineCode1,String)
             End If
             If (Original_DisciplineCode2 Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DisciplineCode2")
             Else
-                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_DisciplineCode2,String)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_DisciplineCode2,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_FacultyID,Integer)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_FacultyID,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -5264,8 +5267,8 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal QualID As Integer, ByVal TotalCredits As Integer, ByVal DisciplineCode1 As String, ByVal DisciplineCode2 As String, ByVal FacultyID As Integer, ByVal Original_CourseID As Integer, ByVal Original_QualID As Integer, ByVal Original_TotalCredits As Integer, ByVal Original_DisciplineCode1 As String, ByVal Original_DisciplineCode2 As String, ByVal Original_FacultyID As Integer) As Integer
-            Return Me.Update(Original_CourseID, QualID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyID, Original_CourseID, Original_QualID, Original_TotalCredits, Original_DisciplineCode1, Original_DisciplineCode2, Original_FacultyID)
+        Public Overloads Overridable Function Update(ByVal TotalCredits As Integer, ByVal DisciplineCode1 As String, ByVal DisciplineCode2 As String, ByVal FacultyID As Integer, ByVal Original_CourseID As Integer, ByVal Original_TotalCredits As Integer, ByVal Original_DisciplineCode1 As String, ByVal Original_DisciplineCode2 As String, ByVal Original_FacultyID As Integer) As Integer
+            Return Me.Update(Original_CourseID, TotalCredits, DisciplineCode1, DisciplineCode2, FacultyID, Original_CourseID, Original_TotalCredits, Original_DisciplineCode1, Original_DisciplineCode2, Original_FacultyID)
         End Function
     End Class
     
@@ -7614,27 +7617,33 @@ Namespace SMSDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(3) {}
+            Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT Name, FacultyID, QualificationCode FROM FACULTY"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        Name"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FACULTY"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FacultyID = @FacultyID"& _ 
-                ")"
+            Me._commandCollection(1).CommandText = "SELECT Name, FacultyID, QualificationCode FROM FACULTY WHERE FacultyID = @Faculty"& _ 
+                "ID"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FacultyID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(2) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT MAX(FacultyID) FROM FACULTY"
+            Me._commandCollection(2).CommandText = "SELECT        Name"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            FACULTY"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (FacultyID = @FacultyID"& _ 
+                ")"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FacultyID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(3) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "INSERT INTO [FACULTY] ([Name], [FacultyID]) VALUES (@Name, @FacultyID);"
+            Me._commandCollection(3).CommandText = "SELECT MAX(FacultyID) FROM FACULTY"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Name", Global.System.Data.SqlDbType.NChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FacultyID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4) = New Global.System.Data.SqlClient.SqlCommand()
+            Me._commandCollection(4).Connection = Me.Connection
+            Me._commandCollection(4).CommandText = "INSERT INTO [FACULTY] ([Name], [FacultyID]) VALUES (@Name, @FacultyID);"
+            Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Name", Global.System.Data.SqlDbType.NChar, 30, Global.System.Data.ParameterDirection.Input, 0, 0, "Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(4).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@FacultyID", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "FacultyID", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7665,8 +7674,22 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function GetFacultyName(ByVal dataTable As SMSDataSet.FACULTYDataTable, ByVal FacultyID As Integer) As Integer
+        Public Overloads Overridable Function GetDetails(ByVal dataTable As SMSDataSet.FACULTYDataTable, ByVal FacultyID As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(FacultyID,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function GetFacultyName(ByVal dataTable As SMSDataSet.FACULTYDataTable, ByVal FacultyID As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(FacultyID,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -7819,7 +7842,7 @@ Namespace SMSDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function HighestFacultyID() As Global.System.Nullable(Of Integer)
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(2)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7846,7 +7869,7 @@ Namespace SMSDataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, false)>  _
         Public Overloads Overridable Function InsertFaculty(ByVal Name As String, ByVal FacultyID As Integer) As Integer
-            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(3)
+            Dim command As Global.System.Data.SqlClient.SqlCommand = Me.CommandCollection(4)
             If (Name Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Name")
             Else

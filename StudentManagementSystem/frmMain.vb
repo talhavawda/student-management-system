@@ -13,25 +13,7 @@
 		Return False
 	End Function
 
-	Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles grbDetails.Enter
 
-	End Sub
-
-	Private Sub lblStudentNumber_Click(sender As Object, e As EventArgs)
-
-	End Sub
-
-	Private Sub lblEmailAddress_Click(sender As Object, e As EventArgs) Handles lblEmailAddress.Click
-
-	End Sub
-
-	Private Sub Label6_Click(sender As Object, e As EventArgs) Handles lblMajor2.Click
-
-	End Sub
-
-	Private Sub Label12_Click(sender As Object, e As EventArgs) Handles lblModResult.Click
-
-	End Sub
 
 	Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
 		frmLogin.HidePage(frmLogin.details, frmLogin.MAINFORM)
@@ -77,6 +59,8 @@
 	End Sub
 
 	Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
 		'POPULATE DETAILS TAB WITH USER'S DETAILS
 		If frmLogin.userType = frmLogin.ADMIN Then
 			AdminTableAdapter1.FillDetails(SmsDataSet1.ADMIN, frmLogin.username)
@@ -95,7 +79,7 @@
 			txtCellNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(4).trim
 			txtEmailAddress.Text = SmsDataSet1.STUDENT.Rows(0).Item(5).trim
 			txtFirstStudyYear.Text = SmsDataSet1.STUDENT.Rows(0).Item(7)
-			'txtCourse.Text = SmsDataSet1.STUDENT.Rows(0).Item(8)   'Need to get course as string
+			'txtCourse.Text = SmsDataSet1.STUDENT.Rows(0).Item(8)   'Need to get course as string -> Course = QualCode + Major1 + Major2
 
 		End If
 	End Sub
@@ -138,8 +122,9 @@
         txtStudentNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(0).trim 'frmLogin.username
         Dim CourseID As Integer
         Dim FacultyID As Integer
-        Dim FacultyName As String
-        Try
+		Dim FacultyName As String
+
+		Try
             StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
             CourseID = Integer.Parse(SmsDataSet1.STUDENT.Rows(0).Item(8).ToString.Trim)
 
@@ -152,10 +137,24 @@
 
             CourseTableAdapter1.Fill(SmsDataSet1.COURSE)
 
-            CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, Integer.Parse(CourseID))
-            txtMajor1.Text = SmsDataSet1.COURSE.Rows(0).Item(2)
-            txtMajor2.Text = SmsDataSet1.COURSE.Rows(0).Item(3)
-        Catch ex As Exception
+			CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, Integer.Parse(CourseID))
+
+			'txtMajor1.Text = SmsDataSet1.COURSE.Rows(0).Item(2)
+			'txtMajor2.Text = SmsDataSet1.COURSE.Rows(0).Item(3)
+
+
+			'Display Discipline NAME in Majors fields
+
+			Dim majorCode1 As String = SmsDataSet1.COURSE.Rows(0).Item(2)
+			DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, majorCode1)
+			txtMajor1.Text = SmsDataSet1.DISCIPLINE.Rows(0).Item(0)
+
+			Dim majorCode2 As String = SmsDataSet1.COURSE.Rows(0).Item(3)
+			DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, majorCode2)
+			txtMajor2.Text = SmsDataSet1.DISCIPLINE.Rows(0).Item(0)
+
+
+		Catch ex As Exception
             CourseID = 0
             FacultyName = "NULL"
             FacultyID = 0

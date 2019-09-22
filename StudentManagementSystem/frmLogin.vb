@@ -168,4 +168,11 @@
 	Private Sub lblDateTime_Click(sender As Object, e As EventArgs) Handles lblDateTime.Click
 
 	End Sub
+
+	Private Sub frmLogin_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
+		txtLoginUsername.Clear()
+		txtPassword.Clear()
+		username = ""
+		pnlLogin.Enabled = False
+	End Sub
 End Class

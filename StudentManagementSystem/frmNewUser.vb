@@ -4,6 +4,15 @@
     Dim yr As String = System.DateTime.Now.Year.ToString
     Dim newStudNum As String
 
+    Dim major1Code As String
+    Dim major2Code As String
+
+
+    Private Function createNewStudentNumber() As String
+        Dim ran As String = Int((999999 - 100000 + 1) * Rnd() + 100000).ToString
+        newStudNum = yr + ran
+        Return newStudNum
+    End Function
 
     Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: This line of code loads data into the 'SmsDataSet1.ADMIN' table. You can move, or remove it, as needed.
@@ -12,14 +21,36 @@
 
         For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
             cmbCollege.Items.Add(Row.Item(0))
-
         Next
 
+        Dim studNumUnique As Boolean = False
 
-        Dim ran As String = Int((999999 - 100000 + 1) * Rnd() + 100000).ToString
-        newStudNum = yr + ran
+        If (frmLogin.userType = frmLogin.STUDENT) Then
+            Do While studNumUnique = False
+                newStudNum = createNewStudentNumber()
+
+                StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
+                StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, newStudNum)
+
+                If (SmsDataSet1.STUDENT.Rows.Count = 0) Then
+                    studNumUnique = True
+                End If
+            Loop        'This loop continuously creates new STUDENT numbers until it is unique
+        Else
+            Do While studNumUnique = False
+                newStudNum = createNewStudentNumber()
+
+                ADMINTableAdapter.Fill(SmsDataSet1.ADMIN)
+                ADMINTableAdapter.FillDetails(SmsDataSet1.ADMIN, newStudNum)
+
+                If (SmsDataSet1.ADMIN.Rows.Count = 0) Then
+                    studNumUnique = True
+                End If
+            Loop        'This loop continuously creates new AMDIN numbers until it is unique
+        End If
+
         txtNewStudAdminNumber.Text = newStudNum
-        'Above 2 lines creates new Student/staff number
+
     End Sub
 
     Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
@@ -69,6 +100,13 @@
 
     Private Sub btnCreateUser_Click(sender As Object, e As EventArgs) Handles btnCreateUser.Click
 
+        DisciplineTableAdapter1.FillCodeByName(SmsDataSet1.DISCIPLINE, cmbMajor2.SelectedItem.Trim)
+        major2Code = SmsDataSet1.DISCIPLINE.Rows(0).Item(0)
+
+        CourseTableAdapter1.Fill(SmsDataSet1.COURSE)
+        CourseTableAdapter1.FillCourseID(SmsDataSet1.COURSE, major1Code, major2Code)
+        Dim selectedCourseID As Integer = SmsDataSet1.COURSE.Rows(0).Item(0)
+
         If (frmMain.ValidateCell(txtNewCell.Text) = False) Then  'validate cell
             MessageBox.Show("Invalid Data Entered", "Invalid Cell number", MessageBoxButtons.OK, MessageBoxIcon.Error)
         ElseIf frmMain.ValidateEmail(txtNewEmail.Text) = False Then 'validate email
@@ -79,7 +117,7 @@
             If (frmLogin.userType = frmLogin.ADMIN) Then    'If Admin is using this form
                 ADMINTableAdapter.InsertAdmin(txtNewStudAdminNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text)
             Else    'If Student is using this form
-                StudentTableAdapter1.InsertStudent(txtNewStudAdminNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text, Integer.Parse(yr), 0)
+                StudentTableAdapter1.InsertStudent(txtNewStudAdminNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text, Integer.Parse(yr), selectedCourseID)
             End If
             MessageBox.Show("Data Captured", "User created", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
@@ -119,17 +157,16 @@
 
 
         DisciplineTableAdapter1.FillCodeByName(SmsDataSet1.DISCIPLINE, cmbMajor1.SelectedItem)
-        Dim major1 As String = SmsDataSet1.DISCIPLINE.Rows(0).Item(0)
+        major1Code = SmsDataSet1.DISCIPLINE.Rows(0).Item(0)
         '^^^ get DisciplineCode of major 1 ^^^
 
 
-        CourseTableAdapter1.FillSecondMajor(SmsDataSet1.COURSE, major1, SelectedCollege)
+        CourseTableAdapter1.FillSecondMajor(SmsDataSet1.COURSE, major1Code, SelectedCollege)
         '^^^ Fill course table with all courses where major 1 = major1 OR major 2 = major1 ^^^
 
         DisciplineTableAdapter1.Fill(SmsDataSet1.DISCIPLINE)
         For Each Row As DataRow In SmsDataSet1.COURSE.Rows
-            Dim major2Code As String
-            If major1 = Row.Item(3) Then
+            If major1Code = Row.Item(3) Then
                 major2Code = Row.Item(2)
             Else
                 major2Code = Row.Item(3)

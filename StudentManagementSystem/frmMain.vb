@@ -59,10 +59,15 @@
 	End Sub
 
 	Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+		'TODO: This line of code loads data into the 'SmsDataSet1.DISCIPLINE' table. You can move, or remove it, as needed.
+		Me.DisciplineTableAdapter1.Fill(Me.SmsDataSet1.DISCIPLINE)
+		'TODO: This line of code loads data into the 'SMSDataSet.DISCIPLINE' table. You can move, or remove it, as needed.
+		Me.DisciplineTableAdapter1.Fill(Me.SMSDataSet.DISCIPLINE)
 
 
 		'POPULATE DETAILS TAB WITH USER'S DETAILS
 		If frmLogin.userType = frmLogin.ADMIN Then
+			'AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)
 			AdminTableAdapter1.FillDetails(SmsDataSet1.ADMIN, frmLogin.username)
 			txtAdminNumber.Text = frmLogin.username
 			txtIDNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(1).trim
@@ -71,6 +76,7 @@
 			txtCellNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(4).trim
 			txtEmailAddress.Text = SmsDataSet1.ADMIN.Rows(0).Item(5).trim
 		Else
+			'StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
 			StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
 			txtAdminNumber.Text = frmLogin.username
 			txtIDNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(1).trim

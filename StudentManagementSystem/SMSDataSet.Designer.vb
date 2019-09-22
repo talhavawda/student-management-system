@@ -6988,22 +6988,6 @@ Namespace SMSDataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
-         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDetails(ByVal StudentNumber As String) As SMSDataSet.STUDENTDataTable
-            Me.Adapter.SelectCommand = Me.CommandCollection(2)
-            If (StudentNumber Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("StudentNumber")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(StudentNumber,String)
-            End If
-            Dim dataTable As SMSDataSet.STUDENTDataTable = New SMSDataSet.STUDENTDataTable()
-            Me.Adapter.Fill(dataTable)
-            Return dataTable
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
-         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function GetCourseID(ByVal dataTable As SMSDataSet.STUDENTDataTable, ByVal StudentNumber As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)

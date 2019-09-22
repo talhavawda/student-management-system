@@ -625,7 +625,7 @@ WHERE        (StudentNumber = @StudentNumber) AND (IDNumber = @IDNumber) AND (Ce
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.STUDENT" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillDetails" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDetails" GeneratorSourceName="FillDetails" GetMethodModifier="Public" GetMethodName="GetDetails" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDetails" UserSourceName="FillDetails">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.STUDENT" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillDetails" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorGetMethodName="GetDetails" GeneratorSourceName="FillDetails" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDetails" UserSourceName="FillDetails">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT *

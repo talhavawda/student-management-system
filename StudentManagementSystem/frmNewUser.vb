@@ -124,11 +124,18 @@
 
 
         CourseTableAdapter1.FillSecondMajor(SmsDataSet1.COURSE, major1, SelectedCollege)
-        '^^^ get major2 name based on major1 ^^^
+        '^^^ Fill course table with all courses where major 1 = major1 OR major 2 = major1 ^^^
 
         DisciplineTableAdapter1.Fill(SmsDataSet1.DISCIPLINE)
         For Each Row As DataRow In SmsDataSet1.COURSE.Rows
-            Dim major2Code As String = Row.Item(4)
+            Dim major2Code As String
+            If major1 = Row.Item(3) Then
+                major2Code = Row.Item(2)
+            Else
+                major2Code = Row.Item(3)
+            End If
+            '^^^ to check for all combinations (major1 and major2)
+
             DisciplineTableAdapter1.FillMajor2(SmsDataSet1.DISCIPLINE, major2Code)
             cmbMajor2.Items.Add(SmsDataSet1.DISCIPLINE.Rows(0).Item(1))
         Next

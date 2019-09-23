@@ -7,6 +7,24 @@
     Dim major1Code As String
     Dim major2Code As String
 
+    'Clear all the components when the tab page loads
+    Private Sub ClearNewUserTab()
+        txtNewUserNumber.Clear()
+        txtNewID.Clear()
+        txtNewFirstname.Clear()
+        txtNewSurname.Clear()
+        txtNewCell.Clear()
+        txtNewEmail.Clear()
+        txtPassword.Clear()
+        txtConfirmPassword.Clear()
+
+        'Clear the combo boxes
+        cmbCollege.SelectedIndex = -1
+        cmbMajor1.SelectedIndex = -1
+        cmbMajor2.SelectedIndex = -1
+
+
+    End Sub
 
     Private Function createNewStudentNumber() As String
         Dim ran As String = Int((999999 - 100000 + 1) * Rnd() + 100000).ToString
@@ -49,7 +67,7 @@
             Loop        'This loop continuously creates new AMDIN numbers until it is unique
         End If
 
-        txtNewStudAdminNumber.Text = newStudNum
+        txtNewUserNumber.Text = newStudNum
 
     End Sub
 
@@ -71,7 +89,7 @@
         txtRePassword.Clear()
     End Sub
 
-    Private Sub txtNewStudAdminNumber_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles txtNewStudAdminNumber.MaskInputRejected
+    Private Sub txtNewStudAdminNumber_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles txtNewUserNumber.MaskInputRejected
 
     End Sub
 
@@ -118,11 +136,13 @@
             MessageBox.Show("Invalid Data Entered", "Passwords dont match", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             If (frmLogin.userType = frmLogin.ADMIN) Then    'If Admin is using this form
-                ADMINTableAdapter.InsertAdmin(txtNewStudAdminNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text)
+                ADMINTableAdapter.InsertAdmin(txtNewUserNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text)
             Else    'If Student is using this form
-                StudentTableAdapter1.InsertStudent(txtNewStudAdminNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text, Integer.Parse(yr), selectedCourseID)
+                StudentTableAdapter1.InsertStudent(txtNewUserNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text, Integer.Parse(yr), selectedCourseID)
             End If
-            MessageBox.Show("Data Captured", "User created", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            Dim welcomeString As String = "Welcome " + txtNewFirstname.Text + " " + txtNewSurname.Text
+            MessageBox.Show(welcomeString, "User created", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         End If
     End Sub
@@ -187,14 +207,15 @@
     End Sub
 
     Private Sub tbcNewUser_Enter(sender As Object, e As EventArgs) Handles tbcNewUser.Enter
-        'Clear the combo boxes when form loads
-        cmbCollege.SelectedIndex = -1
-        cmbMajor1.SelectedIndex = -1
-        cmbMajor2.SelectedIndex = -1
+        'Clear all the components when the tab page loads
+        ClearNewUserTab()
+
 
         'Disable Majors Combo Boxes when form loads
         'will be enabled when student selects a faculty
         cmbMajor1.Enabled = False
         cmbMajor2.Enabled = False
     End Sub
+
+
 End Class

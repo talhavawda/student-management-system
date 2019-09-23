@@ -51,7 +51,7 @@ Partial Class frmNewUser
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtNewID = New System.Windows.Forms.MaskedTextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.txtNewStudAdminNumber = New System.Windows.Forms.MaskedTextBox()
+        Me.txtNewUserNumber = New System.Windows.Forms.MaskedTextBox()
         Me.tbpChangePassword = New System.Windows.Forms.TabPage()
         Me.btnChangePassword = New System.Windows.Forms.Button()
         Me.grpPassword = New System.Windows.Forms.GroupBox()
@@ -254,7 +254,7 @@ Partial Class frmNewUser
         Me.grpPersonalDetails.Controls.Add(Me.Label5)
         Me.grpPersonalDetails.Controls.Add(Me.txtNewID)
         Me.grpPersonalDetails.Controls.Add(Me.Label6)
-        Me.grpPersonalDetails.Controls.Add(Me.txtNewStudAdminNumber)
+        Me.grpPersonalDetails.Controls.Add(Me.txtNewUserNumber)
         Me.grpPersonalDetails.Location = New System.Drawing.Point(19, 20)
         Me.grpPersonalDetails.Name = "grpPersonalDetails"
         Me.grpPersonalDetails.Size = New System.Drawing.Size(389, 218)
@@ -353,14 +353,14 @@ Partial Class frmNewUser
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "Email address: "
         '
-        'txtNewStudAdminNumber
+        'txtNewUserNumber
         '
-        Me.txtNewStudAdminNumber.Enabled = False
-        Me.txtNewStudAdminNumber.Location = New System.Drawing.Point(146, 20)
-        Me.txtNewStudAdminNumber.Mask = "0000000000"
-        Me.txtNewStudAdminNumber.Name = "txtNewStudAdminNumber"
-        Me.txtNewStudAdminNumber.Size = New System.Drawing.Size(100, 20)
-        Me.txtNewStudAdminNumber.TabIndex = 6
+        Me.txtNewUserNumber.Enabled = False
+        Me.txtNewUserNumber.Location = New System.Drawing.Point(146, 20)
+        Me.txtNewUserNumber.Mask = "0000000000"
+        Me.txtNewUserNumber.Name = "txtNewUserNumber"
+        Me.txtNewUserNumber.Size = New System.Drawing.Size(100, 20)
+        Me.txtNewUserNumber.TabIndex = 6
         '
         'tbpChangePassword
         '
@@ -620,7 +620,7 @@ Partial Class frmNewUser
     Friend WithEvents txtNewPassword As MaskedTextBox
     Friend WithEvents lblRePassword As Label
     Friend WithEvents lblNewPassword As Label
-    Friend WithEvents txtNewStudAdminNumber As MaskedTextBox
+    Friend WithEvents txtNewUserNumber As MaskedTextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label

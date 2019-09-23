@@ -73,12 +73,10 @@ Partial Class frmMain
         Me.lblYearView = New System.Windows.Forms.Label()
         Me.tbpResultsStudent = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.lblResults = New System.Windows.Forms.Label()
-        Me.lblModView = New System.Windows.Forms.Label()
-        Me.lstResults = New System.Windows.Forms.ListBox()
-        Me.lstModView = New System.Windows.Forms.ListBox()
         Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.txtResult = New System.Windows.Forms.MaskedTextBox()
+        Me.btnEnter = New System.Windows.Forms.Button()
         Me.btnCaptureMarks = New System.Windows.Forms.Button()
         Me.cmbModules = New System.Windows.Forms.ComboBox()
         Me.txtStuResult = New System.Windows.Forms.TextBox()
@@ -110,8 +108,7 @@ Partial Class frmMain
         Me.ModulE_REGISTRATIONTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter()
         Me.BSModuleRegistration = New System.Windows.Forms.BindingSource(Me.components)
         Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
-        Me.btnEnter = New System.Windows.Forms.Button()
-        Me.txtResult = New System.Windows.Forms.MaskedTextBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -604,49 +601,12 @@ Partial Class frmMain
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.lblResults)
-        Me.GroupBox4.Controls.Add(Me.lblModView)
-        Me.GroupBox4.Controls.Add(Me.lstResults)
-        Me.GroupBox4.Controls.Add(Me.lstModView)
+        Me.GroupBox4.Controls.Add(Me.RichTextBox1)
         Me.GroupBox4.Location = New System.Drawing.Point(20, 20)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(391, 194)
+        Me.GroupBox4.Size = New System.Drawing.Size(391, 326)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
-        '
-        'lblResults
-        '
-        Me.lblResults.AutoSize = True
-        Me.lblResults.Location = New System.Drawing.Point(258, 25)
-        Me.lblResults.Name = "lblResults"
-        Me.lblResults.Size = New System.Drawing.Size(67, 13)
-        Me.lblResults.TabIndex = 4
-        Me.lblResults.Text = "Your Results"
-        '
-        'lblModView
-        '
-        Me.lblModView.AutoSize = True
-        Me.lblModView.Location = New System.Drawing.Point(45, 25)
-        Me.lblModView.Name = "lblModView"
-        Me.lblModView.Size = New System.Drawing.Size(72, 13)
-        Me.lblModView.TabIndex = 3
-        Me.lblModView.Text = "Your Modules"
-        '
-        'lstResults
-        '
-        Me.lstResults.FormattingEnabled = True
-        Me.lstResults.Location = New System.Drawing.Point(240, 51)
-        Me.lstResults.Name = "lstResults"
-        Me.lstResults.Size = New System.Drawing.Size(120, 95)
-        Me.lstResults.TabIndex = 2
-        '
-        'lstModView
-        '
-        Me.lstModView.FormattingEnabled = True
-        Me.lstModView.Location = New System.Drawing.Point(28, 51)
-        Me.lstModView.Name = "lstModView"
-        Me.lstModView.Size = New System.Drawing.Size(120, 95)
-        Me.lstModView.TabIndex = 1
         '
         'tbpResultsAdmin
         '
@@ -675,6 +635,23 @@ Partial Class frmMain
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Add Marks"
+        '
+        'txtResult
+        '
+        Me.txtResult.Location = New System.Drawing.Point(202, 136)
+        Me.txtResult.Mask = "000"
+        Me.txtResult.Name = "txtResult"
+        Me.txtResult.Size = New System.Drawing.Size(121, 20)
+        Me.txtResult.TabIndex = 9
+        '
+        'btnEnter
+        '
+        Me.btnEnter.Location = New System.Drawing.Point(359, 42)
+        Me.btnEnter.Name = "btnEnter"
+        Me.btnEnter.Size = New System.Drawing.Size(75, 23)
+        Me.btnEnter.TabIndex = 8
+        Me.btnEnter.Text = "Enter"
+        Me.btnEnter.UseVisualStyleBackColor = True
         '
         'btnCaptureMarks
         '
@@ -888,22 +865,13 @@ Partial Class frmMain
         Me.SMSDataSet.DataSetName = "SMSDataSet"
         Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'btnEnter
+        'RichTextBox1
         '
-        Me.btnEnter.Location = New System.Drawing.Point(359, 42)
-        Me.btnEnter.Name = "btnEnter"
-        Me.btnEnter.Size = New System.Drawing.Size(75, 23)
-        Me.btnEnter.TabIndex = 8
-        Me.btnEnter.Text = "Enter"
-        Me.btnEnter.UseVisualStyleBackColor = True
-        '
-        'txtResult
-        '
-        Me.txtResult.Location = New System.Drawing.Point(202, 136)
-        Me.txtResult.Mask = "000"
-        Me.txtResult.Name = "txtResult"
-        Me.txtResult.Size = New System.Drawing.Size(121, 20)
-        Me.txtResult.TabIndex = 9
+        Me.RichTextBox1.Location = New System.Drawing.Point(15, 19)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(353, 257)
+        Me.RichTextBox1.TabIndex = 0
+        Me.RichTextBox1.Text = ""
         '
         'frmMain
         '
@@ -931,7 +899,6 @@ Partial Class frmMain
         Me.GroupBox3.PerformLayout()
         Me.tbpResultsStudent.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
         Me.tbpResultsAdmin.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
@@ -993,12 +960,8 @@ Partial Class frmMain
 	Friend WithEvents lblC As Label
 	Friend WithEvents cmbYearView As ComboBox
 	Friend WithEvents lblYearView As Label
-	Friend WithEvents lblResults As Label
-	Friend WithEvents lblModView As Label
-	Friend WithEvents lstResults As ListBox
-	Friend WithEvents lstModView As ListBox
-	Friend WithEvents lblModResult As Label
-	Friend WithEvents lblStuResult As Label
+    Friend WithEvents lblModResult As Label
+    Friend WithEvents lblStuResult As Label
     Friend WithEvents txtStuResult As TextBox
     Friend WithEvents lblResultVal As Label
     Friend WithEvents btnMainPassword As Button
@@ -1041,4 +1004,5 @@ Partial Class frmMain
     Friend WithEvents cmbModules As ComboBox
     Friend WithEvents btnEnter As Button
     Friend WithEvents txtResult As MaskedTextBox
+    Friend WithEvents RichTextBox1 As RichTextBox
 End Class

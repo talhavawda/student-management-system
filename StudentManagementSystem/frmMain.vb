@@ -217,6 +217,7 @@
         'txtMajor2.Text = 
 
         '===========================================================================================
+
         ModuleTableAdapter1.GetSem1Modules(SmsDataSet1._MODULE, majorCode1, majorCode2)
         For Each Row As DataRow In SmsDataSet1._MODULE
             Dim modCode As String = Row.Item(0)
@@ -225,6 +226,7 @@
                 lbxSem1Avail.Items.Add(modCode + vbTab + modName)
             End If
         Next
+        '^FIRST YEAR SEM 1
 
         ModuleTableAdapter1.GetSem2Modules(SmsDataSet1._MODULE, majorCode1, majorCode2)
         For Each Row As DataRow In SmsDataSet1._MODULE
@@ -234,6 +236,49 @@
                 lbxSem2Avail.Items.Add(modCode + vbTab + modName)
             End If
         Next
+        '^FIRST YEAR SEM 2
+
+
+
+        ModulE_REGISTRATIONTableAdapter1.GetFailedModules(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, year - 1)
+        For Each row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+            If row.Item(3) = 1 Then
+                Dim modCode As String = row.Item(1)
+                ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
+                Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
+                lbxSem1Avail.Items.Add(modCode + vbTab + modName)
+            Else
+                Dim modCode As String = row.Item(1)
+                ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
+                Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
+                lbxSem2Avail.Items.Add(modCode + vbTab + modName)
+            End If
+        Next
+        '^Display failed modules
+
+        ModuleTableAdapter1.Fill(SmsDataSet1._MODULE)
+        ModuleTableAdapter1.GetAvailableSem1Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year - 1))
+        For Each Row As DataRow In SmsDataSet1._MODULE
+            Dim modCode As String = Row.Item(0)
+            If (modCode(4) = "2" And currentStudyYear = 2) Then
+                Dim modName As String = Row.Item(1)
+                lbxSem1Avail.Items.Add(modCode + vbTab + modName)
+            End If
+        Next
+
+        '^SECOND YEAR SEM 1
+
+        ModuleTableAdapter1.Fill(SmsDataSet1._MODULE)
+        ModuleTableAdapter1.GetAvailableSem2Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year - 1))
+        For Each Row As DataRow In SmsDataSet1._MODULE
+            Dim modCode As String = Row.Item(0)
+            If (modCode(4) = "2" And currentStudyYear = 2) Then
+                Dim modName As String = Row.Item(1)
+                lbxSem2Avail.Items.Add(modCode + vbTab + modName)
+            End If
+        Next
+        '^SECOND YEAR SEM 2
+
 
     End Sub
 

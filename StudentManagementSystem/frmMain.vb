@@ -265,14 +265,14 @@
                 Dim modCode As String = str.Substring(0, 8)
                 Dim regID As Integer = ModulE_REGISTRATIONTableAdapter1.GetMaxRegID + 1
                 Dim yr As String = System.DateTime.Now.Year.ToString
-                ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 1, vbNull, regID)
+                ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 1, -1, regID)  'mark is entered as -1 (module not complete)
             Next
 
             For Each str As String In lbxSem2Chosen.Items
                 Dim modCode As String = str.Substring(0, 8)
                 Dim regID As Integer = ModulE_REGISTRATIONTableAdapter1.GetMaxRegID + 1
                 Dim yr As String = System.DateTime.Now.Year.ToString
-                ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 2, vbNull, regID)
+                ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 2, -1, regID)  'mark is entered as -1 (module not complete)
             Next
 
             MsgBox("Registration Complete!")

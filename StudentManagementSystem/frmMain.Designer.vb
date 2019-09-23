@@ -48,6 +48,7 @@ Partial Class frmMain
         Me.lblName = New System.Windows.Forms.Label()
         Me.tbpNewRegistration = New System.Windows.Forms.TabPage()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.btnReg = New System.Windows.Forms.Button()
         Me.lbxSem2Chosen = New System.Windows.Forms.ListBox()
         Me.lbxSem1Avail = New System.Windows.Forms.ListBox()
         Me.lbxSem2Avail = New System.Windows.Forms.ListBox()
@@ -78,8 +79,8 @@ Partial Class frmMain
         Me.lstModView = New System.Windows.Forms.ListBox()
         Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
-        Me.txtResultVal = New System.Windows.Forms.TextBox()
-        Me.txtModResult = New System.Windows.Forms.TextBox()
+        Me.btnCaptureMarks = New System.Windows.Forms.Button()
+        Me.cmbModules = New System.Windows.Forms.ComboBox()
         Me.txtStuResult = New System.Windows.Forms.TextBox()
         Me.lblResultVal = New System.Windows.Forms.Label()
         Me.lblModResult = New System.Windows.Forms.Label()
@@ -106,10 +107,11 @@ Partial Class frmMain
         Me.BSDiscipline = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModuleTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULETableAdapter()
         Me.BSModule = New System.Windows.Forms.BindingSource(Me.components)
-        Me.btnReg = New System.Windows.Forms.Button()
         Me.ModulE_REGISTRATIONTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter()
         Me.BSModuleRegistration = New System.Windows.Forms.BindingSource(Me.components)
         Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
+        Me.btnEnter = New System.Windows.Forms.Button()
+        Me.txtResult = New System.Windows.Forms.MaskedTextBox()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -162,7 +164,7 @@ Partial Class frmMain
         Me.tbpDetails.Location = New System.Drawing.Point(4, 22)
         Me.tbpDetails.Name = "tbpDetails"
         Me.tbpDetails.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpDetails.Size = New System.Drawing.Size(802, 473)
+        Me.tbpDetails.Size = New System.Drawing.Size(802, 509)
         Me.tbpDetails.TabIndex = 0
         Me.tbpDetails.Text = "Details"
         Me.tbpDetails.UseVisualStyleBackColor = True
@@ -379,6 +381,15 @@ Partial Class frmMain
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Registration"
         '
+        'btnReg
+        '
+        Me.btnReg.Location = New System.Drawing.Point(299, 313)
+        Me.btnReg.Name = "btnReg"
+        Me.btnReg.Size = New System.Drawing.Size(152, 23)
+        Me.btnReg.TabIndex = 18
+        Me.btnReg.Text = "Register"
+        Me.btnReg.UseVisualStyleBackColor = True
+        '
         'lbxSem2Chosen
         '
         Me.lbxSem2Chosen.FormattingEnabled = True
@@ -529,7 +540,7 @@ Partial Class frmMain
         Me.tbpViewRegistration.Location = New System.Drawing.Point(4, 22)
         Me.tbpViewRegistration.Name = "tbpViewRegistration"
         Me.tbpViewRegistration.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpViewRegistration.Size = New System.Drawing.Size(802, 473)
+        Me.tbpViewRegistration.Size = New System.Drawing.Size(802, 509)
         Me.tbpViewRegistration.TabIndex = 5
         Me.tbpViewRegistration.Text = "View Registration"
         Me.tbpViewRegistration.UseVisualStyleBackColor = True
@@ -586,7 +597,7 @@ Partial Class frmMain
         Me.tbpResultsStudent.Location = New System.Drawing.Point(4, 22)
         Me.tbpResultsStudent.Name = "tbpResultsStudent"
         Me.tbpResultsStudent.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpResultsStudent.Size = New System.Drawing.Size(802, 473)
+        Me.tbpResultsStudent.Size = New System.Drawing.Size(802, 509)
         Me.tbpResultsStudent.TabIndex = 2
         Me.tbpResultsStudent.Text = "View Results"
         Me.tbpResultsStudent.UseVisualStyleBackColor = True
@@ -643,50 +654,58 @@ Partial Class frmMain
         Me.tbpResultsAdmin.Location = New System.Drawing.Point(4, 22)
         Me.tbpResultsAdmin.Name = "tbpResultsAdmin"
         Me.tbpResultsAdmin.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpResultsAdmin.Size = New System.Drawing.Size(802, 473)
+        Me.tbpResultsAdmin.Size = New System.Drawing.Size(802, 509)
         Me.tbpResultsAdmin.TabIndex = 3
         Me.tbpResultsAdmin.Text = "Add Results"
         Me.tbpResultsAdmin.UseVisualStyleBackColor = True
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.txtResultVal)
-        Me.GroupBox5.Controls.Add(Me.txtModResult)
+        Me.GroupBox5.Controls.Add(Me.txtResult)
+        Me.GroupBox5.Controls.Add(Me.btnEnter)
+        Me.GroupBox5.Controls.Add(Me.btnCaptureMarks)
+        Me.GroupBox5.Controls.Add(Me.cmbModules)
         Me.GroupBox5.Controls.Add(Me.txtStuResult)
         Me.GroupBox5.Controls.Add(Me.lblResultVal)
         Me.GroupBox5.Controls.Add(Me.lblModResult)
         Me.GroupBox5.Controls.Add(Me.lblStuResult)
         Me.GroupBox5.Location = New System.Drawing.Point(20, 20)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(318, 215)
+        Me.GroupBox5.Size = New System.Drawing.Size(525, 254)
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Add Marks"
         '
-        'txtResultVal
+        'btnCaptureMarks
         '
-        Me.txtResultVal.Location = New System.Drawing.Point(202, 135)
-        Me.txtResultVal.Name = "txtResultVal"
-        Me.txtResultVal.Size = New System.Drawing.Size(100, 20)
-        Me.txtResultVal.TabIndex = 5
+        Me.btnCaptureMarks.Location = New System.Drawing.Point(118, 188)
+        Me.btnCaptureMarks.Name = "btnCaptureMarks"
+        Me.btnCaptureMarks.Size = New System.Drawing.Size(105, 26)
+        Me.btnCaptureMarks.TabIndex = 7
+        Me.btnCaptureMarks.Text = "Capture"
+        Me.btnCaptureMarks.UseVisualStyleBackColor = True
         '
-        'txtModResult
+        'cmbModules
         '
-        Me.txtModResult.Location = New System.Drawing.Point(202, 93)
-        Me.txtModResult.Name = "txtModResult"
-        Me.txtModResult.Size = New System.Drawing.Size(100, 20)
-        Me.txtModResult.TabIndex = 4
+        Me.cmbModules.Enabled = False
+        Me.cmbModules.FormattingEnabled = True
+        Me.cmbModules.Location = New System.Drawing.Point(202, 85)
+        Me.cmbModules.Name = "cmbModules"
+        Me.cmbModules.Size = New System.Drawing.Size(121, 21)
+        Me.cmbModules.TabIndex = 6
         '
         'txtStuResult
         '
         Me.txtStuResult.Location = New System.Drawing.Point(202, 46)
+        Me.txtStuResult.MaxLength = 10
         Me.txtStuResult.Name = "txtStuResult"
-        Me.txtStuResult.Size = New System.Drawing.Size(100, 20)
+        Me.txtStuResult.Size = New System.Drawing.Size(121, 20)
         Me.txtStuResult.TabIndex = 3
         '
         'lblResultVal
         '
         Me.lblResultVal.AutoSize = True
-        Me.lblResultVal.Location = New System.Drawing.Point(26, 135)
+        Me.lblResultVal.Location = New System.Drawing.Point(26, 143)
         Me.lblResultVal.Name = "lblResultVal"
         Me.lblResultVal.Size = New System.Drawing.Size(113, 13)
         Me.lblResultVal.TabIndex = 2
@@ -706,9 +725,9 @@ Partial Class frmMain
         Me.lblStuResult.AutoSize = True
         Me.lblStuResult.Location = New System.Drawing.Point(26, 46)
         Me.lblStuResult.Name = "lblStuResult"
-        Me.lblStuResult.Size = New System.Drawing.Size(127, 13)
+        Me.lblStuResult.Size = New System.Drawing.Size(90, 13)
         Me.lblStuResult.TabIndex = 0
-        Me.lblStuResult.Text = "Enter a Student Number :"
+        Me.lblStuResult.Text = "Student Number :"
         '
         'tbpReports
         '
@@ -716,7 +735,7 @@ Partial Class frmMain
         Me.tbpReports.Location = New System.Drawing.Point(4, 22)
         Me.tbpReports.Name = "tbpReports"
         Me.tbpReports.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpReports.Size = New System.Drawing.Size(802, 473)
+        Me.tbpReports.Size = New System.Drawing.Size(802, 509)
         Me.tbpReports.TabIndex = 4
         Me.tbpReports.Text = "Reports"
         Me.tbpReports.UseVisualStyleBackColor = True
@@ -736,7 +755,7 @@ Partial Class frmMain
         Me.tbpCourses.Location = New System.Drawing.Point(4, 22)
         Me.tbpCourses.Name = "tbpCourses"
         Me.tbpCourses.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpCourses.Size = New System.Drawing.Size(802, 473)
+        Me.tbpCourses.Size = New System.Drawing.Size(802, 509)
         Me.tbpCourses.TabIndex = 6
         Me.tbpCourses.Text = "Courses"
         Me.tbpCourses.UseVisualStyleBackColor = True
@@ -855,15 +874,6 @@ Partial Class frmMain
         Me.BSModule.DataMember = "MODULE"
         Me.BSModule.DataSource = Me.SmsDataSet1
         '
-        'btnReg
-        '
-        Me.btnReg.Location = New System.Drawing.Point(299, 313)
-        Me.btnReg.Name = "btnReg"
-        Me.btnReg.Size = New System.Drawing.Size(152, 23)
-        Me.btnReg.TabIndex = 18
-        Me.btnReg.Text = "Register"
-        Me.btnReg.UseVisualStyleBackColor = True
-        '
         'ModulE_REGISTRATIONTableAdapter1
         '
         Me.ModulE_REGISTRATIONTableAdapter1.ClearBeforeFill = True
@@ -877,6 +887,23 @@ Partial Class frmMain
         '
         Me.SMSDataSet.DataSetName = "SMSDataSet"
         Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'btnEnter
+        '
+        Me.btnEnter.Location = New System.Drawing.Point(359, 42)
+        Me.btnEnter.Name = "btnEnter"
+        Me.btnEnter.Size = New System.Drawing.Size(75, 23)
+        Me.btnEnter.TabIndex = 8
+        Me.btnEnter.Text = "Enter"
+        Me.btnEnter.UseVisualStyleBackColor = True
+        '
+        'txtResult
+        '
+        Me.txtResult.Location = New System.Drawing.Point(202, 136)
+        Me.txtResult.Mask = "000"
+        Me.txtResult.Name = "txtResult"
+        Me.txtResult.Size = New System.Drawing.Size(121, 20)
+        Me.txtResult.TabIndex = 9
         '
         'frmMain
         '
@@ -972,19 +999,17 @@ Partial Class frmMain
 	Friend WithEvents lstModView As ListBox
 	Friend WithEvents lblModResult As Label
 	Friend WithEvents lblStuResult As Label
-	Friend WithEvents txtResultVal As TextBox
-	Friend WithEvents txtModResult As TextBox
-	Friend WithEvents txtStuResult As TextBox
-	Friend WithEvents lblResultVal As Label
-	Friend WithEvents btnMainPassword As Button
-	Friend WithEvents btnCapture As Button
-	Friend WithEvents txtCellNumber As MaskedTextBox
-	Friend WithEvents lbxSem1Avail As ListBox
-	Friend WithEvents lbxSem1Chosen As ListBox
-	Friend WithEvents txtMajor2 As TextBox
-	Friend WithEvents txtMajor1 As TextBox
-	Friend WithEvents txtFaculty As TextBox
-	Friend WithEvents GroupBox7 As GroupBox
+    Friend WithEvents txtStuResult As TextBox
+    Friend WithEvents lblResultVal As Label
+    Friend WithEvents btnMainPassword As Button
+    Friend WithEvents btnCapture As Button
+    Friend WithEvents txtCellNumber As MaskedTextBox
+    Friend WithEvents lbxSem1Avail As ListBox
+    Friend WithEvents lbxSem1Chosen As ListBox
+    Friend WithEvents txtMajor2 As TextBox
+    Friend WithEvents txtMajor1 As TextBox
+    Friend WithEvents txtFaculty As TextBox
+    Friend WithEvents GroupBox7 As GroupBox
     Friend WithEvents lbxSem2Chosen As ListBox
     Friend WithEvents lbxSem2Avail As ListBox
     Friend WithEvents lblSemester2Reg As Label
@@ -1012,4 +1037,8 @@ Partial Class frmMain
     Friend WithEvents ModulE_REGISTRATIONTableAdapter1 As SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter
     Friend WithEvents BSModuleRegistration As BindingSource
     Friend WithEvents SMSDataSet As SMSDataSet
+    Friend WithEvents btnCaptureMarks As Button
+    Friend WithEvents cmbModules As ComboBox
+    Friend WithEvents btnEnter As Button
+    Friend WithEvents txtResult As MaskedTextBox
 End Class

@@ -172,7 +172,7 @@
 	Private Sub frmLogin_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
 		txtLoginUsername.Clear()
 		txtPassword.Clear()
-		username = ""
-		pnlLogin.Enabled = False
+        'username = ""
+        pnlLogin.Enabled = False
 	End Sub
 End Class

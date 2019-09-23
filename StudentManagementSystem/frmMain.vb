@@ -67,9 +67,9 @@
 
 		'POPULATE DETAILS TAB WITH USER'S DETAILS
 		If frmLogin.userType = frmLogin.ADMIN Then
-			'AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)
-			AdminTableAdapter1.FillDetails(SmsDataSet1.ADMIN, frmLogin.username)
-			txtAdminNumber.Text = frmLogin.username
+            AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)
+            AdminTableAdapter1.FillDetails(SmsDataSet1.ADMIN, frmLogin.username)
+            txtAdminNumber.Text = frmLogin.username
 			txtIDNumber.Text = SmsDataSet1.ADMIN.Rows(0).Item(1).trim
 			txtName.Text = SmsDataSet1.ADMIN.Rows(0).Item(2).trim
 			txtSurname.Text = SmsDataSet1.ADMIN.Rows(0).Item(3).trim

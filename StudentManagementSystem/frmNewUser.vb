@@ -96,6 +96,9 @@
         For Each Row As DataRow In SmsDataSet1.DISCIPLINE.Rows
             cmbMajor1.Items.Add(Row.Item(1))
         Next
+
+        'Allow student to select their first major
+        cmbMajor1.Enabled = True
     End Sub
 
     Private Sub btnCreateUser_Click(sender As Object, e As EventArgs) Handles btnCreateUser.Click
@@ -178,5 +181,20 @@
         Next
         '^^^ populate combobox
 
+        'Allow student to select their second major
+        cmbMajor2.Enabled = True
+
+    End Sub
+
+    Private Sub tbcNewUser_Enter(sender As Object, e As EventArgs) Handles tbcNewUser.Enter
+        'Clear the combo boxes when form loads
+        cmbCollege.SelectedIndex = -1
+        cmbMajor1.SelectedIndex = -1
+        cmbMajor2.SelectedIndex = -1
+
+        'Disable Majors Combo Boxes when form loads
+        'will be enabled when student selects a faculty
+        cmbMajor1.Enabled = False
+        cmbMajor2.Enabled = False
     End Sub
 End Class

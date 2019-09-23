@@ -20,8 +20,10 @@
 
 	Private Sub pbxRegistration_Click(sender As Object, e As EventArgs) Handles pbxRegestration.Click
 		frmLogin.ShowPage(frmLogin.newReg, frmLogin.MAINFORM)
-		frmLogin.ShowPage(frmLogin.viewReg, frmLogin.MAINFORM)
-		frmMain.ShowDialog()
+        frmLogin.ShowPage(frmLogin.viewReg, frmLogin.MAINFORM)
+        frmMain.ClearRegBoxes() 'first clear Modules from listboxes to repopulate
+
+        frmMain.ShowDialog()
 
 
 	End Sub
@@ -30,7 +32,7 @@
         frmLogin.ShowPage(frmLogin.details, frmLogin.MAINFORM)
         frmMain.grbStudent.Show()
         frmMain.lblUsername.Text = "Student Number: "
-        'frmMain.tbpNewRegistration_Enter(sender, e)
+        frmMain.tbpNewRegistration_Enter(sender, e)
         frmMain.ShowDialog()
     End Sub
 End Class

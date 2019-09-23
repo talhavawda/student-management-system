@@ -19,6 +19,15 @@
     End Function
 
 
+    'first clear Modules from listboxes to repopulate
+    Friend Sub ClearRegBoxes()
+        lbxSem1Avail.Items.Clear()
+        lbxSem2Avail.Items.Clear()
+        lbxSem1Chosen.Items.Clear()
+        lbxSem2Chosen.Items.Clear()
+    End Sub
+
+
 
     Private Sub frmMain_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmLogin.HidePage(frmLogin.details, frmLogin.MAINFORM)
@@ -137,7 +146,7 @@
         tbpCourses_Enter(sender, e) 'call to populate the Faculty comboBox with updated values
     End Sub
 
-    Private Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
+    Friend Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
 
         'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
         StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
@@ -175,6 +184,10 @@
 
 
             'Display Discipline NAME in Majors fields
+
+            'first clear Modules to repopulate
+            ClearRegBoxes()
+
 
             majorCode1 = SmsDataSet1.COURSE.Rows(0).Item(2).ToString.Trim
 

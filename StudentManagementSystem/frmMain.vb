@@ -1,4 +1,7 @@
 ﻿Public Class frmMain
+
+    Dim currentStudyYear As Integer
+
     Public Function ValidateCell(ByVal cell As String) As Boolean
         If cell(0) <> "0" Or cell.Length <> 10 Then
             Return False
@@ -6,12 +9,12 @@
         Return True
     End Function
 
-	Public Function ValidateEmail(ByVal email As String) As Boolean
-		If email.IndexOf("@") > 0 And email.LastIndexOf(".") > email.IndexOf("@") Then
-			Return True
-		End If
-		Return False
-	End Function
+    Public Function ValidateEmail(ByVal email As String) As Boolean
+        If email.IndexOf("@") > 0 And email.LastIndexOf(".") > email.IndexOf("@") Then
+            Return True
+        End If
+        Return False
+    End Function
 
 
 
@@ -54,7 +57,21 @@
 
     End Sub
 
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxSem1Avail.SelectedIndexChanged
+        Dim chosenAlready As Boolean = False
+
+        For Each str As String In lbxSem1Chosen.Items
+            If (lbxSem1Avail.SelectedItem = str) Then
+                chosenAlready = True
+            End If
+        Next
+
+        If (chosenAlready = False) Then
+            lbxSem1Chosen.Items.Add(lbxSem1Avail.SelectedItem)
+        Else
+            MsgBox("Module chosen already")
+        End If
+
 
     End Sub
 
@@ -130,9 +147,15 @@
         Dim FacultyID As Integer
         Dim FacultyName As String
 
+        Dim majorCode1 As String
+        Dim majorCode2 As String
+
         Try
             StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
             CourseID = Integer.Parse(SmsDataSet1.STUDENT.Rows(0).Item(8).ToString.Trim)
+
+            Dim yr As Integer = Integer.Parse(System.DateTime.Now.Year)
+            currentStudyYear = yr - Integer.Parse(SmsDataSet1.STUDENT.Rows(0).Item(7).ToString.Trim) + 1
 
 
             CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, CourseID)
@@ -151,14 +174,14 @@
 
             'Display Discipline NAME in Majors fields
 
-            Dim majorCode1 As String = SmsDataSet1.COURSE.Rows(0).Item(2).ToString.Trim
+            majorCode1 = SmsDataSet1.COURSE.Rows(0).Item(2).ToString.Trim
 
             DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, majorCode1)
             txtMajor1.Text = SmsDataSet1.DISCIPLINE.Rows(0).Item(1)
 
             DisciplineTableAdapter1.Fill(SmsDataSet1.DISCIPLINE)
 
-            Dim majorCode2 As String = SmsDataSet1.COURSE.Rows(0).Item(3).ToString.Trim
+            majorCode2 = SmsDataSet1.COURSE.Rows(0).Item(3).ToString.Trim
 
             DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, majorCode2)
             txtMajor2.Text = SmsDataSet1.DISCIPLINE.Rows(0).Item(1)
@@ -175,12 +198,73 @@
 
         txtFaculty.Text = FacultyName
 
-		'txtMajor1.Text =
-		'txtMajor2.Text = 
+        'txtMajor1.Text =
+        'txtMajor2.Text = 
 
-	End Sub
+        '===========================================================================================
+        ModuleTableAdapter1.GetSem1Modules(SmsDataSet1._MODULE, majorCode1, majorCode2)
+        For Each Row As DataRow In SmsDataSet1._MODULE
+            Dim modCode As String = Row.Item(0)
+            If (modCode(4) = "1" And currentStudyYear = 1) Then
+                Dim modName As String = Row.Item(1)
+                lbxSem1Avail.Items.Add(modCode + vbTab + modName)
+            End If
+        Next
+
+        ModuleTableAdapter1.GetSem2Modules(SmsDataSet1._MODULE, majorCode1, majorCode2)
+        For Each Row As DataRow In SmsDataSet1._MODULE
+            Dim modCode As String = Row.Item(0)
+            If (modCode(4) = "1" And currentStudyYear = 1) Then
+                Dim modName As String = Row.Item(1)
+                lbxSem2Avail.Items.Add(modCode + vbTab + modName)
+            End If
+        Next
+
+    End Sub
 
     Private Sub tbcMain_DragEnter(sender As Object, e As DragEventArgs) Handles tbcMain.DragEnter
+
+    End Sub
+
+    Private Sub BSModule_CurrentChanged(sender As Object, e As EventArgs) Handles BSModule.CurrentChanged
+
+    End Sub
+
+    Private Sub lbxSem2Avail_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxSem2Avail.SelectedIndexChanged
+        Dim chosenAlready As Boolean = False
+
+        For Each str As String In lbxSem2Chosen.Items
+            If (lbxSem2Avail.SelectedItem = str) Then
+                chosenAlready = True
+            End If
+        Next
+
+        If (chosenAlready = False) Then
+            lbxSem2Chosen.Items.Add(lbxSem2Avail.SelectedItem)
+        Else
+            MsgBox("Module chosen already")
+        End If
+    End Sub
+
+    Private Sub lbxSem1Chosen_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxSem1Chosen.SelectedIndexChanged
+        lbxSem1Chosen.Items.Remove(lbxSem1Chosen.SelectedItem)
+    End Sub
+
+    Private Sub lbxSem2Chosen_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxSem2Chosen.SelectedIndexChanged
+        lbxSem2Chosen.Items.Remove(lbxSem2Chosen.SelectedItem)
+    End Sub
+
+    Private Sub grpDetails_Enter(sender As Object, e As EventArgs) Handles grpDetails.Enter
+
+    End Sub
+
+    Private Sub btnReg_Click(sender As Object, e As EventArgs) Handles btnReg.Click
+
+        For Each str As String In lbxSem1Chosen.SelectedItem
+            Dim modCode As String = str.Substring(0, 8)
+            'Dim regID As Integer = 
+            '''''''
+        Next
 
     End Sub
 End Class

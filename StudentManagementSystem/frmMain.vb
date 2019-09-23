@@ -135,7 +135,7 @@
         tbpCourses_Enter(sender, e) 'call to populate the Faculty comboBox with updated values
     End Sub
 
-    Private Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
+    Friend Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
 
         'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
         StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)

@@ -260,11 +260,28 @@
 
     Private Sub btnReg_Click(sender As Object, e As EventArgs) Handles btnReg.Click
 
-        For Each str As String In lbxSem1Chosen.SelectedItem
-            Dim modCode As String = str.Substring(0, 8)
-            'Dim regID As Integer = 
-            '''''''
-        Next
+        If (lbxSem1Chosen.Items.Count = 4 And lbxSem2Chosen.Items.Count = 4) Then
+            For Each str As String In lbxSem1Chosen.Items
+                Dim modCode As String = str.Substring(0, 8)
+                Dim regID As Integer = ModulE_REGISTRATIONTableAdapter1.GetMaxRegID + 1
+                Dim yr As String = System.DateTime.Now.Year.ToString
+                ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 1, vbNull, regID)
+            Next
+
+            For Each str As String In lbxSem2Chosen.Items
+                Dim modCode As String = str.Substring(0, 8)
+                Dim regID As Integer = ModulE_REGISTRATIONTableAdapter1.GetMaxRegID + 1
+                Dim yr As String = System.DateTime.Now.Year.ToString
+                ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 2, vbNull, regID)
+            Next
+
+            MsgBox("Registration Complete!")
+        Else
+            MsgBox("Please choose four modules per semester")
+        End If
+
+
+
 
     End Sub
 End Class

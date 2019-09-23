@@ -263,6 +263,7 @@
         For Each str As String In lbxSem1Chosen.SelectedItem
             Dim modCode As String = str.Substring(0, 8)
             'Dim regID As Integer = 
+            '''''''
         Next
 
     End Sub

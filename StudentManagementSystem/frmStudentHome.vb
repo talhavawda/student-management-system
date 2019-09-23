@@ -30,7 +30,7 @@
         frmLogin.ShowPage(frmLogin.details, frmLogin.MAINFORM)
         frmMain.grbStudent.Show()
         frmMain.lblUsername.Text = "Student Number: "
-        frmMain.tbpNewRegistration_Enter(sender, e)
+        'frmMain.tbpNewRegistration_Enter(sender, e)
         frmMain.ShowDialog()
     End Sub
 End Class

@@ -1,6 +1,8 @@
 ﻿Public Class frmMain
 
     Dim currentStudyYear As Integer
+    Dim studNumberForMarkCapture As String
+    Dim year As String = System.DateTime.Now.Year.ToString
 
     Public Function ValidateCell(ByVal cell As String) As Boolean
         If cell(0) <> "0" Or cell.Length <> 10 Then
@@ -135,7 +137,7 @@
         tbpCourses_Enter(sender, e) 'call to populate the Faculty comboBox with updated values
     End Sub
 
-    Friend Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
+    Private Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
 
         'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
         StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
@@ -147,8 +149,8 @@
         Dim FacultyID As Integer
         Dim FacultyName As String
 
-        Dim majorCode1 As String
-        Dim majorCode2 As String
+        Dim majorCode1 As String = ""
+        Dim majorCode2 As String = ""
 
         Try
             StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
@@ -283,5 +285,37 @@
 
 
 
+    End Sub
+
+    Private Sub btnCaptureMarks_Click(sender As Object, e As EventArgs) Handles btnCaptureMarks.Click
+        Dim mark As Integer = Integer.Parse(txtResult.Text)
+        Dim modCode As String = cmbModules.SelectedItem
+        If (mark < 0 Or mark > 100) Then
+            MsgBox("Invalid Mark !!!")
+        Else
+            'Add mark to module reg table -> studNo,ModuleCode,Mark
+            ModulE_REGISTRATIONTableAdapter1.AddMark(mark, studNumberForMarkCapture, year, modCode)
+            MsgBox("Mark Successfully added to the Database.")
+        End If
+    End Sub
+
+    Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+        cmbModules.Items.Clear()
+        studNumberForMarkCapture = txtStuResult.Text
+        cmbModules.Enabled = True
+        ModulE_REGISTRATIONTableAdapter1.GetModuleCodes(SmsDataSet1.MODULE_REGISTRATION, studNumberForMarkCapture, year)
+        If SmsDataSet1.MODULE_REGISTRATION.Rows.Count = 0 Then
+            MsgBox("Invalid Student Number Entered")
+        Else
+            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+                cmbModules.Items.Add(Row.Item(1))
+            Next
+        End If
+
+    End Sub
+
+    Private Sub txtStuResult_TextChanged(sender As Object, e As EventArgs) Handles txtStuResult.TextChanged
+        cmbModules.Items.Clear()
+        cmbModules.Enabled = False
     End Sub
 End Class

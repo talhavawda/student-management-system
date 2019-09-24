@@ -218,66 +218,62 @@
 
         '===========================================================================================
 
-        ModuleTableAdapter1.GetSem1Modules(SmsDataSet1._MODULE, majorCode1, majorCode2)
-        For Each Row As DataRow In SmsDataSet1._MODULE
-            Dim modCode As String = Row.Item(0)
-            If (modCode(4) = "1" And currentStudyYear = 1) Then
-                Dim modName As String = Row.Item(1)
-                lbxSem1Avail.Items.Add(modCode + vbTab + modName)
+        'REGISTRATION
+        Dim modCode As String
+        Dim modName As String
+
+        If (currentStudyYear = 1) Then 'First Year
+            ModuleTableAdapter1.GetFirstYearModules(SmsDataSet1._MODULE, majorCode1, majorCode2)
+            For Each Row As DataRow In SmsDataSet1._MODULE
+                modCode = Row.Item(0)
+                modName = Row.Item(1)
+                If Row.Item(5) = 1 Then
+                    lbxSem1Avail.Items.Add(modCode & vbTab + modName)
+                Else
+                    lbxSem2Avail.Items.Add(modCode & vbTab + modName)
+                End If
+            Next
+        End If
+
+        If (currentStudyYear > 1) Then 'Second Year ANd Third Year
+            ModulE_REGISTRATIONTableAdapter1.GetFailedModules(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, Integer.Parse(year) - 1)
+            If SmsDataSet1.MODULE_REGISTRATION.Rows.Count <> 0 Then 'You Failed in first Year
+                For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+                    modCode = Row.Item(1)
+                    ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
+                    modName = SmsDataSet1._MODULE.Rows(0).Item(1)
+                    If Row.Item(3) = 1 Then
+                        lbxSem1Avail.Items.Add(modCode & vbTab + modName)
+                        lbxSem1Chosen.Items.Add(modCode & vbTab + modName)
+                    Else
+                        lbxSem2Avail.Items.Add(modCode & vbTab + modName)
+                        lbxSem2Chosen.Items.Add(modCode & vbTab + modName)
+                    End If
+                Next
             End If
-        Next
-        '^FIRST YEAR SEM 1
+            ModuleTableAdapter1.Fill(SmsDataSet1._MODULE)
+            ModuleTableAdapter1.GetAvailableSem1Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year) - 1)
+            For Each Row As DataRow In SmsDataSet1._MODULE
+                modCode = Row.Item(0)
+                modName = Row.Item(1)
+                lbxSem1Avail.Items.Add(modCode & vbTab + modName)
+                If Integer.Parse(modCode(4)) < currentStudyYear Then
+                    lbxSem1Chosen.Items.Add(modCode & vbTab + modName)
+                End If
+            Next
+            ModuleTableAdapter1.GetAvailableSem2Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year) - 1)
+            For Each Row As DataRow In SmsDataSet1._MODULE
+                modCode = Row.Item(0)
+                modName = Row.Item(1)
+                lbxSem2Avail.Items.Add(modCode & vbTab + modName)
+                If Integer.Parse(modCode(4)) < currentStudyYear Then
+                    lbxSem2Chosen.Items.Add(modCode & vbTab + modName)
+                End If
+            Next
+        End If
 
-        ModuleTableAdapter1.GetSem2Modules(SmsDataSet1._MODULE, majorCode1, majorCode2)
-        For Each Row As DataRow In SmsDataSet1._MODULE
-            Dim modCode As String = Row.Item(0)
-            If (modCode(4) = "1" And currentStudyYear = 1) Then
-                Dim modName As String = Row.Item(1)
-                lbxSem2Avail.Items.Add(modCode + vbTab + modName)
-            End If
-        Next
-        '^FIRST YEAR SEM 2
 
 
-
-        ModulE_REGISTRATIONTableAdapter1.GetFailedModules(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, year - 1)
-        For Each row As DataRow In SmsDataSet1.MODULE_REGISTRATION
-            If row.Item(3) = 1 Then
-                Dim modCode As String = row.Item(1)
-                ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
-                Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
-                lbxSem1Avail.Items.Add(modCode + vbTab + modName)
-            Else
-                Dim modCode As String = row.Item(1)
-                ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
-                Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
-                lbxSem2Avail.Items.Add(modCode + vbTab + modName)
-            End If
-        Next
-        '^Display failed modules
-
-        ModuleTableAdapter1.Fill(SmsDataSet1._MODULE)
-        ModuleTableAdapter1.GetAvailableSem1Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year - 1))
-        For Each Row As DataRow In SmsDataSet1._MODULE
-            Dim modCode As String = Row.Item(0)
-            If (modCode(4) = "2" And currentStudyYear = 2) Then
-                Dim modName As String = Row.Item(1)
-                lbxSem1Avail.Items.Add(modCode + vbTab + modName)
-            End If
-        Next
-
-        '^SECOND YEAR SEM 1
-
-        ModuleTableAdapter1.Fill(SmsDataSet1._MODULE)
-        ModuleTableAdapter1.GetAvailableSem2Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year - 1))
-        For Each Row As DataRow In SmsDataSet1._MODULE
-            Dim modCode As String = Row.Item(0)
-            If (modCode(4) = "2" And currentStudyYear = 2) Then
-                Dim modName As String = Row.Item(1)
-                lbxSem2Avail.Items.Add(modCode + vbTab + modName)
-            End If
-        Next
-        '^SECOND YEAR SEM 2
 
 
     End Sub
@@ -308,6 +304,7 @@
 
     Private Sub lbxSem1Chosen_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxSem1Chosen.SelectedIndexChanged
         lbxSem1Chosen.Items.Remove(lbxSem1Chosen.SelectedItem)
+
     End Sub
 
     Private Sub lbxSem2Chosen_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxSem2Chosen.SelectedIndexChanged
@@ -319,26 +316,31 @@
     End Sub
 
     Private Sub btnReg_Click(sender As Object, e As EventArgs) Handles btnReg.Click
+        ModulE_REGISTRATIONTableAdapter1.CheckAlreadyRegistered(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, year)
+        If SmsDataSet1.MODULE_REGISTRATION.Rows.Count = 0 Then
+            If (lbxSem1Chosen.Items.Count = 4 And lbxSem2Chosen.Items.Count = 4) Then
+                For Each str As String In lbxSem1Chosen.Items
+                    Dim modCode As String = str.Substring(0, 8)
+                    Dim regID As Integer = ModulE_REGISTRATIONTableAdapter1.GetMaxRegID + 1
+                    Dim yr As String = System.DateTime.Now.Year.ToString
+                    ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 1, -1, regID)  'mark is entered as -1 (module not complete)
+                Next
 
-        If (lbxSem1Chosen.Items.Count = 4 And lbxSem2Chosen.Items.Count = 4) Then
-            For Each str As String In lbxSem1Chosen.Items
-                Dim modCode As String = str.Substring(0, 8)
-                Dim regID As Integer = ModulE_REGISTRATIONTableAdapter1.GetMaxRegID + 1
-                Dim yr As String = System.DateTime.Now.Year.ToString
-                ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 1, -1, regID)  'mark is entered as -1 (module not complete)
-            Next
+                For Each str As String In lbxSem2Chosen.Items
+                    Dim modCode As String = str.Substring(0, 8)
+                    Dim regID As Integer = ModulE_REGISTRATIONTableAdapter1.GetMaxRegID + 1
+                    Dim yr As String = System.DateTime.Now.Year.ToString
+                    ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 2, -1, regID)  'mark is entered as -1 (module not complete)
+                Next
 
-            For Each str As String In lbxSem2Chosen.Items
-                Dim modCode As String = str.Substring(0, 8)
-                Dim regID As Integer = ModulE_REGISTRATIONTableAdapter1.GetMaxRegID + 1
-                Dim yr As String = System.DateTime.Now.Year.ToString
-                ModulE_REGISTRATIONTableAdapter1.NewRegistration(frmLogin.username, modCode, yr, 2, -1, regID)  'mark is entered as -1 (module not complete)
-            Next
-
-            MsgBox("Registration Complete!")
+                MsgBox("Registration Complete!")
+            Else
+                MsgBox("Please choose four modules per semester")
+            End If
         Else
-            MsgBox("Please choose four modules per semester")
+            MsgBox("You Are Already Registered For The Current Academic Year")
         End If
+
 
 
 

@@ -67,13 +67,14 @@ Partial Class frmMain
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.tbpViewRegistration = New System.Windows.Forms.TabPage()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.rtxtYearView = New System.Windows.Forms.RichTextBox()
         Me.lblC = New System.Windows.Forms.Label()
         Me.cmbYearView = New System.Windows.Forms.ComboBox()
         Me.lblYearView = New System.Windows.Forms.Label()
         Me.tbpResultsStudent = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.rtxtResults = New System.Windows.Forms.RichTextBox()
         Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.txtResult = New System.Windows.Forms.MaskedTextBox()
@@ -109,7 +110,6 @@ Partial Class frmMain
         Me.ModulE_REGISTRATIONTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter()
         Me.BSModuleRegistration = New System.Windows.Forms.BindingSource(Me.components)
         Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -556,6 +556,15 @@ Partial Class frmMain
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(224, 318)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(187, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Get Registration Details"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'rtxtYearView
         '
         Me.rtxtYearView.Location = New System.Drawing.Point(224, 134)
@@ -603,20 +612,21 @@ Partial Class frmMain
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.RichTextBox1)
+        Me.GroupBox4.Controls.Add(Me.rtxtResults)
         Me.GroupBox4.Location = New System.Drawing.Point(20, 20)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(391, 326)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         '
-        'RichTextBox1
+        'rtxtResults
         '
-        Me.RichTextBox1.Location = New System.Drawing.Point(15, 19)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(353, 257)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = ""
+        Me.rtxtResults.Location = New System.Drawing.Point(17, 19)
+        Me.rtxtResults.Name = "rtxtResults"
+        Me.rtxtResults.ReadOnly = True
+        Me.rtxtResults.Size = New System.Drawing.Size(353, 257)
+        Me.rtxtResults.TabIndex = 0
+        Me.rtxtResults.Text = ""
         '
         'tbpResultsAdmin
         '
@@ -875,15 +885,6 @@ Partial Class frmMain
         Me.SMSDataSet.DataSetName = "SMSDataSet"
         Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(224, 318)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(187, 23)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "Get Registration Details"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1015,6 +1016,6 @@ Partial Class frmMain
     Friend WithEvents cmbModules As ComboBox
     Friend WithEvents btnEnter As Button
     Friend WithEvents txtResult As MaskedTextBox
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents rtxtResults As RichTextBox
     Friend WithEvents Button1 As Button
 End Class

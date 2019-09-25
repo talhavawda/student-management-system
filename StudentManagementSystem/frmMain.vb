@@ -116,6 +116,29 @@
             'txtCourse.Text = SmsDataSet1.STUDENT.Rows(0).Item(8)   'Need to get course as string -> Course = QualCode + Major1 + Major2
 
         End If
+
+        '===============View results tab====================
+        If (frmLogin.userType = frmLogin.STUDENT) Then
+            rtxtResults.Clear()
+
+            ModulE_REGISTRATIONTableAdapter1.GetRegisteredYears(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username)
+
+            rtxtResults.AppendText("Results: " + vbNewLine)
+            rtxtResults.AppendText(vbNewLine + "Module: " + vbTab + vbTab + "Year" + vbTab + "Semester: " + vbTab + "Mark: " + vbNewLine)
+            Dim i As Integer = 0
+            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+                rtxtResults.AppendText(vbNewLine + Row.Item(1) + vbTab + Row.Item(2).ToString + vbTab + Row.Item(3).ToString + vbTab + vbTab + Row.Item(4).ToString)
+                i += 1
+                If (i = 4) Then
+                    rtxtResults.AppendText(vbNewLine)
+                ElseIf i = 8 Then
+                    rtxtResults.AppendText(vbNewLine + "-------------------------------------------------------------------------------------------------------------")
+                    i = 0
+                End If
+            Next
+
+        End If
+
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs)

@@ -410,4 +410,32 @@
 
 
     End Sub
+
+    Private Sub tbpViewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpViewRegistration.Enter
+        ModulE_REGISTRATIONTableAdapter1.GetRegisteredYears(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username)
+        If SmsDataSet1.MODULE_REGISTRATION.Rows.Count > 0 Then 'You are registered
+            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+                If Not cmbYearView.Items.Contains(Row.Item(2)) Then
+                    cmbYearView.Items.Add(Row.Item(2))
+                End If
+            Next
+        Else
+            MsgBox("You Do Not Have Any Past/Current Registrations Available for Viewing")
+        End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        rtxtYearView.Clear()
+        rtxtYearView.AppendText(cmbYearView.SelectedItem.ToString.Trim + " Registration Details: " + vbNewLine)
+        'rtxtYearView.AppendText(" ")
+        'MsgBox(cmbYearView.SelectedItem)
+        Dim viewYear As Integer = Integer.Parse(cmbYearView.SelectedItem)
+        ModulE_REGISTRATIONTableAdapter1.GetRegDetailsForSpecificYear(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, viewYear)
+        For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+            Dim modCode As String = Row.Item(1)
+            ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
+            Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
+            rtxtYearView.AppendText(vbNewLine + modCode + vbTab + modName)
+        Next
+    End Sub
 End Class

@@ -634,7 +634,7 @@ WHERE        (StudentNumber = @StudentNumber) AND (Year = @Year) AND (ModuleCode
                   </DbCommand>
                 </UpdateCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="CheckAlreadyRegistered" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="CheckAlreadyRegistered" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="CheckAlreadyRegistered">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="CheckAlreadyRegistered" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="CheckAlreadyRegistered" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="CheckAlreadyRegistered">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        StudentNumber, ModuleCode, Year, Semester, Mark, RegistrationID
@@ -647,7 +647,7 @@ WHERE        (StudentNumber = @StudNo) AND (Year = @Year)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetFailedModules" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetFailedModules" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="GetFailedModules">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetFailedModules" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetFailedModules" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="GetFailedModules">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        StudentNumber, ModuleCode, Year, Semester, Mark, RegistrationID
@@ -660,7 +660,7 @@ WHERE        (StudentNumber = @StudentNum) AND (Year = @Year) AND (Mark &lt; 50)
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetMaxRegID" Modifier="Public" Name="GetMaxRegID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="GetMaxRegID">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetMaxRegID" Modifier="Public" Name="GetMaxRegID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="GetMaxRegID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(RegistrationID) AS Expr1
@@ -669,7 +669,7 @@ FROM            [MODULE REGISTRATION]</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetModuleCodes" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetModuleCodes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="GetModuleCodes">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetModuleCodes" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetModuleCodes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="GetModuleCodes">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        RegistrationID, StudentNumber, ModuleCode, Year, Semester, Mark
@@ -682,7 +682,31 @@ WHERE        (StudentNumber = @StudentNumber) AND (Year = @Year)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NewRegistration" Modifier="Public" Name="NewRegistration" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="NewRegistration">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetRegDetailsForSpecificYear" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetRegDetailsForSpecificYear" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="GetRegDetailsForSpecificYear">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT StudentNumber, ModuleCode, Year, Semester, Mark, RegistrationID FROM [MODULE REGISTRATION]
+WHERE StudentNumber = @StudNo AND Year = @Year</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="StudNo" ColumnName="StudentNumber" DataSourceName="ist2hw.dbo.[MODULE REGISTRATION]" DataTypeServer="nchar(10)" DbType="String" Direction="Input" ParameterName="@StudNo" Precision="0" ProviderType="NChar" Scale="0" Size="10" SourceColumn="StudentNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Year" ColumnName="Year" DataSourceName="ist2hw.dbo.[MODULE REGISTRATION]" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Year" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Year" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetRegisteredYears" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetRegisteredYears" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="GetRegisteredYears">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT *
+FROM            [MODULE REGISTRATION]
+WHERE        (StudentNumber = @StudNo)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="StudNo" ColumnName="StudentNumber" DataSourceName="ist2hw.dbo.[MODULE REGISTRATION]" DataTypeServer="nchar(10)" DbType="String" Direction="Input" ParameterName="@StudNo" Precision="0" ProviderType="NChar" Scale="0" Size="10" SourceColumn="StudentNumber" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NewRegistration" Modifier="Public" Name="NewRegistration" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="NewRegistration">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [MODULE REGISTRATION] ([StudentNumber], [ModuleCode], [Year], [Semester], [Mark], [RegistrationID]) 

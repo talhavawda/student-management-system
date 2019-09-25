@@ -22,7 +22,7 @@
 		frmLogin.ShowPage(frmLogin.newReg, frmLogin.MAINFORM)
         frmLogin.ShowPage(frmLogin.viewReg, frmLogin.MAINFORM)
         frmMain.ClearRegBoxes() 'first clear Modules from listboxes to repopulate
-
+        frmMain.tbpNewRegistration_Enter(sender, e)
         frmMain.ShowDialog()
 
 

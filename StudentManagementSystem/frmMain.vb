@@ -303,12 +303,12 @@
     End Sub
 
     Private Sub lbxSem1Chosen_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxSem1Chosen.SelectedIndexChanged
-        lbxSem1Chosen.Items.Remove(lbxSem1Chosen.SelectedItem)
+
 
     End Sub
 
     Private Sub lbxSem2Chosen_SelectedIndexChanged(sender As Object, e As EventArgs) Handles lbxSem2Chosen.SelectedIndexChanged
-        lbxSem2Chosen.Items.Remove(lbxSem2Chosen.SelectedItem)
+
     End Sub
 
     Private Sub grpDetails_Enter(sender As Object, e As EventArgs) Handles grpDetails.Enter
@@ -377,5 +377,37 @@
     Private Sub txtStuResult_TextChanged(sender As Object, e As EventArgs) Handles txtStuResult.TextChanged
         cmbModules.Items.Clear()
         cmbModules.Enabled = False
+    End Sub
+
+    Private Sub lbxSem1Chosen_Click(sender As Object, e As EventArgs) Handles lbxSem1Chosen.Click
+        Dim selected As String = lbxSem1Chosen.SelectedItem
+        Try
+            If Integer.Parse(selected(4)) < currentStudyYear Then
+                MsgBox("Cannot remove Selected Module " + Environment.NewLine + "You must complete " + selected.Substring(0, 8) + " to continue with your degree")
+            Else
+                lbxSem1Chosen.Items.Remove(lbxSem1Chosen.SelectedItem)
+            End If
+        Catch ex As Exception
+            MsgBox("Please select a module to remove")
+        End Try
+
+
+
+
+    End Sub
+
+    Private Sub lbxSem2Chosen_Click(sender As Object, e As EventArgs) Handles lbxSem2Chosen.Click
+        Dim selected As String = lbxSem2Chosen.SelectedItem
+        Try
+            If Integer.Parse(selected(4)) < currentStudyYear Then
+                MsgBox("Cannot remove Selected Module " + Environment.NewLine + "You must complete " + selected.Substring(0, 8) + " to continue with your degree")
+            Else
+                lbxSem2Chosen.Items.Remove(lbxSem2Chosen.SelectedItem)
+            End If
+        Catch ex As Exception
+            MsgBox("Please select a module to remove")
+        End Try
+
+
     End Sub
 End Class

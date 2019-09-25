@@ -73,6 +73,7 @@ Partial Class frmMain
         Me.lblYearView = New System.Windows.Forms.Label()
         Me.tbpResultsStudent = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.txtResult = New System.Windows.Forms.MaskedTextBox()
@@ -108,7 +109,6 @@ Partial Class frmMain
         Me.ModulE_REGISTRATIONTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter()
         Me.BSModuleRegistration = New System.Windows.Forms.BindingSource(Me.components)
         Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -608,6 +608,14 @@ Partial Class frmMain
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         '
+        'RichTextBox1
+        '
+        Me.RichTextBox1.Location = New System.Drawing.Point(15, 19)
+        Me.RichTextBox1.Name = "RichTextBox1"
+        Me.RichTextBox1.Size = New System.Drawing.Size(353, 257)
+        Me.RichTextBox1.TabIndex = 0
+        Me.RichTextBox1.Text = ""
+        '
         'tbpResultsAdmin
         '
         Me.tbpResultsAdmin.Controls.Add(Me.GroupBox5)
@@ -864,14 +872,6 @@ Partial Class frmMain
         '
         Me.SMSDataSet.DataSetName = "SMSDataSet"
         Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'RichTextBox1
-        '
-        Me.RichTextBox1.Location = New System.Drawing.Point(15, 19)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(353, 257)
-        Me.RichTextBox1.TabIndex = 0
-        Me.RichTextBox1.Text = ""
         '
         'frmMain
         '

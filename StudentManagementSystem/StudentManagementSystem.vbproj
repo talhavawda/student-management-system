@@ -13,6 +13,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -25,7 +26,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -63,6 +63,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>SMSIconTransparent.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -128,6 +131,12 @@
     <Compile Include="frmStudentHome.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmTeamScreen.Designer.vb">
+      <DependentUpon>frmTeamScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmTeamScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -144,6 +153,14 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="Settings.vb" />
+    <Compile Include="SMSDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SMSDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SMSDataSet.vb">
+      <DependentUpon>SMSDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmNewUser.resx">
@@ -164,6 +181,9 @@
     <EmbeddedResource Include="frmStudentHome.resx">
       <DependentUpon>frmStudentHome.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmTeamScreen.resx">
+      <DependentUpon>frmTeamScreen.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -183,6 +203,17 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="SMSDataSet.xsc">
+      <DependentUpon>SMSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="SMSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SMSDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SMSDataSet.xss">
+      <DependentUpon>SMSDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -198,6 +229,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\SMSLogo.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EDIT.png" />
+    <None Include="Resources\Reports.png" />
+    <None Include="Resources\RESULTS.png" />
+    <Content Include="SMSIconTransparent.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

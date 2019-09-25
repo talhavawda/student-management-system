@@ -24,32 +24,25 @@ Partial Class frmSplashScreen
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSplashScreen))
-		Me.lblProgressPercent = New System.Windows.Forms.Label()
-		Me.prbSplash = New System.Windows.Forms.ProgressBar()
-		Me.tmrSplash = New System.Windows.Forms.Timer(Me.components)
+		Me.lblLoadingBar = New System.Windows.Forms.Label()
+		Me.tmrLoadingLabel = New System.Windows.Forms.Timer(Me.components)
 		Me.SuspendLayout()
 		'
-		'lblProgressPercent
+		'lblLoadingBar
 		'
-		Me.lblProgressPercent.AutoSize = True
-		Me.lblProgressPercent.Location = New System.Drawing.Point(247, 260)
-		Me.lblProgressPercent.Name = "lblProgressPercent"
-		Me.lblProgressPercent.Size = New System.Drawing.Size(0, 13)
-		Me.lblProgressPercent.TabIndex = 3
+		Me.lblLoadingBar.AutoSize = True
+		Me.lblLoadingBar.BackColor = System.Drawing.Color.Transparent
+		Me.lblLoadingBar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+		Me.lblLoadingBar.ForeColor = System.Drawing.Color.Aqua
+		Me.lblLoadingBar.Location = New System.Drawing.Point(152, 337)
+		Me.lblLoadingBar.Name = "lblLoadingBar"
+		Me.lblLoadingBar.Size = New System.Drawing.Size(9, 13)
+		Me.lblLoadingBar.TabIndex = 5
+		Me.lblLoadingBar.Text = "|"
 		'
-		'prbSplash
+		'tmrLoadingLabel
 		'
-		Me.prbSplash.BackColor = System.Drawing.SystemColors.Control
-		Me.prbSplash.Location = New System.Drawing.Point(144, 260)
-		Me.prbSplash.Name = "prbSplash"
-		Me.prbSplash.Size = New System.Drawing.Size(259, 23)
-		Me.prbSplash.Step = 1
-		Me.prbSplash.Style = System.Windows.Forms.ProgressBarStyle.Continuous
-		Me.prbSplash.TabIndex = 4
-		'
-		'tmrSplash
-		'
-		Me.tmrSplash.Interval = 1
+		Me.tmrLoadingLabel.Interval = 10
 		'
 		'frmSplashScreen
 		'
@@ -58,19 +51,19 @@ Partial Class frmSplashScreen
 		Me.BackColor = System.Drawing.SystemColors.ControlDark
 		Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
 		Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-		Me.ClientSize = New System.Drawing.Size(541, 323)
-		Me.Controls.Add(Me.prbSplash)
-		Me.Controls.Add(Me.lblProgressPercent)
+		Me.ClientSize = New System.Drawing.Size(578, 412)
+		Me.Controls.Add(Me.lblLoadingBar)
+		Me.Cursor = System.Windows.Forms.Cursors.AppStarting
 		Me.DoubleBuffered = True
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
 		Me.Name = "frmSplashScreen"
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-		Me.Text = "Form1"
+		Me.Text = "StudentManagementSystem"
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
 	End Sub
-	Friend WithEvents lblProgressPercent As Label
-	Friend WithEvents prbSplash As ProgressBar
-	Friend WithEvents tmrSplash As Timer
+	Friend WithEvents lblLoadingBar As Label
+	Friend WithEvents tmrLoadingLabel As Timer
 End Class

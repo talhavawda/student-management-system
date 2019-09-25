@@ -35,4 +35,8 @@
         frmMain.tbpNewRegistration_Enter(sender, e)
         frmMain.ShowDialog()
     End Sub
+
+    Private Sub frmStudentHome_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frmLogin.Close()
+    End Sub
 End Class

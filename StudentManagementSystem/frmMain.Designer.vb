@@ -67,18 +67,18 @@ Partial Class frmMain
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.tbpViewRegistration = New System.Windows.Forms.TabPage()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.rtxtYearView = New System.Windows.Forms.RichTextBox()
         Me.lblC = New System.Windows.Forms.Label()
         Me.cmbYearView = New System.Windows.Forms.ComboBox()
         Me.lblYearView = New System.Windows.Forms.Label()
         Me.tbpResultsStudent = New System.Windows.Forms.TabPage()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.lblResults = New System.Windows.Forms.Label()
-        Me.lblModView = New System.Windows.Forms.Label()
-        Me.lstResults = New System.Windows.Forms.ListBox()
-        Me.lstModView = New System.Windows.Forms.ListBox()
+        Me.rtxtResults = New System.Windows.Forms.RichTextBox()
         Me.tbpResultsAdmin = New System.Windows.Forms.TabPage()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.txtResult = New System.Windows.Forms.MaskedTextBox()
+        Me.btnEnter = New System.Windows.Forms.Button()
         Me.btnCaptureMarks = New System.Windows.Forms.Button()
         Me.cmbModules = New System.Windows.Forms.ComboBox()
         Me.txtStuResult = New System.Windows.Forms.TextBox()
@@ -93,6 +93,7 @@ Partial Class frmMain
         Me.btnAddFaculty = New System.Windows.Forms.Button()
         Me.txtAddFaculty = New System.Windows.Forms.TextBox()
         Me.cmbFaculty = New System.Windows.Forms.ComboBox()
+        Me.BSCourse = New System.Windows.Forms.BindingSource(Me.components)
         Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
         Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
         Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
@@ -102,7 +103,6 @@ Partial Class frmMain
         Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
         Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
         Me.BSFaculty = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BSCourse = New System.Windows.Forms.BindingSource(Me.components)
         Me.DisciplineTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.DISCIPLINETableAdapter()
         Me.BSDiscipline = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModuleTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULETableAdapter()
@@ -110,8 +110,6 @@ Partial Class frmMain
         Me.ModulE_REGISTRATIONTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter()
         Me.BSModuleRegistration = New System.Windows.Forms.BindingSource(Me.components)
         Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
-        Me.btnEnter = New System.Windows.Forms.Button()
-        Me.txtResult = New System.Windows.Forms.MaskedTextBox()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -129,11 +127,11 @@ Partial Class frmMain
         Me.tbpCourses.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
+        CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSDiscipline, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSModule, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSModuleRegistration, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -547,28 +545,38 @@ Partial Class frmMain
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Button1)
         Me.GroupBox3.Controls.Add(Me.rtxtYearView)
         Me.GroupBox3.Controls.Add(Me.lblC)
         Me.GroupBox3.Controls.Add(Me.cmbYearView)
         Me.GroupBox3.Controls.Add(Me.lblYearView)
         Me.GroupBox3.Location = New System.Drawing.Point(20, 20)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(459, 259)
+        Me.GroupBox3.Size = New System.Drawing.Size(620, 365)
         Me.GroupBox3.TabIndex = 0
         Me.GroupBox3.TabStop = False
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(224, 318)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(187, 23)
+        Me.Button1.TabIndex = 4
+        Me.Button1.Text = "Get Registration Details"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'rtxtYearView
         '
-        Me.rtxtYearView.Location = New System.Drawing.Point(300, 104)
+        Me.rtxtYearView.Location = New System.Drawing.Point(224, 134)
         Me.rtxtYearView.Name = "rtxtYearView"
-        Me.rtxtYearView.Size = New System.Drawing.Size(121, 96)
+        Me.rtxtYearView.Size = New System.Drawing.Size(286, 159)
         Me.rtxtYearView.TabIndex = 3
         Me.rtxtYearView.Text = ""
         '
         'lblC
         '
         Me.lblC.AutoSize = True
-        Me.lblC.Location = New System.Drawing.Point(18, 140)
+        Me.lblC.Location = New System.Drawing.Point(18, 137)
         Me.lblC.Name = "lblC"
         Me.lblC.Size = New System.Drawing.Size(129, 13)
         Me.lblC.TabIndex = 2
@@ -577,9 +585,9 @@ Partial Class frmMain
         'cmbYearView
         '
         Me.cmbYearView.FormattingEnabled = True
-        Me.cmbYearView.Location = New System.Drawing.Point(300, 49)
+        Me.cmbYearView.Location = New System.Drawing.Point(224, 49)
         Me.cmbYearView.Name = "cmbYearView"
-        Me.cmbYearView.Size = New System.Drawing.Size(121, 21)
+        Me.cmbYearView.Size = New System.Drawing.Size(105, 21)
         Me.cmbYearView.TabIndex = 1
         '
         'lblYearView
@@ -587,9 +595,9 @@ Partial Class frmMain
         Me.lblYearView.AutoSize = True
         Me.lblYearView.Location = New System.Drawing.Point(18, 49)
         Me.lblYearView.Name = "lblYearView"
-        Me.lblYearView.Size = New System.Drawing.Size(226, 13)
+        Me.lblYearView.Size = New System.Drawing.Size(107, 13)
         Me.lblYearView.TabIndex = 0
-        Me.lblYearView.Text = "Select which Year of Study you Wish to View :"
+        Me.lblYearView.Text = "Select Year of Study:"
         '
         'tbpResultsStudent
         '
@@ -604,49 +612,21 @@ Partial Class frmMain
         '
         'GroupBox4
         '
-        Me.GroupBox4.Controls.Add(Me.lblResults)
-        Me.GroupBox4.Controls.Add(Me.lblModView)
-        Me.GroupBox4.Controls.Add(Me.lstResults)
-        Me.GroupBox4.Controls.Add(Me.lstModView)
+        Me.GroupBox4.Controls.Add(Me.rtxtResults)
         Me.GroupBox4.Location = New System.Drawing.Point(20, 20)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(391, 194)
+        Me.GroupBox4.Size = New System.Drawing.Size(391, 326)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         '
-        'lblResults
+        'rtxtResults
         '
-        Me.lblResults.AutoSize = True
-        Me.lblResults.Location = New System.Drawing.Point(258, 25)
-        Me.lblResults.Name = "lblResults"
-        Me.lblResults.Size = New System.Drawing.Size(67, 13)
-        Me.lblResults.TabIndex = 4
-        Me.lblResults.Text = "Your Results"
-        '
-        'lblModView
-        '
-        Me.lblModView.AutoSize = True
-        Me.lblModView.Location = New System.Drawing.Point(45, 25)
-        Me.lblModView.Name = "lblModView"
-        Me.lblModView.Size = New System.Drawing.Size(72, 13)
-        Me.lblModView.TabIndex = 3
-        Me.lblModView.Text = "Your Modules"
-        '
-        'lstResults
-        '
-        Me.lstResults.FormattingEnabled = True
-        Me.lstResults.Location = New System.Drawing.Point(240, 51)
-        Me.lstResults.Name = "lstResults"
-        Me.lstResults.Size = New System.Drawing.Size(120, 95)
-        Me.lstResults.TabIndex = 2
-        '
-        'lstModView
-        '
-        Me.lstModView.FormattingEnabled = True
-        Me.lstModView.Location = New System.Drawing.Point(28, 51)
-        Me.lstModView.Name = "lstModView"
-        Me.lstModView.Size = New System.Drawing.Size(120, 95)
-        Me.lstModView.TabIndex = 1
+        Me.rtxtResults.Location = New System.Drawing.Point(17, 19)
+        Me.rtxtResults.Name = "rtxtResults"
+        Me.rtxtResults.ReadOnly = True
+        Me.rtxtResults.Size = New System.Drawing.Size(353, 257)
+        Me.rtxtResults.TabIndex = 0
+        Me.rtxtResults.Text = ""
         '
         'tbpResultsAdmin
         '
@@ -675,6 +655,23 @@ Partial Class frmMain
         Me.GroupBox5.TabIndex = 0
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Add Marks"
+        '
+        'txtResult
+        '
+        Me.txtResult.Location = New System.Drawing.Point(202, 136)
+        Me.txtResult.Mask = "000"
+        Me.txtResult.Name = "txtResult"
+        Me.txtResult.Size = New System.Drawing.Size(121, 20)
+        Me.txtResult.TabIndex = 9
+        '
+        'btnEnter
+        '
+        Me.btnEnter.Location = New System.Drawing.Point(359, 42)
+        Me.btnEnter.Name = "btnEnter"
+        Me.btnEnter.Size = New System.Drawing.Size(75, 23)
+        Me.btnEnter.TabIndex = 8
+        Me.btnEnter.Text = "Enter"
+        Me.btnEnter.UseVisualStyleBackColor = True
         '
         'btnCaptureMarks
         '
@@ -888,23 +885,6 @@ Partial Class frmMain
         Me.SMSDataSet.DataSetName = "SMSDataSet"
         Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'btnEnter
-        '
-        Me.btnEnter.Location = New System.Drawing.Point(359, 42)
-        Me.btnEnter.Name = "btnEnter"
-        Me.btnEnter.Size = New System.Drawing.Size(75, 23)
-        Me.btnEnter.TabIndex = 8
-        Me.btnEnter.Text = "Enter"
-        Me.btnEnter.UseVisualStyleBackColor = True
-        '
-        'txtResult
-        '
-        Me.txtResult.Location = New System.Drawing.Point(202, 136)
-        Me.txtResult.Mask = "000"
-        Me.txtResult.Name = "txtResult"
-        Me.txtResult.Size = New System.Drawing.Size(121, 20)
-        Me.txtResult.TabIndex = 9
-        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -931,7 +911,6 @@ Partial Class frmMain
         Me.GroupBox3.PerformLayout()
         Me.tbpResultsStudent.ResumeLayout(False)
         Me.GroupBox4.ResumeLayout(False)
-        Me.GroupBox4.PerformLayout()
         Me.tbpResultsAdmin.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
@@ -940,11 +919,11 @@ Partial Class frmMain
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
+        CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSFaculty, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSDiscipline, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSModule, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSModuleRegistration, System.ComponentModel.ISupportInitialize).EndInit()
@@ -993,12 +972,8 @@ Partial Class frmMain
 	Friend WithEvents lblC As Label
 	Friend WithEvents cmbYearView As ComboBox
 	Friend WithEvents lblYearView As Label
-	Friend WithEvents lblResults As Label
-	Friend WithEvents lblModView As Label
-	Friend WithEvents lstResults As ListBox
-	Friend WithEvents lstModView As ListBox
-	Friend WithEvents lblModResult As Label
-	Friend WithEvents lblStuResult As Label
+    Friend WithEvents lblModResult As Label
+    Friend WithEvents lblStuResult As Label
     Friend WithEvents txtStuResult As TextBox
     Friend WithEvents lblResultVal As Label
     Friend WithEvents btnMainPassword As Button
@@ -1041,4 +1016,6 @@ Partial Class frmMain
     Friend WithEvents cmbModules As ComboBox
     Friend WithEvents btnEnter As Button
     Friend WithEvents txtResult As MaskedTextBox
+    Friend WithEvents rtxtResults As RichTextBox
+    Friend WithEvents Button1 As Button
 End Class

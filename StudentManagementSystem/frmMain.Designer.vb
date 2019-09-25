@@ -110,6 +110,23 @@ Partial Class frmMain
         Me.ModulE_REGISTRATIONTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter()
         Me.BSModuleRegistration = New System.Windows.Forms.BindingSource(Me.components)
         Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.txtNumStud = New System.Windows.Forms.TextBox()
+        Me.txtHighest = New System.Windows.Forms.TextBox()
+        Me.txtLowest = New System.Windows.Forms.TextBox()
+        Me.txtAverage = New System.Windows.Forms.TextBox()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.cbxMod = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.cbxDisc = New System.Windows.Forms.ComboBox()
+        Me.txtYearforSearch = New System.Windows.Forms.TextBox()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -124,6 +141,7 @@ Partial Class frmMain
         Me.tbpResultsAdmin.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.tbpReports.SuspendLayout()
+        Me.GroupBox6.SuspendLayout()
         Me.tbpCourses.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
@@ -558,15 +576,16 @@ Partial Class frmMain
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(224, 318)
+        Me.Button1.Location = New System.Drawing.Point(354, 49)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(187, 23)
+        Me.Button1.Size = New System.Drawing.Size(156, 23)
         Me.Button1.TabIndex = 4
         Me.Button1.Text = "Get Registration Details"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'rtxtYearView
         '
+        Me.rtxtYearView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.rtxtYearView.Location = New System.Drawing.Point(224, 134)
         Me.rtxtYearView.Name = "rtxtYearView"
         Me.rtxtYearView.Size = New System.Drawing.Size(286, 159)
@@ -613,18 +632,18 @@ Partial Class frmMain
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.rtxtResults)
-        Me.GroupBox4.Location = New System.Drawing.Point(20, 20)
+        Me.GroupBox4.Location = New System.Drawing.Point(200, 20)
         Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(391, 326)
+        Me.GroupBox4.Size = New System.Drawing.Size(391, 466)
         Me.GroupBox4.TabIndex = 0
         Me.GroupBox4.TabStop = False
         '
         'rtxtResults
         '
-        Me.rtxtResults.Location = New System.Drawing.Point(17, 19)
+        Me.rtxtResults.Location = New System.Drawing.Point(6, 19)
         Me.rtxtResults.Name = "rtxtResults"
         Me.rtxtResults.ReadOnly = True
-        Me.rtxtResults.Size = New System.Drawing.Size(353, 257)
+        Me.rtxtResults.Size = New System.Drawing.Size(353, 423)
         Me.rtxtResults.TabIndex = 0
         Me.rtxtResults.Text = ""
         '
@@ -739,12 +758,29 @@ Partial Class frmMain
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.txtYearforSearch)
+        Me.GroupBox6.Controls.Add(Me.cbxDisc)
+        Me.GroupBox6.Controls.Add(Me.Label8)
+        Me.GroupBox6.Controls.Add(Me.cbxMod)
+        Me.GroupBox6.Controls.Add(Me.TextBox5)
+        Me.GroupBox6.Controls.Add(Me.txtAverage)
+        Me.GroupBox6.Controls.Add(Me.txtLowest)
+        Me.GroupBox6.Controls.Add(Me.txtHighest)
+        Me.GroupBox6.Controls.Add(Me.txtNumStud)
+        Me.GroupBox6.Controls.Add(Me.Button2)
+        Me.GroupBox6.Controls.Add(Me.Label7)
+        Me.GroupBox6.Controls.Add(Me.Label6)
+        Me.GroupBox6.Controls.Add(Me.Label5)
+        Me.GroupBox6.Controls.Add(Me.Label4)
+        Me.GroupBox6.Controls.Add(Me.Label3)
+        Me.GroupBox6.Controls.Add(Me.Label2)
+        Me.GroupBox6.Controls.Add(Me.Label1)
         Me.GroupBox6.Location = New System.Drawing.Point(20, 20)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(200, 100)
+        Me.GroupBox6.Size = New System.Drawing.Size(461, 453)
         Me.GroupBox6.TabIndex = 0
         Me.GroupBox6.TabStop = False
-        Me.GroupBox6.Text = "GroupBox6"
+        Me.GroupBox6.Text = "Statistics"
         '
         'tbpCourses
         '
@@ -885,6 +921,150 @@ Partial Class frmMain
         Me.SMSDataSet.DataSetName = "SMSDataSet"
         Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(22, 77)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(76, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "Module Code: "
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(22, 120)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(35, 13)
+        Me.Label2.TabIndex = 1
+        Me.Label2.Text = "Year: "
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(22, 221)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(161, 13)
+        Me.Label3.TabIndex = 2
+        Me.Label3.Text = "Number of Registered Students: "
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(27, 269)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(73, 13)
+        Me.Label4.TabIndex = 3
+        Me.Label4.Text = "Highest Mark:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(27, 318)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(71, 13)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Lowest Mark:"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(28, 362)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(88, 13)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "Module Average:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(28, 411)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(59, 13)
+        Me.Label7.TabIndex = 6
+        Me.Label7.Text = "Pass Rate:"
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(25, 159)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(298, 23)
+        Me.Button2.TabIndex = 7
+        Me.Button2.Text = "Get Statistics"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'txtNumStud
+        '
+        Me.txtNumStud.Location = New System.Drawing.Point(202, 214)
+        Me.txtNumStud.Name = "txtNumStud"
+        Me.txtNumStud.ReadOnly = True
+        Me.txtNumStud.Size = New System.Drawing.Size(100, 20)
+        Me.txtNumStud.TabIndex = 8
+        '
+        'txtHighest
+        '
+        Me.txtHighest.Location = New System.Drawing.Point(202, 262)
+        Me.txtHighest.Name = "txtHighest"
+        Me.txtHighest.ReadOnly = True
+        Me.txtHighest.Size = New System.Drawing.Size(100, 20)
+        Me.txtHighest.TabIndex = 9
+        '
+        'txtLowest
+        '
+        Me.txtLowest.Location = New System.Drawing.Point(202, 311)
+        Me.txtLowest.Name = "txtLowest"
+        Me.txtLowest.ReadOnly = True
+        Me.txtLowest.Size = New System.Drawing.Size(100, 20)
+        Me.txtLowest.TabIndex = 10
+        '
+        'txtAverage
+        '
+        Me.txtAverage.Location = New System.Drawing.Point(202, 355)
+        Me.txtAverage.Name = "txtAverage"
+        Me.txtAverage.ReadOnly = True
+        Me.txtAverage.Size = New System.Drawing.Size(100, 20)
+        Me.txtAverage.TabIndex = 11
+        '
+        'TextBox5
+        '
+        Me.TextBox5.Location = New System.Drawing.Point(202, 404)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.ReadOnly = True
+        Me.TextBox5.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox5.TabIndex = 12
+        '
+        'cbxMod
+        '
+        Me.cbxMod.FormattingEnabled = True
+        Me.cbxMod.Location = New System.Drawing.Point(202, 69)
+        Me.cbxMod.Name = "cbxMod"
+        Me.cbxMod.Size = New System.Drawing.Size(121, 21)
+        Me.cbxMod.TabIndex = 13
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(25, 39)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(55, 13)
+        Me.Label8.TabIndex = 15
+        Me.Label8.Text = "Discipline:"
+        '
+        'cbxDisc
+        '
+        Me.cbxDisc.FormattingEnabled = True
+        Me.cbxDisc.Location = New System.Drawing.Point(202, 30)
+        Me.cbxDisc.Name = "cbxDisc"
+        Me.cbxDisc.Size = New System.Drawing.Size(186, 21)
+        Me.cbxDisc.TabIndex = 16
+        '
+        'txtYearforSearch
+        '
+        Me.txtYearforSearch.Location = New System.Drawing.Point(202, 112)
+        Me.txtYearforSearch.Name = "txtYearforSearch"
+        Me.txtYearforSearch.Size = New System.Drawing.Size(121, 20)
+        Me.txtYearforSearch.TabIndex = 17
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -915,6 +1095,8 @@ Partial Class frmMain
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.tbpReports.ResumeLayout(False)
+        Me.GroupBox6.ResumeLayout(False)
+        Me.GroupBox6.PerformLayout()
         Me.tbpCourses.ResumeLayout(False)
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox9.ResumeLayout(False)
@@ -1018,4 +1200,21 @@ Partial Class frmMain
     Friend WithEvents txtResult As MaskedTextBox
     Friend WithEvents rtxtResults As RichTextBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents TextBox5 As TextBox
+    Friend WithEvents txtAverage As TextBox
+    Friend WithEvents txtLowest As TextBox
+    Friend WithEvents txtHighest As TextBox
+    Friend WithEvents txtNumStud As TextBox
+    Friend WithEvents Button2 As Button
+    Friend WithEvents Label7 As Label
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents cbxDisc As ComboBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents cbxMod As ComboBox
+    Friend WithEvents txtYearforSearch As TextBox
 End Class

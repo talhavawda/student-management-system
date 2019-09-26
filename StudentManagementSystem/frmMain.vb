@@ -185,6 +185,8 @@
         End If
 
         '=============STATS=============
+        cbxDisc.Items.Clear()
+
         DisciplineTableAdapter1.Fill(SmsDataSet1.DISCIPLINE)
         For Each Row As DataRow In SmsDataSet1.DISCIPLINE
             cbxDisc.Items.Add(Row.Item(0) + vbTab + Row.Item(1))
@@ -541,6 +543,12 @@
                 txtHighest.Text = h
                 txtLowest.Text = ModulE_REGISTRATIONTableAdapter1.LowestMark(modCode, findYear)
                 txtAverage.Text = ModulE_REGISTRATIONTableAdapter1.AverageMark(modCode, findYear)
+
+                Dim numPassed As Integer = ModulE_REGISTRATIONTableAdapter1.NumPassed(modCode, findYear)
+                Dim passRate As Double = (numPassed / totalStud) * 100
+                txtPassRate.Text = passRate.ToString("f2") + "%"
+
+
             Catch ex As Exception
                 txtHighest.Text = "0"
                 txtLowest.Text = "0"

@@ -93,6 +93,10 @@
         'TODO: This line of code loads data into the 'SMSDataSet.DISCIPLINE' table. You can move, or remove it, as needed.
         Me.DisciplineTableAdapter1.Fill(Me.SMSDataSet.DISCIPLINE)
 
+        'HIDE grpViewRegStudNum IF USERTYPE IS ADMIN
+        If frmLogin.userType = frmLogin.STUDENT Then
+            grpViewRegStudNum.Hide()
+        End If
 
         'POPULATE DETAILS TAB WITH USER'S DETAILS
         If frmLogin.userType = frmLogin.ADMIN Then
@@ -489,31 +493,46 @@
     End Sub
 
     Private Sub tbpViewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpViewRegistration.Enter
-        ModulE_REGISTRATIONTableAdapter1.GetRegisteredYears(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username)
-        If SmsDataSet1.MODULE_REGISTRATION.Rows.Count > 0 Then 'You are registered
-            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
-                If Not cmbYearView.Items.Contains(Row.Item(2)) Then
-                    cmbYearView.Items.Add(Row.Item(2))
-                End If
-            Next
-        Else
-            MsgBox("You Do Not Have Any Past/Current Registrations Available for Viewing")
+        If (frmLogin.userType = frmLogin.STUDENT) Then
+            ViewReg(frmLogin.username)
         End If
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        rtxtYearView.Clear()
-        rtxtYearView.AppendText(cmbYearView.SelectedItem.ToString.Trim + " Registration Details: " + vbNewLine)
-        'rtxtYearView.AppendText(" ")
-        'MsgBox(cmbYearView.SelectedItem)
-        Dim viewYear As Integer = Integer.Parse(cmbYearView.SelectedItem)
-        ModulE_REGISTRATIONTableAdapter1.GetRegDetailsForSpecificYear(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, viewYear)
-        For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
-            Dim modCode As String = Row.Item(1)
-            ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
-            Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
-            rtxtYearView.AppendText(vbNewLine + modCode + vbTab + modName)
-        Next
+        If frmLogin.userType = frmLogin.STUDENT Then
+            rtxtYearView.Clear()
+            rtxtYearView.AppendText(cmbYearView.SelectedItem.ToString.Trim + " Registration Details: " + vbNewLine)
+            'rtxtYearView.AppendText(" ")
+            'MsgBox(cmbYearView.SelectedItem)
+            Dim viewYear As Integer = Integer.Parse(cmbYearView.SelectedItem)
+            ModulE_REGISTRATIONTableAdapter1.GetRegDetailsForSpecificYear(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, viewYear)
+            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+                Dim modCode As String = Row.Item(1)
+                ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
+                Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
+                rtxtYearView.AppendText(vbNewLine + modCode + vbTab + modName)
+            Next
+        Else            'IF ADMIN
+            rtxtYearView.Clear()
+            rtxtYearView.AppendText(cmbYearView.SelectedItem.ToString.Trim + " Registration Details: " + vbNewLine)
+            'rtxtYearView.AppendText(" ")
+            'MsgBox(cmbYearView.SelectedItem)
+            Dim viewYear As Integer = Integer.Parse(cmbYearView.SelectedItem)
+            Try
+                ModulE_REGISTRATIONTableAdapter1.GetRegDetailsForSpecificYear(SmsDataSet1.MODULE_REGISTRATION, txtStudNum.Text, viewYear)
+                For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+                    Dim modCode As String = Row.Item(1)
+                    ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
+                    Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
+                    rtxtYearView.AppendText(vbNewLine + modCode + vbTab + modName)
+                Next
+            Catch ex As Exception
+                MsgBox("Invalid student number")
+            End Try
+        End If
+
+
     End Sub
 
     Private Sub cbxDisc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxDisc.SelectedIndexChanged
@@ -557,4 +576,38 @@
 
         End If
     End Sub
+
+    Private Sub btnSearchStudNum_Click(sender As Object, e As EventArgs)
+        Dim stud As String = txtStudNum.Text
+
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+
+        ViewReg(txtStudNum.Text)
+
+    End Sub
+
+    Private Sub ViewReg(ByVal StudNum As String)
+        If (frmLogin.userType = frmLogin.STUDENT) Then
+            ModulE_REGISTRATIONTableAdapter1.GetRegisteredYears(SmsDataSet1.MODULE_REGISTRATION, StudNum)
+        Else
+            ModulE_REGISTRATIONTableAdapter1.GetRegisteredYears(SmsDataSet1.MODULE_REGISTRATION, StudNum)
+
+        End If
+
+        If SmsDataSet1.MODULE_REGISTRATION.Rows.Count > 0 Then 'You are registered
+            If (frmLogin.userType = frmLogin.ADMIN) Then
+                MsgBox("Details populated")
+            End If
+            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+                If Not cmbYearView.Items.Contains(Row.Item(2)) Then
+                    cmbYearView.Items.Add(Row.Item(2))
+                End If
+            Next
+        Else
+            MsgBox("No Past/Current Registrations Available for Viewing")
+        End If
+    End Sub
+
 End Class

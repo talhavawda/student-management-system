@@ -26,4 +26,10 @@
         frmLogin.ShowPage(frmLogin.courses, frmLogin.MAINFORM)
         frmMain.ShowDialog()
     End Sub
+
+    Private Sub pbxRegistration_Click(sender As Object, e As EventArgs) Handles pbxRegistration.Click
+        frmLogin.ShowPage(frmLogin.viewReg, frmLogin.MAINFORM)
+        frmMain.ShowDialog()
+
+    End Sub
 End Class

@@ -83,7 +83,7 @@ Partial Class frmAdminHome
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 17.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(374, 286)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(163, 64)
+        Me.Label3.Size = New System.Drawing.Size(164, 64)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "View Student " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Registration"
         '
@@ -105,7 +105,7 @@ Partial Class frmAdminHome
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 17.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(341, 124)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(213, 32)
+        Me.Label2.Size = New System.Drawing.Size(214, 32)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Marks and Reports"
         '

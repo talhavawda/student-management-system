@@ -607,6 +607,10 @@
             Next
         Else
             MsgBox("No Past/Current Registrations Available for Viewing")
+            cmbYearView.Items.Clear()
+            cmbYearView.Text = ""
+            rtxtYearView.Clear()
+
         End If
     End Sub
 

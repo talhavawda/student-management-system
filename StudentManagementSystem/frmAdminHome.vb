@@ -34,4 +34,19 @@
         frmMain.ShowDialog()
 
     End Sub
+
+    Private Sub btnExit_Click(sender As Object, e As EventArgs) Handles btnExit.Click
+        Dim exitProgram As DialogResult = MessageBox.Show("Are you sure you want to Logout?" + vbNewLine + "Your session will be terminated and the program will close", "Exit Program", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If exitProgram = DialogResult.Yes Then
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub tmrAdminTime_Tick(sender As Object, e As EventArgs) Handles tmrAdminTime.Tick
+        lblDateTime.Text = System.DateTime.Now.ToString("dd/MMM/yyyy | HH:mm:ss")
+    End Sub
+
+    Private Sub frmAdminHome_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        frmLogin.Close()
+    End Sub
 End Class

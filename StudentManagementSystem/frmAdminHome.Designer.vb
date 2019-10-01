@@ -22,6 +22,7 @@ Partial Class frmAdminHome
 	'Do not modify it using the code editor.
 	<System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAdminHome))
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -33,11 +34,16 @@ Partial Class frmAdminHome
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pbxDetails = New System.Windows.Forms.PictureBox()
         Me.DisciplineTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.DISCIPLINETableAdapter()
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.lblDateTime = New System.Windows.Forms.Label()
+        Me.tmrAdminTime = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.pbxCourses, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxRegistration, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxMarks, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -83,7 +89,7 @@ Partial Class frmAdminHome
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 17.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(374, 286)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(164, 64)
+        Me.Label3.Size = New System.Drawing.Size(163, 64)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "View Student " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Registration"
         '
@@ -105,7 +111,7 @@ Partial Class frmAdminHome
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 17.5!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(341, 124)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(214, 32)
+        Me.Label2.Size = New System.Drawing.Size(213, 32)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Marks and Reports"
         '
@@ -147,11 +153,44 @@ Partial Class frmAdminHome
         '
         Me.DisciplineTableAdapter1.ClearBeforeFill = True
         '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.btnExit)
+        Me.Panel3.Controls.Add(Me.lblDateTime)
+        Me.Panel3.Location = New System.Drawing.Point(12, 367)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(620, 33)
+        Me.Panel3.TabIndex = 6
+        '
+        'btnExit
+        '
+        Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExit.Location = New System.Drawing.Point(542, 2)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.TabIndex = 1
+        Me.btnExit.Text = "Logout"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
+        'lblDateTime
+        '
+        Me.lblDateTime.AutoSize = True
+        Me.lblDateTime.Location = New System.Drawing.Point(3, 12)
+        Me.lblDateTime.Name = "lblDateTime"
+        Me.lblDateTime.Size = New System.Drawing.Size(89, 13)
+        Me.lblDateTime.TabIndex = 0
+        Me.lblDateTime.Text = "<Date and Time>"
+        '
+        'tmrAdminTime
+        '
+        Me.tmrAdminTime.Enabled = True
+        '
         'frmAdminHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(644, 401)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -164,6 +203,8 @@ Partial Class frmAdminHome
         CType(Me.pbxRegistration, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbxMarks, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -178,4 +219,8 @@ Partial Class frmAdminHome
 	Friend WithEvents Label4 As Label
 	Friend WithEvents pbxCourses As PictureBox
     Friend WithEvents DisciplineTableAdapter1 As SMSDataSetTableAdapters.DISCIPLINETableAdapter
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnExit As Button
+    Friend WithEvents lblDateTime As Label
+    Friend WithEvents tmrAdminTime As Timer
 End Class

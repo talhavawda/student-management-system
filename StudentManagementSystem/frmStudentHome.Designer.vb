@@ -34,12 +34,17 @@ Partial Class frmStudentHome
         Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
         Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
         Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Panel3 = New System.Windows.Forms.Panel()
+        Me.btnExit = New System.Windows.Forms.Button()
+        Me.lblDateTime = New System.Windows.Forms.Label()
+        Me.tmrTimeStudent = New System.Windows.Forms.Timer(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.pbxResults, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxRegestration, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'Panel1
@@ -135,11 +140,44 @@ Partial Class frmStudentHome
         Me.BSStudent.DataMember = "STUDENT"
         Me.BSStudent.DataSource = Me.SmsDataSet1
         '
+        'Panel3
+        '
+        Me.Panel3.Controls.Add(Me.btnExit)
+        Me.Panel3.Controls.Add(Me.lblDateTime)
+        Me.Panel3.Location = New System.Drawing.Point(22, 358)
+        Me.Panel3.Name = "Panel3"
+        Me.Panel3.Size = New System.Drawing.Size(597, 42)
+        Me.Panel3.TabIndex = 6
+        '
+        'btnExit
+        '
+        Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnExit.Location = New System.Drawing.Point(519, 13)
+        Me.btnExit.Name = "btnExit"
+        Me.btnExit.Size = New System.Drawing.Size(75, 23)
+        Me.btnExit.TabIndex = 1
+        Me.btnExit.Text = "Logout"
+        Me.btnExit.UseVisualStyleBackColor = True
+        '
+        'lblDateTime
+        '
+        Me.lblDateTime.AutoSize = True
+        Me.lblDateTime.Location = New System.Drawing.Point(6, 23)
+        Me.lblDateTime.Name = "lblDateTime"
+        Me.lblDateTime.Size = New System.Drawing.Size(89, 13)
+        Me.lblDateTime.TabIndex = 0
+        Me.lblDateTime.Text = "<Date and Time>"
+        '
+        'tmrTimeStudent
+        '
+        Me.tmrTimeStudent.Enabled = True
+        '
         'frmStudentHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(644, 401)
+        Me.Controls.Add(Me.Panel3)
         Me.Controls.Add(Me.Panel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -153,6 +191,8 @@ Partial Class frmStudentHome
         CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel3.ResumeLayout(False)
+        Me.Panel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -167,4 +207,8 @@ Partial Class frmStudentHome
 	Friend WithEvents SmsDataSet1 As SMSDataSet
 	Friend WithEvents StudentTableAdapter1 As SMSDataSetTableAdapters.STUDENTTableAdapter
 	Friend WithEvents BSStudent As BindingSource
+    Friend WithEvents Panel3 As Panel
+    Friend WithEvents btnExit As Button
+    Friend WithEvents lblDateTime As Label
+    Friend WithEvents tmrTimeStudent As Timer
 End Class

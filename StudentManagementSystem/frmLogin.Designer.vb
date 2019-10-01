@@ -28,8 +28,6 @@ Partial Class frmLogin
         Me.pnlSelect = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.lblNewStudent = New System.Windows.Forms.Label()
-        Me.pbxAdmin = New System.Windows.Forms.PictureBox()
-        Me.pbxStudent = New System.Windows.Forms.PictureBox()
         Me.pnlLogin = New System.Windows.Forms.Panel()
         Me.lblForgotPassword = New System.Windows.Forms.Label()
         Me.btnLogin = New System.Windows.Forms.Button()
@@ -49,25 +47,28 @@ Partial Class frmLogin
         Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
         Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
         Me.Course_ModuleTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.Course_ModuleTableAdapter()
+        Me.pbxAdmin = New System.Windows.Forms.PictureBox()
+        Me.pbxStudent = New System.Windows.Forms.PictureBox()
+        Me.btnAbout = New System.Windows.Forms.Button()
         Me.pnlSelect.SuspendLayout()
-        CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlLogin.SuspendLayout()
         Me.Panel3.SuspendLayout()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(213, 9)
+        Me.Label1.Location = New System.Drawing.Point(200, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 37)
+        Me.Label1.Size = New System.Drawing.Size(138, 37)
         Me.Label1.TabIndex = 2
-        Me.Label1.Text = "I am a ..."
+        Me.Label1.Text = "I am a(n)..."
         '
         'pnlSelect
         '
@@ -102,29 +103,6 @@ Partial Class frmLogin
         Me.lblNewStudent.TabIndex = 5
         Me.lblNewStudent.Text = "I am a new student"
         '
-        'pbxAdmin
-        '
-        Me.pbxAdmin.BackColor = System.Drawing.Color.Transparent
-        Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pbxAdmin.Image = CType(resources.GetObject("pbxAdmin.Image"), System.Drawing.Image)
-        Me.pbxAdmin.Location = New System.Drawing.Point(346, 47)
-        Me.pbxAdmin.Name = "pbxAdmin"
-        Me.pbxAdmin.Size = New System.Drawing.Size(154, 132)
-        Me.pbxAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxAdmin.TabIndex = 1
-        Me.pbxAdmin.TabStop = False
-        '
-        'pbxStudent
-        '
-        Me.pbxStudent.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pbxStudent.Image = CType(resources.GetObject("pbxStudent.Image"), System.Drawing.Image)
-        Me.pbxStudent.Location = New System.Drawing.Point(38, 50)
-        Me.pbxStudent.Name = "pbxStudent"
-        Me.pbxStudent.Size = New System.Drawing.Size(140, 120)
-        Me.pbxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxStudent.TabIndex = 0
-        Me.pbxStudent.TabStop = False
-        '
         'pnlLogin
         '
         Me.pnlLogin.Controls.Add(Me.lblForgotPassword)
@@ -156,7 +134,7 @@ Partial Class frmLogin
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(138, 61)
         Me.btnLogin.TabIndex = 4
-        Me.btnLogin.Text = "Login"
+        Me.btnLogin.Text = "&Login"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
         'txtPassword
@@ -196,6 +174,7 @@ Partial Class frmLogin
         '
         'Panel3
         '
+        Me.Panel3.Controls.Add(Me.btnAbout)
         Me.Panel3.Controls.Add(Me.btnExit)
         Me.Panel3.Controls.Add(Me.lblDateTime)
         Me.Panel3.Location = New System.Drawing.Point(0, 361)
@@ -206,11 +185,11 @@ Partial Class frmLogin
         'btnExit
         '
         Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnExit.Location = New System.Drawing.Point(460, 18)
+        Me.btnExit.Location = New System.Drawing.Point(460, 16)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 1
-        Me.btnExit.Text = "Exit"
+        Me.btnExit.Text = "&Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'lblDateTime
@@ -270,6 +249,38 @@ Partial Class frmLogin
         '
         Me.Course_ModuleTableAdapter1.ClearBeforeFill = True
         '
+        'pbxAdmin
+        '
+        Me.pbxAdmin.BackColor = System.Drawing.Color.Transparent
+        Me.pbxAdmin.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxAdmin.Image = CType(resources.GetObject("pbxAdmin.Image"), System.Drawing.Image)
+        Me.pbxAdmin.Location = New System.Drawing.Point(346, 47)
+        Me.pbxAdmin.Name = "pbxAdmin"
+        Me.pbxAdmin.Size = New System.Drawing.Size(154, 132)
+        Me.pbxAdmin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxAdmin.TabIndex = 1
+        Me.pbxAdmin.TabStop = False
+        '
+        'pbxStudent
+        '
+        Me.pbxStudent.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.pbxStudent.Image = CType(resources.GetObject("pbxStudent.Image"), System.Drawing.Image)
+        Me.pbxStudent.Location = New System.Drawing.Point(38, 50)
+        Me.pbxStudent.Name = "pbxStudent"
+        Me.pbxStudent.Size = New System.Drawing.Size(140, 120)
+        Me.pbxStudent.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.pbxStudent.TabIndex = 0
+        Me.pbxStudent.TabStop = False
+        '
+        'btnAbout
+        '
+        Me.btnAbout.Location = New System.Drawing.Point(370, 16)
+        Me.btnAbout.Name = "btnAbout"
+        Me.btnAbout.Size = New System.Drawing.Size(75, 23)
+        Me.btnAbout.TabIndex = 2
+        Me.btnAbout.Text = "&About"
+        Me.btnAbout.UseVisualStyleBackColor = True
+        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -285,8 +296,6 @@ Partial Class frmLogin
         Me.Text = "Login"
         Me.pnlSelect.ResumeLayout(False)
         Me.pnlSelect.PerformLayout()
-        CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlLogin.ResumeLayout(False)
         Me.pnlLogin.PerformLayout()
         Me.Panel3.ResumeLayout(False)
@@ -294,6 +303,8 @@ Partial Class frmLogin
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -323,4 +334,5 @@ Partial Class frmLogin
     Friend WithEvents Label3 As Label
     Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
     Friend WithEvents Course_ModuleTableAdapter1 As SMSDataSetTableAdapters.Course_ModuleTableAdapter
+    Friend WithEvents btnAbout As Button
 End Class

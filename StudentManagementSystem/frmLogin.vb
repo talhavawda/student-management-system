@@ -175,4 +175,8 @@
         'username = ""
         pnlLogin.Enabled = False
 	End Sub
+
+    Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
+        frmAboutUs.ShowDialog()
+    End Sub
 End Class

@@ -19,6 +19,71 @@
         Return False
     End Function
 
+    Public Sub displayMarks(ByVal user As String)
+        rtxtResults.Clear()
+
+        StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, user)
+
+        ModulE_REGISTRATIONTableAdapter1.GetPassedModules(SmsDataSet1.MODULE_REGISTRATION, user)
+        Dim courseID As Integer = SmsDataSet1.STUDENT.Rows(0).Item(8)
+        CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, courseID)
+
+        Dim FacultyID As Integer = SmsDataSet1.COURSE.Rows(0).Item(4)
+
+        Dim m1Code As String = SmsDataSet1.COURSE.Rows(0).Item(2)
+        Dim m2Code As String = SmsDataSet1.COURSE.Rows(0).Item(3)
+        DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, m1Code)
+        Dim m1 As String = SmsDataSet1.DISCIPLINE.Rows(0).Item(1).trim
+        DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, m2Code)
+        Dim m2 As String = SmsDataSet1.DISCIPLINE.Rows(0).Item(1).trim
+
+        FacultyTableAdapter1.GetDetails(SmsDataSet1.FACULTY, FacultyID)
+        Dim qualCode As String = SmsDataSet1.FACULTY.Rows(0).Item(2).trim
+
+        degree = qualCode + " " + m1 + " and " + m2
+        Dim totalCred As Integer = 0
+        For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+            Dim modCode As String = Row.Item(1)
+            If (modCode(4) = "1") Then
+                totalCred += 10
+            ElseIf (modCode(4) = "2") Then
+                totalCred += 15
+            Else
+                totalCred += 20
+            End If
+        Next
+
+        ModulE_REGISTRATIONTableAdapter1.GetRegisteredYears(SmsDataSet1.MODULE_REGISTRATION, user)
+
+        rtxtResults.AppendText("Name: " + vbTab + vbTab + SmsDataSet1.STUDENT.Rows(0).Item(2))
+        rtxtResults.AppendText(vbNewLine + "Surname: " + vbTab + SmsDataSet1.STUDENT.Rows(0).Item(3))
+        rtxtResults.AppendText(vbNewLine + "ID Number: " + vbTab + SmsDataSet1.STUDENT.Rows(0).Item(1))
+        rtxtResults.AppendText(vbNewLine + "Degree: " + vbTab + vbTab + degree)
+        rtxtResults.AppendText(vbNewLine + "Credits Obtained: " + vbTab + totalCred.ToString)
+        rtxtResults.AppendText(vbNewLine)
+        rtxtResults.AppendText(vbNewLine + "Results: " + vbNewLine)
+        rtxtResults.AppendText(vbNewLine + "Module: " + vbTab + vbTab + "Year" + vbTab + "Semester: " + vbTab + "Mark: " + vbNewLine)
+        Dim i As Integer = 0
+        For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+            If (Row.Item(4) <> -1) Then
+                rtxtResults.AppendText(vbNewLine + Row.Item(1) + vbTab + Row.Item(2).ToString + vbTab + Row.Item(3).ToString + vbTab + vbTab + Row.Item(4).ToString)
+                i += 1
+                If (i = 4) Then
+                    rtxtResults.AppendText(vbNewLine)
+                ElseIf i = 8 Then
+                    rtxtResults.AppendText(vbNewLine + "-------------------------------------------------------------------------------------------------------------")
+                    i = 0
+                End If
+            End If
+
+        Next
+
+        If (totalCred = 360) Then
+            rtxtResults.AppendText(vbNewLine + "DEGREE COMPLETE!!!")
+        End If
+    End Sub
+
+
 
     'first clear Modules from listboxes to repopulate
     Friend Sub ClearRegBoxes()
@@ -139,53 +204,9 @@
         End If
 
         '===============View results tab====================
+        rtxtResults.Clear()
         If (frmLogin.userType = frmLogin.STUDENT) Then
-            rtxtResults.Clear()
-
-            StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
-
-            ModulE_REGISTRATIONTableAdapter1.GetPassedModules(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username)
-            Dim totalCred As Integer = 0
-            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
-                Dim modCode As String = Row.Item(1)
-                If (modCode(4) = "1") Then
-                    totalCred += 10
-                ElseIf (modCode(4) = "2") Then
-                    totalCred += 15
-                Else
-                    totalCred += 20
-                End If
-            Next
-
-            ModulE_REGISTRATIONTableAdapter1.GetRegisteredYears(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username)
-
-            rtxtResults.AppendText("Name: " + vbTab + vbTab + SmsDataSet1.STUDENT.Rows(0).Item(2))
-            rtxtResults.AppendText(vbNewLine + "Surname: " + vbTab + SmsDataSet1.STUDENT.Rows(0).Item(3))
-            rtxtResults.AppendText(vbNewLine + "ID Number: " + vbTab + SmsDataSet1.STUDENT.Rows(0).Item(1))
-            rtxtResults.AppendText(vbNewLine + "Degree: " + vbTab + vbTab + degree)
-            rtxtResults.AppendText(vbNewLine + "Credits Obtained: " + vbTab + totalCred.ToString)
-            rtxtResults.AppendText(vbNewLine)
-            rtxtResults.AppendText(vbNewLine + "Results: " + vbNewLine)
-            rtxtResults.AppendText(vbNewLine + "Module: " + vbTab + vbTab + "Year" + vbTab + "Semester: " + vbTab + "Mark: " + vbNewLine)
-            Dim i As Integer = 0
-            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
-                If (Row.Item(4) <> -1) Then
-                    rtxtResults.AppendText(vbNewLine + Row.Item(1) + vbTab + Row.Item(2).ToString + vbTab + Row.Item(3).ToString + vbTab + vbTab + Row.Item(4).ToString)
-                    i += 1
-                    If (i = 4) Then
-                        rtxtResults.AppendText(vbNewLine)
-                    ElseIf i = 8 Then
-                        rtxtResults.AppendText(vbNewLine + "-------------------------------------------------------------------------------------------------------------")
-                        i = 0
-                    End If
-                End If
-
-            Next
-
-            If (totalCred = 360) Then
-                rtxtResults.AppendText(vbNewLine + "DEGREE COMPLETE!!!")
-            End If
-
+            displayMarks(frmLogin.username)
         End If
 
         '=============STATS=============
@@ -614,4 +635,13 @@
         End If
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnAdminView.Click
+        Dim studNum As String = txtStudNumResults.Text
+        StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, studNum)
+        If SmsDataSet1.STUDENT.Rows.Count <> 1 Then
+            MessageBox.Show("Invalid Student Number Entered", "Incorrect Student Number", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            displayMarks(studNum)
+        End If
+    End Sub
 End Class

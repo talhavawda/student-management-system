@@ -4,8 +4,8 @@
 	End Sub
 
 	Private Sub pbDetails_Click(sender As Object, e As EventArgs) Handles pbxDetails.Click
-		frmLogin.ShowPage(frmLogin.details, frmLogin.MAINFORM)
-		frmMain.grbStudent.Hide()
+        frmLogin.ShowPage(frmLogin.details, frmLogin.MAINFORM)
+        frmMain.grbStudent.Hide()
 		frmMain.lblUsername.Text = "Staff Number: "
 		frmMain.ShowDialog()
 
@@ -13,8 +13,10 @@
 
 	Private Sub pbxMarks_Click(sender As Object, e As EventArgs) Handles pbxMarks.Click
 		frmLogin.ShowPage(frmLogin.addResults, frmLogin.MAINFORM)
-		frmLogin.ShowPage(frmLogin.reports, frmLogin.MAINFORM)
-		frmMain.ShowDialog()
+        frmLogin.ShowPage(frmLogin.reports, frmLogin.MAINFORM)
+        frmLogin.ShowPage(frmLogin.viewResults, frmLogin.MAINFORM)
+        frmMain.grpStud.Show()
+        frmMain.ShowDialog()
 
 	End Sub
 

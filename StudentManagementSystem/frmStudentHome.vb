@@ -14,8 +14,9 @@
     End Sub
 
 	Private Sub pbxResults_Click(sender As Object, e As EventArgs) Handles pbxResults.Click
-		frmLogin.ShowPage(frmLogin.viewResults, frmLogin.MAINFORM)
-		frmMain.ShowDialog()
+        frmLogin.ShowPage(frmLogin.viewResults, frmLogin.MAINFORM)
+        frmMain.grpStud.Hide()
+        frmMain.ShowDialog()
 	End Sub
 
 	Private Sub pbxRegistration_Click(sender As Object, e As EventArgs) Handles pbxRegestration.Click

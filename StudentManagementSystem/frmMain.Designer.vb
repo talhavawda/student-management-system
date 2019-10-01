@@ -66,6 +66,10 @@ Partial Class frmMain
         Me.lblStudentNumberReg = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.tbpViewRegistration = New System.Windows.Forms.TabPage()
+        Me.grpViewRegStudNum = New System.Windows.Forms.GroupBox()
+        Me.Button3 = New System.Windows.Forms.Button()
+        Me.txtStudNum = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.rtxtYearView = New System.Windows.Forms.RichTextBox()
@@ -111,9 +115,6 @@ Partial Class frmMain
         Me.txtAddFaculty = New System.Windows.Forms.TextBox()
         Me.cmbFaculty = New System.Windows.Forms.ComboBox()
         Me.BSCourse = New System.Windows.Forms.BindingSource(Me.components)
-        Me.grpViewRegStudNum = New System.Windows.Forms.GroupBox()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtStudNum = New System.Windows.Forms.TextBox()
         Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
         Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
         Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
@@ -130,7 +131,9 @@ Partial Class frmMain
         Me.ModulE_REGISTRATIONTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter()
         Me.BSModuleRegistration = New System.Windows.Forms.BindingSource(Me.components)
         Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.grpStud = New System.Windows.Forms.GroupBox()
+        Me.txtStudNumResults = New System.Windows.Forms.TextBox()
+        Me.btnAdminView = New System.Windows.Forms.Button()
         Me.tbcMain.SuspendLayout()
         Me.tbpDetails.SuspendLayout()
         Me.grbStudent.SuspendLayout()
@@ -139,6 +142,7 @@ Partial Class frmMain
         Me.GroupBox7.SuspendLayout()
         Me.grpDetails.SuspendLayout()
         Me.tbpViewRegistration.SuspendLayout()
+        Me.grpViewRegStudNum.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.tbpResultsStudent.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
@@ -150,7 +154,6 @@ Partial Class frmMain
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.grpViewRegStudNum.SuspendLayout()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -159,6 +162,7 @@ Partial Class frmMain
         CType(Me.BSModule, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BSModuleRegistration, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SMSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grpStud.SuspendLayout()
         Me.SuspendLayout()
         '
         'tbcMain
@@ -568,6 +572,42 @@ Partial Class frmMain
         Me.tbpViewRegistration.Text = "View Registration"
         Me.tbpViewRegistration.UseVisualStyleBackColor = True
         '
+        'grpViewRegStudNum
+        '
+        Me.grpViewRegStudNum.Controls.Add(Me.Button3)
+        Me.grpViewRegStudNum.Controls.Add(Me.txtStudNum)
+        Me.grpViewRegStudNum.Controls.Add(Me.Label9)
+        Me.grpViewRegStudNum.Location = New System.Drawing.Point(100, 20)
+        Me.grpViewRegStudNum.Name = "grpViewRegStudNum"
+        Me.grpViewRegStudNum.Size = New System.Drawing.Size(620, 85)
+        Me.grpViewRegStudNum.TabIndex = 1
+        Me.grpViewRegStudNum.TabStop = False
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(354, 36)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(156, 23)
+        Me.Button3.TabIndex = 2
+        Me.Button3.Text = "Enter"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
+        'txtStudNum
+        '
+        Me.txtStudNum.Location = New System.Drawing.Point(224, 40)
+        Me.txtStudNum.Name = "txtStudNum"
+        Me.txtStudNum.Size = New System.Drawing.Size(105, 20)
+        Me.txtStudNum.TabIndex = 1
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(18, 40)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(90, 13)
+        Me.Label9.TabIndex = 0
+        Me.Label9.Text = "Student Number: "
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.Button1)
@@ -628,6 +668,7 @@ Partial Class frmMain
         '
         'tbpResultsStudent
         '
+        Me.tbpResultsStudent.Controls.Add(Me.grpStud)
         Me.tbpResultsStudent.Controls.Add(Me.GroupBox4)
         Me.tbpResultsStudent.Location = New System.Drawing.Point(4, 22)
         Me.tbpResultsStudent.Name = "tbpResultsStudent"
@@ -991,33 +1032,6 @@ Partial Class frmMain
         Me.cmbFaculty.Size = New System.Drawing.Size(226, 21)
         Me.cmbFaculty.TabIndex = 0
         '
-        'grpViewRegStudNum
-        '
-        Me.grpViewRegStudNum.Controls.Add(Me.Button3)
-        Me.grpViewRegStudNum.Controls.Add(Me.txtStudNum)
-        Me.grpViewRegStudNum.Controls.Add(Me.Label9)
-        Me.grpViewRegStudNum.Location = New System.Drawing.Point(100, 20)
-        Me.grpViewRegStudNum.Name = "grpViewRegStudNum"
-        Me.grpViewRegStudNum.Size = New System.Drawing.Size(620, 85)
-        Me.grpViewRegStudNum.TabIndex = 1
-        Me.grpViewRegStudNum.TabStop = False
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(18, 40)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(90, 13)
-        Me.Label9.TabIndex = 0
-        Me.Label9.Text = "Student Number: "
-        '
-        'txtStudNum
-        '
-        Me.txtStudNum.Location = New System.Drawing.Point(224, 40)
-        Me.txtStudNum.Name = "txtStudNum"
-        Me.txtStudNum.Size = New System.Drawing.Size(105, 20)
-        Me.txtStudNum.TabIndex = 1
-        '
         'AdminTableAdapter1
         '
         Me.AdminTableAdapter1.ClearBeforeFill = True
@@ -1100,14 +1114,33 @@ Partial Class frmMain
         Me.SMSDataSet.DataSetName = "SMSDataSet"
         Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'Button3
+        'grpStud
         '
-        Me.Button3.Location = New System.Drawing.Point(354, 36)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(156, 23)
-        Me.Button3.TabIndex = 2
-        Me.Button3.Text = "Enter"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.grpStud.Controls.Add(Me.btnAdminView)
+        Me.grpStud.Controls.Add(Me.txtStudNumResults)
+        Me.grpStud.Location = New System.Drawing.Point(6, 20)
+        Me.grpStud.Name = "grpStud"
+        Me.grpStud.Size = New System.Drawing.Size(164, 100)
+        Me.grpStud.TabIndex = 1
+        Me.grpStud.TabStop = False
+        Me.grpStud.Text = "Enter Student Number"
+        '
+        'txtStudNumResults
+        '
+        Me.txtStudNumResults.Location = New System.Drawing.Point(28, 33)
+        Me.txtStudNumResults.MaxLength = 10
+        Me.txtStudNumResults.Name = "txtStudNumResults"
+        Me.txtStudNumResults.Size = New System.Drawing.Size(100, 20)
+        Me.txtStudNumResults.TabIndex = 0
+        '
+        'btnAdminView
+        '
+        Me.btnAdminView.Location = New System.Drawing.Point(28, 59)
+        Me.btnAdminView.Name = "btnAdminView"
+        Me.btnAdminView.Size = New System.Drawing.Size(100, 23)
+        Me.btnAdminView.TabIndex = 1
+        Me.btnAdminView.Text = "View Results"
+        Me.btnAdminView.UseVisualStyleBackColor = True
         '
         'frmMain
         '
@@ -1131,6 +1164,8 @@ Partial Class frmMain
         Me.grpDetails.ResumeLayout(False)
         Me.grpDetails.PerformLayout()
         Me.tbpViewRegistration.ResumeLayout(False)
+        Me.grpViewRegStudNum.ResumeLayout(False)
+        Me.grpViewRegStudNum.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.tbpResultsStudent.ResumeLayout(False)
@@ -1146,8 +1181,6 @@ Partial Class frmMain
         Me.GroupBox9.ResumeLayout(False)
         Me.GroupBox9.PerformLayout()
         CType(Me.BSCourse, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.grpViewRegStudNum.ResumeLayout(False)
-        Me.grpViewRegStudNum.PerformLayout()
         CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSAdmin, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1156,6 +1189,8 @@ Partial Class frmMain
         CType(Me.BSModule, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BSModuleRegistration, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SMSDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grpStud.ResumeLayout(False)
+        Me.grpStud.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1267,4 +1302,7 @@ Partial Class frmMain
     Friend WithEvents txtStudNum As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Button3 As Button
+    Friend WithEvents grpStud As GroupBox
+    Friend WithEvents btnAdminView As Button
+    Friend WithEvents txtStudNumResults As TextBox
 End Class

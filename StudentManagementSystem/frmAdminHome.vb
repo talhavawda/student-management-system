@@ -28,6 +28,7 @@
 
 	Private Sub pbxRegistration_Click(sender As Object, e As EventArgs) Handles pbxRegistration.Click
         frmLogin.ShowPage(frmLogin.viewReg, frmLogin.MAINFORM)
+        frmMain.btnDeleteStudReg.Enabled = False
         frmMain.ShowDialog()
 
     End Sub

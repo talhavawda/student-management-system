@@ -201,6 +201,9 @@
             degree = qualCode + " " + m1 + " and " + m2
 
             txtCourse.Text = degree
+
+            btnDeleteStudReg.Visible = False
+
         End If
 
         '===============View results tab====================
@@ -504,10 +507,15 @@
         If (frmLogin.userType = frmLogin.STUDENT) Then
             ViewReg(frmLogin.username)
         End If
-
+        btnDeleteStudReg.Enabled = False
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        If cmbYearView.SelectedIndex = -1 Then
+            MsgBox("Invalid data entered")
+            Exit Sub
+
+        End If
         If frmLogin.userType = frmLogin.STUDENT Then
             rtxtYearView.Clear()
             rtxtYearView.AppendText(cmbYearView.SelectedItem.ToString.Trim + " Registration Details: " + vbNewLine)
@@ -619,11 +627,13 @@
                     cmbYearView.Items.Add(Row.Item(2))
                 End If
             Next
+            btnDeleteStudReg.Enabled = True
         Else
             MsgBox("No Past/Current Registrations Available for Viewing")
             cmbYearView.Items.Clear()
             cmbYearView.Text = ""
             rtxtYearView.Clear()
+            btnDeleteStudReg.Enabled = False
 
         End If
     End Sub
@@ -636,5 +646,31 @@
         Else
             displayMarks(studNum)
         End If
+    End Sub
+
+    Private Sub tbpViewRegistration_Click(sender As Object, e As EventArgs) Handles tbpViewRegistration.Click
+
+    End Sub
+
+    Private Sub btnDeleteStudReg_Click(sender As Object, e As EventArgs) Handles btnDeleteStudReg.Click
+        ModulE_REGISTRATIONTableAdapter1.GetModuleCodes(SmsDataSet1.MODULE_REGISTRATION, txtStudNum.Text, year)
+        If (SmsDataSet1.MODULE_REGISTRATION.Rows.Count = 0) Then
+            MsgBox("No registrations to delete!")
+        Else
+            Dim confirmDelete As DialogResult = MessageBox.Show("Are you sure you want to delete 2019 registration for " + txtStudNum.Text + "?", "Delete 2019 registration", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If confirmDelete = DialogResult.No Then
+                Exit Sub
+            End If
+            ModulE_REGISTRATIONTableAdapter1.DeleteCurrentReg(txtStudNum.Text, year)
+            MsgBox("2019 registration for " + txtStudNum.Text + " deleted!")
+
+            cmbYearView.Items.Clear()
+            cmbYearView.Text = ""
+            rtxtYearView.Clear()
+            btnDeleteStudReg.Enabled = False
+
+        End If
+
+
     End Sub
 End Class

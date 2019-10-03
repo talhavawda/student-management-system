@@ -559,12 +559,18 @@
     Private Sub cbxDisc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxDisc.SelectedIndexChanged
         cbxMod.Items.Clear()
         Dim DisciplineCode As String = cbxDisc.SelectedItem.ToString.Substring(0, 4)
-        ModuleTableAdapter1.GetModulesByDiscipline(SmsDataSet1._MODULE, DisciplineCode)
-        For Each Row As DataRow In SmsDataSet1._MODULE
-            cbxMod.Items.Add(Row.Item(0))
-        Next
+		ModuleTableAdapter1.GetModulesByDiscipline(SmsDataSet1._MODULE, DisciplineCode)
 
-    End Sub
+		For Each Row As DataRow In SmsDataSet1._MODULE
+			cbxMod.Items.Add(Row.Item(0))
+		Next
+
+		cbxMod.SelectedIndex = -1
+		txtYearforSearch.Clear()
+		txtNumStud.Clear()
+
+
+	End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim modCode As String = ""

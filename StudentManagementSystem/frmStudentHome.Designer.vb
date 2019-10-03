@@ -156,7 +156,7 @@ Partial Class frmStudentHome
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 1
-        Me.btnExit.Text = "Logout"
+        Me.btnExit.Text = "End Session"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'lblDateTime

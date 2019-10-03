@@ -153,7 +153,7 @@ Partial Class frmAdminHome
 		'lblAdminName
 		'
 		Me.lblAdminName.AutoSize = True
-		Me.lblAdminName.Location = New System.Drawing.Point(241, 7)
+		Me.lblAdminName.Location = New System.Drawing.Point(268, 7)
 		Me.lblAdminName.Name = "lblAdminName"
 		Me.lblAdminName.Size = New System.Drawing.Size(76, 13)
 		Me.lblAdminName.TabIndex = 2

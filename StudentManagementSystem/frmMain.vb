@@ -103,8 +103,8 @@
         frmLogin.HidePage(frmLogin.reports, frmLogin.MAINFORM)
         frmLogin.HidePage(frmLogin.details, frmLogin.MAINFORM)
         frmLogin.HidePage(frmLogin.addResults, frmLogin.MAINFORM)
-        frmLogin.HidePage(frmLogin.courses, frmLogin.MAINFORM)
-    End Sub
+
+	End Sub
 
     Private Sub btnMainPassword_Click(sender As Object, e As EventArgs) Handles btnMainPassword.Click
         frmLogin.ShowPage(frmLogin.changePassword, frmLogin.NEWUSERFORM)
@@ -231,155 +231,142 @@
 
     End Sub
 
-    Private Sub tbpCourses_Enter(sender As Object, e As EventArgs) Handles tbpCourses.Enter
-        FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
-
-        cmbFaculty.Items.Clear()
-
-        For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
-            cmbFaculty.Items.Add(Row.Item(0)) 'List Faculty Names in ComboBox
-        Next
-    End Sub
-
-    Private Sub btnAddFaculty_Click(sender As Object, e As EventArgs) Handles btnAddFaculty.Click
-        Dim newFacultyID As Integer = FacultyTableAdapter1.HighestFacultyID() + 1
-        FacultyTableAdapter1.InsertFaculty(txtAddFaculty.Text, newFacultyID) 'first parameter is Name of Faculty; second paramter is FacultyID
-        tbpCourses_Enter(sender, e) 'call to populate the Faculty comboBox with updated values
-    End Sub
-
-    Friend Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
-
-        'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
-        StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
-        CourseTableAdapter1.Fill(SmsDataSet1.COURSE)
-        FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
-        StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username) 'contains row (index = 0) with the specific student's detials
-        txtStudentNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(0).trim 'frmLogin.username
-        Dim CourseID As Integer
-        Dim FacultyID As Integer
-        Dim FacultyName As String
-
-        Dim majorCode1 As String = ""
-        Dim majorCode2 As String = ""
-
-        Try
-            StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
-            CourseID = Integer.Parse(SmsDataSet1.STUDENT.Rows(0).Item(8).ToString.Trim)
-
-            Dim yr As Integer = Integer.Parse(System.DateTime.Now.Year)
-            currentStudyYear = yr - Integer.Parse(SmsDataSet1.STUDENT.Rows(0).Item(7).ToString.Trim) + 1
 
 
-            CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, CourseID)
-            FacultyID = Integer.Parse(SmsDataSet1.COURSE.Rows(0).Item(4).ToString.Trim)
 
-            FacultyTableAdapter1.GetDetails(SmsDataSet1.FACULTY, FacultyID)
-            FacultyName = SmsDataSet1.FACULTY.Rows(0).Item(0).ToString.Trim
+	Friend Sub tbpNewRegistration_Enter(sender As Object, e As EventArgs) Handles tbpNewRegistration.Enter
 
-            CourseTableAdapter1.Fill(SmsDataSet1.COURSE)
+		'POPULATE STUDENT DETAILS ON NEW REGISTRATION TAB
+		StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
+		CourseTableAdapter1.Fill(SmsDataSet1.COURSE)
+		FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
+		StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username) 'contains row (index = 0) with the specific student's detials
+		txtStudentNumber.Text = SmsDataSet1.STUDENT.Rows(0).Item(0).trim 'frmLogin.username
+		Dim CourseID As Integer
+		Dim FacultyID As Integer
+		Dim FacultyName As String
 
-            CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, CourseID)
+		Dim majorCode1 As String = ""
+		Dim majorCode2 As String = ""
 
-            'txtMajor1.Text = SmsDataSet1.COURSE.Rows(0).Item(2)
-            'txtMajor2.Text = SmsDataSet1.COURSE.Rows(0).Item(3)
+		Try
+			StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, frmLogin.username)
+			CourseID = Integer.Parse(SmsDataSet1.STUDENT.Rows(0).Item(8).ToString.Trim)
 
-
-            'Display Discipline NAME in Majors fields
-
-            'first clear Modules to repopulate
-            ClearRegBoxes()
-
-
-            majorCode1 = SmsDataSet1.COURSE.Rows(0).Item(2).ToString.Trim
-
-            DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, majorCode1)
-            txtMajor1.Text = SmsDataSet1.DISCIPLINE.Rows(0).Item(1)
-
-            DisciplineTableAdapter1.Fill(SmsDataSet1.DISCIPLINE)
-
-            majorCode2 = SmsDataSet1.COURSE.Rows(0).Item(3).ToString.Trim
-
-            DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, majorCode2)
-            txtMajor2.Text = SmsDataSet1.DISCIPLINE.Rows(0).Item(1)
+			Dim yr As Integer = Integer.Parse(System.DateTime.Now.Year)
+			currentStudyYear = yr - Integer.Parse(SmsDataSet1.STUDENT.Rows(0).Item(7).ToString.Trim) + 1
 
 
-        Catch ex As Exception
-            CourseID = 0
-            FacultyName = "NULL"
-            FacultyID = 0
-        End Try
+			CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, CourseID)
+			FacultyID = Integer.Parse(SmsDataSet1.COURSE.Rows(0).Item(4).ToString.Trim)
+
+			FacultyTableAdapter1.GetDetails(SmsDataSet1.FACULTY, FacultyID)
+			FacultyName = SmsDataSet1.FACULTY.Rows(0).Item(0).ToString.Trim
+
+			CourseTableAdapter1.Fill(SmsDataSet1.COURSE)
+
+			CourseTableAdapter1.GetDetails(SmsDataSet1.COURSE, CourseID)
+
+			'txtMajor1.Text = SmsDataSet1.COURSE.Rows(0).Item(2)
+			'txtMajor2.Text = SmsDataSet1.COURSE.Rows(0).Item(3)
+
+
+			'Display Discipline NAME in Majors fields
+
+			'first clear Modules to repopulate
+			ClearRegBoxes()
+
+
+			majorCode1 = SmsDataSet1.COURSE.Rows(0).Item(2).ToString.Trim
+
+			DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, majorCode1)
+			txtMajor1.Text = SmsDataSet1.DISCIPLINE.Rows(0).Item(1)
+
+			DisciplineTableAdapter1.Fill(SmsDataSet1.DISCIPLINE)
+
+			majorCode2 = SmsDataSet1.COURSE.Rows(0).Item(3).ToString.Trim
+
+			DisciplineTableAdapter1.GetDisciplineName(SmsDataSet1.DISCIPLINE, majorCode2)
+			txtMajor2.Text = SmsDataSet1.DISCIPLINE.Rows(0).Item(1)
+
+
+		Catch ex As Exception
+			CourseID = 0
+			FacultyName = "NULL"
+			FacultyID = 0
+		End Try
 
 
 
 
-        txtFaculty.Text = FacultyName
+		txtFaculty.Text = FacultyName
 
-        'txtMajor1.Text =
-        'txtMajor2.Text = 
+		'txtMajor1.Text =
+		'txtMajor2.Text = 
 
-        '===========================================================================================
+		'===========================================================================================
 
-        'REGISTRATION
-        Dim modCode As String
-        Dim modName As String
+		'REGISTRATION
+		Dim modCode As String
+		Dim modName As String
 
-        If (currentStudyYear = 1) Then 'First Year
-            ModuleTableAdapter1.GetFirstYearModules(SmsDataSet1._MODULE, majorCode1, majorCode2)
-            For Each Row As DataRow In SmsDataSet1._MODULE
-                modCode = Row.Item(0)
-                modName = Row.Item(1)
-                If Row.Item(5) = 1 Then
-                    lbxSem1Avail.Items.Add(modCode & vbTab + modName)
-                Else
-                    lbxSem2Avail.Items.Add(modCode & vbTab + modName)
-                End If
-            Next
-        End If
+		If (currentStudyYear = 1) Then 'First Year
+			ModuleTableAdapter1.GetFirstYearModules(SmsDataSet1._MODULE, majorCode1, majorCode2)
+			For Each Row As DataRow In SmsDataSet1._MODULE
+				modCode = Row.Item(0)
+				modName = Row.Item(1)
+				If Row.Item(5) = 1 Then
+					lbxSem1Avail.Items.Add(modCode & vbTab + modName)
+				Else
+					lbxSem2Avail.Items.Add(modCode & vbTab + modName)
+				End If
+			Next
+		End If
 
-        If (currentStudyYear > 1) Then 'Second Year ANd Third Year
-            ModulE_REGISTRATIONTableAdapter1.GetFailedModules(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, Integer.Parse(year) - 1)
-            If SmsDataSet1.MODULE_REGISTRATION.Rows.Count <> 0 Then 'You Failed in first Year
-                For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
-                    modCode = Row.Item(1)
-                    ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
-                    modName = SmsDataSet1._MODULE.Rows(0).Item(1)
-                    If Row.Item(3) = 1 Then
-                        lbxSem1Avail.Items.Add(modCode & vbTab + modName)
-                        lbxSem1Chosen.Items.Add(modCode & vbTab + modName)
-                    Else
-                        lbxSem2Avail.Items.Add(modCode & vbTab + modName)
-                        lbxSem2Chosen.Items.Add(modCode & vbTab + modName)
-                    End If
-                Next
-            End If
-            ModuleTableAdapter1.Fill(SmsDataSet1._MODULE)
-            ModuleTableAdapter1.GetAvailableSem1Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year) - 1)
-            For Each Row As DataRow In SmsDataSet1._MODULE
-                modCode = Row.Item(0)
-                modName = Row.Item(1)
-                lbxSem1Avail.Items.Add(modCode & vbTab + modName)
-                If Integer.Parse(modCode(4)) < currentStudyYear Then
-                    lbxSem1Chosen.Items.Add(modCode & vbTab + modName)
-                End If
-            Next
-            ModuleTableAdapter1.GetAvailableSem2Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year) - 1)
-            For Each Row As DataRow In SmsDataSet1._MODULE
-                modCode = Row.Item(0)
-                modName = Row.Item(1)
-                lbxSem2Avail.Items.Add(modCode & vbTab + modName)
-                If Integer.Parse(modCode(4)) < currentStudyYear Then
-                    lbxSem2Chosen.Items.Add(modCode & vbTab + modName)
-                End If
-            Next
-        End If
+		If (currentStudyYear > 1) Then 'Second Year ANd Third Year
+			ModulE_REGISTRATIONTableAdapter1.GetFailedModules(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, Integer.Parse(year) - 1)
+			If SmsDataSet1.MODULE_REGISTRATION.Rows.Count <> 0 Then 'You Failed in first Year
+				For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+					modCode = Row.Item(1)
+					ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
+					modName = SmsDataSet1._MODULE.Rows(0).Item(1)
+					If Row.Item(3) = 1 Then
+						lbxSem1Avail.Items.Add(modCode & vbTab + modName)
+						lbxSem1Chosen.Items.Add(modCode & vbTab + modName)
+					Else
+						lbxSem2Avail.Items.Add(modCode & vbTab + modName)
+						lbxSem2Chosen.Items.Add(modCode & vbTab + modName)
+					End If
+				Next
+			End If
+			ModuleTableAdapter1.Fill(SmsDataSet1._MODULE)
+			ModuleTableAdapter1.GetAvailableSem1Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year) - 1)
+			For Each Row As DataRow In SmsDataSet1._MODULE
+				modCode = Row.Item(0)
+				modName = Row.Item(1)
+				lbxSem1Avail.Items.Add(modCode & vbTab + modName)
+				If Integer.Parse(modCode(4)) < currentStudyYear Then
+					lbxSem1Chosen.Items.Add(modCode & vbTab + modName)
+				End If
+			Next
+			ModuleTableAdapter1.GetAvailableSem2Modules(SmsDataSet1._MODULE, majorCode1, majorCode2, frmLogin.username, Integer.Parse(year) - 1)
+			For Each Row As DataRow In SmsDataSet1._MODULE
+				modCode = Row.Item(0)
+				modName = Row.Item(1)
+				lbxSem2Avail.Items.Add(modCode & vbTab + modName)
+				If Integer.Parse(modCode(4)) < currentStudyYear Then
+					lbxSem2Chosen.Items.Add(modCode & vbTab + modName)
+				End If
+			Next
+		End If
 
 
 
 
 
-    End Sub
+	End Sub
 
-    Private Sub tbcMain_DragEnter(sender As Object, e As DragEventArgs) Handles tbcMain.DragEnter
+	Private Sub tbcMain_DragEnter(sender As Object, e As DragEventArgs) Handles tbcMain.DragEnter
 
     End Sub
 

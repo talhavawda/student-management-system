@@ -177,7 +177,7 @@ Partial Class frmStudentHome
 		'lblStudentName
 		'
 		Me.lblStudentName.AutoSize = True
-		Me.lblStudentName.Location = New System.Drawing.Point(266, 13)
+		Me.lblStudentName.Location = New System.Drawing.Point(268, 13)
 		Me.lblStudentName.Name = "lblStudentName"
 		Me.lblStudentName.Size = New System.Drawing.Size(84, 13)
 		Me.lblStudentName.TabIndex = 2

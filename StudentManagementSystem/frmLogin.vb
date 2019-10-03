@@ -57,8 +57,10 @@
         HidePage(addResults, MAINFORM)
         HidePage(reports, MAINFORM)
         HidePage(details, MAINFORM)
-        HidePage(courses, MAINFORM)
-        pnlLogin.Enabled = False
+
+		StudentToolTip.SetToolTip(pbxStudent, "Student")
+		AdminToolTip.SetToolTip(pbxAdmin, "Admin")
+		pnlLogin.Enabled = False
 
 
         'DATABASE CONNECTION: 
@@ -118,10 +120,12 @@
         If userType = ADMIN Then                                                    'If and Admin Member is loging in
             AdminTableAdapter1.AdminLogin(SmsDataSet1.ADMIN, username, password)    'SQL Query
             If SmsDataSet1.ADMIN.Rows.Count = 1 Then                                'Correct Admin Login
-                MsgBox("Welcome " + SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.ADMIN.Rows(0).Item(3).trim)
-                AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)                          'Fill it again after sql filter
-                frmAdminHome.ShowDialog()                                           'Show Admin Home Screen
-            Else
+				Dim adminFullName As String = SmsDataSet1.ADMIN.Rows(0).Item(2).trim + " " + SmsDataSet1.ADMIN.Rows(0).Item(3).trim
+				MsgBox("Welcome " + adminFullName)
+				AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)                          'Fill it again after sql filter
+				frmAdminHome.lblAdminName.Text = adminFullName
+				frmAdminHome.ShowDialog()                                           'Show Admin Home Screen
+			Else
                 MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your details", "Invalid Login Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 'Generally the username is more likely correct and the password is incorrect so not going to clear username field
                 txtPassword.Clear()
@@ -181,4 +185,8 @@
     Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
         frmAboutUs.ShowDialog()
     End Sub
+
+	Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+	End Sub
 End Class

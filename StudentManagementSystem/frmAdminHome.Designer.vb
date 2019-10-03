@@ -139,9 +139,9 @@ Partial Class frmAdminHome
         '
         'pbxDetails
         '
-        Me.pbxDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.pbxDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center
         Me.pbxDetails.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.pbxDetails.Image = Global.StudentManagementSystem.My.Resources.Resources.EDIT
+        Me.pbxDetails.Image = CType(resources.GetObject("pbxDetails.Image"), System.Drawing.Image)
         Me.pbxDetails.Location = New System.Drawing.Point(37, 25)
         Me.pbxDetails.Name = "pbxDetails"
         Me.pbxDetails.Size = New System.Drawing.Size(120, 96)
@@ -169,7 +169,7 @@ Partial Class frmAdminHome
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 23)
         Me.btnExit.TabIndex = 1
-        Me.btnExit.Text = "Logout"
+        Me.btnExit.Text = "End Session"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'lblDateTime

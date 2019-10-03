@@ -34,17 +34,18 @@ Partial Class frmStudentHome
 		Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
 		Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
 		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
-		Me.Panel3 = New System.Windows.Forms.Panel()
+		Me.pnlInfo = New System.Windows.Forms.Panel()
 		Me.btnExit = New System.Windows.Forms.Button()
 		Me.lblDateTime = New System.Windows.Forms.Label()
 		Me.tmrTimeStudent = New System.Windows.Forms.Timer(Me.components)
+		Me.lblStudentName = New System.Windows.Forms.Label()
 		Me.Panel1.SuspendLayout()
 		CType(Me.pbxResults, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.pbxRegestration, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).BeginInit()
-		Me.Panel3.SuspendLayout()
+		Me.pnlInfo.SuspendLayout()
 		Me.SuspendLayout()
 		'
 		'Panel1
@@ -55,16 +56,16 @@ Partial Class frmStudentHome
 		Me.Panel1.Controls.Add(Me.pbxRegestration)
 		Me.Panel1.Controls.Add(Me.Label1)
 		Me.Panel1.Controls.Add(Me.pbxDetails)
-		Me.Panel1.Location = New System.Drawing.Point(22, 12)
+		Me.Panel1.Location = New System.Drawing.Point(7, 3)
 		Me.Panel1.Name = "Panel1"
-		Me.Panel1.Size = New System.Drawing.Size(597, 340)
+		Me.Panel1.Size = New System.Drawing.Size(633, 349)
 		Me.Panel1.TabIndex = 0
 		'
 		'Label3
 		'
 		Me.Label3.AutoSize = True
 		Me.Label3.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label3.Location = New System.Drawing.Point(450, 221)
+		Me.Label3.Location = New System.Drawing.Point(473, 221)
 		Me.Label3.Name = "Label3"
 		Me.Label3.Size = New System.Drawing.Size(99, 37)
 		Me.Label3.TabIndex = 8
@@ -74,8 +75,8 @@ Partial Class frmStudentHome
 		'
 		Me.pbxResults.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.pbxResults.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.pbxResults.Image = Global.StudentManagementSystem.My.Resources.Resources.RESULTS
-		Me.pbxResults.Location = New System.Drawing.Point(425, 91)
+		Me.pbxResults.Image = CType(resources.GetObject("pbxResults.Image"), System.Drawing.Image)
+		Me.pbxResults.Location = New System.Drawing.Point(446, 91)
 		Me.pbxResults.Name = "pbxResults"
 		Me.pbxResults.Size = New System.Drawing.Size(150, 120)
 		Me.pbxResults.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -86,7 +87,7 @@ Partial Class frmStudentHome
 		'
 		Me.Label2.AutoSize = True
 		Me.Label2.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label2.Location = New System.Drawing.Point(222, 221)
+		Me.Label2.Location = New System.Drawing.Point(237, 221)
 		Me.Label2.Name = "Label2"
 		Me.Label2.Size = New System.Drawing.Size(159, 37)
 		Me.Label2.TabIndex = 6
@@ -96,8 +97,8 @@ Partial Class frmStudentHome
 		'
 		Me.pbxRegestration.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.pbxRegestration.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.pbxRegestration.Image = Global.StudentManagementSystem.My.Resources.Resources.Reports
-		Me.pbxRegestration.Location = New System.Drawing.Point(229, 91)
+		Me.pbxRegestration.Image = CType(resources.GetObject("pbxRegestration.Image"), System.Drawing.Image)
+		Me.pbxRegestration.Location = New System.Drawing.Point(241, 91)
 		Me.pbxRegestration.Name = "pbxRegestration"
 		Me.pbxRegestration.Size = New System.Drawing.Size(150, 120)
 		Me.pbxRegestration.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -108,7 +109,7 @@ Partial Class frmStudentHome
 		'
 		Me.Label1.AutoSize = True
 		Me.Label1.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-		Me.Label1.Location = New System.Drawing.Point(55, 221)
+		Me.Label1.Location = New System.Drawing.Point(60, 221)
 		Me.Label1.Name = "Label1"
 		Me.Label1.Size = New System.Drawing.Size(98, 37)
 		Me.Label1.TabIndex = 4
@@ -119,7 +120,7 @@ Partial Class frmStudentHome
 		Me.pbxDetails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
 		Me.pbxDetails.Cursor = System.Windows.Forms.Cursors.Hand
 		Me.pbxDetails.Image = CType(resources.GetObject("pbxDetails.Image"), System.Drawing.Image)
-		Me.pbxDetails.Location = New System.Drawing.Point(30, 91)
+		Me.pbxDetails.Location = New System.Drawing.Point(33, 91)
 		Me.pbxDetails.Name = "pbxDetails"
 		Me.pbxDetails.Size = New System.Drawing.Size(150, 120)
 		Me.pbxDetails.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -140,19 +141,20 @@ Partial Class frmStudentHome
 		Me.BSStudent.DataMember = "STUDENT"
 		Me.BSStudent.DataSource = Me.SmsDataSet1
 		'
-		'Panel3
+		'pnlInfo
 		'
-		Me.Panel3.Controls.Add(Me.btnExit)
-		Me.Panel3.Controls.Add(Me.lblDateTime)
-		Me.Panel3.Location = New System.Drawing.Point(22, 358)
-		Me.Panel3.Name = "Panel3"
-		Me.Panel3.Size = New System.Drawing.Size(597, 42)
-		Me.Panel3.TabIndex = 6
+		Me.pnlInfo.Controls.Add(Me.lblStudentName)
+		Me.pnlInfo.Controls.Add(Me.btnExit)
+		Me.pnlInfo.Controls.Add(Me.lblDateTime)
+		Me.pnlInfo.Location = New System.Drawing.Point(7, 358)
+		Me.pnlInfo.Name = "pnlInfo"
+		Me.pnlInfo.Size = New System.Drawing.Size(633, 42)
+		Me.pnlInfo.TabIndex = 6
 		'
 		'btnExit
 		'
 		Me.btnExit.Cursor = System.Windows.Forms.Cursors.Hand
-		Me.btnExit.Location = New System.Drawing.Point(519, 13)
+		Me.btnExit.Location = New System.Drawing.Point(550, 8)
 		Me.btnExit.Name = "btnExit"
 		Me.btnExit.Size = New System.Drawing.Size(75, 23)
 		Me.btnExit.TabIndex = 1
@@ -162,7 +164,7 @@ Partial Class frmStudentHome
 		'lblDateTime
 		'
 		Me.lblDateTime.AutoSize = True
-		Me.lblDateTime.Location = New System.Drawing.Point(6, 23)
+		Me.lblDateTime.Location = New System.Drawing.Point(14, 13)
 		Me.lblDateTime.Name = "lblDateTime"
 		Me.lblDateTime.Size = New System.Drawing.Size(89, 13)
 		Me.lblDateTime.TabIndex = 0
@@ -172,12 +174,21 @@ Partial Class frmStudentHome
 		'
 		Me.tmrTimeStudent.Enabled = True
 		'
+		'lblStudentName
+		'
+		Me.lblStudentName.AutoSize = True
+		Me.lblStudentName.Location = New System.Drawing.Point(266, 13)
+		Me.lblStudentName.Name = "lblStudentName"
+		Me.lblStudentName.Size = New System.Drawing.Size(84, 13)
+		Me.lblStudentName.TabIndex = 2
+		Me.lblStudentName.Text = "<StudentName>"
+		'
 		'frmStudentHome
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(644, 401)
-		Me.Controls.Add(Me.Panel3)
+		Me.Controls.Add(Me.pnlInfo)
 		Me.Controls.Add(Me.Panel1)
 		Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
 		Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -191,8 +202,8 @@ Partial Class frmStudentHome
 		CType(Me.pbxDetails, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.SmsDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.BSStudent, System.ComponentModel.ISupportInitialize).EndInit()
-		Me.Panel3.ResumeLayout(False)
-		Me.Panel3.PerformLayout()
+		Me.pnlInfo.ResumeLayout(False)
+		Me.pnlInfo.PerformLayout()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -207,8 +218,9 @@ Partial Class frmStudentHome
 	Friend WithEvents SmsDataSet1 As SMSDataSet
 	Friend WithEvents StudentTableAdapter1 As SMSDataSetTableAdapters.STUDENTTableAdapter
 	Friend WithEvents BSStudent As BindingSource
-    Friend WithEvents Panel3 As Panel
+    Friend WithEvents pnlInfo As Panel
     Friend WithEvents btnExit As Button
     Friend WithEvents lblDateTime As Label
     Friend WithEvents tmrTimeStudent As Timer
+	Friend WithEvents lblStudentName As Label
 End Class

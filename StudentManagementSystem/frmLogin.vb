@@ -16,7 +16,7 @@
     Friend viewResults As TabPage = frmMain.tbpResultsStudent   'Reference to View reults on frmMain
     Friend addResults As TabPage = frmMain.tbpResultsAdmin      'Reference to Add results on frmMain
     Friend reports As TabPage = frmMain.tbpReports              'Reference to Reports Tab on frmMain
-    Friend courses As TabPage = frmMain.tbpCourses              'Reference to Courses Tab on frmMain
+
 
 
 	Friend username As String
@@ -129,12 +129,14 @@
             End If
         Else                                                                            'userType = STUDENT
             StudentTableAdapter1.StudentLogin(SmsDataSet1.STUDENT, username, password)  'SQL Query
-            If (SmsDataSet1.STUDENT.Rows.Count = 1) Then                                'Correct Student Login
-                MsgBox("Welcome " + SmsDataSet1.STUDENT.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim)
-                StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)                          'Fill it again after sql filter
-                frmStudentHome.ShowDialog()                                             'Show Student Home Screen
-            Else
-                MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your details", "Invalid Login Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			If (SmsDataSet1.STUDENT.Rows.Count = 1) Then                                'Correct Student Login
+				Dim studentFullName As String = SmsDataSet1.STUDENT.Rows(0).Item(2).trim + " " + SmsDataSet1.STUDENT.Rows(0).Item(3).trim
+				MsgBox("Welcome " + studentFullName)
+				StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)                          'Fill it again after sql filter
+				frmStudentHome.lblStudentName.Text = studentFullName
+				frmStudentHome.ShowDialog()                                             'Show Student Home Screen
+			Else
+				MessageBox.Show("Invalid Username/Password." + Environment.NewLine + "Please Re-Enter your details", "Invalid Login Details", MessageBoxButtons.OK, MessageBoxIcon.Error)
 				'Generally the username is more likely correct and the password is incorrect so not going to clear username field
 				txtPassword.Clear()
 				txtPassword.Focus()

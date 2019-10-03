@@ -24,12 +24,12 @@
 
 	End Sub
 
-	Private Sub pbxCourses_Click(sender As Object, e As EventArgs) Handles pbxCourses.Click
-        frmLogin.ShowPage(frmLogin.courses, frmLogin.MAINFORM)
-        frmMain.ShowDialog()
-    End Sub
+	Private Sub pbxCourses_Click(sender As Object, e As EventArgs)
+		frmLogin.ShowPage(frmLogin.courses, frmLogin.MAINFORM)
+		frmMain.ShowDialog()
+	End Sub
 
-    Private Sub pbxRegistration_Click(sender As Object, e As EventArgs) Handles pbxRegistration.Click
+	Private Sub pbxRegistration_Click(sender As Object, e As EventArgs) Handles pbxRegistration.Click
         frmLogin.ShowPage(frmLogin.viewReg, frmLogin.MAINFORM)
         frmMain.ShowDialog()
 
@@ -49,4 +49,12 @@
     Private Sub frmAdminHome_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         frmLogin.Close()
     End Sub
+
+	Private Sub Panel1_Paint(sender As Object, e As PaintEventArgs) Handles Panel1.Paint
+
+	End Sub
+
+	Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
+
+	End Sub
 End Class

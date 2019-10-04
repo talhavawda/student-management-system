@@ -19,27 +19,26 @@ Partial Class frmAboutUs
     Friend WithEvents LabelProductName As System.Windows.Forms.Label
     Friend WithEvents LabelVersion As System.Windows.Forms.Label
     Friend WithEvents LabelCompanyName As System.Windows.Forms.Label
-    Friend WithEvents TextBoxDescription As System.Windows.Forms.TextBox
-    Friend WithEvents OKButton As System.Windows.Forms.Button
-    Friend WithEvents LabelCopyright As System.Windows.Forms.Label
+	Friend WithEvents OKButton As System.Windows.Forms.Button
+	Friend WithEvents LabelCopyright As System.Windows.Forms.Label
 
-    'Required by the Windows Form Designer
-    Private components As System.ComponentModel.IContainer
+	'Required by the Windows Form Designer
+	Private components As System.ComponentModel.IContainer
 
-    'NOTE: The following procedure is required by the Windows Form Designer
-    'It can be modified using the Windows Form Designer.  
-    'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
-    Private Sub InitializeComponent()
+	'NOTE: The following procedure is required by the Windows Form Designer
+	'It can be modified using the Windows Form Designer.  
+	'Do not modify it using the code editor.
+	<System.Diagnostics.DebuggerStepThrough()>
+	Private Sub InitializeComponent()
 		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAboutUs))
 		Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
 		Me.LabelProductName = New System.Windows.Forms.Label()
 		Me.LabelVersion = New System.Windows.Forms.Label()
 		Me.LabelCopyright = New System.Windows.Forms.Label()
 		Me.LabelCompanyName = New System.Windows.Forms.Label()
-		Me.TextBoxDescription = New System.Windows.Forms.TextBox()
 		Me.OKButton = New System.Windows.Forms.Button()
 		Me.LogoPictureBox = New System.Windows.Forms.PictureBox()
+		Me.TextBoxDescription = New System.Windows.Forms.TextBox()
 		Me.TableLayoutPanel.SuspendLayout()
 		CType(Me.LogoPictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -118,20 +117,6 @@ Partial Class frmAboutUs
 		Me.LabelCompanyName.Text = "Company Name"
 		Me.LabelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
 		'
-		'TextBoxDescription
-		'
-		Me.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill
-		Me.TextBoxDescription.Location = New System.Drawing.Point(189, 107)
-		Me.TextBoxDescription.Margin = New System.Windows.Forms.Padding(6, 3, 3, 3)
-		Me.TextBoxDescription.Multiline = True
-		Me.TextBoxDescription.Name = "TextBoxDescription"
-		Me.TextBoxDescription.ReadOnly = True
-		Me.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both
-		Me.TextBoxDescription.Size = New System.Drawing.Size(284, 124)
-		Me.TextBoxDescription.TabIndex = 0
-		Me.TextBoxDescription.TabStop = False
-		Me.TextBoxDescription.Text = resources.GetString("TextBoxDescription.Text")
-		'
 		'OKButton
 		'
 		Me.OKButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
@@ -152,6 +137,20 @@ Partial Class frmAboutUs
 		Me.LogoPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
 		Me.LogoPictureBox.TabIndex = 0
 		Me.LogoPictureBox.TabStop = False
+		'
+		'TextBoxDescription
+		'
+		Me.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill
+		Me.TextBoxDescription.Location = New System.Drawing.Point(189, 107)
+		Me.TextBoxDescription.Margin = New System.Windows.Forms.Padding(6, 3, 3, 3)
+		Me.TextBoxDescription.Multiline = True
+		Me.TextBoxDescription.Name = "TextBoxDescription"
+		Me.TextBoxDescription.ReadOnly = True
+		Me.TextBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both
+		Me.TextBoxDescription.Size = New System.Drawing.Size(284, 124)
+		Me.TextBoxDescription.TabIndex = 0
+		Me.TextBoxDescription.TabStop = False
+		Me.TextBoxDescription.Text = resources.GetString("TextBoxDescription.Text")
 		'
 		'frmAboutUs
 		'
@@ -175,4 +174,5 @@ Partial Class frmAboutUs
 
 	End Sub
 
+	Friend WithEvents TextBoxDescription As TextBox
 End Class

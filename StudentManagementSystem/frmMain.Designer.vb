@@ -129,6 +129,11 @@ Partial Class frmMain
 		Me.ModulE_REGISTRATIONTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.MODULE_REGISTRATIONTableAdapter()
 		Me.BSModuleRegistration = New System.Windows.Forms.BindingSource(Me.components)
 		Me.SMSDataSet = New StudentManagementSystem.SMSDataSet()
+		Me.pxbLogo1 = New System.Windows.Forms.PictureBox()
+		Me.pbxIC1 = New System.Windows.Forms.PictureBox()
+		Me.pbxLogo2 = New System.Windows.Forms.PictureBox()
+		Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+		Me.PictureBox2 = New System.Windows.Forms.PictureBox()
 		Me.tbcMain.SuspendLayout()
 		Me.tbpDetails.SuspendLayout()
 		Me.grbStudent.SuspendLayout()
@@ -155,6 +160,11 @@ Partial Class frmMain
 		CType(Me.BSModule, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BSModuleRegistration, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.SMSDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.pxbLogo1, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.pbxIC1, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.pbxLogo2, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'tbcMain
@@ -173,6 +183,8 @@ Partial Class frmMain
 		'
 		'tbpDetails
 		'
+		Me.tbpDetails.Controls.Add(Me.pbxIC1)
+		Me.tbpDetails.Controls.Add(Me.pxbLogo1)
 		Me.tbpDetails.Controls.Add(Me.btnMainPassword)
 		Me.tbpDetails.Controls.Add(Me.btnCapture)
 		Me.tbpDetails.Controls.Add(Me.grbStudent)
@@ -187,7 +199,7 @@ Partial Class frmMain
 		'
 		'btnMainPassword
 		'
-		Me.btnMainPassword.Location = New System.Drawing.Point(327, 426)
+		Me.btnMainPassword.Location = New System.Drawing.Point(179, 441)
 		Me.btnMainPassword.Name = "btnMainPassword"
 		Me.btnMainPassword.Size = New System.Drawing.Size(105, 28)
 		Me.btnMainPassword.TabIndex = 9
@@ -196,7 +208,7 @@ Partial Class frmMain
 		'
 		'btnCapture
 		'
-		Me.btnCapture.Location = New System.Drawing.Point(22, 426)
+		Me.btnCapture.Location = New System.Drawing.Point(134, 407)
 		Me.btnCapture.Name = "btnCapture"
 		Me.btnCapture.Size = New System.Drawing.Size(187, 28)
 		Me.btnCapture.TabIndex = 8
@@ -371,6 +383,7 @@ Partial Class frmMain
 		'
 		'tbpNewRegistration
 		'
+		Me.tbpNewRegistration.Controls.Add(Me.pbxLogo2)
 		Me.tbpNewRegistration.Controls.Add(Me.GroupBox7)
 		Me.tbpNewRegistration.Controls.Add(Me.grpDetails)
 		Me.tbpNewRegistration.Controls.Add(Me.GroupBox1)
@@ -469,7 +482,7 @@ Partial Class frmMain
 		Me.grpDetails.Controls.Add(Me.lblStudentNumberReg)
 		Me.grpDetails.Location = New System.Drawing.Point(6, 6)
 		Me.grpDetails.Name = "grpDetails"
-		Me.grpDetails.Size = New System.Drawing.Size(770, 148)
+		Me.grpDetails.Size = New System.Drawing.Size(366, 148)
 		Me.grpDetails.TabIndex = 1
 		Me.grpDetails.TabStop = False
 		Me.grpDetails.Text = "Details"
@@ -576,7 +589,7 @@ Partial Class frmMain
 		'
 		'Button3
 		'
-		Me.Button3.Location = New System.Drawing.Point(354, 36)
+		Me.Button3.Location = New System.Drawing.Point(354, 38)
 		Me.Button3.Name = "Button3"
 		Me.Button3.Size = New System.Drawing.Size(156, 23)
 		Me.Button3.TabIndex = 2
@@ -711,9 +724,9 @@ Partial Class frmMain
 		'GroupBox4
 		'
 		Me.GroupBox4.Controls.Add(Me.rtxtResults)
-		Me.GroupBox4.Location = New System.Drawing.Point(200, 20)
+		Me.GroupBox4.Location = New System.Drawing.Point(201, 20)
 		Me.GroupBox4.Name = "GroupBox4"
-		Me.GroupBox4.Size = New System.Drawing.Size(391, 466)
+		Me.GroupBox4.Size = New System.Drawing.Size(391, 483)
 		Me.GroupBox4.TabIndex = 0
 		Me.GroupBox4.TabStop = False
 		'
@@ -722,7 +735,7 @@ Partial Class frmMain
 		Me.rtxtResults.Location = New System.Drawing.Point(6, 19)
 		Me.rtxtResults.Name = "rtxtResults"
 		Me.rtxtResults.ReadOnly = True
-		Me.rtxtResults.Size = New System.Drawing.Size(353, 423)
+		Me.rtxtResults.Size = New System.Drawing.Size(353, 441)
 		Me.rtxtResults.TabIndex = 0
 		Me.rtxtResults.Text = ""
 		'
@@ -826,6 +839,8 @@ Partial Class frmMain
 		'
 		'tbpReports
 		'
+		Me.tbpReports.Controls.Add(Me.PictureBox2)
+		Me.tbpReports.Controls.Add(Me.PictureBox1)
 		Me.tbpReports.Controls.Add(Me.GroupBox6)
 		Me.tbpReports.Location = New System.Drawing.Point(4, 22)
 		Me.tbpReports.Name = "tbpReports"
@@ -1087,6 +1102,56 @@ Partial Class frmMain
 		Me.SMSDataSet.DataSetName = "SMSDataSet"
 		Me.SMSDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
 		'
+		'pxbLogo1
+		'
+		Me.pxbLogo1.Image = CType(resources.GetObject("pxbLogo1.Image"), System.Drawing.Image)
+		Me.pxbLogo1.Location = New System.Drawing.Point(482, 97)
+		Me.pxbLogo1.Name = "pxbLogo1"
+		Me.pxbLogo1.Size = New System.Drawing.Size(291, 198)
+		Me.pxbLogo1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+		Me.pxbLogo1.TabIndex = 10
+		Me.pxbLogo1.TabStop = False
+		'
+		'pbxIC1
+		'
+		Me.pbxIC1.Image = CType(resources.GetObject("pbxIC1.Image"), System.Drawing.Image)
+		Me.pbxIC1.Location = New System.Drawing.Point(482, 16)
+		Me.pbxIC1.Name = "pbxIC1"
+		Me.pbxIC1.Size = New System.Drawing.Size(291, 50)
+		Me.pbxIC1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+		Me.pbxIC1.TabIndex = 11
+		Me.pbxIC1.TabStop = False
+		'
+		'pbxLogo2
+		'
+		Me.pbxLogo2.Image = CType(resources.GetObject("pbxLogo2.Image"), System.Drawing.Image)
+		Me.pbxLogo2.Location = New System.Drawing.Point(461, 9)
+		Me.pbxLogo2.Name = "pbxLogo2"
+		Me.pbxLogo2.Size = New System.Drawing.Size(272, 145)
+		Me.pbxLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+		Me.pbxLogo2.TabIndex = 3
+		Me.pbxLogo2.TabStop = False
+		'
+		'PictureBox1
+		'
+		Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+		Me.PictureBox1.Location = New System.Drawing.Point(494, 179)
+		Me.PictureBox1.Name = "PictureBox1"
+		Me.PictureBox1.Size = New System.Drawing.Size(298, 191)
+		Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+		Me.PictureBox1.TabIndex = 4
+		Me.PictureBox1.TabStop = False
+		'
+		'PictureBox2
+		'
+		Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+		Me.PictureBox2.Location = New System.Drawing.Point(494, 103)
+		Me.PictureBox2.Name = "PictureBox2"
+		Me.PictureBox2.Size = New System.Drawing.Size(298, 50)
+		Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+		Me.PictureBox2.TabIndex = 12
+		Me.PictureBox2.TabStop = False
+		'
 		'frmMain
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1132,6 +1197,11 @@ Partial Class frmMain
 		CType(Me.BSModule, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.BSModuleRegistration, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.SMSDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.pxbLogo1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.pbxIC1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.pbxLogo2, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -1241,4 +1311,9 @@ Partial Class frmMain
     Friend WithEvents btnAdminView As Button
     Friend WithEvents txtStudNumResults As TextBox
     Friend WithEvents btnDeleteStudReg As Button
+	Friend WithEvents pbxIC1 As PictureBox
+	Friend WithEvents pxbLogo1 As PictureBox
+	Friend WithEvents pbxLogo2 As PictureBox
+	Friend WithEvents PictureBox2 As PictureBox
+	Friend WithEvents PictureBox1 As PictureBox
 End Class

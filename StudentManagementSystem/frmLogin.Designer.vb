@@ -44,14 +44,13 @@ Partial Class frmLogin
 		Me.tmrDateTime = New System.Windows.Forms.Timer(Me.components)
 		Me.SmsDataSet1 = New StudentManagementSystem.SMSDataSet()
 		Me.StudentTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.STUDENTTableAdapter()
-		Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
 		Me.AdminTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.ADMINTableAdapter()
-		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
-		Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
 		Me.FacultyTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.FACULTYTableAdapter()
-		Me.Course_ModuleTableAdapter1 = New StudentManagementSystem.SMSDataSetTableAdapters.Course_ModuleTableAdapter()
 		Me.StudentToolTip = New System.Windows.Forms.ToolTip(Me.components)
 		Me.AdminToolTip = New System.Windows.Forms.ToolTip(Me.components)
+		Me.TableAdapterManager1 = New StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager()
+		Me.BSStudent = New System.Windows.Forms.BindingSource(Me.components)
+		Me.BSAdmin = New System.Windows.Forms.BindingSource(Me.components)
 		Me.pnlSelect.SuspendLayout()
 		CType(Me.pbxAdmin, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.pbxStudent, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -251,22 +250,34 @@ Partial Class frmLogin
 		'
 		Me.StudentTableAdapter1.ClearBeforeFill = True
 		'
+		'AdminTableAdapter1
+		'
+		Me.AdminTableAdapter1.ClearBeforeFill = True
+		'
+		'FacultyTableAdapter1
+		'
+		Me.FacultyTableAdapter1.ClearBeforeFill = True
+		'
+		'StudentToolTip
+		'
+		Me.StudentToolTip.AutomaticDelay = 100
+		'
+		'AdminToolTip
+		'
+		Me.AdminToolTip.AutomaticDelay = 100
+		'
 		'TableAdapterManager1
 		'
-		Me.TableAdapterManager1.ADMINTableAdapter = Me.AdminTableAdapter1
+		Me.TableAdapterManager1.ADMINTableAdapter = Nothing
 		Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-		Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
+		Me.TableAdapterManager1.Connection = Nothing
 		Me.TableAdapterManager1.COURSETableAdapter = Nothing
 		Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULE_REGISTRATIONTableAdapter = Nothing
 		Me.TableAdapterManager1.MODULETableAdapter = Nothing
-		Me.TableAdapterManager1.STUDENTTableAdapter = Me.StudentTableAdapter1
+		Me.TableAdapterManager1.STUDENTTableAdapter = Nothing
 		Me.TableAdapterManager1.UpdateOrder = StudentManagementSystem.SMSDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete
-		'
-		'AdminTableAdapter1
-		'
-		Me.AdminTableAdapter1.ClearBeforeFill = True
 		'
 		'BSStudent
 		'
@@ -277,22 +288,6 @@ Partial Class frmLogin
 		'
 		Me.BSAdmin.DataMember = "ADMIN"
 		Me.BSAdmin.DataSource = Me.SmsDataSet1
-		'
-		'FacultyTableAdapter1
-		'
-		Me.FacultyTableAdapter1.ClearBeforeFill = True
-		'
-		'Course_ModuleTableAdapter1
-		'
-		Me.Course_ModuleTableAdapter1.ClearBeforeFill = True
-		'
-		'StudentToolTip
-		'
-		Me.StudentToolTip.AutomaticDelay = 100
-		'
-		'AdminToolTip
-		'
-		Me.AdminToolTip.AutomaticDelay = 100
 		'
 		'frmLogin
 		'
@@ -346,8 +341,7 @@ Partial Class frmLogin
     Friend WithEvents BSAdmin As BindingSource
     Friend WithEvents Label3 As Label
     Friend WithEvents FacultyTableAdapter1 As SMSDataSetTableAdapters.FACULTYTableAdapter
-    Friend WithEvents Course_ModuleTableAdapter1 As SMSDataSetTableAdapters.Course_ModuleTableAdapter
-    Friend WithEvents btnAbout As Button
+	Friend WithEvents btnAbout As Button
 	Friend WithEvents StudentToolTip As ToolTip
 	Friend WithEvents AdminToolTip As ToolTip
 End Class

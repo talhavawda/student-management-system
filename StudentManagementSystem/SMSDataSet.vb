@@ -12,8 +12,7 @@ Namespace SMSDataSetTableAdapters
 	End Class
 End Namespace
 
-Namespace StudentManagementSystem.SMSDataSetTableAdapters
-
+Namespace SMSDataSetTableAdapters
 	Partial Public Class FACULTYTableAdapter
 	End Class
 End Namespace

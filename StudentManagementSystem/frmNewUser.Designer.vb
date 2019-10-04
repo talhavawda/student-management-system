@@ -521,7 +521,7 @@ Partial Class frmNewUser
 		'
 		Me.TableAdapterManager1.ADMINTableAdapter = Nothing
 		Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
-		Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
+		'Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
 		Me.TableAdapterManager1.COURSETableAdapter = Nothing
 		Me.TableAdapterManager1.DISCIPLINETableAdapter = Me.DisciplineTableAdapter1
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing

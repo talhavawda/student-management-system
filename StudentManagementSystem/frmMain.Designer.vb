@@ -1127,7 +1127,7 @@ Partial Class frmMain
 		Me.TableAdapterManager1.ADMINTableAdapter = Nothing
 		Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
 		Me.TableAdapterManager1.Connection = Nothing
-		Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
+		'Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
 		Me.TableAdapterManager1.COURSETableAdapter = Nothing
 		Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
 		Me.TableAdapterManager1.FACULTYTableAdapter = Nothing

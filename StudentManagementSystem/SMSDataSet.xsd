@@ -672,7 +672,7 @@ WHERE        (StudentNumber = @StudNo) AND (Year = @Year)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCurrentReg" Modifier="Public" Name="DeleteCurrentReg" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy14" UserSourceName="DeleteCurrentReg">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteCurrentReg" Modifier="Public" Name="DeleteCurrentReg" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="DeleteCurrentReg">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE FROM [MODULE REGISTRATION] 
@@ -684,7 +684,7 @@ WHERE StudentNumber = @StudNum AND year=@year</CommandText>
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetFailedModules" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetFailedModules" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="GetFailedModules">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetFailedModules" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetFailedModules" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="GetFailedModules">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        StudentNumber, ModuleCode, Year, Semester, Mark, RegistrationID
@@ -697,7 +697,7 @@ WHERE        (StudentNumber = @StudentNum) AND (Year = @Year) AND (Mark &lt; 50)
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetMaxRegID" Modifier="Public" Name="GetMaxRegID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="GetMaxRegID">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="GetMaxRegID" Modifier="Public" Name="GetMaxRegID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="GetMaxRegID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(RegistrationID) AS Expr1
@@ -706,7 +706,7 @@ FROM            [MODULE REGISTRATION]</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetModuleCodes" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetModuleCodes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="GetModuleCodes">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetModuleCodes" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetModuleCodes" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="GetModuleCodes">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        RegistrationID, StudentNumber, ModuleCode, Year, Semester, Mark
@@ -719,7 +719,7 @@ WHERE        (StudentNumber = @StudentNumber) AND (Year = @Year)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetPassedModules" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetPassedModules" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="GetPassedModules">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetPassedModules" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetPassedModules" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="GetPassedModules">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT StudentNumber, ModuleCode, Year, Semester, Mark, RegistrationID 
@@ -731,7 +731,7 @@ WHERE StudentNumber = @StudNum AND Mark &gt; 49</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetRegDetailsForSpecificYear" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetRegDetailsForSpecificYear" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="GetRegDetailsForSpecificYear">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetRegDetailsForSpecificYear" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetRegDetailsForSpecificYear" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="GetRegDetailsForSpecificYear">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT StudentNumber, ModuleCode, Year, Semester, Mark, RegistrationID FROM [MODULE REGISTRATION]
@@ -743,7 +743,7 @@ WHERE StudentNumber = @StudNo AND Year = @Year</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetRegisteredYears" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetRegisteredYears" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="GetRegisteredYears">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[MODULE REGISTRATION]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="GetRegisteredYears" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="GetRegisteredYears" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="GetRegisteredYears">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT *
@@ -755,7 +755,7 @@ WHERE        (StudentNumber = @StudNo)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="HighestMark" Modifier="Public" Name="HighestMark" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy9" UserSourceName="HighestMark">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="HighestMark" Modifier="Public" Name="HighestMark" QueryType="Scalar" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="HighestMark">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(Mark) AS Highest
@@ -768,7 +768,7 @@ WHERE        (ModuleCode = @Mod) AND (Year = @Year) AND (Mark &lt;&gt; - 1)</Com
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="LowestMark" Modifier="Public" Name="LowestMark" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy10" UserSourceName="LowestMark">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="LowestMark" Modifier="Public" Name="LowestMark" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="LowestMark">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MIN(Mark) AS Lowest
@@ -781,7 +781,7 @@ WHERE        (ModuleCode = @Mod) AND (Year = @Year) AND (Mark &lt;&gt; - 1)</Com
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NewRegistration" Modifier="Public" Name="NewRegistration" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy11" UserSourceName="NewRegistration">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NewRegistration" Modifier="Public" Name="NewRegistration" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy12" UserSourceName="NewRegistration">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>INSERT INTO [MODULE REGISTRATION] ([StudentNumber], [ModuleCode], [Year], [Semester], [Mark], [RegistrationID]) 
@@ -797,7 +797,7 @@ VALUES (@StudentNumber, @ModuleCode, @Year, @Semester, @Mark, @RegistrationID)</
                   </DbCommand>
                 </InsertCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NumPassed" Modifier="Public" Name="NumPassed" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy12" UserSourceName="NumPassed">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="NumPassed" Modifier="Public" Name="NumPassed" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy13" UserSourceName="NumPassed">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS NumPassed
@@ -810,7 +810,7 @@ WHERE        (ModuleCode = @Mod) AND (Year = @Year) AND (Mark &gt; 49)</CommandT
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="TotalStudents" Modifier="Public" Name="TotalStudents" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy13" UserSourceName="TotalStudents">
+              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="TotalStudents" Modifier="Public" Name="TotalStudents" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy14" UserSourceName="TotalStudents">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        COUNT(*) AS TotalStudents
@@ -1105,59 +1105,6 @@ WHERE        (FacultyID = @FacultyID)</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="Course-ModuleTableAdapter" GeneratorDataComponentClassName="Course_ModuleTableAdapter" Name="Course-Module" UserDataComponentName="Course-ModuleTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="DBConnectionString (MySettings)" DbObjectName="ist2hw.dbo.[COURSE-MODULE]" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <DeleteCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Course-Module] WHERE (([CourseModID] = @Original_CourseModID) AND ([CourseID] = @Original_CourseID) AND ([ModuleCode] = @Original_ModuleCode))</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_CourseModID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CourseModID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_CourseID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CourseID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ModuleCode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ModuleCode" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </DeleteCommand>
-                <InsertCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Course-Module] ([CourseModID], [CourseID], [ModuleCode]) VALUES (@CourseModID, @CourseID, @ModuleCode);
-SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID = @CourseModID)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CourseModID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CourseModID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CourseID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ModuleCode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ModuleCode" SourceColumnNullMapping="false" SourceVersion="Current" />
-                    </Parameters>
-                  </DbCommand>
-                </InsertCommand>
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT CourseModID, CourseID, ModuleCode FROM dbo.[Course-Module]</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-                <UpdateCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Course-Module] SET [CourseModID] = @CourseModID, [CourseID] = @CourseID, [ModuleCode] = @ModuleCode WHERE (([CourseModID] = @Original_CourseModID) AND ([CourseID] = @Original_CourseID) AND ([ModuleCode] = @Original_ModuleCode));
-SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID = @CourseModID)</CommandText>
-                    <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CourseModID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CourseModID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@CourseID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CourseID" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@ModuleCode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ModuleCode" SourceColumnNullMapping="false" SourceVersion="Current" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_CourseModID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CourseModID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_CourseID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CourseID" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="StringFixedLength" Direction="Input" ParameterName="@Original_ModuleCode" Precision="0" ProviderType="NChar" Scale="0" Size="0" SourceColumn="ModuleCode" SourceColumnNullMapping="false" SourceVersion="Original" />
-                    </Parameters>
-                  </DbCommand>
-                </UpdateCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="CourseModID" DataSetColumn="CourseModID" />
-              <Mapping SourceColumn="CourseID" DataSetColumn="CourseID" />
-              <Mapping SourceColumn="ModuleCode" DataSetColumn="ModuleCode" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -1166,7 +1113,7 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
   <xs:element name="SMSDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="SMSDataSet" msprop:Generator_UserDSName="SMSDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="ADMIN" msprop:Generator_TableClassName="ADMINDataTable" msprop:Generator_TableVarName="tableADMIN" msprop:Generator_TablePropName="ADMIN" msprop:Generator_RowDeletingName="ADMINRowDeleting" msprop:Generator_RowChangingName="ADMINRowChanging" msprop:Generator_RowEvHandlerName="ADMINRowChangeEventHandler" msprop:Generator_RowDeletedName="ADMINRowDeleted" msprop:Generator_UserTableName="ADMIN" msprop:Generator_RowChangedName="ADMINRowChanged" msprop:Generator_RowEvArgName="ADMINRowChangeEvent" msprop:Generator_RowClassName="ADMINRow">
+        <xs:element name="ADMIN" msprop:Generator_TableClassName="ADMINDataTable" msprop:Generator_TableVarName="tableADMIN" msprop:Generator_RowChangedName="ADMINRowChanged" msprop:Generator_TablePropName="ADMIN" msprop:Generator_RowDeletingName="ADMINRowDeleting" msprop:Generator_RowChangingName="ADMINRowChanging" msprop:Generator_RowEvHandlerName="ADMINRowChangeEventHandler" msprop:Generator_RowDeletedName="ADMINRowDeleted" msprop:Generator_RowClassName="ADMINRow" msprop:Generator_UserTableName="ADMIN" msprop:Generator_RowEvArgName="ADMINRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="AdminNumber" msprop:Generator_ColumnVarNameInTable="columnAdminNumber" msprop:Generator_ColumnPropNameInRow="AdminNumber" msprop:Generator_ColumnPropNameInTable="AdminNumberColumn" msprop:Generator_UserColumnName="AdminNumber">
@@ -1221,7 +1168,7 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="COURSE" msprop:Generator_TableClassName="COURSEDataTable" msprop:Generator_TableVarName="tableCOURSE" msprop:Generator_TablePropName="COURSE" msprop:Generator_RowDeletingName="COURSERowDeleting" msprop:Generator_RowChangingName="COURSERowChanging" msprop:Generator_RowEvHandlerName="COURSERowChangeEventHandler" msprop:Generator_RowDeletedName="COURSERowDeleted" msprop:Generator_UserTableName="COURSE" msprop:Generator_RowChangedName="COURSERowChanged" msprop:Generator_RowEvArgName="COURSERowChangeEvent" msprop:Generator_RowClassName="COURSERow">
+        <xs:element name="COURSE" msprop:Generator_TableClassName="COURSEDataTable" msprop:Generator_TableVarName="tableCOURSE" msprop:Generator_RowChangedName="COURSERowChanged" msprop:Generator_TablePropName="COURSE" msprop:Generator_RowDeletingName="COURSERowDeleting" msprop:Generator_RowChangingName="COURSERowChanging" msprop:Generator_RowEvHandlerName="COURSERowChangeEventHandler" msprop:Generator_RowDeletedName="COURSERowDeleted" msprop:Generator_RowClassName="COURSERow" msprop:Generator_UserTableName="COURSE" msprop:Generator_RowEvArgName="COURSERowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CourseID" msprop:Generator_ColumnVarNameInTable="columnCourseID" msprop:Generator_ColumnPropNameInRow="CourseID" msprop:Generator_ColumnPropNameInTable="CourseIDColumn" msprop:Generator_UserColumnName="CourseID" type="xs:int" />
@@ -1244,7 +1191,7 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DISCIPLINE" msprop:Generator_TableClassName="DISCIPLINEDataTable" msprop:Generator_TableVarName="tableDISCIPLINE" msprop:Generator_TablePropName="DISCIPLINE" msprop:Generator_RowDeletingName="DISCIPLINERowDeleting" msprop:Generator_RowChangingName="DISCIPLINERowChanging" msprop:Generator_RowEvHandlerName="DISCIPLINERowChangeEventHandler" msprop:Generator_RowDeletedName="DISCIPLINERowDeleted" msprop:Generator_UserTableName="DISCIPLINE" msprop:Generator_RowChangedName="DISCIPLINERowChanged" msprop:Generator_RowEvArgName="DISCIPLINERowChangeEvent" msprop:Generator_RowClassName="DISCIPLINERow">
+        <xs:element name="DISCIPLINE" msprop:Generator_TableClassName="DISCIPLINEDataTable" msprop:Generator_TableVarName="tableDISCIPLINE" msprop:Generator_RowChangedName="DISCIPLINERowChanged" msprop:Generator_TablePropName="DISCIPLINE" msprop:Generator_RowDeletingName="DISCIPLINERowDeleting" msprop:Generator_RowChangingName="DISCIPLINERowChanging" msprop:Generator_RowEvHandlerName="DISCIPLINERowChangeEventHandler" msprop:Generator_RowDeletedName="DISCIPLINERowDeleted" msprop:Generator_RowClassName="DISCIPLINERow" msprop:Generator_UserTableName="DISCIPLINE" msprop:Generator_RowEvArgName="DISCIPLINERowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="DisciplineCode" msprop:Generator_ColumnVarNameInTable="columnDisciplineCode" msprop:Generator_ColumnPropNameInRow="DisciplineCode" msprop:Generator_ColumnPropNameInTable="DisciplineCodeColumn" msprop:Generator_UserColumnName="DisciplineCode">
@@ -1265,7 +1212,7 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MODULE" msprop:Generator_TableClassName="MODULEDataTable" msprop:Generator_TableVarName="tableMODULE" msprop:Generator_TablePropName="_MODULE" msprop:Generator_RowDeletingName="MODULERowDeleting" msprop:Generator_RowChangingName="MODULERowChanging" msprop:Generator_RowEvHandlerName="MODULERowChangeEventHandler" msprop:Generator_RowDeletedName="MODULERowDeleted" msprop:Generator_UserTableName="MODULE" msprop:Generator_RowChangedName="MODULERowChanged" msprop:Generator_RowEvArgName="MODULERowChangeEvent" msprop:Generator_RowClassName="MODULERow">
+        <xs:element name="MODULE" msprop:Generator_TableClassName="MODULEDataTable" msprop:Generator_TableVarName="tableMODULE" msprop:Generator_RowChangedName="MODULERowChanged" msprop:Generator_TablePropName="_MODULE" msprop:Generator_RowDeletingName="MODULERowDeleting" msprop:Generator_RowChangingName="MODULERowChanging" msprop:Generator_RowEvHandlerName="MODULERowChangeEventHandler" msprop:Generator_RowDeletedName="MODULERowDeleted" msprop:Generator_RowClassName="MODULERow" msprop:Generator_UserTableName="MODULE" msprop:Generator_RowEvArgName="MODULERowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ModuleCode" msprop:Generator_ColumnVarNameInTable="columnModuleCode" msprop:Generator_ColumnPropNameInRow="ModuleCode" msprop:Generator_ColumnPropNameInTable="ModuleCodeColumn" msprop:Generator_UserColumnName="ModuleCode">
@@ -1301,7 +1248,7 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MODULE_x0020_REGISTRATION" msprop:Generator_TableClassName="MODULE_REGISTRATIONDataTable" msprop:Generator_TableVarName="tableMODULE_REGISTRATION" msprop:Generator_TablePropName="MODULE_REGISTRATION" msprop:Generator_RowDeletingName="MODULE_REGISTRATIONRowDeleting" msprop:Generator_RowChangingName="MODULE_REGISTRATIONRowChanging" msprop:Generator_RowEvHandlerName="MODULE_REGISTRATIONRowChangeEventHandler" msprop:Generator_RowDeletedName="MODULE_REGISTRATIONRowDeleted" msprop:Generator_UserTableName="MODULE REGISTRATION" msprop:Generator_RowChangedName="MODULE_REGISTRATIONRowChanged" msprop:Generator_RowEvArgName="MODULE_REGISTRATIONRowChangeEvent" msprop:Generator_RowClassName="MODULE_REGISTRATIONRow">
+        <xs:element name="MODULE_x0020_REGISTRATION" msprop:Generator_TableClassName="MODULE_REGISTRATIONDataTable" msprop:Generator_TableVarName="tableMODULE_REGISTRATION" msprop:Generator_RowChangedName="MODULE_REGISTRATIONRowChanged" msprop:Generator_TablePropName="MODULE_REGISTRATION" msprop:Generator_RowDeletingName="MODULE_REGISTRATIONRowDeleting" msprop:Generator_RowChangingName="MODULE_REGISTRATIONRowChanging" msprop:Generator_RowEvHandlerName="MODULE_REGISTRATIONRowChangeEventHandler" msprop:Generator_RowDeletedName="MODULE_REGISTRATIONRowDeleted" msprop:Generator_RowClassName="MODULE_REGISTRATIONRow" msprop:Generator_UserTableName="MODULE REGISTRATION" msprop:Generator_RowEvArgName="MODULE_REGISTRATIONRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="StudentNumber" msprop:Generator_ColumnVarNameInTable="columnStudentNumber" msprop:Generator_ColumnPropNameInRow="StudentNumber" msprop:Generator_ColumnPropNameInTable="StudentNumberColumn" msprop:Generator_UserColumnName="StudentNumber">
@@ -1325,7 +1272,7 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="STUDENT" msprop:Generator_TableClassName="STUDENTDataTable" msprop:Generator_TableVarName="tableSTUDENT" msprop:Generator_TablePropName="STUDENT" msprop:Generator_RowDeletingName="STUDENTRowDeleting" msprop:Generator_RowChangingName="STUDENTRowChanging" msprop:Generator_RowEvHandlerName="STUDENTRowChangeEventHandler" msprop:Generator_RowDeletedName="STUDENTRowDeleted" msprop:Generator_UserTableName="STUDENT" msprop:Generator_RowChangedName="STUDENTRowChanged" msprop:Generator_RowEvArgName="STUDENTRowChangeEvent" msprop:Generator_RowClassName="STUDENTRow">
+        <xs:element name="STUDENT" msprop:Generator_TableClassName="STUDENTDataTable" msprop:Generator_TableVarName="tableSTUDENT" msprop:Generator_RowChangedName="STUDENTRowChanged" msprop:Generator_TablePropName="STUDENT" msprop:Generator_RowDeletingName="STUDENTRowDeleting" msprop:Generator_RowChangingName="STUDENTRowChanging" msprop:Generator_RowEvHandlerName="STUDENTRowChangeEventHandler" msprop:Generator_RowDeletedName="STUDENTRowDeleted" msprop:Generator_RowClassName="STUDENTRow" msprop:Generator_UserTableName="STUDENT" msprop:Generator_RowEvArgName="STUDENTRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="StudentNumber" msprop:Generator_ColumnVarNameInTable="columnStudentNumber" msprop:Generator_ColumnPropNameInRow="StudentNumber" msprop:Generator_ColumnPropNameInTable="StudentNumberColumn" msprop:Generator_UserColumnName="StudentNumber">
@@ -1382,7 +1329,7 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FACULTY" msprop:Generator_TableClassName="FACULTYDataTable" msprop:Generator_TableVarName="tableFACULTY" msprop:Generator_RowChangedName="FACULTYRowChanged" msprop:Generator_TablePropName="FACULTY" msprop:Generator_RowDeletingName="FACULTYRowDeleting" msprop:Generator_RowChangingName="FACULTYRowChanging" msprop:Generator_RowEvHandlerName="FACULTYRowChangeEventHandler" msprop:Generator_RowDeletedName="FACULTYRowDeleted" msprop:Generator_RowClassName="FACULTYRow" msprop:Generator_UserTableName="FACULTY" msprop:Generator_RowEvArgName="FACULTYRowChangeEvent">
+        <xs:element name="FACULTY" msprop:Generator_TableClassName="FACULTYDataTable" msprop:Generator_TableVarName="tableFACULTY" msprop:Generator_TablePropName="FACULTY" msprop:Generator_RowDeletingName="FACULTYRowDeleting" msprop:Generator_RowChangingName="FACULTYRowChanging" msprop:Generator_RowEvHandlerName="FACULTYRowChangeEventHandler" msprop:Generator_RowDeletedName="FACULTYRowDeleted" msprop:Generator_UserTableName="FACULTY" msprop:Generator_RowChangedName="FACULTYRowChanged" msprop:Generator_RowEvArgName="FACULTYRowChangeEvent" msprop:Generator_RowClassName="FACULTYRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name">
@@ -1397,21 +1344,6 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Course-Module" msprop:Generator_TableClassName="_Course_ModuleDataTable" msprop:Generator_TableVarName="_tableCourse_Module" msprop:Generator_RowChangedName="_Course_ModuleRowChanged" msprop:Generator_TablePropName="_Course_Module" msprop:Generator_RowDeletingName="_Course_ModuleRowDeleting" msprop:Generator_RowChangingName="_Course_ModuleRowChanging" msprop:Generator_RowEvHandlerName="_Course_ModuleRowChangeEventHandler" msprop:Generator_RowDeletedName="_Course_ModuleRowDeleted" msprop:Generator_RowClassName="_Course_ModuleRow" msprop:Generator_UserTableName="Course-Module" msprop:Generator_RowEvArgName="_Course_ModuleRowChangeEvent">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="CourseModID" msprop:Generator_ColumnVarNameInTable="columnCourseModID" msprop:Generator_ColumnPropNameInRow="CourseModID" msprop:Generator_ColumnPropNameInTable="CourseModIDColumn" msprop:Generator_UserColumnName="CourseModID" type="xs:int" />
-              <xs:element name="CourseID" msprop:Generator_ColumnVarNameInTable="columnCourseID" msprop:Generator_ColumnPropNameInRow="CourseID" msprop:Generator_ColumnPropNameInTable="CourseIDColumn" msprop:Generator_UserColumnName="CourseID" type="xs:int" />
-              <xs:element name="ModuleCode" msprop:Generator_ColumnVarNameInTable="columnModuleCode" msprop:Generator_ColumnPropNameInRow="ModuleCode" msprop:Generator_ColumnPropNameInTable="ModuleCodeColumn" msprop:Generator_UserColumnName="ModuleCode">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="8" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1447,10 +1379,6 @@ SELECT CourseModID, CourseID, ModuleCode FROM [Course-Module] WHERE (CourseModID
     <xs:unique name="FACULTY_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:FACULTY" />
       <xs:field xpath="mstns:FacultyID" />
-    </xs:unique>
-    <xs:unique name="Course-Module_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Course-Module" />
-      <xs:field xpath="mstns:CourseModID" />
     </xs:unique>
   </xs:element>
 </xs:schema>

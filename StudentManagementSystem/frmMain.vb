@@ -553,6 +553,7 @@
 
     Private Sub cbxDisc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxDisc.SelectedIndexChanged
         cbxMod.Items.Clear()
+        cbxMod.Text = ""
         Dim DisciplineCode As String = cbxDisc.SelectedItem.ToString.Substring(0, 4)
 		ModuleTableAdapter1.GetModulesByDiscipline(SmsDataSet1._MODULE, DisciplineCode)
 
@@ -599,6 +600,7 @@
                 txtHighest.Text = "0"
                 txtLowest.Text = "0"
                 txtAverage.Text = "0"
+                txtPassRate.Text = "0%"
             End Try
 
         End If

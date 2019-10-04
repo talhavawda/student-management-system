@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Student Management System")>
-<Assembly: AssemblyDescription("Designed by four young and talented developers namely (1)Azhar Mohommed (2)Luqmaan Haffejee (3)Ahmad Jawaad Shah And (4) Talha Vawda")>
+<Assembly: AssemblyDescription("Designed by young and talented developers:\nAzhar MohommedvbLfLuqmaan Haffejee\nAhmad Jawaad Shah\nTalha Vawda")>
 <Assembly: AssemblyCompany("Fuzzy Logic")>
 <Assembly: AssemblyProduct("Student Management System")>
 <Assembly: AssemblyCopyright("Copyright ©  2019")>

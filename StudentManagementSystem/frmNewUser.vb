@@ -32,46 +32,49 @@
         Return newStudNum
     End Function
 
-    Private Sub frmChangePassword_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'SmsDataSet1.ADMIN' table. You can move, or remove it, as needed.
-        Me.ADMINTableAdapter.Fill(Me.SmsDataSet1.ADMIN)
-        FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
+	Private Sub frmNewUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load, tbpNewUser.Enter
 
-        For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
-            cmbCollege.Items.Add(Row.Item(0))
-        Next
+		'TODO: This line of code loads data into the 'SmsDataSet1.ADMIN' table. You can move, or remove it, as needed.
+		Me.ADMINTableAdapter.Fill(Me.SmsDataSet1.ADMIN)
+		FacultyTableAdapter1.Fill(SmsDataSet1.FACULTY)
 
-        Dim studNumUnique As Boolean = False
+		cmbCollege.Items.Clear()
 
-        If (frmLogin.userType = frmLogin.STUDENT) Then
-            Do While studNumUnique = False
-                newStudNum = createNewStudentNumber()
+		For Each Row As DataRow In SmsDataSet1.FACULTY.Rows
+			cmbCollege.Items.Add(Row.Item(0))
+		Next
 
-                StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
-                StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, newStudNum)
+		Dim studNumUnique As Boolean = False
 
-                If (SmsDataSet1.STUDENT.Rows.Count = 0) Then
-                    studNumUnique = True
-                End If
-            Loop        'This loop continuously creates new STUDENT numbers until it is unique
-        Else
-            Do While studNumUnique = False
-                newStudNum = createNewStudentNumber()
+		If (frmLogin.userType = frmLogin.STUDENT) Then
+			Do While studNumUnique = False
+				newStudNum = createNewStudentNumber()
 
-                ADMINTableAdapter.Fill(SmsDataSet1.ADMIN)
-                ADMINTableAdapter.FillDetails(SmsDataSet1.ADMIN, newStudNum)
+				StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
+				StudentTableAdapter1.FillDetails(SmsDataSet1.STUDENT, newStudNum)
 
-                If (SmsDataSet1.ADMIN.Rows.Count = 0) Then
-                    studNumUnique = True
-                End If
-            Loop        'This loop continuously creates new AMDIN numbers until it is unique
-        End If
+				If (SmsDataSet1.STUDENT.Rows.Count = 0) Then
+					studNumUnique = True
+				End If
+			Loop        'This loop continuously creates new STUDENT numbers until it is unique
+		Else
+			Do While studNumUnique = False
+				newStudNum = createNewStudentNumber()
 
-        txtNewUserNumber.Text = newStudNum
+				ADMINTableAdapter.Fill(SmsDataSet1.ADMIN)
+				ADMINTableAdapter.FillDetails(SmsDataSet1.ADMIN, newStudNum)
 
-    End Sub
+				If (SmsDataSet1.ADMIN.Rows.Count = 0) Then
+					studNumUnique = True
+				End If
+			Loop        'This loop continuously creates new AMDIN numbers until it is unique
+		End If
 
-    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+		txtNewUserNumber.Text = newStudNum
+
+	End Sub
+
+	Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
         'Before Closing remove both tabs.Their references will be stored on frmLogin in their respective variables
         frmLogin.HidePage(frmLogin.newUser, frmLogin.NEWUSERFORM)
         frmLogin.HidePage(frmLogin.changePassword, frmLogin.NEWUSERFORM)
@@ -139,10 +142,11 @@
                 ADMINTableAdapter.InsertAdmin(txtNewUserNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text)
             Else    'If Student is using this form
                 StudentTableAdapter1.InsertStudent(txtNewUserNumber.Text, txtNewID.Text, txtNewFirstname.Text, txtNewSurname.Text, txtNewCell.Text, txtNewEmail.Text, txtPassword.Text, Integer.Parse(yr), selectedCourseID)
-            End If
+				'txtNewUserNumber.Text gets populated on form load
+			End If
 
-            Dim welcomeString As String = "Welcome " + txtNewFirstname.Text + " " + txtNewSurname.Text
-            MessageBox.Show(welcomeString, "User created", MessageBoxButtons.OK, MessageBoxIcon.Information)
+			Dim welcomeString As String = "Welcome " + txtNewFirstname.Text + " " + txtNewSurname.Text + Environment.NewLine + "Your Student Number is: " + txtNewUserNumber.Text
+			MessageBox.Show(welcomeString, "User created", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         End If
     End Sub

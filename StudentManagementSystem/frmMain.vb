@@ -563,6 +563,11 @@
 		cbxMod.SelectedIndex = -1
 		txtYearforSearch.Clear()
 		txtNumStud.Clear()
+		txtHighest.Clear()
+		txtLowest.Clear()
+		txtAverage.Clear()
+		txtPassRate.Clear()
+
 
 
 	End Sub

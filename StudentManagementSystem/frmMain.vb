@@ -522,12 +522,18 @@
             'rtxtYearView.AppendText(" ")
             'MsgBox(cmbYearView.SelectedItem)
             Dim viewYear As Integer = Integer.Parse(cmbYearView.SelectedItem)
+            Dim semvalue As Integer = 0
             ModulE_REGISTRATIONTableAdapter1.GetRegDetailsForSpecificYear(SmsDataSet1.MODULE_REGISTRATION, frmLogin.username, viewYear)
+            rtxtYearView.AppendText(vbNewLine + "Semester 1: ")
             For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
                 Dim modCode As String = Row.Item(1)
                 ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode)
                 Dim modName As String = SmsDataSet1._MODULE.Rows(0).Item(1)
                 rtxtYearView.AppendText(vbNewLine + modCode + vbTab + modName)
+                semvalue += 1
+                If semvalue = 4 Then
+                    rtxtYearView.AppendText(vbNewLine + vbNewLine + "Semester 2: ")
+                End If
             Next
         Else            'IF ADMIN
             rtxtYearView.Clear()
@@ -553,57 +559,57 @@
 
     Private Sub cbxDisc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxDisc.SelectedIndexChanged
         cbxMod.Items.Clear()
-		cbxMod.Text = ""
-		Dim DisciplineCode As String = cbxDisc.SelectedItem.ToString.Substring(0, 4)
-		ModuleTableAdapter1.GetModulesByDiscipline(SmsDataSet1._MODULE, DisciplineCode)
+        cbxMod.Text = ""
+        Dim DisciplineCode As String = cbxDisc.SelectedItem.ToString.Substring(0, 4)
+        ModuleTableAdapter1.GetModulesByDiscipline(SmsDataSet1._MODULE, DisciplineCode)
 
-		For Each Row As DataRow In SmsDataSet1._MODULE
-			cbxMod.Items.Add(Row.Item(0))
-		Next
+        For Each Row As DataRow In SmsDataSet1._MODULE
+            cbxMod.Items.Add(Row.Item(0))
+        Next
 
-		cbxMod.SelectedIndex = -1
-		txtYearforSearch.Clear()
-		txtNumStud.Clear()
-		txtHighest.Clear()
-		txtLowest.Clear()
-		txtAverage.Clear()
-		txtPassRate.Clear()
-
-
-
-	End Sub
-
-	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-		Dim modCode As String = ""
-		Dim findYear As String = ""
-		modCode = cbxMod.SelectedItem
-		findYear = txtYearforSearch.Text
-		If modCode = "" Or findYear = "" Then
-			MsgBox("Please Enter All The Relevant Data")
-			txtYearforSearch.Clear()
-		Else
-			'Filter
-			Try
-				Dim totalStud As Integer = ModulE_REGISTRATIONTableAdapter1.TotalStudents(modCode, findYear)
-				txtNumStud.Text = totalStud
-				Dim h As Integer = ModulE_REGISTRATIONTableAdapter1.HighestMark(modCode, findYear)
-				txtHighest.Text = h
-				txtLowest.Text = ModulE_REGISTRATIONTableAdapter1.LowestMark(modCode, findYear)
-				txtAverage.Text = ModulE_REGISTRATIONTableAdapter1.AverageMark(modCode, findYear)
-
-				Dim numPassed As Integer = ModulE_REGISTRATIONTableAdapter1.NumPassed(modCode, findYear)
-				Dim passRate As Double = (numPassed / totalStud) * 100
-				txtPassRate.Text = passRate.ToString("f2") + "%"
+        cbxMod.SelectedIndex = -1
+        txtYearforSearch.Clear()
+        txtNumStud.Clear()
+        txtHighest.Clear()
+        txtLowest.Clear()
+        txtAverage.Clear()
+        txtPassRate.Clear()
 
 
-			Catch ex As Exception
-				txtHighest.Text = "0"
-				txtLowest.Text = "0"
-				txtAverage.Text = "0"
-				txtPassRate.Text = "0%"
-			End Try
 
-		End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Dim modCode As String = ""
+        Dim findYear As String = ""
+        modCode = cbxMod.SelectedItem
+        findYear = txtYearforSearch.Text
+        If modCode = "" Or findYear = "" Then
+            MsgBox("Please Enter All The Relevant Data")
+            txtYearforSearch.Clear()
+        Else
+            'Filter
+            Try
+                Dim totalStud As Integer = ModulE_REGISTRATIONTableAdapter1.TotalStudents(modCode, findYear)
+                txtNumStud.Text = totalStud
+                Dim h As Integer = ModulE_REGISTRATIONTableAdapter1.HighestMark(modCode, findYear)
+                txtHighest.Text = h
+                txtLowest.Text = ModulE_REGISTRATIONTableAdapter1.LowestMark(modCode, findYear)
+                txtAverage.Text = ModulE_REGISTRATIONTableAdapter1.AverageMark(modCode, findYear)
+
+                Dim numPassed As Integer = ModulE_REGISTRATIONTableAdapter1.NumPassed(modCode, findYear)
+                Dim passRate As Double = (numPassed / totalStud) * 100
+                txtPassRate.Text = passRate.ToString("f2") + "%"
+
+
+            Catch ex As Exception
+                txtHighest.Text = "0"
+                txtLowest.Text = "0"
+                txtAverage.Text = "0"
+                txtPassRate.Text = "0%"
+            End Try
+
+        End If
     End Sub
 
     Private Sub btnSearchStudNum_Click(sender As Object, e As EventArgs)

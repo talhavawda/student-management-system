@@ -62,9 +62,14 @@
 		AdminToolTip.SetToolTip(pbxAdmin, "Admin")
 		pnlLogin.Enabled = False
 
+		txtLoginUsername.Clear()
+		txtPassword.Clear()
+		'username = ""
+		pnlLogin.Enabled = False
 
-        'DATABASE CONNECTION: 
-        Try
+
+		'DATABASE CONNECTION: 
+		Try
             StudentTableAdapter1.Fill(SmsDataSet1.STUDENT)
             AdminTableAdapter1.Fill(SmsDataSet1.ADMIN)
         Catch ex As SqlClient.SqlException
@@ -175,14 +180,9 @@
 
 	End Sub
 
-	Private Sub frmLogin_Activated(sender As Object, e As EventArgs) Handles MyBase.Activated
-		txtLoginUsername.Clear()
-		txtPassword.Clear()
-        'username = ""
-        pnlLogin.Enabled = False
-	End Sub
 
-    Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
+
+	Private Sub btnAbout_Click(sender As Object, e As EventArgs) Handles btnAbout.Click
         frmAboutUs.ShowDialog()
     End Sub
 

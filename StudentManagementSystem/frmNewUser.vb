@@ -109,6 +109,7 @@
         cmbMajor1.Text = ""
         cmbMajor2.Items.Clear()
         cmbMajor2.Text = ""
+        cmbMajor2.Enabled = False
 
         SelectedCollege = cmbCollege.SelectedIndex + 1
 
@@ -181,6 +182,8 @@
 
     Private Sub cmbMajor1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMajor1.SelectedIndexChanged
         cmbMajor2.Items.Clear()
+        cmbMajor2.Text = ""
+        cmbMajor2.Enabled = False
 
 
         DisciplineTableAdapter1.FillCodeByName(SmsDataSet1.DISCIPLINE, cmbMajor1.SelectedItem)
@@ -221,5 +224,7 @@
         cmbMajor2.Enabled = False
     End Sub
 
+    Private Sub cmbMajor2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbMajor2.SelectedIndexChanged
 
+    End Sub
 End Class

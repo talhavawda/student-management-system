@@ -9,7 +9,7 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("Student Management System")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyDescription("Manage the personal and registration details, and their marks of the student cohort at Imperial College")>
 <Assembly: AssemblyCompany("Fuzzy Logic")>
 <Assembly: AssemblyProduct("Student Management System")>
 <Assembly: AssemblyCopyright("Copyright ©  2019")>

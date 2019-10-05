@@ -737,9 +737,9 @@ Partial Class frmMain
         Me.lblC.AutoSize = True
         Me.lblC.Location = New System.Drawing.Point(18, 137)
         Me.lblC.Name = "lblC"
-        Me.lblC.Size = New System.Drawing.Size(129, 13)
+        Me.lblC.Size = New System.Drawing.Size(104, 13)
         Me.lblC.TabIndex = 2
-        Me.lblC.Text = "Your Registration Details :"
+        Me.lblC.Text = "Registration Details :"
         '
         'cmbYearView
         '
@@ -863,6 +863,7 @@ Partial Class frmMain
         '
         'btnCaptureMarks
         '
+        Me.btnCaptureMarks.Enabled = False
         Me.btnCaptureMarks.Location = New System.Drawing.Point(118, 188)
         Me.btnCaptureMarks.Name = "btnCaptureMarks"
         Me.btnCaptureMarks.Size = New System.Drawing.Size(105, 26)

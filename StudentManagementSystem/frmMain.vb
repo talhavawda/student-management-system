@@ -559,6 +559,7 @@
 
     Private Sub cbxDisc_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxDisc.SelectedIndexChanged
         cbxMod.Items.Clear()
+        txtModNameResults.Clear()
         cbxMod.Text = ""
         Dim DisciplineCode As String = cbxDisc.SelectedItem.ToString.Substring(0, 4)
         ModuleTableAdapter1.GetModulesByDiscipline(SmsDataSet1._MODULE, DisciplineCode)
@@ -594,8 +595,11 @@
                 txtNumStud.Text = totalStud
                 Dim h As Integer = ModulE_REGISTRATIONTableAdapter1.HighestMark(modCode, findYear)
                 txtHighest.Text = h
+                txtHighest.Text += "%"
                 txtLowest.Text = ModulE_REGISTRATIONTableAdapter1.LowestMark(modCode, findYear)
+                txtLowest.Text += "%"
                 txtAverage.Text = ModulE_REGISTRATIONTableAdapter1.AverageMark(modCode, findYear)
+                txtAverage.Text += "%"
 
                 Dim numPassed As Integer = ModulE_REGISTRATIONTableAdapter1.NumPassed(modCode, findYear)
                 Dim passRate As Double = (numPassed / totalStud) * 100
@@ -603,9 +607,9 @@
 
 
             Catch ex As Exception
-                txtHighest.Text = "0"
-                txtLowest.Text = "0"
-                txtAverage.Text = "0"
+                txtHighest.Text = "0%"
+                txtLowest.Text = "0%"
+                txtAverage.Text = "0%"
                 txtPassRate.Text = "0%"
             End Try
 
@@ -685,5 +689,12 @@
         End If
 
 
+    End Sub
+
+    Private Sub cbxMod_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbxMod.SelectedIndexChanged
+        Dim modCode1 As String = cbxMod.SelectedItem
+        ModuleTableAdapter1.GetDetails(SmsDataSet1._MODULE, modCode1)
+        modCode1 = SmsDataSet1._MODULE.Rows(0).Item(1)
+        txtModNameResults.Text = modCode1
     End Sub
 End Class

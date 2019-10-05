@@ -15,11 +15,11 @@
     Friend viewReg As TabPage = frmMain.tbpViewRegistration     'Reference to View Registration Tab on frmMain
     Friend viewResults As TabPage = frmMain.tbpResultsStudent   'Reference to View reults on frmMain
     Friend addResults As TabPage = frmMain.tbpResultsAdmin      'Reference to Add results on frmMain
-    Friend reports As TabPage = frmMain.tbpReports              'Reference to Reports Tab on frmMain
+    Friend reports As TabPage = frmMain.tbpResults              'Reference to Reports Tab on frmMain
 
 
 
-	Friend username As String
+    Friend username As String
 
 	'Generic hide method
 	Public Sub HidePage(ByRef tabpage As TabPage, ByVal whichForm As Integer)

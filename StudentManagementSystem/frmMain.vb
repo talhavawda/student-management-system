@@ -438,49 +438,49 @@
 
     End Sub
 
-    Private Sub btnCaptureMarks_Click(sender As Object, e As EventArgs) Handles btnCaptureMarks.Click
-        If txtResult.Text.Length = 0 Then
-            MsgBox("Connot Leave mark Field Empty !!!")
-        Else
-            Dim mark As Integer = Integer.Parse(txtResult.Text)
-            Dim modCode As String = cmbModules.SelectedItem
-            If (mark < 0 Or mark > 100) Then
-                MsgBox("Invalid Mark !!!")
-            Else
-                'Add mark to module reg table -> studNo,ModuleCode,Mark
-                ModulE_REGISTRATIONTableAdapter1.AddMark(mark, studNumberForMarkCapture, year, modCode)
-                MsgBox("Mark Successfully added to the Database.")
-            End If
+	Private Sub btnCaptureMarks_Click(sender As Object, e As EventArgs) Handles btnCaptureMarks.Click
+		If txtResult.Text.Length = 0 Then
+			MsgBox("Cannot leave mark field empty!")
+		Else
+			Dim mark As Integer = Integer.Parse(txtResult.Text)
+			Dim modCode As String = cmbModules.SelectedItem
+			If (mark < 0 Or mark > 100) Then
+				MsgBox("Invalid Mark!")
+			Else
+				'Add mark to module reg table -> studNo,ModuleCode,Mark
+				ModulE_REGISTRATIONTableAdapter1.AddMark(mark, studNumberForMarkCapture, year, modCode)
+				MsgBox("Mark Successfully added to the Database.")
+			End If
 
-        End If
-    End Sub
+		End If
+	End Sub
 
-    Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
-        cmbModules.Items.Clear()
-        ModulE_REGISTRATIONTableAdapter1.Fill(SmsDataSet1.MODULE_REGISTRATION)
-        studNumberForMarkCapture = txtStuResult.Text
-        cmbModules.Enabled = True
-        ModulE_REGISTRATIONTableAdapter1.GetModuleCodes(SmsDataSet1.MODULE_REGISTRATION, studNumberForMarkCapture, year)
-        If SmsDataSet1.MODULE_REGISTRATION.Rows.Count = 0 Then
-            MsgBox("Student is not registered for this academic year")
-        Else
-            btnCaptureMarks.Enabled = True
-            For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
-                cmbModules.Items.Add(Row.Item(1))
-            Next
-        End If
+	Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+		cmbModules.Items.Clear()
+		ModulE_REGISTRATIONTableAdapter1.Fill(SmsDataSet1.MODULE_REGISTRATION)
+		studNumberForMarkCapture = txtStuResult.Text
+		cmbModules.Enabled = True
+		ModulE_REGISTRATIONTableAdapter1.GetModuleCodes(SmsDataSet1.MODULE_REGISTRATION, studNumberForMarkCapture, year)
+		If SmsDataSet1.MODULE_REGISTRATION.Rows.Count = 0 Then
+			MsgBox("Student is not registered for this academic year")
+		Else
+			btnCaptureMarks.Enabled = True
+			For Each Row As DataRow In SmsDataSet1.MODULE_REGISTRATION
+				cmbModules.Items.Add(Row.Item(1))
+			Next
+		End If
 
-    End Sub
+	End Sub
 
-    Private Sub txtStuResult_TextChanged(sender As Object, e As EventArgs) Handles txtStuResult.TextChanged
-        cmbModules.Items.Clear()
-        cmbModules.Text = ""
-        cmbModules.Enabled = False
-        txtResult.Clear()
-        btnCaptureMarks.Enabled = False
-    End Sub
+	Private Sub txtStuResult_TextChanged(sender As Object, e As EventArgs) Handles txtStuResult.TextChanged
+		cmbModules.Items.Clear()
+		cmbModules.Text = ""
+		cmbModules.Enabled = False
+		txtResult.Clear()
+		btnCaptureMarks.Enabled = False
+	End Sub
 
-    Private Sub lbxSem1Chosen_Click(sender As Object, e As EventArgs) Handles lbxSem1Chosen.Click
+	Private Sub lbxSem1Chosen_Click(sender As Object, e As EventArgs) Handles lbxSem1Chosen.Click
         Dim selected As String = lbxSem1Chosen.SelectedItem
         Try
             If Integer.Parse(selected(4)) < currentStudyYear Then

@@ -100,10 +100,12 @@ Partial Class frmMain
         Me.lblResultVal = New System.Windows.Forms.Label()
         Me.lblModResult = New System.Windows.Forms.Label()
         Me.lblStuResult = New System.Windows.Forms.Label()
-        Me.tbpReports = New System.Windows.Forms.TabPage()
+        Me.tbpResults = New System.Windows.Forms.TabPage()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.txtModNameResults = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.txtYearforSearch = New System.Windows.Forms.TextBox()
         Me.cbxDisc = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
@@ -156,7 +158,7 @@ Partial Class frmMain
         Me.GroupBox4.SuspendLayout()
         Me.tbpResultsAdmin.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
-        Me.tbpReports.SuspendLayout()
+        Me.tbpResults.SuspendLayout()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
@@ -178,7 +180,7 @@ Partial Class frmMain
         Me.tbcMain.Controls.Add(Me.tbpViewRegistration)
         Me.tbcMain.Controls.Add(Me.tbpResultsStudent)
         Me.tbcMain.Controls.Add(Me.tbpResultsAdmin)
-        Me.tbcMain.Controls.Add(Me.tbpReports)
+        Me.tbcMain.Controls.Add(Me.tbpResults)
         Me.tbcMain.Location = New System.Drawing.Point(12, 12)
         Me.tbcMain.Name = "tbcMain"
         Me.tbcMain.SelectedIndex = 0
@@ -673,6 +675,7 @@ Partial Class frmMain
         'txtStudNum
         '
         Me.txtStudNum.Location = New System.Drawing.Point(224, 40)
+        Me.txtStudNum.MaxLength = 10
         Me.txtStudNum.Name = "txtStudNum"
         Me.txtStudNum.Size = New System.Drawing.Size(105, 20)
         Me.txtStudNum.TabIndex = 1
@@ -911,18 +914,18 @@ Partial Class frmMain
         Me.lblStuResult.TabIndex = 0
         Me.lblStuResult.Text = "Student Number :"
         '
-        'tbpReports
+        'tbpResults
         '
-        Me.tbpReports.Controls.Add(Me.PictureBox2)
-        Me.tbpReports.Controls.Add(Me.PictureBox1)
-        Me.tbpReports.Controls.Add(Me.GroupBox6)
-        Me.tbpReports.Location = New System.Drawing.Point(4, 22)
-        Me.tbpReports.Name = "tbpReports"
-        Me.tbpReports.Padding = New System.Windows.Forms.Padding(3)
-        Me.tbpReports.Size = New System.Drawing.Size(802, 509)
-        Me.tbpReports.TabIndex = 4
-        Me.tbpReports.Text = "Reports"
-        Me.tbpReports.UseVisualStyleBackColor = True
+        Me.tbpResults.Controls.Add(Me.PictureBox2)
+        Me.tbpResults.Controls.Add(Me.PictureBox1)
+        Me.tbpResults.Controls.Add(Me.GroupBox6)
+        Me.tbpResults.Location = New System.Drawing.Point(4, 22)
+        Me.tbpResults.Name = "tbpResults"
+        Me.tbpResults.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpResults.Size = New System.Drawing.Size(802, 509)
+        Me.tbpResults.TabIndex = 4
+        Me.tbpResults.Text = "Reports"
+        Me.tbpResults.UseVisualStyleBackColor = True
         '
         'PictureBox2
         '
@@ -946,6 +949,8 @@ Partial Class frmMain
         '
         'GroupBox6
         '
+        Me.GroupBox6.Controls.Add(Me.txtModNameResults)
+        Me.GroupBox6.Controls.Add(Me.Label10)
         Me.GroupBox6.Controls.Add(Me.txtYearforSearch)
         Me.GroupBox6.Controls.Add(Me.cbxDisc)
         Me.GroupBox6.Controls.Add(Me.Label8)
@@ -970,9 +975,26 @@ Partial Class frmMain
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Statistics"
         '
+        'txtModNameResults
+        '
+        Me.txtModNameResults.Location = New System.Drawing.Point(202, 98)
+        Me.txtModNameResults.Name = "txtModNameResults"
+        Me.txtModNameResults.ReadOnly = True
+        Me.txtModNameResults.Size = New System.Drawing.Size(228, 20)
+        Me.txtModNameResults.TabIndex = 19
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Location = New System.Drawing.Point(24, 105)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(76, 13)
+        Me.Label10.TabIndex = 18
+        Me.Label10.Text = "Module Name:"
+        '
         'txtYearforSearch
         '
-        Me.txtYearforSearch.Location = New System.Drawing.Point(202, 112)
+        Me.txtYearforSearch.Location = New System.Drawing.Point(202, 132)
         Me.txtYearforSearch.Name = "txtYearforSearch"
         Me.txtYearforSearch.Size = New System.Drawing.Size(100, 20)
         Me.txtYearforSearch.TabIndex = 17
@@ -997,7 +1019,7 @@ Partial Class frmMain
         'cbxMod
         '
         Me.cbxMod.FormattingEnabled = True
-        Me.cbxMod.Location = New System.Drawing.Point(202, 69)
+        Me.cbxMod.Location = New System.Drawing.Point(202, 64)
         Me.cbxMod.Name = "cbxMod"
         Me.cbxMod.Size = New System.Drawing.Size(228, 21)
         Me.cbxMod.TabIndex = 13
@@ -1044,7 +1066,7 @@ Partial Class frmMain
         '
         'Button2
         '
-        Me.Button2.Location = New System.Drawing.Point(25, 159)
+        Me.Button2.Location = New System.Drawing.Point(25, 169)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(298, 23)
         Me.Button2.TabIndex = 7
@@ -1099,7 +1121,7 @@ Partial Class frmMain
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(22, 120)
+        Me.Label2.Location = New System.Drawing.Point(22, 139)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(35, 13)
         Me.Label2.TabIndex = 1
@@ -1108,7 +1130,7 @@ Partial Class frmMain
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(22, 77)
+        Me.Label1.Location = New System.Drawing.Point(22, 72)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(76, 13)
         Me.Label1.TabIndex = 0
@@ -1127,7 +1149,6 @@ Partial Class frmMain
         Me.TableAdapterManager1.ADMINTableAdapter = Nothing
         Me.TableAdapterManager1.BackupDataSetBeforeUpdate = False
         Me.TableAdapterManager1.Connection = Nothing
-        'Me.TableAdapterManager1.Course_ModuleTableAdapter = Nothing
         Me.TableAdapterManager1.COURSETableAdapter = Nothing
         Me.TableAdapterManager1.DISCIPLINETableAdapter = Nothing
         Me.TableAdapterManager1.FACULTYTableAdapter = Nothing
@@ -1233,7 +1254,7 @@ Partial Class frmMain
         Me.tbpResultsAdmin.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
-        Me.tbpReports.ResumeLayout(False)
+        Me.tbpResults.ResumeLayout(False)
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
@@ -1256,7 +1277,7 @@ Partial Class frmMain
 	Friend WithEvents tbpNewRegistration As TabPage
 	Friend WithEvents tbpResultsStudent As TabPage
 	Friend WithEvents tbpResultsAdmin As TabPage
-	Friend WithEvents tbpReports As TabPage
+	Friend WithEvents tbpResults As TabPage
 	Friend WithEvents tbpViewRegistration As TabPage
 	Friend WithEvents lblFirstStudyYear As Label
 	Friend WithEvents grbDetails As GroupBox
@@ -1365,4 +1386,6 @@ Partial Class frmMain
     Friend WithEvents lblModSel2 As Label
     Friend WithEvents lblAvailMod1 As Label
     Friend WithEvents lblModSel1 As Label
+    Friend WithEvents txtModNameResults As TextBox
+    Friend WithEvents Label10 As Label
 End Class
